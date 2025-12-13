@@ -11,6 +11,50 @@ go
 use PTMDB;
 go
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IF OBJECT_ID('dbo.School', 'U') IS NULL
+BEGIN
+	create table School
+	(
+		Id int primary key identity(1,1),
+		Name nvarchar(255) not null,
+		ShortName nvarchar(50) not null,
+		Address nvarchar(500),
+		Email varchar(100),
+		Phone varchar(20),
+		IsActive bit not null default 1
+	);
+END;
+go
+
+IF OBJECT_ID('dbo.Semester', 'U') IS NULL
+BEGIN
+	create table Semester
+	(
+		Id int primary key identity(1,1),
+		Name nvarchar(50) not null,
+		Year int not null,
+		StartDate datetime,
+		EndDate datetime,
+		SchoolId int,
+
+	);
+END;
+go
+
+if OBJECT_ID('dbo.Teacher_School', 'U') IS NULL
+BEGIN
+	create table Teacher_School
+	(
+		SchoolId int not null,
+		TeacherId int not null,
+		primary key(SchoolId, TeacherId)
+	);
+END;
+go
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 IF OBJECT_ID('dbo.Account', 'U') IS NULL
 BEGIN
 	create table Account
@@ -33,6 +77,7 @@ BEGIN
 	(
 		Id int primary key identity(1,1),
 		Name nvarchar(255) not null unique,
+		SchoolId int not null,
 		Description nvarchar(500)
 	);
 END;
@@ -63,6 +108,7 @@ BEGIN
 		ClassId int not null,
 		FacultyId int not null,
 		PersonId int unique not null,
+		FacultyId int not null,
 		FOREIGN KEY (PersonId) REFERENCES Person(Id)
 	);
 END;
