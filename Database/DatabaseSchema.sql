@@ -54,6 +54,17 @@ BEGIN
 END;
 go
 
+if OBJECT_ID('dbo.Teacher_Class', 'U') IS NULL
+BEGIN
+	create table Teacher_Class
+	(
+		ClassId int not null,
+		TeacherId int not null,
+		primary key(ClassId, TeacherId)
+	);
+END;
+go
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 IF OBJECT_ID('dbo.Account', 'U') IS NULL
 BEGIN
@@ -63,7 +74,6 @@ BEGIN
 		Password varchar(255) not null,
 		Role varchar(20) not null default 'user',
 		Status varchar(20) not null default 'active',
-		Fullname nvarchar(255) not null,
 		PersonId int not null,
 		Constraint CK_Account_Role check (Role in ('user', 'admin')),
 		Constraint CK_Account_Status check (Status in ('active', 'banned'))
@@ -108,7 +118,6 @@ BEGIN
 		ClassId int not null,
 		FacultyId int not null,
 		PersonId int unique not null,
-		FacultyId int not null,
 		FOREIGN KEY (PersonId) REFERENCES Person(Id)
 	);
 END;
@@ -179,7 +188,8 @@ BEGIN
 		ExamInstruction nvarchar(500),
 		Description nvarchar(500),
 		CourseId int not null,
-
+		SemesterId int not null,
+		Year int not null,
 		constraint CK_Exam_Type check (Type in ('MultipleChoice', 'Essay', 'Mixed'))
 	);
 END;
@@ -401,6 +411,7 @@ BEGIN
 		EndDate datetime,
 		Description nvarchar(500),
 		CategoryId int not null,
+		SemesterId int not null
 
 	);
 END;
@@ -442,6 +453,88 @@ END;
 go
 
 --Add constriant Foreign Key
+---------------------------------------------------------------------------------------------------
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Semester_School')
+BEGIN
+    ALTER TABLE dbo.Semester 
+    ADD CONSTRAINT FK_Semester_School FOREIGN KEY (SchoolId)
+        REFERENCES dbo.School(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Course_Semester')
+BEGIN
+    ALTER TABLE dbo.Course
+    ADD CONSTRAINT FK_Course_Semester FOREIGN KEY (SemesterId)
+        REFERENCES dbo.Semester(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Exam_Semester')
+BEGIN
+    ALTER TABLE dbo.Exam
+    ADD CONSTRAINT FK_Exam_Semester FOREIGN KEY (SemesterId)
+        REFERENCES dbo.Semester(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Faculty_School')
+BEGIN
+    ALTER TABLE dbo.Faculty
+    ADD CONSTRAINT FK_Faculty_School FOREIGN KEY (SchoolId)
+        REFERENCES dbo.School(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Student_Faculty')
+BEGIN
+    ALTER TABLE dbo.Student
+    ADD CONSTRAINT FK_Student_Faculty FOREIGN KEY (FacultyId)
+        REFERENCES dbo.Faculty(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_TeacherClass_Class')
+BEGIN
+    ALTER TABLE dbo.Teacher_Class
+    ADD CONSTRAINT FK_TeacherClass_Class FOREIGN KEY (ClassId)
+        REFERENCES dbo.Class(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_TeacherClass_Teacher')
+BEGIN
+    ALTER TABLE dbo.Teacher_Class
+    ADD CONSTRAINT FK_TeacherClass_Teacher FOREIGN KEY (TeacherId)
+        REFERENCES dbo.Teacher(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_TeacherSchool_School')
+BEGIN
+    ALTER TABLE dbo.Teacher_School
+    ADD CONSTRAINT FK_TeacherSchool_School FOREIGN KEY (SchoolId)
+        REFERENCES dbo.School(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_TeacherSchool_Teacher')
+BEGIN
+    ALTER TABLE dbo.Teacher_School
+    ADD CONSTRAINT FK_TeacherSchool_Teacher FOREIGN KEY (TeacherId)
+        REFERENCES dbo.Teacher(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+---------------------------------------------------------------------------------------------------
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Student_Class')
 BEGIN
     ALTER TABLE dbo.Student
