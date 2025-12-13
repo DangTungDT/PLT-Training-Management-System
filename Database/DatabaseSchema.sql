@@ -65,6 +65,18 @@ BEGIN
 END;
 go
 
+if OBJECT_ID('dbo.Exam_File', 'U') IS NULL
+BEGIN
+	create table Exam_File
+	(
+		ExamId int not null,
+		FileId int not null,
+		primary key(ExamId, FileId)
+	);
+END;
+go
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 IF OBJECT_ID('dbo.Account', 'U') IS NULL
 BEGIN
@@ -252,9 +264,9 @@ BEGIN
 END;
 go
 
-if OBJECT_ID('dbo.SubmissionFile', 'U') IS NULL
+if OBJECT_ID('dbo.Submission_File', 'U') IS NULL
 BEGIN
-	create table SubmissionFile
+	create table Submission_File
 	(
 		SubmissionId int not null,
 		FileId int not null,
@@ -299,9 +311,9 @@ END;
 go
 
 
-if OBJECT_ID('dbo.TopicObjective_File', 'U') IS NULL
+if OBJECT_ID('dbo.ResearchTopic_File', 'U') IS NULL
 BEGIN
-	create table ResearchTopicFile
+	create table ResearchTopic_File
 	(
 		ResearchTopicId int not null,
 		FileId int not null,
@@ -534,6 +546,25 @@ BEGIN
         ON UPDATE NO ACTION ON DELETE NO ACTION;
 END
 GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ExamFile_Exam')
+BEGIN
+    ALTER TABLE dbo.Exam_File
+    ADD CONSTRAINT FK_ExamFile_Exam FOREIGN KEY (ExamId)
+        REFERENCES dbo.Exam(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ExamFile_Files')
+BEGIN
+    ALTER TABLE dbo.Exam_File
+    ADD CONSTRAINT FK_ExamFile_Files FOREIGN KEY (FileId)
+        REFERENCES dbo.Files(Id)
+        ON UPDATE NO ACTION ON DELETE NO ACTION;
+END
+GO
+
 ---------------------------------------------------------------------------------------------------
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_Student_Class')
 BEGIN
@@ -696,7 +727,7 @@ GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_SubmissionFile_Submission')
 BEGIN
-    ALTER TABLE dbo.SubmissionFile
+    ALTER TABLE dbo.Submission_File
     ADD CONSTRAINT FK_SubmissionFile_Submission FOREIGN KEY (SubmissionId)
         REFERENCES dbo.Submission(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -706,7 +737,7 @@ GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_SubmissionFile_Files')
 BEGIN
-    ALTER TABLE dbo.SubmissionFile
+    ALTER TABLE dbo.Submission_File
     ADD CONSTRAINT FK_SubmissionFile_Files FOREIGN KEY (FileId)
         REFERENCES dbo.Files(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -756,7 +787,7 @@ GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ResearchTopicFile_ResearchTopic')
 BEGIN
-    ALTER TABLE dbo.ResearchTopicFile
+    ALTER TABLE dbo.ResearchTopic_File
     ADD CONSTRAINT FK_ResearchTopicFile_ResearchTopic FOREIGN KEY (ResearchTopicId)
         REFERENCES dbo.ResearchTopic(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -766,7 +797,7 @@ GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ResearchTopicFile_Files')
 BEGIN
-    ALTER TABLE dbo.ResearchTopicFile
+    ALTER TABLE dbo.ResearchTopic_File
     ADD CONSTRAINT FK_ResearchTopicFile_Files FOREIGN KEY (FileId)
         REFERENCES dbo.Files(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
