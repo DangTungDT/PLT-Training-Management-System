@@ -48,7 +48,7 @@ BEGIN
 	create table Teacher_School
 	(
 		SchoolId int not null,
-		TeacherId int not null,
+		TeacherId varchar(10) not null,
 		primary key(SchoolId, TeacherId)
 	);
 END;
@@ -59,7 +59,7 @@ BEGIN
 	create table Teacher_Class
 	(
 		ClassId int not null,
-		TeacherId int not null,
+		TeacherId varchar(10) not null,
 		primary key(ClassId, TeacherId)
 	);
 END;
@@ -384,9 +384,9 @@ BEGIN
 END;
 go
 
-if OBJECT_ID('dbo.BookFile', 'U') IS NULL
+if OBJECT_ID('dbo.Files', 'U') IS NULL
 BEGIN
-	create table BookFile
+	create table Files
 	(
 		Id int primary key identity(1,1),
 		FileName nvarchar(255) not null,
@@ -395,7 +395,7 @@ BEGIN
 		FileSize INT NULL,
 		CreatedAt datetime not null default GETDATE(),
 
-		constraint CK_BookFile_CreatedAt check (CreatedAt > GETDATE())
+		constraint CK_Files_CreatedAt check (CreatedAt > GETDATE())
 	);
 END;
 go
@@ -704,11 +704,11 @@ END
 GO
 
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_SubmissionFile_BookFile')
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_SubmissionFile_Files')
 BEGIN
     ALTER TABLE dbo.SubmissionFile
-    ADD CONSTRAINT FK_SubmissionFile_BookFile FOREIGN KEY (FileId)
-        REFERENCES dbo.BookFile(Id)
+    ADD CONSTRAINT FK_SubmissionFile_Files FOREIGN KEY (FileId)
+        REFERENCES dbo.Files(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
 END
 GO
@@ -764,11 +764,11 @@ END
 GO
 
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ResearchTopicFile_BookFile')
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_ResearchTopicFile_Files')
 BEGIN
     ALTER TABLE dbo.ResearchTopicFile
-    ADD CONSTRAINT FK_ResearchTopicFile_BookFile FOREIGN KEY (FileId)
-        REFERENCES dbo.BookFile(Id)
+    ADD CONSTRAINT FK_ResearchTopicFile_Files FOREIGN KEY (FileId)
+        REFERENCES dbo.Files(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
 END
 GO
@@ -814,11 +814,11 @@ END
 GO
 
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_BookFile_BookFile')
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE name = 'FK_BookFile_Files')
 BEGIN
     ALTER TABLE dbo.Book_File
-    ADD CONSTRAINT FK_BookFile_BookFile FOREIGN KEY (FileId)
-        REFERENCES dbo.BookFile(Id)
+    ADD CONSTRAINT FK_BookFile_Files FOREIGN KEY (FileId)
+        REFERENCES dbo.Files(Id)
         ON UPDATE NO ACTION ON DELETE NO ACTION;
 END
 GO
