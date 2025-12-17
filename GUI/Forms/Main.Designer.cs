@@ -56,6 +56,7 @@ namespace GUI
             // pnMenu
             // 
             pnMenu.BackColor = Color.White;
+            pnMenu.BorderStyle = BorderStyle.FixedSingle;
             pnMenu.Controls.Add(btnMenuExercise);
             pnMenu.Controls.Add(btnMenuExam);
             pnMenu.Controls.Add(btnMenuResearchTopic);
@@ -80,11 +81,12 @@ namespace GUI
             btnMenuExercise.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuExercise.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuExercise.FlatStyle = FlatStyle.Flat;
+            btnMenuExercise.Font = new Font("Times New Roman", 12F);
             btnMenuExercise.ForeColor = Color.Black;
             btnMenuExercise.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuExercise.Location = new Point(0, 464);
             btnMenuExercise.Name = "btnMenuExercise";
-            btnMenuExercise.Size = new Size(240, 50);
+            btnMenuExercise.Size = new Size(238, 50);
             btnMenuExercise.TabIndex = 9;
             btnMenuExercise.Text = "Bài tập và đồ án";
             btnMenuExercise.TextAlign = ContentAlignment.MiddleLeft;
@@ -100,11 +102,12 @@ namespace GUI
             btnMenuExam.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuExam.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuExam.FlatStyle = FlatStyle.Flat;
+            btnMenuExam.Font = new Font("Times New Roman", 12F);
             btnMenuExam.ForeColor = Color.Black;
             btnMenuExam.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuExam.Location = new Point(0, 414);
             btnMenuExam.Name = "btnMenuExam";
-            btnMenuExam.Size = new Size(240, 50);
+            btnMenuExam.Size = new Size(238, 50);
             btnMenuExam.TabIndex = 8;
             btnMenuExam.Text = "Quản lý đề thi";
             btnMenuExam.TextAlign = ContentAlignment.MiddleLeft;
@@ -120,11 +123,12 @@ namespace GUI
             btnMenuResearchTopic.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuResearchTopic.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuResearchTopic.FlatStyle = FlatStyle.Flat;
+            btnMenuResearchTopic.Font = new Font("Times New Roman", 12F);
             btnMenuResearchTopic.ForeColor = Color.Black;
             btnMenuResearchTopic.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuResearchTopic.Location = new Point(0, 364);
             btnMenuResearchTopic.Name = "btnMenuResearchTopic";
-            btnMenuResearchTopic.Size = new Size(240, 50);
+            btnMenuResearchTopic.Size = new Size(238, 50);
             btnMenuResearchTopic.TabIndex = 7;
             btnMenuResearchTopic.Text = "Đề tài nghiên cứu";
             btnMenuResearchTopic.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,11 +144,12 @@ namespace GUI
             btnMenuScore.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuScore.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuScore.FlatStyle = FlatStyle.Flat;
+            btnMenuScore.Font = new Font("Times New Roman", 12F);
             btnMenuScore.ForeColor = Color.Black;
             btnMenuScore.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuScore.Location = new Point(0, 314);
             btnMenuScore.Name = "btnMenuScore";
-            btnMenuScore.Size = new Size(240, 50);
+            btnMenuScore.Size = new Size(238, 50);
             btnMenuScore.TabIndex = 6;
             btnMenuScore.Text = "Quản lý điểm";
             btnMenuScore.TextAlign = ContentAlignment.MiddleLeft;
@@ -160,11 +165,12 @@ namespace GUI
             btnMenuCalendar.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuCalendar.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuCalendar.FlatStyle = FlatStyle.Flat;
+            btnMenuCalendar.Font = new Font("Times New Roman", 12F);
             btnMenuCalendar.ForeColor = Color.Black;
             btnMenuCalendar.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuCalendar.Location = new Point(0, 264);
             btnMenuCalendar.Name = "btnMenuCalendar";
-            btnMenuCalendar.Size = new Size(240, 50);
+            btnMenuCalendar.Size = new Size(238, 50);
             btnMenuCalendar.TabIndex = 5;
             btnMenuCalendar.Text = "Lịch dạy";
             btnMenuCalendar.TextAlign = ContentAlignment.MiddleLeft;
@@ -180,11 +186,12 @@ namespace GUI
             btnMenuLessonPlan.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuLessonPlan.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuLessonPlan.FlatStyle = FlatStyle.Flat;
+            btnMenuLessonPlan.Font = new Font("Times New Roman", 12F);
             btnMenuLessonPlan.ForeColor = Color.Black;
             btnMenuLessonPlan.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuLessonPlan.Location = new Point(0, 214);
             btnMenuLessonPlan.Name = "btnMenuLessonPlan";
-            btnMenuLessonPlan.Size = new Size(240, 50);
+            btnMenuLessonPlan.Size = new Size(238, 50);
             btnMenuLessonPlan.TabIndex = 4;
             btnMenuLessonPlan.Text = "Giáo án";
             btnMenuLessonPlan.TextAlign = ContentAlignment.MiddleLeft;
@@ -200,11 +207,12 @@ namespace GUI
             btnMenuBook.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuBook.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuBook.FlatStyle = FlatStyle.Flat;
+            btnMenuBook.Font = new Font("Times New Roman", 12F);
             btnMenuBook.ForeColor = Color.Black;
             btnMenuBook.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuBook.Location = new Point(0, 164);
             btnMenuBook.Name = "btnMenuBook";
-            btnMenuBook.Size = new Size(240, 50);
+            btnMenuBook.Size = new Size(238, 50);
             btnMenuBook.TabIndex = 3;
             btnMenuBook.Text = "Sách và giáo trình";
             btnMenuBook.TextAlign = ContentAlignment.MiddleLeft;
@@ -220,11 +228,12 @@ namespace GUI
             btnMenuManagementAccount.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuManagementAccount.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuManagementAccount.FlatStyle = FlatStyle.Flat;
+            btnMenuManagementAccount.Font = new Font("Times New Roman", 12F);
             btnMenuManagementAccount.ForeColor = Color.Black;
             btnMenuManagementAccount.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuManagementAccount.Location = new Point(0, 114);
             btnMenuManagementAccount.Name = "btnMenuManagementAccount";
-            btnMenuManagementAccount.Size = new Size(240, 50);
+            btnMenuManagementAccount.Size = new Size(238, 50);
             btnMenuManagementAccount.TabIndex = 2;
             btnMenuManagementAccount.Text = "Quản lý tài khoản";
             btnMenuManagementAccount.TextAlign = ContentAlignment.MiddleLeft;
@@ -240,11 +249,12 @@ namespace GUI
             btnMenuHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             btnMenuHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
             btnMenuHome.FlatStyle = FlatStyle.Flat;
+            btnMenuHome.Font = new Font("Times New Roman", 12F);
             btnMenuHome.ForeColor = Color.Black;
             btnMenuHome.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenuHome.Location = new Point(0, 64);
             btnMenuHome.Name = "btnMenuHome";
-            btnMenuHome.Size = new Size(240, 50);
+            btnMenuHome.Size = new Size(238, 50);
             btnMenuHome.TabIndex = 1;
             btnMenuHome.Text = "Tổng quan";
             btnMenuHome.TextAlign = ContentAlignment.MiddleLeft;
@@ -260,16 +270,17 @@ namespace GUI
             pnMenuLogo.Dock = DockStyle.Top;
             pnMenuLogo.Location = new Point(0, 0);
             pnMenuLogo.Name = "pnMenuLogo";
-            pnMenuLogo.Size = new Size(240, 64);
+            pnMenuLogo.Size = new Size(238, 64);
             pnMenuLogo.TabIndex = 0;
             // 
             // lbLogo
             // 
             lbLogo.BackColor = Color.White;
             lbLogo.Dock = DockStyle.Fill;
+            lbLogo.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLogo.Location = new Point(125, 0);
             lbLogo.Name = "lbLogo";
-            lbLogo.Size = new Size(115, 64);
+            lbLogo.Size = new Size(113, 64);
             lbLogo.TabIndex = 1;
             lbLogo.Text = "PTM";
             lbLogo.TextAlign = ContentAlignment.MiddleCenter;
@@ -289,6 +300,7 @@ namespace GUI
             // pbHeader
             // 
             pbHeader.BackColor = Color.White;
+            pbHeader.BorderStyle = BorderStyle.Fixed3D;
             pbHeader.Controls.Add(pbHeaderContent);
             pbHeader.Controls.Add(lbHeaderRole);
             pbHeader.Dock = DockStyle.Top;
@@ -302,16 +314,17 @@ namespace GUI
             pbHeaderContent.Dock = DockStyle.Fill;
             pbHeaderContent.Location = new Point(0, 0);
             pbHeaderContent.Name = "pbHeaderContent";
-            pbHeaderContent.Size = new Size(926, 64);
+            pbHeaderContent.Size = new Size(922, 60);
             pbHeaderContent.TabIndex = 1;
             // 
             // lbHeaderRole
             // 
             lbHeaderRole.Dock = DockStyle.Right;
+            lbHeaderRole.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbHeaderRole.ImageAlign = ContentAlignment.MiddleLeft;
-            lbHeaderRole.Location = new Point(926, 0);
+            lbHeaderRole.Location = new Point(922, 0);
             lbHeaderRole.Name = "lbHeaderRole";
-            lbHeaderRole.Size = new Size(150, 64);
+            lbHeaderRole.Size = new Size(150, 60);
             lbHeaderRole.TabIndex = 0;
             lbHeaderRole.Text = "label1";
             lbHeaderRole.TextAlign = ContentAlignment.MiddleCenter;

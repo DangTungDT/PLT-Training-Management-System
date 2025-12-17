@@ -42,6 +42,12 @@ namespace GUI
             return bmp;
         }
 
+        private void LoadUserControlForPanel(UserControl userControlIsLoaded, Panel pnaelToLoadUserControl)
+        {
+            pnaelToLoadUserControl.Controls.Clear();
+            userControlIsLoaded.Dock = DockStyle.Fill;
+            pnaelToLoadUserControl.Controls.Add(userControlIsLoaded);
+        }
         private void LoadResizeImageControl()
         {
             btnMenuHome.Image = ResizeImage(Properties.Resources.home, 24, 24);
@@ -76,6 +82,9 @@ namespace GUI
         private void btnMenuBook_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuBook);
+            LoadUserControlForPanel(new UserControls.UcBook(), pbContent);
+            LoadUserControlForPanel(new UserControls.UcMenuHeaderBook(), pbHeaderContent);
+
         }
 
         private void btnMenuLessonPlan_Click(object sender, EventArgs e)
