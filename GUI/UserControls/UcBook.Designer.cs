@@ -55,7 +55,7 @@ namespace GUI.UserControls
             label7 = new Label();
             label3 = new Label();
             panel3 = new Panel();
-            roundedLabel1 = new CustomControls.RoundedLabel();
+            lbPageIndex = new CustomControls.RoundedLabel();
             btnPageBefore = new CustomControls.RoundedButton();
             btnPageAfter = new CustomControls.RoundedButton();
             panelContentHeader = new Panel();
@@ -298,7 +298,7 @@ namespace GUI.UserControls
             // 
             // panel3
             // 
-            panel3.Controls.Add(roundedLabel1);
+            panel3.Controls.Add(lbPageIndex);
             panel3.Controls.Add(btnPageBefore);
             panel3.Controls.Add(btnPageAfter);
             panel3.Dock = DockStyle.Right;
@@ -307,22 +307,22 @@ namespace GUI.UserControls
             panel3.Size = new Size(295, 65);
             panel3.TabIndex = 0;
             // 
-            // roundedLabel1
+            // lbPageIndex
             // 
-            roundedLabel1.AutoSize = true;
-            roundedLabel1.BackColor = Color.FromArgb(60, 131, 246);
-            roundedLabel1.BorderColor = Color.Transparent;
-            roundedLabel1.BorderRadius = 8;
-            roundedLabel1.BorderSize = 0;
-            roundedLabel1.Font = new Font("Times New Roman", 12F);
-            roundedLabel1.ForeColor = Color.White;
-            roundedLabel1.Location = new Point(155, 12);
-            roundedLabel1.MinimumSize = new Size(31, 39);
-            roundedLabel1.Name = "roundedLabel1";
-            roundedLabel1.Size = new Size(31, 39);
-            roundedLabel1.TabIndex = 2;
-            roundedLabel1.Text = "1";
-            roundedLabel1.TextAlign = ContentAlignment.MiddleCenter;
+            lbPageIndex.AutoSize = true;
+            lbPageIndex.BackColor = Color.FromArgb(60, 131, 246);
+            lbPageIndex.BorderColor = Color.Transparent;
+            lbPageIndex.BorderRadius = 8;
+            lbPageIndex.BorderSize = 0;
+            lbPageIndex.Font = new Font("Times New Roman", 12F);
+            lbPageIndex.ForeColor = Color.White;
+            lbPageIndex.Location = new Point(155, 12);
+            lbPageIndex.MinimumSize = new Size(31, 39);
+            lbPageIndex.Name = "lbPageIndex";
+            lbPageIndex.Size = new Size(31, 39);
+            lbPageIndex.TabIndex = 2;
+            lbPageIndex.Text = "1";
+            lbPageIndex.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnPageBefore
             // 
@@ -340,6 +340,7 @@ namespace GUI.UserControls
             btnPageBefore.TabIndex = 1;
             btnPageBefore.Text = "Trước";
             btnPageBefore.UseVisualStyleBackColor = false;
+            btnPageBefore.Click += btnPageBefore_Click;
             // 
             // btnPageAfter
             // 
@@ -357,6 +358,7 @@ namespace GUI.UserControls
             btnPageAfter.TabIndex = 1;
             btnPageAfter.Text = "Sau";
             btnPageAfter.UseVisualStyleBackColor = false;
+            btnPageAfter.Click += btnPageAfter_Click;
             // 
             // panelContentHeader
             // 
@@ -562,7 +564,7 @@ namespace GUI.UserControls
         private CustomControls.RoundedButton btnPageBefore;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFindDate;
         private Guna.UI2.WinForms.Guna2ComboBox cbFindLevel;
-        private CustomControls.RoundedLabel roundedLabel1;
+        private CustomControls.RoundedLabel lbPageIndex;
         private Label label7;
         private Label label3;
     }

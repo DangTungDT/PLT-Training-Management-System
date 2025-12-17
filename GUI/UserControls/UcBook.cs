@@ -1,4 +1,6 @@
 ﻿using System;
+using BLL;
+using DTO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,11 @@ namespace GUI.UserControls
 {
     public partial class UcBook : UserControl
     {
+        private BookBLL _bookBLL = new BookBLL();
+        private IEnumerable<BookDTO> _books;
+        private int _pageIndex = 1;
+        private int _pageSize = 10;
+
         public UcBook()
         {
             InitializeComponent();
@@ -26,12 +33,41 @@ namespace GUI.UserControls
             }
             return bmp;
         }
+        private bool LoadDataForDataGridViewBook()
+        {
+            if(_pageIndex < 1) return false;
+            try
+            {
+                dgvBooks.Rows.Clear();
+                _books = _bookBLL.GetBookforPage(_pageIndex, _pageSize);
+                foreach (var book in _books)
+                {
+                    dgvBooks.Rows.Add(
+                        $"{book.Name}\n{book.ISBN}",
+                        $"{book.Author}",
+                        book.Category != null ? book.Category.Name : "",
+                        book.PublishedYear,
+                        book.DifficultyLevel,
+                        null, null, null
+                    );
+                }
+                lbPageIndex.Text = _pageIndex.ToString();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void UcBook_Load(object sender, EventArgs e)
         {
 
             LoadImageForColumnDataGirdViewBook();
-            
-            LoadVirtualDataToDataGridViewBook();
+
+            if (LoadDataForDataGridViewBook())
+            {
+
+            }
         }
         private void LoadImageForColumnDataGirdViewBook()
         {
@@ -40,35 +76,20 @@ namespace GUI.UserControls
             colView.Image = ResizeImage(Properties.Resources.view, 24, 24);
         }
 
-        private void LoadVirtualDataToDataGridViewBook()
+        private void btnPageAfter_Click(object sender, EventArgs e)
         {
-            dgvBooks.Rows.Clear();
-            dgvBooks.Rows.Add(
-                "Cơ sở dữ liệu Oracle\n978-604-0-12347-8",
-                "TS. Lê Văn Cường\nNXB Thông tin và Truyền thông",
-                "Cơ sở dữ liệu",
-                "2022",
-                "Đại học",
-                null, null, null
-            );
+            _pageIndex++;
+            if (LoadDataForDataGridViewBook())
+            {
+            }
+        }
 
-            dgvBooks.Rows.Add(
-                "Kiểm thử phần mềm cơ bản\n978-604-0-12345-6",
-                "TS. Nguyễn Văn An\nNXB Giáo dục",
-                "Kiểm thử phần mềm",
-                "2023",
-                "Cao đẳng",
-                null, null, null
-            );
-
-            dgvBooks.Rows.Add(
-                "Lập trình Java nâng cao\n978-604-0-12346-7",
-                "PGS.TS. Trần Thị Bình\nNXB Đại học Quốc gia",
-                "Lập trình",
-                "2023",
-                "Cao đẳng",
-                null, null, null
-            );
+        private void btnPageBefore_Click(object sender, EventArgs e)
+        {
+            if(_pageIndex > 0) _pageIndex--;
+            if (LoadDataForDataGridViewBook())
+            {
+            }
         }
     }
 }
