@@ -186,6 +186,8 @@ namespace GUI.UserControls
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBooks.Size = new Size(1036, 224);
             dgvBooks.TabIndex = 0;
+            dgvBooks.CellClick += dgvBooks_CellClick;
+            dgvBooks.CellContentClick += dgvBooks_CellContentClick;
             // 
             // colBookName
             // 

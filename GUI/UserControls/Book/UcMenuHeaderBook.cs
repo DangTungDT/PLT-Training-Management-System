@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.UserControls.Book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace GUI.UserControls
 {
     public partial class UcMenuHeaderBook : UserControl
     {
+        public event Action<UserControl> OpenContentRequested;
         public UcMenuHeaderBook()
         {
             InitializeComponent();
+        }
+
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            OpenContentRequested?.Invoke(new UcAddBook());
         }
     }
 }

@@ -1,5 +1,8 @@
+﻿using GUI.UserControls;
+using GUI.UserControls.Book;
 using Guna.UI2.WinForms;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
@@ -12,7 +15,12 @@ namespace GUI
         {
             InitializeComponent();
         }
-
+        private void LoadContent(UserControl uc)
+        {
+            pbContent.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(uc);
+        }
         private void LoadBackGroundControlButtonMenu(Guna2Button buttonSelected)
         {
             if (_menuBuottons.Count > 0)
@@ -73,9 +81,18 @@ namespace GUI
 
         private void btnMenuBook_Click(object sender, EventArgs e)
         {
+            //LoadBackGroundControlButtonMenu(btnMenuBook);
+            //LoadUserControlForPanel(new UserControls.UcBook(), pbContent);
+            //LoadUserControlForPanel(new UserControls.UcMenuHeaderBook(), pbHeaderContent);
             LoadBackGroundControlButtonMenu(btnMenuBook);
-            LoadUserControlForPanel(new UserControls.UcBook(), pbContent);
-            LoadUserControlForPanel(new UserControls.UcMenuHeaderBook(), pbHeaderContent);
+
+            // Load content chính
+            LoadUserControlForPanel(new UcBook(), pbContent);
+
+            // Load header + gắn event
+            var header = new UcMenuHeaderBook();
+            header.OpenContentRequested += LoadContent;
+            LoadUserControlForPanel(header, pbHeaderContent);
 
         }
 

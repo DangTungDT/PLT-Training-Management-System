@@ -38,7 +38,7 @@ namespace GUI.UserControls
                 btnPageBefore.Visible = false;
             }
 
-            if(_books.Count() < 10)
+            if (_books.Count() < 10)
             {
                 btnPageBefore.Visible = false;
                 btnPageAfter.Visible = false;
@@ -48,6 +48,7 @@ namespace GUI.UserControls
                 btnPageAfter.Visible = true;
             }
         }
+
 
         private void cbFindLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -62,7 +63,7 @@ namespace GUI.UserControls
         }
         private void UpdateTotalBooks()
         {
-            if(dtpFindDate.CustomFormat == " ")
+            if (dtpFindDate.CustomFormat == " ")
             {
                 _totalBooks = _bookBLL.GetQuantityOfAllBooks(null, cbFindLevel.SelectedItem?.ToString());
             }
@@ -89,7 +90,7 @@ namespace GUI.UserControls
             if (_pageIndex < 1) return false;
             try
             {
-                if(dtpFindDate.CustomFormat == " ")
+                if (dtpFindDate.CustomFormat == " ")
                 {
                     _books = _bookBLL.GetBookforPage(null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
                 }
@@ -120,7 +121,8 @@ namespace GUI.UserControls
                 {
                     btnPageBefore.Visible = false;
                     btnPageAfter.Visible = false;
-                }else
+                }
+                else
                 {
                     btnPageAfter.Visible = true;
                 }
@@ -180,7 +182,7 @@ namespace GUI.UserControls
             {
                 btnPageBefore.Visible = false;
             }
-            if(btnPageAfter.Visible == false)
+            if (btnPageAfter.Visible == false)
             {
                 btnPageAfter.Visible = true;
             }
@@ -204,7 +206,7 @@ namespace GUI.UserControls
 
         private void dtpFindDate_ValueChanged(object sender, EventArgs e)
         {
-            if(dtpFindDate.CustomFormat != "dd/MM/yyyy")
+            if (dtpFindDate.CustomFormat != "dd/MM/yyyy")
             {
                 dtpFindDate.CustomFormat = "dd/MM/yyyy";
             }
@@ -217,6 +219,36 @@ namespace GUI.UserControls
             _pageIndex = 1;
             if (LoadDataForDataGridViewBook()) { }
             UpdateTotalBooks();
+        }
+
+        private void dgvBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            int rowIndex = e.RowIndex;
+            int columnIndex = e.ColumnIndex;
+            string booknameSeleteced = dgvBooks.Rows[rowIndex].Cells[0].Value.ToString();
+            string nameOfColumn = dgvBooks.Columns[columnIndex].Name;
+            DataGridViewRow row = dgvBooks.Rows[e.RowIndex];
+            if (nameOfColumn == "colEdit")
+            {
+
+            }
+            else if (nameOfColumn == "colDelete")
+            {
+
+            }
+            else if (nameOfColumn == "colView")
+            {
+
+
+            }
+        }
+
+        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

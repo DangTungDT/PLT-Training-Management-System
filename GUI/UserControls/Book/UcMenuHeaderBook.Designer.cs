@@ -70,6 +70,7 @@
             btnAddBook.TabIndex = 0;
             btnAddBook.Text = "Thêm sách mới";
             btnAddBook.TextAlign = HorizontalAlignment.Left;
+            btnAddBook.Click += btnAddBook_Click;
             // 
             // panel2
             // 
