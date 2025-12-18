@@ -24,17 +24,17 @@ namespace BLL
         {
             return _bookDAL.GetAllTheLevelNameOfTheBooks();
         }
-        public int GetQuantityOfAllBooks()
+        public int GetQuantityOfAllBooks(DateTime? dateCreateBook, string difficultyLevels)
         {
-            return _bookDAL.GetQuantityOfAllBooks();
+            return _bookDAL.GetQuantityOfAllBooks(dateCreateBook, difficultyLevels);
         }
         public IEnumerable<BookDTO> GetBooksByDifficultyLevel(string difficultyLevel, int pageIndex, int pageSize)
         {
             return _bookDAL.GetBooksByDifficultyLevel(difficultyLevel, pageIndex, pageSize);
         }
-        public IEnumerable<BookDTO> GetBookforPage(int pageIndex, int pageSize)
+        public IEnumerable<BookDTO> GetBookforPage(DateTime? dateCreateBook, string difficultyLevels,int pageIndex, int pageSize)
         {
-            return _bookDAL.GetBookforPage(pageIndex, pageSize);
+            return _bookDAL.GetBookforPage(dateCreateBook, difficultyLevels, pageIndex, pageSize);
         }
         public IEnumerable<BookDTO> GetAll()
         {

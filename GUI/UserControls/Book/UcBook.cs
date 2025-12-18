@@ -30,53 +30,28 @@ namespace GUI.UserControls
 
             LoadImageForColumnDataGirdViewBook();
 
-            if (LoadDataForDataGridViewBook())
-            {
-
-            }
+            if (LoadDataForDataGridViewBook()) { }
             UpdateTotalBooks();
 
             if (_pageIndex == 1)
             {
                 btnPageBefore.Visible = false;
             }
+
+            if(_books.Count() < 10)
+            {
+                btnPageBefore.Visible = false;
+                btnPageAfter.Visible = false;
+            }
+            else
+            {
+                btnPageAfter.Visible = true;
+            }
         }
 
         private void cbFindLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedLevel = cbFindLevel.SelectedItem.ToString();
-            if (selectedLevel == "Tất cả")
-            {
-                _books = _bookBLL.GetBookforPage(_pageIndex, _pageSize);
-            }
-            else
-            {
-                _pageIndex = 1;
-                FilterDatagridviewByDifficultyLevel(selectedLevel);
-                UpdateTotalBookWhenSeletedDifficultyLevel();
-
-                if (_pageIndex == 1)
-                {
-                    btnPageBefore.Visible = false;
-                }
-            }
-        }
-        private void UpdateTotalBookWhenSeletedDifficultyLevel()
-        {
-            _totalBooks = _bookBLL.GetQuantityBookByDifficultyLevel(cbFindLevel.SelectedItem?.ToString());
-            lbTotalItem.Text = _totalBooks.ToString();
-
-            int positionBookStart = (_pageIndex - 1) * _pageSize + 1;
-            int positionBookEnd = dgvBooks.RowCount;
-            if (positionBookEnd == 0)
-            {
-                positionBookStart = 0;
-            }
-            else
-            {
-                positionBookEnd = (_pageIndex - 1) * _pageSize + positionBookEnd;
-            }
-            lbDisplayDisplayBookAtPage.Text = positionBookStart.ToString() + "-" + positionBookEnd.ToString() + " trong tổng số " + _totalBooks.ToString() + " kết quả";
+            LoadDataGridViewBook();
         }
         private void GetAllDifficultyLevelOfBookForTheCombobox()
         {
@@ -87,7 +62,14 @@ namespace GUI.UserControls
         }
         private void UpdateTotalBooks()
         {
-            _totalBooks = _bookBLL.GetQuantityOfAllBooks();
+            if(dtpFindDate.CustomFormat == " ")
+            {
+                _totalBooks = _bookBLL.GetQuantityOfAllBooks(null, cbFindLevel.SelectedItem?.ToString());
+            }
+            else
+            {
+                _totalBooks = _bookBLL.GetQuantityOfAllBooks(dtpFindDate.Value, cbFindLevel.SelectedItem?.ToString());
+            }
             lbTotalItem.Text = _totalBooks.ToString();
 
             int positionBookStart = (_pageIndex - 1) * _pageSize + 1;
@@ -102,41 +84,24 @@ namespace GUI.UserControls
             }
             lbDisplayDisplayBookAtPage.Text = positionBookStart.ToString() + "-" + positionBookEnd.ToString() + " trong tổng số " + _totalBooks.ToString() + " kết quả";
         }
-
-        private bool FilterDatagridviewByDifficultyLevel(string levelName) 
-        {
-            if (_pageIndex < 1) return false;
-            try
-            {
-                _books = _bookBLL.GetBooksByDifficultyLevel(levelName, _pageIndex, _pageSize);
-                if (_books.Count() == 0) return false;
-                dgvBooks.Rows.Clear();
-                foreach (var book in _books)
-                {
-                    dgvBooks.Rows.Add(
-                        $"{book.Name}\n{book.ISBN}",
-                        $"{book.Author}",
-                        book.Category != null ? book.Category.Name : "",
-                        book.PublishedYear,
-                        book.DifficultyLevel,
-                        null, null, null
-                    );
-                }
-                lbPageIndex.Text = _pageIndex.ToString();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
         private bool LoadDataForDataGridViewBook()
         {
             if (_pageIndex < 1) return false;
             try
             {
-                _books = _bookBLL.GetBookforPage(_pageIndex, _pageSize);
-                if (_books.Count() == 0) return false;
+                if(dtpFindDate.CustomFormat == " ")
+                {
+                    _books = _bookBLL.GetBookforPage(null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                }
+                else
+                {
+                    _books = _bookBLL.GetBookforPage(dtpFindDate.Value, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                }
+                if (_books.Count() == 0)
+                {
+                    dgvBooks.Rows.Clear();
+                    return false;
+                }
                 dgvBooks.Rows.Clear();
                 foreach (var book in _books)
                 {
@@ -150,6 +115,16 @@ namespace GUI.UserControls
                     );
                 }
                 lbPageIndex.Text = _pageIndex.ToString();
+
+                if (_books.Count() < 10)
+                {
+                    btnPageBefore.Visible = false;
+                    btnPageAfter.Visible = false;
+                }else
+                {
+                    btnPageAfter.Visible = true;
+                }
+
                 return true;
             }
             catch
@@ -168,79 +143,46 @@ namespace GUI.UserControls
         private void btnPageAfter_Click(object sender, EventArgs e)
         {
             if (_pageIndex != 1 && _books.Count() == 0) return;
-            if(cbFindLevel.SelectedItem?.ToString() == "Tất cả")
+            _pageIndex++;
+            if (!LoadDataForDataGridViewBook())
             {
-                _pageIndex++;
-                if (!LoadDataForDataGridViewBook())
-                {
-                    // List Book have no data
-                    _pageIndex--;
-                    if (btnPageAfter.Visible == true)
-                    {
-                        btnPageAfter.Visible = false;
-                    }
-                }
-
-                int maximumNumberOfPages = (_totalBooks + _pageSize - 1) / _pageSize;
-                if (_pageIndex >= maximumNumberOfPages)
+                // List Book have no data
+                _pageIndex--;
+                if (btnPageAfter.Visible == true)
                 {
                     btnPageAfter.Visible = false;
                 }
-
-                if (btnPageBefore.Visible == false)
-                {
-                    btnPageBefore.Visible = true;
-                }
-                UpdateTotalBooks();
             }
-            else
+
+            int maximumNumberOfPages = (_totalBooks + _pageSize - 1) / _pageSize;
+            if (_pageIndex >= maximumNumberOfPages)
             {
-                _pageIndex++;
-                FilterDatagridviewByDifficultyLevel(cbFindLevel.SelectedItem?.ToString());
-
-                int maximumNumberOfPages = (_totalBooks + _pageSize - 1) / _pageSize;
-                if (_pageIndex >= maximumNumberOfPages)
-                {
-                    btnPageAfter.Visible = false;
-                }
-
-                if (btnPageBefore.Visible == false)
-                {
-                    btnPageBefore.Visible = true;
-                }
-                UpdateTotalBooks();
+                btnPageAfter.Visible = false;
             }
+
+            if (btnPageBefore.Visible == false)
+            {
+                btnPageBefore.Visible = true;
+            }
+            UpdateTotalBooks();
         }
 
         private void btnPageBefore_Click(object sender, EventArgs e)
         {
             if (_pageIndex == 1) return;
-            if (btnPageAfter.Visible == false)
+            if (_pageIndex > 1) _pageIndex--;
+            if (LoadDataForDataGridViewBook())
+            {
+            }
+            UpdateTotalBooks();
+
+            if (_pageIndex == 1)
+            {
+                btnPageBefore.Visible = false;
+            }
+            if(btnPageAfter.Visible == false)
             {
                 btnPageAfter.Visible = true;
-            }
-            if(cbFindLevel.SelectedItem?.ToString() == "Tất cả")
-            {
-                if (_pageIndex > 1) _pageIndex--;
-                if (LoadDataForDataGridViewBook())
-                {
-                }
-                UpdateTotalBooks();
-
-                if (_pageIndex == 1)
-                {
-                    btnPageBefore.Visible = false;
-                }
-            }
-            else
-            {
-                if (_pageIndex > 1) _pageIndex--;
-                FilterDatagridviewByDifficultyLevel(cbFindLevel.SelectedItem?.ToString());
-                UpdateTotalBooks();
-                if (_pageIndex == 1)
-                {
-                    btnPageBefore.Visible = false;
-                }
             }
         }
 
@@ -262,8 +204,19 @@ namespace GUI.UserControls
 
         private void dtpFindDate_ValueChanged(object sender, EventArgs e)
         {
-            if(dtpFindDate.CustomFormat != "dd/MM/yyyy") dtpFindDate.CustomFormat = "dd/MM/yyyy";
+            if(dtpFindDate.CustomFormat != "dd/MM/yyyy")
+            {
+                dtpFindDate.CustomFormat = "dd/MM/yyyy";
+            }
+            LoadDataGridViewBook();
 
+        }
+
+        private void LoadDataGridViewBook()
+        {
+            _pageIndex = 1;
+            if (LoadDataForDataGridViewBook()) { }
+            UpdateTotalBooks();
         }
     }
 }

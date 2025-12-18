@@ -65,18 +65,53 @@ namespace DAL
                 return null;
             }
         }
-        public IEnumerable<BookDTO> GetBookforPage(int pageIndex, int pageSize)
+        public IEnumerable<BookDTO> GetBookforPage(DateTime? dateCreateBook, string difficultyLevels, int pageIndex, int pageSize)
         {
             try
             {
                 using(var context = new databaseContext.AppDBContext())
                 {
-                    return context.Books
-                        .Include(b => b.Category)
-                        .Include(b => b.BookFiles)
-                                .OrderBy(c => c.Id)
-                                .Skip((pageIndex - 1) * pageSize)
-                                .Take(pageSize).ToList();
+                    if(dateCreateBook == null && difficultyLevels == "Tất cả")
+                    {
+                        return context.Books
+                            .Include(b => b.Category)
+                            .Include(b => b.BookFiles)
+                                    .OrderBy(c => c.Id)
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize).ToList();
+                    }
+                    else if(dateCreateBook != null && difficultyLevels == "Tất cả")
+                    {
+                        int yearCreateBook = dateCreateBook.Value.Year;
+                        return context.Books
+                            .Include(b => b.Category)
+                            .Include(b => b.BookFiles)
+                            .Where(b => b.PublishedYear == yearCreateBook)
+                                    .OrderBy(c => c.Id)
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize).ToList();
+                    } else if(dateCreateBook == null && difficultyLevels != "Tất cả")
+                    {
+                        return context.Books
+                            .Include(b => b.Category)
+                            .Include(b => b.BookFiles)
+                            .Where(b => b.DifficultyLevel == difficultyLevels)
+                                    .OrderBy(c => c.Id)
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize).ToList();
+                    }
+                    else
+                    {
+                        int yearCreateBook = dateCreateBook.Value.Year;
+                        return context.Books
+                            .Include(b => b.Category)
+                            .Include(b => b.BookFiles)
+                            .Where(b => b.PublishedYear == yearCreateBook
+                                        && b.DifficultyLevel == difficultyLevels)
+                                    .OrderBy(c => c.Id)
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize).ToList();
+                    }
                 }
             }
             catch
@@ -85,16 +120,38 @@ namespace DAL
             }
         }
 
-        public int GetQuantityOfAllBooks()
+        public int GetQuantityOfAllBooks(DateTime? dateCreateBook, string difficultyLevels)
         {
             try
             {
                 using (var context = new databaseContext.AppDBContext())
                 {
-                    return context.Books
-                        .Include(b => b.Category)
-                        .Include(b => b.BookFiles)
-                        .ToList().Count();
+                    if(dateCreateBook == null && difficultyLevels == "Tất cả")
+                    {
+                        return context.Books
+                            .ToList().Count();
+                    }
+                    else if(dateCreateBook != null && difficultyLevels == "Tất cả")
+                    {
+                        int yearCreateBook = dateCreateBook.Value.Year;
+                        return context.Books
+                            .Where(b => b.PublishedYear == yearCreateBook)
+                            .ToList().Count();
+                    }
+                    else if(dateCreateBook == null && difficultyLevels != "Tất cả")
+                    {
+                        return context.Books
+                            .Where(b => b.DifficultyLevel == difficultyLevels)
+                            .ToList().Count();
+                    }
+                    else
+                    {
+                        int yearCreateBook = dateCreateBook.Value.Year;
+                        return context.Books
+                            .Where(b => b.PublishedYear == yearCreateBook
+                                        && b.DifficultyLevel == difficultyLevels)
+                            .ToList().Count();
+                    }
                 }
             }
             catch
