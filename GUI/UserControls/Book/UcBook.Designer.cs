@@ -52,7 +52,7 @@ namespace GUI.UserControls
             colEdit = new DataGridViewImageColumn();
             colDelete = new DataGridViewImageColumn();
             panel1 = new Panel();
-            label7 = new Label();
+            lbDisplayDisplayBookAtPage = new Label();
             label3 = new Label();
             panel3 = new Panel();
             lbPageIndex = new CustomControls.RoundedLabel();
@@ -96,7 +96,7 @@ namespace GUI.UserControls
             label1.AutoSize = true;
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(64, 64, 64);
+            label1.ForeColor = Color.FromArgb(104, 116, 135);
             label1.Location = new Point(0, 64);
             label1.Name = "label1";
             label1.Size = new Size(630, 26);
@@ -241,7 +241,7 @@ namespace GUI.UserControls
             colView.Name = "colView";
             colView.ReadOnly = true;
             colView.ToolTipText = "Xem";
-            colView.Width = 30;
+            colView.Width = 90;
             // 
             // colEdit
             // 
@@ -252,7 +252,7 @@ namespace GUI.UserControls
             colEdit.Name = "colEdit";
             colEdit.ReadOnly = true;
             colEdit.ToolTipText = "Sửa";
-            colEdit.Width = 30;
+            colEdit.Width = 90;
             // 
             // colDelete
             // 
@@ -263,11 +263,11 @@ namespace GUI.UserControls
             colDelete.Name = "colDelete";
             colDelete.ReadOnly = true;
             colDelete.ToolTipText = "Xóa";
-            colDelete.Width = 30;
+            colDelete.Width = 90;
             // 
             // panel1
             // 
-            panel1.Controls.Add(label7);
+            panel1.Controls.Add(lbDisplayDisplayBookAtPage);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Bottom;
@@ -276,20 +276,22 @@ namespace GUI.UserControls
             panel1.Size = new Size(1036, 65);
             panel1.TabIndex = 1;
             // 
-            // label7
+            // lbDisplayDisplayBookAtPage
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 12F);
-            label7.Location = new Point(77, 22);
-            label7.Name = "label7";
-            label7.Size = new Size(219, 22);
-            label7.TabIndex = 1;
-            label7.Text = "1-5 trong tổng số 5 kết quả";
+            lbDisplayDisplayBookAtPage.AutoSize = true;
+            lbDisplayDisplayBookAtPage.Font = new Font("Times New Roman", 12F);
+            lbDisplayDisplayBookAtPage.ForeColor = Color.FromArgb(104, 116, 135);
+            lbDisplayDisplayBookAtPage.Location = new Point(77, 22);
+            lbDisplayDisplayBookAtPage.Name = "lbDisplayDisplayBookAtPage";
+            lbDisplayDisplayBookAtPage.Size = new Size(219, 22);
+            lbDisplayDisplayBookAtPage.TabIndex = 1;
+            lbDisplayDisplayBookAtPage.Text = "1-5 trong tổng số 5 kết quả";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F);
+            label3.ForeColor = Color.FromArgb(104, 116, 135);
             label3.Location = new Point(6, 22);
             label3.Name = "label3";
             label3.Size = new Size(78, 22);
@@ -333,7 +335,7 @@ namespace GUI.UserControls
             btnPageBefore.FlatAppearance.BorderSize = 0;
             btnPageBefore.FlatStyle = FlatStyle.Flat;
             btnPageBefore.Font = new Font("Times New Roman", 12F);
-            btnPageBefore.ForeColor = Color.Black;
+            btnPageBefore.ForeColor = Color.FromArgb(104, 116, 135);
             btnPageBefore.Location = new Point(56, 13);
             btnPageBefore.Name = "btnPageBefore";
             btnPageBefore.Size = new Size(66, 38);
@@ -351,7 +353,7 @@ namespace GUI.UserControls
             btnPageAfter.FlatAppearance.BorderSize = 0;
             btnPageAfter.FlatStyle = FlatStyle.Flat;
             btnPageAfter.Font = new Font("Times New Roman", 12F);
-            btnPageAfter.ForeColor = Color.Black;
+            btnPageAfter.ForeColor = Color.FromArgb(104, 116, 135);
             btnPageAfter.Location = new Point(216, 13);
             btnPageAfter.Name = "btnPageAfter";
             btnPageAfter.Size = new Size(66, 38);
@@ -391,9 +393,11 @@ namespace GUI.UserControls
             dtpFindDate.Checked = true;
             dtpFindDate.CustomizableEdges = customizableEdges1;
             dtpFindDate.FillColor = Color.FromArgb(217, 217, 217);
+            dtpFindDate.FocusedColor = Color.FromArgb(217, 217, 217);
             dtpFindDate.Font = new Font("Times New Roman", 12F);
             dtpFindDate.ForeColor = Color.Black;
             dtpFindDate.Format = DateTimePickerFormat.Short;
+            dtpFindDate.HoverState.FillColor = Color.FromArgb(217, 217, 217);
             dtpFindDate.Location = new Point(17, 34);
             dtpFindDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFindDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -402,6 +406,7 @@ namespace GUI.UserControls
             dtpFindDate.Size = new Size(222, 36);
             dtpFindDate.TabIndex = 5;
             dtpFindDate.Value = new DateTime(2025, 12, 17, 12, 51, 10, 598);
+            dtpFindDate.ValueChanged += dtpFindDate_ValueChanged;
             // 
             // cbFindLevel
             // 
@@ -421,11 +426,13 @@ namespace GUI.UserControls
             cbFindLevel.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cbFindLevel.Size = new Size(206, 36);
             cbFindLevel.TabIndex = 2;
+            cbFindLevel.SelectedIndexChanged += cbFindLevel_SelectedIndexChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 12F);
+            label6.ForeColor = Color.FromArgb(104, 116, 135);
             label6.Location = new Point(245, 11);
             label6.Name = "label6";
             label6.Size = new Size(77, 22);
@@ -436,6 +443,7 @@ namespace GUI.UserControls
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 12F);
+            label5.ForeColor = Color.FromArgb(104, 116, 135);
             label5.Location = new Point(17, 11);
             label5.Name = "label5";
             label5.Size = new Size(105, 22);
@@ -446,6 +454,7 @@ namespace GUI.UserControls
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F);
+            label4.ForeColor = Color.FromArgb(104, 116, 135);
             label4.Location = new Point(144, 60);
             label4.Name = "label4";
             label4.Size = new Size(48, 22);
@@ -466,6 +475,7 @@ namespace GUI.UserControls
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F);
+            label2.ForeColor = Color.FromArgb(104, 116, 135);
             label2.Location = new Point(6, 60);
             label2.Name = "label2";
             label2.Size = new Size(61, 22);
@@ -565,7 +575,7 @@ namespace GUI.UserControls
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFindDate;
         private Guna.UI2.WinForms.Guna2ComboBox cbFindLevel;
         private CustomControls.RoundedLabel lbPageIndex;
-        private Label label7;
+        private Label lbDisplayDisplayBookAtPage;
         private Label label3;
     }
 }

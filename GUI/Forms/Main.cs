@@ -1,3 +1,4 @@
+using Guna.UI2.WinForms;
 using System.Drawing.Drawing2D;
 
 namespace GUI
@@ -5,26 +6,26 @@ namespace GUI
     public partial class Main : Form
     {
         //Variable lobal
-        List<Button> _menuBuottons;
+        List<Guna2Button> _menuBuottons;
 
         public Main()
         {
             InitializeComponent();
         }
 
-        private void LoadBackGroundControlButtonMenu(Button buttonSelected)
+        private void LoadBackGroundControlButtonMenu(Guna2Button buttonSelected)
         {
             if (_menuBuottons.Count > 0)
             {
-                foreach (Button button in _menuBuottons)
+                foreach (Guna2Button button in _menuBuottons)
                 {
                     if (button == buttonSelected)
                     {
-                        button.BackColor = Color.Cyan;
+                        button.FillColor = Color.Cyan;
                     }
                     else
                     {
-                        button.BackColor = Color.White;
+                        button.FillColor = Color.White;
                     }
                 }
             }
@@ -50,21 +51,12 @@ namespace GUI
         }
         private void LoadResizeImageControl()
         {
-            btnMenuHome.Image = ResizeImage(Properties.Resources.home, 24, 24);
-            btnMenuManagementAccount.Image = ResizeImage(Properties.Resources.user, 24, 24);
-            btnMenuBook.Image = ResizeImage(Properties.Resources.book, 24, 24);
-            btnMenuLessonPlan.Image = ResizeImage(Properties.Resources.lessonPlan, 24, 24);
-            btnMenuCalendar.Image = ResizeImage(Properties.Resources.calendar, 24, 24);
-            btnMenuScore.Image = ResizeImage(Properties.Resources.score, 24, 24);
-            btnMenuResearchTopic.Image = ResizeImage(Properties.Resources.idea, 24, 24);
-            btnMenuExam.Image = ResizeImage(Properties.Resources.exam, 24, 24);
-            btnMenuExercise.Image = ResizeImage(Properties.Resources.homework, 24, 24);
             lbHeaderRole.Image = ResizeImage(Properties.Resources.login, 24, 24);
 
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            _menuBuottons = pnMenu.Controls.OfType<Button>().ToList();
+            _menuBuottons = pnMenuContent.Controls.OfType<Guna2Button>().ToList();
 
             LoadResizeImageControl();
         }

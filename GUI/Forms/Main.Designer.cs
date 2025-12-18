@@ -30,16 +30,38 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnMenu = new Panel();
-            btnMenuExercise = new Button();
-            btnMenuExam = new Button();
-            btnMenuResearchTopic = new Button();
-            btnMenuScore = new Button();
-            btnMenuCalendar = new Button();
-            btnMenuLessonPlan = new Button();
-            btnMenuBook = new Button();
-            btnMenuManagementAccount = new Button();
-            btnMenuHome = new Button();
+            pnMenuContent = new Panel();
+            btnMenuExercise = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuExam = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuResearchTopic = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuScore = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuCalendar = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuLessonPlan = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuBook = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuManagementAccount = new Guna.UI2.WinForms.Guna2Button();
+            btnMenuHome = new Guna.UI2.WinForms.Guna2Button();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            panel1 = new Panel();
             pnMenuLogo = new Panel();
             lbLogo = new Label();
             pbLogo = new PictureBox();
@@ -48,6 +70,7 @@ namespace GUI
             lbHeaderRole = new Label();
             pbContent = new Panel();
             pnMenu.SuspendLayout();
+            pnMenuContent.SuspendLayout();
             pnMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             pbHeader.SuspendLayout();
@@ -57,15 +80,8 @@ namespace GUI
             // 
             pnMenu.BackColor = Color.White;
             pnMenu.BorderStyle = BorderStyle.FixedSingle;
-            pnMenu.Controls.Add(btnMenuExercise);
-            pnMenu.Controls.Add(btnMenuExam);
-            pnMenu.Controls.Add(btnMenuResearchTopic);
-            pnMenu.Controls.Add(btnMenuScore);
-            pnMenu.Controls.Add(btnMenuCalendar);
-            pnMenu.Controls.Add(btnMenuLessonPlan);
-            pnMenu.Controls.Add(btnMenuBook);
-            pnMenu.Controls.Add(btnMenuManagementAccount);
-            pnMenu.Controls.Add(btnMenuHome);
+            pnMenu.Controls.Add(pnMenuContent);
+            pnMenu.Controls.Add(panel1);
             pnMenu.Controls.Add(pnMenuLogo);
             pnMenu.Dock = DockStyle.Left;
             pnMenu.Location = new Point(0, 0);
@@ -73,194 +89,264 @@ namespace GUI
             pnMenu.Size = new Size(240, 595);
             pnMenu.TabIndex = 0;
             // 
+            // pnMenuContent
+            // 
+            pnMenuContent.Controls.Add(btnMenuExercise);
+            pnMenuContent.Controls.Add(btnMenuExam);
+            pnMenuContent.Controls.Add(btnMenuResearchTopic);
+            pnMenuContent.Controls.Add(btnMenuScore);
+            pnMenuContent.Controls.Add(btnMenuCalendar);
+            pnMenuContent.Controls.Add(btnMenuLessonPlan);
+            pnMenuContent.Controls.Add(btnMenuBook);
+            pnMenuContent.Controls.Add(btnMenuManagementAccount);
+            pnMenuContent.Controls.Add(btnMenuHome);
+            pnMenuContent.Controls.Add(panel4);
+            pnMenuContent.Controls.Add(panel3);
+            pnMenuContent.Dock = DockStyle.Fill;
+            pnMenuContent.Location = new Point(0, 79);
+            pnMenuContent.Name = "pnMenuContent";
+            pnMenuContent.Size = new Size(238, 514);
+            pnMenuContent.TabIndex = 2;
+            // 
             // btnMenuExercise
             // 
-            btnMenuExercise.BackColor = Color.White;
+            btnMenuExercise.BorderRadius = 10;
+            btnMenuExercise.CustomizableEdges = customizableEdges19;
+            btnMenuExercise.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuExercise.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuExercise.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuExercise.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExercise.Dock = DockStyle.Top;
-            btnMenuExercise.FlatAppearance.BorderSize = 0;
-            btnMenuExercise.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuExercise.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuExercise.FlatStyle = FlatStyle.Flat;
-            btnMenuExercise.Font = new Font("Times New Roman", 12F);
-            btnMenuExercise.ForeColor = Color.Black;
-            btnMenuExercise.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuExercise.Location = new Point(0, 464);
+            btnMenuExercise.FillColor = Color.Transparent;
+            btnMenuExercise.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuExercise.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuExercise.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuExercise.Image = Properties.Resources.homework;
+            btnMenuExercise.ImageAlign = HorizontalAlignment.Left;
+            btnMenuExercise.Location = new Point(15, 320);
             btnMenuExercise.Name = "btnMenuExercise";
-            btnMenuExercise.Size = new Size(238, 50);
-            btnMenuExercise.TabIndex = 9;
+            btnMenuExercise.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnMenuExercise.Size = new Size(208, 40);
+            btnMenuExercise.TabIndex = 10;
             btnMenuExercise.Text = "Bài tập và đồ án";
-            btnMenuExercise.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuExercise.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuExercise.UseVisualStyleBackColor = false;
+            btnMenuExercise.TextAlign = HorizontalAlignment.Left;
             btnMenuExercise.Click += btnMenuExercise_Click;
             // 
             // btnMenuExam
             // 
-            btnMenuExam.BackColor = Color.White;
+            btnMenuExam.BorderRadius = 10;
+            btnMenuExam.CustomizableEdges = customizableEdges21;
+            btnMenuExam.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuExam.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuExam.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuExam.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExam.Dock = DockStyle.Top;
-            btnMenuExam.FlatAppearance.BorderSize = 0;
-            btnMenuExam.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuExam.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuExam.FlatStyle = FlatStyle.Flat;
-            btnMenuExam.Font = new Font("Times New Roman", 12F);
-            btnMenuExam.ForeColor = Color.Black;
-            btnMenuExam.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuExam.Location = new Point(0, 414);
+            btnMenuExam.FillColor = Color.Transparent;
+            btnMenuExam.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuExam.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuExam.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuExam.Image = Properties.Resources.exam;
+            btnMenuExam.ImageAlign = HorizontalAlignment.Left;
+            btnMenuExam.Location = new Point(15, 280);
             btnMenuExam.Name = "btnMenuExam";
-            btnMenuExam.Size = new Size(238, 50);
-            btnMenuExam.TabIndex = 8;
+            btnMenuExam.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnMenuExam.Size = new Size(208, 40);
+            btnMenuExam.TabIndex = 9;
             btnMenuExam.Text = "Quản lý đề thi";
-            btnMenuExam.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuExam.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuExam.UseVisualStyleBackColor = false;
+            btnMenuExam.TextAlign = HorizontalAlignment.Left;
             btnMenuExam.Click += btnMenuExam_Click;
             // 
             // btnMenuResearchTopic
             // 
-            btnMenuResearchTopic.BackColor = Color.White;
+            btnMenuResearchTopic.BorderRadius = 10;
+            btnMenuResearchTopic.CustomizableEdges = customizableEdges23;
+            btnMenuResearchTopic.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuResearchTopic.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuResearchTopic.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuResearchTopic.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuResearchTopic.Dock = DockStyle.Top;
-            btnMenuResearchTopic.FlatAppearance.BorderSize = 0;
-            btnMenuResearchTopic.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuResearchTopic.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuResearchTopic.FlatStyle = FlatStyle.Flat;
-            btnMenuResearchTopic.Font = new Font("Times New Roman", 12F);
-            btnMenuResearchTopic.ForeColor = Color.Black;
-            btnMenuResearchTopic.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuResearchTopic.Location = new Point(0, 364);
+            btnMenuResearchTopic.FillColor = Color.Transparent;
+            btnMenuResearchTopic.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuResearchTopic.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuResearchTopic.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuResearchTopic.Image = Properties.Resources.idea;
+            btnMenuResearchTopic.ImageAlign = HorizontalAlignment.Left;
+            btnMenuResearchTopic.Location = new Point(15, 240);
             btnMenuResearchTopic.Name = "btnMenuResearchTopic";
-            btnMenuResearchTopic.Size = new Size(238, 50);
-            btnMenuResearchTopic.TabIndex = 7;
+            btnMenuResearchTopic.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnMenuResearchTopic.Size = new Size(208, 40);
+            btnMenuResearchTopic.TabIndex = 8;
             btnMenuResearchTopic.Text = "Đề tài nghiên cứu";
-            btnMenuResearchTopic.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuResearchTopic.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuResearchTopic.UseVisualStyleBackColor = false;
+            btnMenuResearchTopic.TextAlign = HorizontalAlignment.Left;
             btnMenuResearchTopic.Click += btnMenuResearchTopic_Click;
             // 
             // btnMenuScore
             // 
-            btnMenuScore.BackColor = Color.White;
+            btnMenuScore.BorderRadius = 10;
+            btnMenuScore.CustomizableEdges = customizableEdges25;
+            btnMenuScore.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuScore.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuScore.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuScore.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuScore.Dock = DockStyle.Top;
-            btnMenuScore.FlatAppearance.BorderSize = 0;
-            btnMenuScore.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuScore.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuScore.FlatStyle = FlatStyle.Flat;
-            btnMenuScore.Font = new Font("Times New Roman", 12F);
-            btnMenuScore.ForeColor = Color.Black;
-            btnMenuScore.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuScore.Location = new Point(0, 314);
+            btnMenuScore.FillColor = Color.Transparent;
+            btnMenuScore.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuScore.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuScore.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuScore.Image = Properties.Resources.score;
+            btnMenuScore.ImageAlign = HorizontalAlignment.Left;
+            btnMenuScore.Location = new Point(15, 200);
             btnMenuScore.Name = "btnMenuScore";
-            btnMenuScore.Size = new Size(238, 50);
-            btnMenuScore.TabIndex = 6;
+            btnMenuScore.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnMenuScore.Size = new Size(208, 40);
+            btnMenuScore.TabIndex = 7;
             btnMenuScore.Text = "Quản lý điểm";
-            btnMenuScore.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuScore.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuScore.UseVisualStyleBackColor = false;
+            btnMenuScore.TextAlign = HorizontalAlignment.Left;
             btnMenuScore.Click += btnMenuScore_Click;
             // 
             // btnMenuCalendar
             // 
-            btnMenuCalendar.BackColor = Color.White;
+            btnMenuCalendar.BorderRadius = 10;
+            btnMenuCalendar.CustomizableEdges = customizableEdges27;
+            btnMenuCalendar.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuCalendar.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuCalendar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuCalendar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuCalendar.Dock = DockStyle.Top;
-            btnMenuCalendar.FlatAppearance.BorderSize = 0;
-            btnMenuCalendar.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuCalendar.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuCalendar.FlatStyle = FlatStyle.Flat;
-            btnMenuCalendar.Font = new Font("Times New Roman", 12F);
-            btnMenuCalendar.ForeColor = Color.Black;
-            btnMenuCalendar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuCalendar.Location = new Point(0, 264);
+            btnMenuCalendar.FillColor = Color.Transparent;
+            btnMenuCalendar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuCalendar.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuCalendar.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuCalendar.Image = Properties.Resources.calendar;
+            btnMenuCalendar.ImageAlign = HorizontalAlignment.Left;
+            btnMenuCalendar.Location = new Point(15, 160);
             btnMenuCalendar.Name = "btnMenuCalendar";
-            btnMenuCalendar.Size = new Size(238, 50);
-            btnMenuCalendar.TabIndex = 5;
+            btnMenuCalendar.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            btnMenuCalendar.Size = new Size(208, 40);
+            btnMenuCalendar.TabIndex = 6;
             btnMenuCalendar.Text = "Lịch dạy";
-            btnMenuCalendar.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuCalendar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuCalendar.UseVisualStyleBackColor = false;
+            btnMenuCalendar.TextAlign = HorizontalAlignment.Left;
             btnMenuCalendar.Click += btnMenuCalendar_Click;
             // 
             // btnMenuLessonPlan
             // 
-            btnMenuLessonPlan.BackColor = Color.White;
+            btnMenuLessonPlan.BorderRadius = 10;
+            btnMenuLessonPlan.CustomizableEdges = customizableEdges29;
+            btnMenuLessonPlan.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuLessonPlan.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuLessonPlan.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuLessonPlan.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuLessonPlan.Dock = DockStyle.Top;
-            btnMenuLessonPlan.FlatAppearance.BorderSize = 0;
-            btnMenuLessonPlan.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuLessonPlan.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuLessonPlan.FlatStyle = FlatStyle.Flat;
-            btnMenuLessonPlan.Font = new Font("Times New Roman", 12F);
-            btnMenuLessonPlan.ForeColor = Color.Black;
-            btnMenuLessonPlan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuLessonPlan.Location = new Point(0, 214);
+            btnMenuLessonPlan.FillColor = Color.Transparent;
+            btnMenuLessonPlan.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuLessonPlan.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuLessonPlan.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuLessonPlan.Image = Properties.Resources.lessonPlan;
+            btnMenuLessonPlan.ImageAlign = HorizontalAlignment.Left;
+            btnMenuLessonPlan.Location = new Point(15, 120);
             btnMenuLessonPlan.Name = "btnMenuLessonPlan";
-            btnMenuLessonPlan.Size = new Size(238, 50);
-            btnMenuLessonPlan.TabIndex = 4;
+            btnMenuLessonPlan.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btnMenuLessonPlan.Size = new Size(208, 40);
+            btnMenuLessonPlan.TabIndex = 5;
             btnMenuLessonPlan.Text = "Giáo án";
-            btnMenuLessonPlan.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuLessonPlan.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuLessonPlan.UseVisualStyleBackColor = false;
+            btnMenuLessonPlan.TextAlign = HorizontalAlignment.Left;
             btnMenuLessonPlan.Click += btnMenuLessonPlan_Click;
             // 
             // btnMenuBook
             // 
-            btnMenuBook.BackColor = Color.White;
+            btnMenuBook.BorderRadius = 10;
+            btnMenuBook.CustomizableEdges = customizableEdges31;
+            btnMenuBook.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuBook.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuBook.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuBook.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuBook.Dock = DockStyle.Top;
-            btnMenuBook.FlatAppearance.BorderSize = 0;
-            btnMenuBook.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuBook.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuBook.FlatStyle = FlatStyle.Flat;
-            btnMenuBook.Font = new Font("Times New Roman", 12F);
-            btnMenuBook.ForeColor = Color.Black;
-            btnMenuBook.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuBook.Location = new Point(0, 164);
+            btnMenuBook.FillColor = Color.Transparent;
+            btnMenuBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuBook.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuBook.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuBook.Image = Properties.Resources.book;
+            btnMenuBook.ImageAlign = HorizontalAlignment.Left;
+            btnMenuBook.Location = new Point(15, 80);
             btnMenuBook.Name = "btnMenuBook";
-            btnMenuBook.Size = new Size(238, 50);
-            btnMenuBook.TabIndex = 3;
+            btnMenuBook.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            btnMenuBook.Size = new Size(208, 40);
+            btnMenuBook.TabIndex = 4;
             btnMenuBook.Text = "Sách và giáo trình";
-            btnMenuBook.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuBook.UseVisualStyleBackColor = false;
+            btnMenuBook.TextAlign = HorizontalAlignment.Left;
             btnMenuBook.Click += btnMenuBook_Click;
             // 
             // btnMenuManagementAccount
             // 
-            btnMenuManagementAccount.BackColor = Color.White;
+            btnMenuManagementAccount.BorderRadius = 10;
+            btnMenuManagementAccount.CustomizableEdges = customizableEdges33;
+            btnMenuManagementAccount.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuManagementAccount.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuManagementAccount.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuManagementAccount.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuManagementAccount.Dock = DockStyle.Top;
-            btnMenuManagementAccount.FlatAppearance.BorderSize = 0;
-            btnMenuManagementAccount.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuManagementAccount.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuManagementAccount.FlatStyle = FlatStyle.Flat;
-            btnMenuManagementAccount.Font = new Font("Times New Roman", 12F);
-            btnMenuManagementAccount.ForeColor = Color.Black;
-            btnMenuManagementAccount.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuManagementAccount.Location = new Point(0, 114);
+            btnMenuManagementAccount.FillColor = Color.Transparent;
+            btnMenuManagementAccount.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuManagementAccount.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuManagementAccount.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuManagementAccount.Image = Properties.Resources.user;
+            btnMenuManagementAccount.ImageAlign = HorizontalAlignment.Left;
+            btnMenuManagementAccount.Location = new Point(15, 40);
             btnMenuManagementAccount.Name = "btnMenuManagementAccount";
-            btnMenuManagementAccount.Size = new Size(238, 50);
-            btnMenuManagementAccount.TabIndex = 2;
+            btnMenuManagementAccount.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btnMenuManagementAccount.Size = new Size(208, 40);
+            btnMenuManagementAccount.TabIndex = 3;
             btnMenuManagementAccount.Text = "Quản lý tài khoản";
-            btnMenuManagementAccount.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuManagementAccount.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuManagementAccount.UseVisualStyleBackColor = false;
+            btnMenuManagementAccount.TextAlign = HorizontalAlignment.Left;
             btnMenuManagementAccount.Click += btnMenuManagementAccount_Click;
             // 
             // btnMenuHome
             // 
-            btnMenuHome.BackColor = Color.White;
+            btnMenuHome.BorderRadius = 10;
+            btnMenuHome.CustomizableEdges = customizableEdges35;
+            btnMenuHome.DisabledState.BorderColor = Color.DarkGray;
+            btnMenuHome.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMenuHome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMenuHome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuHome.Dock = DockStyle.Top;
-            btnMenuHome.FlatAppearance.BorderSize = 0;
-            btnMenuHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 255, 255);
-            btnMenuHome.FlatStyle = FlatStyle.Flat;
-            btnMenuHome.Font = new Font("Times New Roman", 12F);
-            btnMenuHome.ForeColor = Color.Black;
-            btnMenuHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenuHome.Location = new Point(0, 64);
+            btnMenuHome.FillColor = Color.Transparent;
+            btnMenuHome.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuHome.ForeColor = Color.FromArgb(104, 116, 135);
+            btnMenuHome.HoverState.FillColor = Color.FromArgb(192, 255, 255);
+            btnMenuHome.Image = Properties.Resources.home;
+            btnMenuHome.ImageAlign = HorizontalAlignment.Left;
+            btnMenuHome.Location = new Point(15, 0);
             btnMenuHome.Name = "btnMenuHome";
-            btnMenuHome.Size = new Size(238, 50);
-            btnMenuHome.TabIndex = 1;
+            btnMenuHome.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnMenuHome.Size = new Size(208, 40);
+            btnMenuHome.TabIndex = 2;
             btnMenuHome.Text = "Tổng quan";
-            btnMenuHome.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenuHome.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMenuHome.UseVisualStyleBackColor = false;
+            btnMenuHome.TextAlign = HorizontalAlignment.Left;
             btnMenuHome.Click += btnMenuHome_Click;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Left;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(15, 514);
+            panel4.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.Dock = DockStyle.Right;
+            panel3.Location = new Point(223, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(15, 514);
+            panel3.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 64);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(238, 15);
+            panel1.TabIndex = 1;
             // 
             // pnMenuLogo
             // 
@@ -350,6 +436,7 @@ namespace GUI
             WindowState = FormWindowState.Maximized;
             Load += Main_Load;
             pnMenu.ResumeLayout(false);
+            pnMenuContent.ResumeLayout(false);
             pnMenuLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             pbHeader.ResumeLayout(false);
@@ -363,17 +450,21 @@ namespace GUI
         private Panel pnMenuLogo;
         private Label lbLogo;
         private PictureBox pbLogo;
-        private Button btnMenuExercise;
-        private Button btnMenuExam;
-        private Button btnMenuResearchTopic;
-        private Button btnMenuScore;
-        private Button btnMenuCalendar;
-        private Button btnMenuLessonPlan;
-        private Button btnMenuBook;
-        private Button btnMenuManagementAccount;
-        private Button btnMenuHome;
         private Label lbHeaderRole;
         private Panel pbHeaderContent;
         private Panel pbContent;
+        private Panel pnMenuContent;
+        private Panel panel4;
+        private Panel panel3;
+        private Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button btnMenuExercise;
+        private Guna.UI2.WinForms.Guna2Button btnMenuExam;
+        private Guna.UI2.WinForms.Guna2Button btnMenuResearchTopic;
+        private Guna.UI2.WinForms.Guna2Button btnMenuScore;
+        private Guna.UI2.WinForms.Guna2Button btnMenuCalendar;
+        private Guna.UI2.WinForms.Guna2Button btnMenuLessonPlan;
+        private Guna.UI2.WinForms.Guna2Button btnMenuBook;
+        private Guna.UI2.WinForms.Guna2Button btnMenuManagementAccount;
+        private Guna.UI2.WinForms.Guna2Button btnMenuHome;
     }
 }
