@@ -1,42 +1,290 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GUI.UserControls.Book
 {
     public partial class UcAddBook : UserControl
     {
+        //Variable lobal
+        private BookBLL _bookBLL = new BookBLL();
+        private CategoryBLL _categoryBLL = new CategoryBLL();
+        private FileBLL _fileBLL = new FileBLL();
+        private BookFileBLL _bookFileBLL = new BookFileBLL();
         public UcAddBook()
         {
             InitializeComponent();
         }
 
+        public int GetCountFileBook()
+        {
+            return dgvFileBook.Rows.Count;
+        }
+        public BookDTO GetNewBook()
+        {
+
+            if (!ValidateControls())
+            {
+                return null;
+            }
+            return new BookDTO()
+            {
+                ISBN = txtISBN.Text,
+                Name = txtBookName.Text,
+                Author = txtAuthor.Text,
+                PublishedYear = int.Parse(txtPublicYearBook.Text),
+                Description = txtDescription.Text,
+                DifficultyLevel = cboLevel.SelectedItem.ToString(),
+                CategoryId = (int)cbCategory.SelectedValue
+            };
+        }
+        private bool ValidateControls()
+        {
+            // Kiểm tra các TextBox bắt buộc không được để trống
+            if (string.IsNullOrWhiteSpace(txtISBN.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã ISBN.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtISBN.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtBookName.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBookName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtAuthor.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên tác giả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAuthor.Focus();
+                return false;
+            }
+
+            // Kiểm tra giá trị của ComboBox cbCategory
+            if (cbCategory.SelectedValue == null || string.IsNullOrEmpty(cbCategory.SelectedValue.ToString()) || (int)cbCategory.SelectedValue < 1)
+            {
+                MessageBox.Show("Vui lòng chọn danh mục hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbCategory.Focus();
+                return false;
+            }
+
+            // Kiểm tra trường txtPublicYearBook
+            if (!int.TryParse(txtPublicYearBook.Text, out int publishedYear))
+            {
+                MessageBox.Show("Năm xuất bản phải là số nguyên hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPublicYearBook.Focus();
+                return false;
+            }
+
+            int currentYear = DateTime.Now.Year;
+            if (publishedYear < 1 || publishedYear > currentYear)
+            {
+                MessageBox.Show($"Năm xuất bản phải lớn hơn 0 và nhỏ hơn hoặc bằng {currentYear}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPublicYearBook.Focus();
+                return false;
+            }
+
+            // Tất cả các kiểm tra đều hợp lệ
+            return true;
+        }
+
         private void lbInputValueBook_Click(object sender, EventArgs e)
         {
-            LoadUserControlForPanel(new UcInputValueBook(), pbContentInput);
+            lbInputFileBook.ForeColor = Color.FromArgb(104, 116, 135);
+            lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
+
+            pnInputValueBook.Visible = true;
+            pnInputFileBook.Visible = false;
         }
 
+        private void GetAllDifficultyLevelOfBookForTheCombobox()
+        {
+            List<string> DifficultyLevels = _bookBLL.GetAllTheLevelNameOfTheBooks();
+            cboLevel.DataSource = DifficultyLevels;
+        }
+
+        private void LoadCategoriesForCombobox()
+        {
+            var categories = _categoryBLL.GetAllCategories();
+            cbCategory.DataSource = categories;
+            cbCategory.DisplayMember = "Name";
+            cbCategory.ValueMember = "Id";
+        }
         private void UcAddBook_Load(object sender, EventArgs e)
         {
-            LoadUserControlForPanel(new UcInputValueBook(), pbContentInput);
-        }
+            lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
+            pnInputValueBook.Visible = true;
+            pnInputFileBook.Visible = false;
 
-        private void LoadUserControlForPanel(UserControl userControlIsLoaded, Panel pnaelToLoadUserControl)
-        {
-            pnaelToLoadUserControl.Controls.Clear();
-            userControlIsLoaded.Dock = DockStyle.Fill;
-            pnaelToLoadUserControl.Controls.Add(userControlIsLoaded);
+            LoadCategoriesForCombobox();
+            GetAllDifficultyLevelOfBookForTheCombobox();
         }
 
         private void lbInputFileBook_Click(object sender, EventArgs e)
         {
-            LoadUserControlForPanel(new UcInputFileBook(), pbContentInput);
+            lbInputValueBook.ForeColor = Color.FromArgb(104, 116, 135);
+            lbInputFileBook.ForeColor = Color.FromArgb(60, 131, 246);
+
+            pnInputValueBook.Visible = false;
+            pnInputFileBook.Visible = true;
         }
+
+        private void txtISBN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPublicYearBook_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void pnUploadFile_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.None;
+                return;
+            }
+
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if (files.Length == 1 &&
+                Path.GetExtension(files[0]).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+
+        private void pnUploadFile_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if (files.Length == 0) return;
+
+            string filePath = files[0];
+
+            if (!Path.GetExtension(filePath)
+                .Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Chỉ cho phép tải lên file PDF",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            HandleSelectedFile(filePath);
+        }
+
+
+        private void btnChooseFile_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog ofd = new OpenFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                Multiselect = false,
+                Title = "Chọn file PDF"
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                HandleSelectedFile(ofd.FileName);
+            }
+        }
+
+        private void HandleSelectedFile(string filePath)
+        {
+            if (!Path.GetExtension(filePath)
+                .Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("File không hợp lệ. Vui lòng chọn file PDF.",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            FileInfo file = new FileInfo(filePath);
+
+            if (file.Length > 500 * 1024 * 1024)
+            {
+                MessageBox.Show("File vượt quá 500MB",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nameFile = file.Name;
+            string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
+
+            dgvFileBook.Rows.Add(nameFile, filePath ,capacityFile);
+        }
+
+        public bool AddBookFile()
+        {
+            foreach(DataGridViewRow row in dgvFileBook.Rows)
+            {
+                string fileName = row.Cells[0].Value?.ToString();
+                string filePath = row.Cells[1].Value?.ToString();
+                int fileSize = 0;
+                var match = Regex.Match(row.Cells[2].Value?.ToString(), @"([\d\.]+)\s*MB");
+
+                if (match.Success)
+                {
+                    double sizeTypeDouble = double.Parse(match.Groups[1].Value) * (1024.0 * 1024.0);
+                    fileSize = Convert.ToInt32(sizeTypeDouble);
+                }
+                
+                
+                if (string.IsNullOrEmpty(fileName))
+                {
+                    continue;
+                }
+                FilesDTO filePDF = new FilesDTO
+                {
+                    FileName = fileName,
+                    FilePath = filePath,
+                    FileType = "pdf",
+                    FileSize = fileSize,
+                    CreatedAt = DateTime.Now
+                };
+                if (!_fileBLL.AddNewFile(filePDF))
+                {
+                    return false;
+                }
+                BookFileDTO bookFileDTO = new BookFileDTO
+                {
+                    BookId = _bookBLL.GetIdbyBookName(txtBookName.Text),
+                    FileId = filePDF.Id
+                };
+                if (bookFileDTO.BookId > 0 && _bookFileBLL.AddNewBookFile(bookFileDTO) == false) return false;
+            }
+            return true;
+        }
+
     }
 }

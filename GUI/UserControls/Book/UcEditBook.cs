@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI.UserControls.Book
 {
-    public partial class UcInputValueBook : UserControl
+    public partial class UcEditBook : UserControl
     {
-        public UcInputValueBook()
+        public UcEditBook()
         {
             InitializeComponent();
         }

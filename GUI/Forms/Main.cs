@@ -1,4 +1,6 @@
-﻿using GUI.UserControls;
+﻿using BLL;
+using DTO;
+using GUI.UserControls;
 using GUI.UserControls.Book;
 using Guna.UI2.WinForms;
 using System.Drawing.Drawing2D;
@@ -9,17 +11,71 @@ namespace GUI
     public partial class Main : Form
     {
         //Variable lobal
-        List<Guna2Button> _menuBuottons;
-
+        private List<Guna2Button> _menuBuottons;
+        private UcMenuHeaderAddBook _ucMenuHeaderAddBook;
+        private UcAddBook _ucAddBook;
+        private UcBook _ucBook;
+        private BookBLL _bookBLL = new BookBLL();
+        private BookFileBLL _bookFileBLL = new BookFileBLL();
         public Main()
         {
             InitializeComponent();
         }
-        private void LoadContent(UserControl uc)
+        private void LoadContentAddBook(UserControl uc)
         {
+
+            _ucAddBook = uc as UcAddBook;
+            if (_ucAddBook == null) return;
             pbContent.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            pbContent.Controls.Add(uc);
+            _ucAddBook.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(_ucAddBook);
+
+            pbHeaderContent.Controls.Clear();
+            _ucMenuHeaderAddBook = new UcMenuHeaderAddBook();
+            _ucMenuHeaderAddBook.Dock = DockStyle.Fill;
+            pbHeaderContent.Controls.Add(_ucMenuHeaderAddBook);
+
+            _ucMenuHeaderAddBook._ActionAddBook += AddBook;
+
+
+        }
+        private void AddBook()
+        {
+            BookDTO data = _ucAddBook.GetNewBook();
+            if(data == null)
+            {
+                return;
+            }
+            if (string.IsNullOrEmpty(data.ISBN) || string.IsNullOrEmpty(data.Name) || string.IsNullOrEmpty(data.Author) || data.CategoryId < 1)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!");
+                return;
+            }
+
+            if (_bookBLL.AddNewBook(data))
+            {
+                int quanlityFilesOfBook = _ucAddBook.GetCountFileBook();
+
+                if (quanlityFilesOfBook > 0)
+                {
+                    if (!_ucAddBook.AddBookFile())
+                    {
+                        MessageBox.Show("Thêm file sách thất bại!");
+                    }
+                }
+                MessageBox.Show("Thêm sách mới thành công!");
+                //Reload lại danh sách sách
+                _ucBook = new UcBook();
+                LoadUserControlForPanel(_ucBook, pbContent);
+                var header = new UcMenuHeaderBook();
+                header.OpenContentRequested += LoadContentAddBook;
+                LoadUserControlForPanel(header, pbHeaderContent);
+            }
+            else
+            {
+                MessageBox.Show("Thêm sách mới thất bại!");
+            }
+
         }
         private void LoadBackGroundControlButtonMenu(Guna2Button buttonSelected)
         {
@@ -81,17 +137,13 @@ namespace GUI
 
         private void btnMenuBook_Click(object sender, EventArgs e)
         {
-            //LoadBackGroundControlButtonMenu(btnMenuBook);
-            //LoadUserControlForPanel(new UserControls.UcBook(), pbContent);
-            //LoadUserControlForPanel(new UserControls.UcMenuHeaderBook(), pbHeaderContent);
             LoadBackGroundControlButtonMenu(btnMenuBook);
 
-            // Load content chính
-            LoadUserControlForPanel(new UcBook(), pbContent);
+            _ucBook = new UcBook();
+            LoadUserControlForPanel(_ucBook, pbContent);
 
-            // Load header + gắn event
             var header = new UcMenuHeaderBook();
-            header.OpenContentRequested += LoadContent;
+            header.OpenContentRequested += LoadContentAddBook;
             LoadUserControlForPanel(header, pbHeaderContent);
 
         }

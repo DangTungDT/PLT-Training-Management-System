@@ -10,6 +10,47 @@ namespace DAL
 {
     public class BookDAL
     {
+
+        public bool AddNewBook(BookDTO book)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    context.Books.Add(book);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public int GetIdbyBookName(string bookName)
+        {
+            try
+            {
+                using (var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books
+                        .FirstOrDefault(b => b.Name == bookName);
+                    if (book != null)
+                    {
+                        return book.Id;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+        }
         public int GetQuantityBookByDifficultyLevel(string difficultyLevel)
         {
             try
