@@ -30,24 +30,24 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnMenu = new Panel();
             pnMenuContent = new Panel();
             btnMenuExercise = new Guna.UI2.WinForms.Guna2Button();
@@ -111,7 +111,7 @@ namespace GUI
             // btnMenuExercise
             // 
             btnMenuExercise.BorderRadius = 10;
-            btnMenuExercise.CustomizableEdges = customizableEdges19;
+            btnMenuExercise.CustomizableEdges = customizableEdges1;
             btnMenuExercise.DisabledState.BorderColor = Color.DarkGray;
             btnMenuExercise.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuExercise.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -125,7 +125,7 @@ namespace GUI
             btnMenuExercise.ImageAlign = HorizontalAlignment.Left;
             btnMenuExercise.Location = new Point(15, 320);
             btnMenuExercise.Name = "btnMenuExercise";
-            btnMenuExercise.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnMenuExercise.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnMenuExercise.Size = new Size(208, 40);
             btnMenuExercise.TabIndex = 10;
             btnMenuExercise.Text = "Bài tập và đồ án";
@@ -135,7 +135,7 @@ namespace GUI
             // btnMenuExam
             // 
             btnMenuExam.BorderRadius = 10;
-            btnMenuExam.CustomizableEdges = customizableEdges21;
+            btnMenuExam.CustomizableEdges = customizableEdges3;
             btnMenuExam.DisabledState.BorderColor = Color.DarkGray;
             btnMenuExam.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuExam.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -149,7 +149,7 @@ namespace GUI
             btnMenuExam.ImageAlign = HorizontalAlignment.Left;
             btnMenuExam.Location = new Point(15, 280);
             btnMenuExam.Name = "btnMenuExam";
-            btnMenuExam.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnMenuExam.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnMenuExam.Size = new Size(208, 40);
             btnMenuExam.TabIndex = 9;
             btnMenuExam.Text = "Quản lý đề thi";
@@ -159,7 +159,7 @@ namespace GUI
             // btnMenuResearchTopic
             // 
             btnMenuResearchTopic.BorderRadius = 10;
-            btnMenuResearchTopic.CustomizableEdges = customizableEdges23;
+            btnMenuResearchTopic.CustomizableEdges = customizableEdges5;
             btnMenuResearchTopic.DisabledState.BorderColor = Color.DarkGray;
             btnMenuResearchTopic.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuResearchTopic.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -173,7 +173,7 @@ namespace GUI
             btnMenuResearchTopic.ImageAlign = HorizontalAlignment.Left;
             btnMenuResearchTopic.Location = new Point(15, 240);
             btnMenuResearchTopic.Name = "btnMenuResearchTopic";
-            btnMenuResearchTopic.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnMenuResearchTopic.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnMenuResearchTopic.Size = new Size(208, 40);
             btnMenuResearchTopic.TabIndex = 8;
             btnMenuResearchTopic.Text = "Đề tài nghiên cứu";
@@ -183,7 +183,7 @@ namespace GUI
             // btnMenuScore
             // 
             btnMenuScore.BorderRadius = 10;
-            btnMenuScore.CustomizableEdges = customizableEdges25;
+            btnMenuScore.CustomizableEdges = customizableEdges7;
             btnMenuScore.DisabledState.BorderColor = Color.DarkGray;
             btnMenuScore.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuScore.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -197,7 +197,7 @@ namespace GUI
             btnMenuScore.ImageAlign = HorizontalAlignment.Left;
             btnMenuScore.Location = new Point(15, 200);
             btnMenuScore.Name = "btnMenuScore";
-            btnMenuScore.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnMenuScore.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnMenuScore.Size = new Size(208, 40);
             btnMenuScore.TabIndex = 7;
             btnMenuScore.Text = "Quản lý điểm";
@@ -207,7 +207,7 @@ namespace GUI
             // btnMenuCalendar
             // 
             btnMenuCalendar.BorderRadius = 10;
-            btnMenuCalendar.CustomizableEdges = customizableEdges27;
+            btnMenuCalendar.CustomizableEdges = customizableEdges9;
             btnMenuCalendar.DisabledState.BorderColor = Color.DarkGray;
             btnMenuCalendar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuCalendar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -221,7 +221,7 @@ namespace GUI
             btnMenuCalendar.ImageAlign = HorizontalAlignment.Left;
             btnMenuCalendar.Location = new Point(15, 160);
             btnMenuCalendar.Name = "btnMenuCalendar";
-            btnMenuCalendar.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            btnMenuCalendar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnMenuCalendar.Size = new Size(208, 40);
             btnMenuCalendar.TabIndex = 6;
             btnMenuCalendar.Text = "Lịch dạy";
@@ -231,7 +231,7 @@ namespace GUI
             // btnMenuLessonPlan
             // 
             btnMenuLessonPlan.BorderRadius = 10;
-            btnMenuLessonPlan.CustomizableEdges = customizableEdges29;
+            btnMenuLessonPlan.CustomizableEdges = customizableEdges11;
             btnMenuLessonPlan.DisabledState.BorderColor = Color.DarkGray;
             btnMenuLessonPlan.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuLessonPlan.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -245,7 +245,7 @@ namespace GUI
             btnMenuLessonPlan.ImageAlign = HorizontalAlignment.Left;
             btnMenuLessonPlan.Location = new Point(15, 120);
             btnMenuLessonPlan.Name = "btnMenuLessonPlan";
-            btnMenuLessonPlan.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btnMenuLessonPlan.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnMenuLessonPlan.Size = new Size(208, 40);
             btnMenuLessonPlan.TabIndex = 5;
             btnMenuLessonPlan.Text = "Giáo án";
@@ -255,7 +255,7 @@ namespace GUI
             // btnMenuBook
             // 
             btnMenuBook.BorderRadius = 10;
-            btnMenuBook.CustomizableEdges = customizableEdges31;
+            btnMenuBook.CustomizableEdges = customizableEdges13;
             btnMenuBook.DisabledState.BorderColor = Color.DarkGray;
             btnMenuBook.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuBook.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -269,7 +269,7 @@ namespace GUI
             btnMenuBook.ImageAlign = HorizontalAlignment.Left;
             btnMenuBook.Location = new Point(15, 80);
             btnMenuBook.Name = "btnMenuBook";
-            btnMenuBook.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            btnMenuBook.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnMenuBook.Size = new Size(208, 40);
             btnMenuBook.TabIndex = 4;
             btnMenuBook.Text = "Sách và giáo trình";
@@ -279,7 +279,7 @@ namespace GUI
             // btnMenuManagementAccount
             // 
             btnMenuManagementAccount.BorderRadius = 10;
-            btnMenuManagementAccount.CustomizableEdges = customizableEdges33;
+            btnMenuManagementAccount.CustomizableEdges = customizableEdges15;
             btnMenuManagementAccount.DisabledState.BorderColor = Color.DarkGray;
             btnMenuManagementAccount.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuManagementAccount.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -293,7 +293,7 @@ namespace GUI
             btnMenuManagementAccount.ImageAlign = HorizontalAlignment.Left;
             btnMenuManagementAccount.Location = new Point(15, 40);
             btnMenuManagementAccount.Name = "btnMenuManagementAccount";
-            btnMenuManagementAccount.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btnMenuManagementAccount.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnMenuManagementAccount.Size = new Size(208, 40);
             btnMenuManagementAccount.TabIndex = 3;
             btnMenuManagementAccount.Text = "Quản lý tài khoản";
@@ -303,7 +303,7 @@ namespace GUI
             // btnMenuHome
             // 
             btnMenuHome.BorderRadius = 10;
-            btnMenuHome.CustomizableEdges = customizableEdges35;
+            btnMenuHome.CustomizableEdges = customizableEdges17;
             btnMenuHome.DisabledState.BorderColor = Color.DarkGray;
             btnMenuHome.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenuHome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -317,7 +317,7 @@ namespace GUI
             btnMenuHome.ImageAlign = HorizontalAlignment.Left;
             btnMenuHome.Location = new Point(15, 0);
             btnMenuHome.Name = "btnMenuHome";
-            btnMenuHome.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnMenuHome.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnMenuHome.Size = new Size(208, 40);
             btnMenuHome.TabIndex = 2;
             btnMenuHome.Text = "Tổng quan";
@@ -412,7 +412,7 @@ namespace GUI
             lbHeaderRole.Name = "lbHeaderRole";
             lbHeaderRole.Size = new Size(150, 60);
             lbHeaderRole.TabIndex = 0;
-            lbHeaderRole.Text = "label1";
+            lbHeaderRole.Text = "Admin";
             lbHeaderRole.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pbContent

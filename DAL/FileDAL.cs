@@ -38,14 +38,39 @@ namespace DAL
                 return null;
             }
         }
-
         public bool AddNewFile(FilesDTO file)
         {
             try
             {
                 using (var context = new databaseContext.AppDBContext())
                 {
+                    var existing = context.Files.FirstOrDefault(f => f.FilePath == file.FilePath && f.FileName == file.FileName && f.FileSize == file.FileSize);
+                    if (existing != null) return false;
                     context.Files.Add(file);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateFile(FilesDTO file)
+        {
+            try
+            {
+                using (var context = new databaseContext.AppDBContext())
+                {
+                    var existing = context.Files.Find(file.Id);
+                    if (existing == null)
+                    {
+                        return AddNewFile(file);
+                    }
+                    existing.FileName = file.FileName;
+                    existing.FilePath = file.FilePath;
+                    existing.FileSize = file.FileSize;
                     context.SaveChanges();
                     return true;
                 }

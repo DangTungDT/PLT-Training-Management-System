@@ -21,9 +21,16 @@ namespace GUI.UserControls.Book
         private CategoryBLL _categoryBLL = new CategoryBLL();
         private FileBLL _fileBLL = new FileBLL();
         private BookFileBLL _bookFileBLL = new BookFileBLL();
+        private int _accountId = 2;
         public UcAddBook()
         {
             InitializeComponent();
+        }
+
+        public UcAddBook(int accountId)
+        {
+            InitializeComponent();
+            _accountId = accountId;
         }
 
         public int GetCountFileBook()
@@ -45,7 +52,11 @@ namespace GUI.UserControls.Book
                 PublishedYear = int.Parse(txtPublicYearBook.Text),
                 Description = txtDescription.Text,
                 DifficultyLevel = cboLevel.SelectedItem.ToString(),
-                CategoryId = (int)cbCategory.SelectedValue
+                CategoryId = (int)cbCategory.SelectedValue,
+                DateUpload = DateTime.Now,
+                PersonId = _accountId,
+                TotalRead = 0,
+                TotalDownload = 0
             };
         }
         private bool ValidateControls()
@@ -109,11 +120,6 @@ namespace GUI.UserControls.Book
             pnInputFileBook.Visible = false;
         }
 
-        private void GetAllDifficultyLevelOfBookForTheCombobox()
-        {
-            List<string> DifficultyLevels = _bookBLL.GetAllTheLevelNameOfTheBooks();
-            cboLevel.DataSource = DifficultyLevels;
-        }
 
         private void LoadCategoriesForCombobox()
         {
@@ -129,7 +135,6 @@ namespace GUI.UserControls.Book
             pnInputFileBook.Visible = false;
 
             LoadCategoriesForCombobox();
-            GetAllDifficultyLevelOfBookForTheCombobox();
         }
 
         private void lbInputFileBook_Click(object sender, EventArgs e)
@@ -241,12 +246,12 @@ namespace GUI.UserControls.Book
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
 
-            dgvFileBook.Rows.Add(nameFile, filePath ,capacityFile);
+            dgvFileBook.Rows.Add(nameFile, filePath, capacityFile);
         }
 
         public bool AddBookFile()
         {
-            foreach(DataGridViewRow row in dgvFileBook.Rows)
+            foreach (DataGridViewRow row in dgvFileBook.Rows)
             {
                 string fileName = row.Cells[0].Value?.ToString();
                 string filePath = row.Cells[1].Value?.ToString();
@@ -258,8 +263,8 @@ namespace GUI.UserControls.Book
                     double sizeTypeDouble = double.Parse(match.Groups[1].Value) * (1024.0 * 1024.0);
                     fileSize = Convert.ToInt32(sizeTypeDouble);
                 }
-                
-                
+
+
                 if (string.IsNullOrEmpty(fileName))
                 {
                     continue;
@@ -286,5 +291,24 @@ namespace GUI.UserControls.Book
             return true;
         }
 
+        private void txtAuthor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar)
+        && !char.IsWhiteSpace(e.KeyChar)
+        && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBookName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar)
+        && !char.IsWhiteSpace(e.KeyChar)
+        && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

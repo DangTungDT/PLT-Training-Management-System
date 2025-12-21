@@ -62,6 +62,7 @@
             btnAddBook.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAddBook.Size = new Size(207, 43);
             btnAddBook.TabIndex = 0;
+            btnAddBook.TabStop = false;
             btnAddBook.Text = "Lưu thêm mới";
             btnAddBook.Click += btnAddBook_Click;
             // 

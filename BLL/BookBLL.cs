@@ -15,6 +15,28 @@ namespace BLL
         {
             _bookDAL = new BookDAL();
         }
+        public bool PlusASummaryForTheBook(string bookName)
+        {
+            return _bookDAL.PlusASummaryForTheBook(bookName);
+        }
+
+        public bool DeleteAllRelationsOfBookByBookName(string bookName)
+        {
+            return _bookDAL.DeleteAllRelationsOfBookByBookName(bookName);
+        }
+        public bool DeleteBookByName(string bookId)
+        {
+            return _bookDAL.DeleteBookByName(bookId);
+        }
+
+        public bool UpdateBook(BookDTO book)
+        {
+            return _bookDAL.UpdateBook(book);
+        }
+        public BookDTO GetBookByName(string bookName)
+        {
+            return _bookDAL.GetBookByName(bookName);
+        }
         public bool AddNewBook(BookDTO book) 
         {             
             return _bookDAL.AddNewBook(book);

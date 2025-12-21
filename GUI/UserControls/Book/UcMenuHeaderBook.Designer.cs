@@ -68,6 +68,7 @@
             btnAddBook.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAddBook.Size = new Size(207, 43);
             btnAddBook.TabIndex = 0;
+            btnAddBook.TabStop = false;
             btnAddBook.Text = "Thêm sách mới";
             btnAddBook.TextAlign = HorizontalAlignment.Left;
             btnAddBook.Click += btnAddBook_Click;
@@ -107,6 +108,7 @@
             txtFindBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtFindBook.Size = new Size(444, 42);
             txtFindBook.TabIndex = 0;
+            txtFindBook.TabStop = false;
             // 
             // UcMenuHeaderBook
             // 

@@ -18,6 +18,7 @@ namespace DTO
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
+        public ICollection<BookDTO> Books { get; set; }
         public ICollection<AccountDTO> Accounts { get; set; }
         public ICollection<StudentDTO> Students { get; set; }
         public ICollection<TeacherDTO> Teachers { get; set; }

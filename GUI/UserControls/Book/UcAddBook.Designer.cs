@@ -278,6 +278,7 @@
             dgvFileBook.RowHeadersWidth = 51;
             dgvFileBook.Size = new Size(1036, 179);
             dgvFileBook.TabIndex = 4;
+            dgvFileBook.TabStop = false;
             // 
             // colName
             // 
@@ -347,6 +348,7 @@
             btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnChooseFile.Size = new Size(137, 48);
             btnChooseFile.TabIndex = 2;
+            btnChooseFile.TabStop = false;
             btnChooseFile.Text = "Chọn tệp tin";
             btnChooseFile.Click += btnChooseFile_Click;
             // 
@@ -457,7 +459,7 @@
             txtDescription.SelectedText = "";
             txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtDescription.Size = new Size(993, 96);
-            txtDescription.TabIndex = 15;
+            txtDescription.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -507,7 +509,7 @@
             cbCategory.Name = "cbCategory";
             cbCategory.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cbCategory.Size = new Size(492, 36);
-            cbCategory.TabIndex = 36;
+            cbCategory.TabIndex = 5;
             // 
             // txtPublicYearBook
             // 
@@ -525,7 +527,7 @@
             txtPublicYearBook.SelectedText = "";
             txtPublicYearBook.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtPublicYearBook.Size = new Size(492, 40);
-            txtPublicYearBook.TabIndex = 31;
+            txtPublicYearBook.TabIndex = 4;
             txtPublicYearBook.KeyPress += txtPublicYearBook_KeyPress;
             // 
             // cboLevel
@@ -541,12 +543,12 @@
             cboLevel.Font = new Font("Times New Roman", 11F);
             cboLevel.ForeColor = Color.FromArgb(68, 88, 112);
             cboLevel.ItemHeight = 30;
-            cboLevel.Items.AddRange(new object[] { "Chọn trình độ" });
+            cboLevel.Items.AddRange(new object[] { "Chọn trình độ", "Beginner", "Expert", "Advanced", "Intermediate" });
             cboLevel.Location = new Point(501, 233);
             cboLevel.Name = "cboLevel";
             cboLevel.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cboLevel.Size = new Size(492, 36);
-            cboLevel.TabIndex = 35;
+            cboLevel.TabIndex = 6;
             // 
             // lblLevel
             // 
@@ -581,7 +583,8 @@
             txtBookName.SelectedText = "";
             txtBookName.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtBookName.Size = new Size(492, 40);
-            txtBookName.TabIndex = 32;
+            txtBookName.TabIndex = 2;
+            txtBookName.KeyPress += txtBookName_KeyPress;
             // 
             // lblPublishYear
             // 
@@ -616,7 +619,7 @@
             txtISBN.SelectedText = "";
             txtISBN.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txtISBN.Size = new Size(492, 40);
-            txtISBN.TabIndex = 25;
+            txtISBN.TabIndex = 1;
             txtISBN.KeyPress += txtISBN_KeyPress;
             // 
             // lblAuthor
@@ -652,7 +655,8 @@
             txtAuthor.SelectedText = "";
             txtAuthor.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtAuthor.Size = new Size(492, 40);
-            txtAuthor.TabIndex = 27;
+            txtAuthor.TabIndex = 3;
+            txtAuthor.KeyPress += txtAuthor_KeyPress;
             // 
             // pbContentRight
             // 

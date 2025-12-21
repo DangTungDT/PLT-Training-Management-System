@@ -122,7 +122,9 @@
             btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnChooseFile.Size = new Size(137, 48);
             btnChooseFile.TabIndex = 2;
+            btnChooseFile.TabStop = false;
             btnChooseFile.Text = "Chọn tệp tin";
+            btnChooseFile.Click += btnChooseFile_Click;
             // 
             // label2
             // 
@@ -191,7 +193,7 @@
             txtDescription.SelectedText = "";
             txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtDescription.Size = new Size(1789, 96);
-            txtDescription.TabIndex = 15;
+            txtDescription.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -241,7 +243,7 @@
             cbCategory.Name = "cbCategory";
             cbCategory.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cbCategory.Size = new Size(492, 36);
-            cbCategory.TabIndex = 36;
+            cbCategory.TabIndex = 5;
             // 
             // txtPublicYearBook
             // 
@@ -259,7 +261,7 @@
             txtPublicYearBook.SelectedText = "";
             txtPublicYearBook.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtPublicYearBook.Size = new Size(492, 40);
-            txtPublicYearBook.TabIndex = 31;
+            txtPublicYearBook.TabIndex = 4;
             // 
             // cboLevel
             // 
@@ -279,7 +281,7 @@
             cboLevel.Name = "cboLevel";
             cboLevel.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cboLevel.Size = new Size(492, 36);
-            cboLevel.TabIndex = 35;
+            cboLevel.TabIndex = 6;
             // 
             // lblLevel
             // 
@@ -314,7 +316,8 @@
             txtBookName.SelectedText = "";
             txtBookName.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtBookName.Size = new Size(492, 40);
-            txtBookName.TabIndex = 32;
+            txtBookName.TabIndex = 2;
+            txtBookName.KeyPress += txtBookName_KeyPress;
             // 
             // lblPublishYear
             // 
@@ -349,7 +352,7 @@
             txtISBN.SelectedText = "";
             txtISBN.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtISBN.Size = new Size(492, 40);
-            txtISBN.TabIndex = 25;
+            txtISBN.TabIndex = 1;
             // 
             // lblAuthor
             // 
@@ -384,7 +387,8 @@
             txtAuthor.SelectedText = "";
             txtAuthor.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtAuthor.Size = new Size(492, 40);
-            txtAuthor.TabIndex = 27;
+            txtAuthor.TabIndex = 3;
+            txtAuthor.KeyPress += txtAuthor_KeyPress;
             // 
             // pbContentRight
             // 
@@ -430,6 +434,7 @@
             dgvFileBook.RowHeadersWidth = 51;
             dgvFileBook.Size = new Size(1036, 179);
             dgvFileBook.TabIndex = 4;
+            dgvFileBook.TabStop = false;
             // 
             // colName
             // 
@@ -482,6 +487,7 @@
             lbInputValueBook.Size = new Size(142, 22);
             lbInputValueBook.TabIndex = 0;
             lbInputValueBook.Text = "Thông tin cơ bản";
+            lbInputValueBook.Click += lbInputValueBook_Click;
             // 
             // lbContentFillHeader
             // 
@@ -514,6 +520,7 @@
             lbInputFileBook.Size = new Size(117, 22);
             lbInputFileBook.TabIndex = 0;
             lbInputFileBook.Text = "Tệp đính kèm";
+            lbInputFileBook.Click += lbInputFileBook_Click;
             // 
             // label1
             // 
@@ -553,6 +560,8 @@
             pnUploadFile.ShadowDecoration.CustomizableEdges = customizableEdges22;
             pnUploadFile.Size = new Size(976, 216);
             pnUploadFile.TabIndex = 4;
+            pnUploadFile.DragDrop += pnUploadFile_DragDrop;
+            pnUploadFile.DragEnter += pnUploadFile_DragEnter;
             // 
             // lblNote
             // 
@@ -663,6 +672,7 @@
             Controls.Add(pnHeader);
             Name = "UcEditBook";
             Size = new Size(1076, 747);
+            Load += UcEditBook_Load;
             pnInputValueBook.ResumeLayout(false);
             pnFill.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
