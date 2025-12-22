@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,7 +10,9 @@ namespace GUI.UserControls.Book
     {
         private int _position = -1;
         public event Action<int, int> DeleteFile;
+        public event Action<int> ActionReadFile;
         private int _fileId;
+        private FileBLL _fileBLL = new FileBLL();
         public ucFileOfBook(FilesDTO file, int positionOfList)
         {
             InitializeComponent();
@@ -17,7 +20,10 @@ namespace GUI.UserControls.Book
             _fileId = file.Id;
             SetData(file);
         }
-
+        public int GetFileId()
+        {
+            return _fileId;
+        }
         public void SetData(FilesDTO file)
         {
             if (file == null) return;
@@ -69,6 +75,20 @@ namespace GUI.UserControls.Book
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteFile?.Invoke(_fileId, _position);
+        }
+
+        private void lblFileName_DoubleClick(object sender, EventArgs e)
+        {
+            FilesDTO selectedFile = _fileBLL.GetFileById(_fileId);
+            if (selectedFile != null)
+            {
+                ActionReadFile?.Invoke(_fileId);
+            }
+            else
+            {
+                MessageBox.Show("File không tồn tại hoặc không thể mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

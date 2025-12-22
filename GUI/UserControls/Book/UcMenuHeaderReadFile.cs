@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace GUI.UserControls.Book
 {
-    public partial class UcMenuHeaderAddBook : UserControl
+    public partial class UcMenuHeaderReadFile : UserControl
     {
-        public event Action _ActionAddBook;
         public event Action ActionBackForm;
-        public UcMenuHeaderAddBook()
+        public UcMenuHeaderReadFile()
         {
             InitializeComponent();
-        }
-
-        private void btnAddBook_Click(object sender, EventArgs e)
-        {
-            _ActionAddBook?.Invoke();
         }
 
         private void btnBlack_Click(object sender, EventArgs e)

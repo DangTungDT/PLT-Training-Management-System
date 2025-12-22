@@ -133,6 +133,7 @@
             lblFileName.Size = new Size(211, 23);
             lblFileName.TabIndex = 1;
             lblFileName.Text = "Co-so-du-lieu-Oracle.pdf";
+            lblFileName.DoubleClick += lblFileName_DoubleClick;
             // 
             // picIcon
             // 

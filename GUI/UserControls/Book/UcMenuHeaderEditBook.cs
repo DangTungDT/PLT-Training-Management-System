@@ -13,6 +13,7 @@ namespace GUI.UserControls.Book
     public partial class UcMenuHeaderEditBook : UserControl
     {
         public event Action ActionEditBook;
+        public event Action ActionBackForm;
         public UcMenuHeaderEditBook()
         {
             InitializeComponent();
@@ -21,6 +22,11 @@ namespace GUI.UserControls.Book
         private void btnEditBook_Click(object sender, EventArgs e)
         {
             ActionEditBook?.Invoke();
+        }
+
+        private void btnBlack_Click(object sender, EventArgs e)
+        {
+            ActionBackForm?.Invoke();
         }
     }
 }

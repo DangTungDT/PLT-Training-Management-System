@@ -23,6 +23,8 @@ namespace GUI.UserControls.Book
         private FileBLL _fileBLL = new FileBLL();
         private PersonBLL _personBLL = new PersonBLL();
         public event Action<string> OpenUserControlEditBook;
+        public event Action<int> OpenUserControlReadFile;
+
 
         private bool flagLoadFile = false;
 
@@ -105,10 +107,16 @@ namespace GUI.UserControls.Book
                 ucFile.Dock = DockStyle.Top;
 
                 ucFile.DeleteFile += UcFileOfBook_ButtonDelete;
+                ucFile.ActionReadFile += ReadFileOfBook;
                 flpFiles.Controls.Add(ucFile);
 
                 positionForm++;
             }
+        }
+
+        private void ReadFileOfBook(int fileId)
+        {
+            OpenUserControlReadFile?.Invoke(fileId);
         }
         private void UcFileOfBook_ButtonDelete(int e, int position)
         {

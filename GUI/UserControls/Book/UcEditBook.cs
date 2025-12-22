@@ -162,13 +162,55 @@ namespace GUI.UserControls.Book
             {
                 dgvFileBook.Rows.Add(nameFile, filePath, capacityFile);
             }
+
+            string guiRootPath = Path.GetFullPath(
+                Path.Combine(Application.StartupPath, @"..\..\..\")
+            );
+            string filesFolderPath = Path.Combine(guiRootPath, "Files");
+            string destFilePath = Path.Combine(filesFolderPath, file.Name);
             FilesDTO newFile = new FilesDTO()
             {
                 FileName = nameFile,
-                FilePath = filePath,
-                FileSize = (int)file.Length
+                FilePath = destFilePath,
+                FileSize = (int)file.Length,
+                FileType = "pdf",
+                CreatedAt = DateTime.Now
             };
             _allNewFileAddedBook.Add(newFile);
+            SaveFileToProject(filePath);
+        }
+
+        private void SaveFileToProject(string filePath)
+        {
+
+            FileInfo file = new FileInfo(filePath);
+            string guiRootPath = Path.GetFullPath(
+                Path.Combine(Application.StartupPath, @"..\..\..\")
+            );
+
+            string filesFolderPath = Path.Combine(guiRootPath, "Files");
+
+            if (!Directory.Exists(filesFolderPath))
+            {
+                Directory.CreateDirectory(filesFolderPath);
+            }
+            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+
+            try
+            {
+                if (File.Exists(destFilePath))
+                    File.Delete(destFilePath);
+
+                File.Copy(file.FullName, destFilePath);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(
+                    "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         private void pnUploadFile_DragDrop(object sender, DragEventArgs e)
         {

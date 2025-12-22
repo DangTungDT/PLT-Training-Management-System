@@ -30,9 +30,14 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnEditBook = new Guna.UI2.WinForms.Guna2Button();
             panel1 = new Panel();
+            panel2 = new Panel();
+            btnBlack = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // btnEditBook
@@ -66,14 +71,48 @@
             panel1.Size = new Size(311, 64);
             panel1.TabIndex = 4;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnBlack);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(293, 64);
+            panel2.TabIndex = 5;
+            // 
+            // btnBlack
+            // 
+            btnBlack.CustomizableEdges = customizableEdges3;
+            btnBlack.DisabledState.BorderColor = Color.DarkGray;
+            btnBlack.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnBlack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnBlack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnBlack.Dock = DockStyle.Left;
+            btnBlack.FillColor = Color.White;
+            btnBlack.Font = new Font("Segoe UI", 9F);
+            btnBlack.ForeColor = Color.FromArgb(104, 116, 135);
+            btnBlack.Image = Properties.Resources.leftArrow;
+            btnBlack.ImageAlign = HorizontalAlignment.Left;
+            btnBlack.Location = new Point(0, 0);
+            btnBlack.Name = "btnBlack";
+            btnBlack.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnBlack.Size = new Size(150, 64);
+            btnBlack.TabIndex = 0;
+            btnBlack.Text = "Quay lại";
+            btnBlack.TextAlign = HorizontalAlignment.Left;
+            btnBlack.Click += btnBlack_Click;
+            // 
             // UcMenuHeaderEditBook
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "UcMenuHeaderEditBook";
             Size = new Size(926, 64);
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -81,5 +120,7 @@
 
         private Guna.UI2.WinForms.Guna2Button btnEditBook;
         private Panel panel1;
+        private Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button btnBlack;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using GUI.Helpers;
 using GUI.UserControls;
 using GUI.UserControls.Book;
 using Guna.UI2.WinForms;
@@ -22,6 +23,9 @@ namespace GUI
 
         private UcMenuHeaderReadBook _ucMenuHeaderReadBook;
         private UcReadBook _ucReadBook;
+
+        private UcReadFile _ucReadFile;
+        private ucFileOfBook _ucFileOfBook;
 
         private UcBook _ucBook;
         private BookBLL _bookBLL = new BookBLL();
@@ -46,20 +50,21 @@ namespace GUI
             pbHeaderContent.Controls.Add(_ucMenuHeaderAddBook);
 
             _ucMenuHeaderAddBook._ActionAddBook += AddBook;
+            _ucMenuHeaderAddBook.ActionBackForm += NavigatePop;
         }
 
-        private void BackFormBook()
+        private void LoadUcBook()
         {
             _ucBook = new UcBook();
             _ucBook.OpenUserControlEditBook += (string nameBook) =>
             {
                 _ucEditBook = new UcEditBook(nameBook);
-                LoadUcEditBook(_ucEditBook);
+                NavigatePush(_ucEditBook);
             };
             _ucBook.OpenUserControlReadBook += (string nameBook) =>
             {
                 _ucReadBook = new UcReadBook(nameBook);
-                LoadUcReadBook(_ucReadBook);
+                NavigatePush(_ucReadBook);
             };
             LoadUserControlForPanel(_ucBook, pbContent);
 
@@ -76,17 +81,11 @@ namespace GUI
                 DialogResult kq = MessageBox.Show("Thông tin chưa được thay đổi bạn vẫn muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(kq == DialogResult.Yes)
                 {
-                    _ucBook = new UcBook();
-                    _ucBook.OpenUserControlEditBook += (string nameBook) =>
-                    {
-                        _ucEditBook = new UcEditBook(nameBook);
-                        LoadUcEditBook(_ucEditBook);
-                    };
-                    LoadUserControlForPanel(_ucBook, pbContent);
-
-                    var header = new UcMenuHeaderBook();
-                    header.OpenContentRequested += LoadContentAddBook;
-                    LoadUserControlForPanel(header, pbHeaderContent);
+                    LoadUcBook();
+                    return; 
+                }
+                else
+                {
                     return;
                 }
             }
@@ -111,19 +110,10 @@ namespace GUI
                     }
                 }
                 MessageBox.Show("Cập nhật thành công!");
-                
-                //Reload lại danh sách sách
-                _ucBook = new UcBook();
-                _ucBook.OpenUserControlEditBook += (string nameBook) =>
-                {
-                    _ucEditBook = new UcEditBook(nameBook);
-                    LoadUcEditBook(_ucEditBook);
-                };
-                LoadUserControlForPanel(_ucBook, pbContent);
 
-                var header = new UcMenuHeaderBook();
-                header.OpenContentRequested += LoadContentAddBook;
-                LoadUserControlForPanel(header, pbHeaderContent);
+                //LoadUcBook();
+                Navigate.Instance.Clear();
+                NavigatePush(new UcBook());
             }
             else
             {
@@ -147,7 +137,7 @@ namespace GUI
             if (_bookBLL.AddNewBook(data))
             {
                 int quanlityFilesOfBook = _ucAddBook.GetCountFileBook();
-
+                
                 if (quanlityFilesOfBook > 0)
                 {
                     if (!_ucAddBook.AddBookFile())
@@ -156,18 +146,10 @@ namespace GUI
                     }
                 }
                 MessageBox.Show("Thêm sách mới thành công!");
-                
-                _ucBook = new UcBook();
-                _ucBook.OpenUserControlEditBook += (string nameBook) =>
-                {
-                    _ucEditBook = new UcEditBook(nameBook);
-                    LoadUcEditBook(_ucEditBook);
-                };
-                LoadUserControlForPanel(_ucBook, pbContent);
 
-                var header = new UcMenuHeaderBook();
-                header.OpenContentRequested += LoadContentAddBook;
-                LoadUserControlForPanel(header, pbHeaderContent);
+                //LoadUcBook();
+                Navigate.Instance.Clear();
+                NavigatePush(new UcBook());
             }
             else
             {
@@ -221,7 +203,7 @@ namespace GUI
             _menuBuottons = pnMenuContent.Controls.OfType<Guna2Button>().ToList();
 
             LoadResizeImageControl();
-            OpenUcEditBook();
+            //OpenUcEditBook();
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
@@ -237,38 +219,86 @@ namespace GUI
         private void btnMenuBook_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuBook);
-
-            _ucBook = new UcBook();
-            _ucBook.OpenUserControlEditBook += (string nameBook) =>
-            {
-                    _ucEditBook = new UcEditBook(nameBook);
-                LoadUcEditBook(_ucEditBook);
-            };
-            _ucBook.OpenUserControlReadBook += (string nameBook) =>
-            {
-                _ucReadBook = new UcReadBook(nameBook);
-                LoadUcReadBook(_ucReadBook);
-            };
-            LoadUserControlForPanel(_ucBook, pbContent);
-
-            var header = new UcMenuHeaderBook();
-            header.OpenContentRequested += LoadContentAddBook;
-            LoadUserControlForPanel(header, pbHeaderContent);
-
+            Navigate.Instance.Clear();
+            NavigatePush(new UcBook());
 
         }
 
-        private void OpenUcEditBook()
+        private void NavigatePush(UserControl uc)
         {
-            var ucEditBook = new UcBook();
-
-            ucEditBook.OpenUserControlEditBook += (string nameBook) =>
+            Navigate.Instance.PushIfNotSame(uc);
+            if(uc is UcBook)
             {
-                _ucEditBook = new UcEditBook(nameBook);
-                LoadUcEditBook(_ucEditBook);
-            };
+                LoadUcBook();
+            }
+            if(uc is UcAddBook)
+            {
+                LoadContentAddBook(uc);
+            }
+            else if(uc is UcEditBook)
+            {
+                LoadUcEditBook(uc);
+            }
+            else if(uc is UcReadBook)
+            {
+                LoadUcReadBook(uc);
+            }
+            else if (uc is UcReadFile)
+            {
+                LoadUcReadFile(uc);
+            }
+        }
+        private void NavigatePop()
+        {
+            var previous = Navigate.Instance.Pop();
+            if (previous != null)
+            {
+                previous = Navigate.Instance.Peek();
+                pbContent.Controls.Clear();
+                if(previous is UcBook)
+                {
+                    LoadUcBook();
+                    pbContent.Controls.Add(previous);
+                }
+                else
+                if (previous is UcAddBook)
+                {
+                    LoadContentAddBook(previous);
+                    pbContent.Controls.Add(previous);
+                }
+                else if (previous is UcEditBook)
+                {
+                    LoadUcEditBook(previous);
+                    pbContent.Controls.Add(previous);
+                }
+                else if (previous is UcReadBook)
+                {
+                    LoadUcReadBook(previous);
+                    pbContent.Controls.Add(previous);
+                }
+                else if (previous is UcReadFile)
+                {
+                    LoadUcReadFile(previous);
+                    pbContent.Controls.Add(previous);
+                }
+
+            }
+            
         }
 
+        private void LoadUcReadFile(UserControl uc)
+        {
+            _ucReadFile = uc as UcReadFile;
+            if (_ucReadFile == null) return;
+            pbContent.Controls.Clear();
+            _ucReadFile.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(_ucReadFile);
+            pbHeaderContent.Controls.Clear();
+            var header = new UcMenuHeaderReadFile();
+            header.ActionBackForm += NavigatePop;
+            header.Dock = DockStyle.Fill;
+            pbHeaderContent.Controls.Add(header);
+        }
         private void LoadUcEditBook(UserControl uc)
         {
             pbContent.Controls.Clear();
@@ -277,9 +307,9 @@ namespace GUI
             pbHeaderContent.Controls.Clear();
             var header = new UcMenuHeaderEditBook();
             header.ActionEditBook += EditBook;
+            header.ActionBackForm += NavigatePop;
             header.Dock = DockStyle.Fill;
             pbHeaderContent.Controls.Add(header);
-
         }
 
         private void LoadUcReadBook(UserControl uc)
@@ -295,14 +325,21 @@ namespace GUI
             _ucMenuHeaderReadBook.Dock = DockStyle.Fill;
             pbHeaderContent.Controls.Add(_ucMenuHeaderReadBook);
 
-            _ucMenuHeaderReadBook.ActionBackForm += BackFormBook;
+            _ucMenuHeaderReadBook.ActionBackForm += NavigatePop;
             _ucReadBook.OpenUserControlEditBook += GoToEditBook;
+            _ucReadBook.OpenUserControlReadFile += GoToReadFile;
+            
 
+        }
+        private void GoToReadFile(int fileID)
+        {
+            _ucReadFile = new UcReadFile(fileID);
+            NavigatePush(_ucReadFile);
         }
         private void GoToEditBook(string nameBook)
         {
             _ucEditBook = new UcEditBook(nameBook);
-            LoadUcEditBook(_ucEditBook);
+            NavigatePush(_ucEditBook);
         }
         private void btnMenuLessonPlan_Click(object sender, EventArgs e)
         {

@@ -33,6 +33,20 @@ namespace GUI.UserControls.Book
             _accountId = accountId;
         }
 
+        public List<string> GetFileNamesOfBook()
+        {
+            List<string> fileNames = new List<string>();
+            foreach (DataGridViewRow row in dgvFileBook.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var value = row.Cells[0].Value?.ToString();
+                if (!string.IsNullOrEmpty(value))
+                    fileNames.Add(value);
+            }
+            return fileNames;
+
+        }
         public int GetCountFileBook()
         {
             return dgvFileBook.Rows.Count;
@@ -246,7 +260,47 @@ namespace GUI.UserControls.Book
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
 
-            dgvFileBook.Rows.Add(nameFile, filePath, capacityFile);
+            string guiRootPath = Path.GetFullPath(
+                Path.Combine(Application.StartupPath, @"..\..\..\")
+            );
+            string filesFolderPath = Path.Combine(guiRootPath, "Files");
+            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+            dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
+            SaveFileToProject(filePath);
+        }
+
+
+        private void SaveFileToProject(string filePath)
+        {
+
+            FileInfo file = new FileInfo(filePath);
+            string guiRootPath = Path.GetFullPath(
+                Path.Combine(Application.StartupPath, @"..\..\..\")
+            );
+
+            string filesFolderPath = Path.Combine(guiRootPath, "Files");
+
+            if (!Directory.Exists(filesFolderPath))
+            {
+                Directory.CreateDirectory(filesFolderPath);
+            }
+            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+
+            try
+            {
+                if (File.Exists(destFilePath))
+                    File.Delete(destFilePath);
+
+                File.Copy(file.FullName, destFilePath);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(
+                    "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         public bool AddBookFile()
@@ -269,10 +323,15 @@ namespace GUI.UserControls.Book
                 {
                     continue;
                 }
+                string guiRootPath = Path.GetFullPath(
+                                        Path.Combine(Application.StartupPath, @"..\..\..\")
+                                        );
+                string filesFolderPath = Path.Combine(guiRootPath, "Files");
+                string destFilePath = Path.Combine(filesFolderPath, fileName);
                 FilesDTO filePDF = new FilesDTO
                 {
                     FileName = fileName,
-                    FilePath = filePath,
+                    FilePath = destFilePath,
                     FileType = "pdf",
                     FileSize = fileSize,
                     CreatedAt = DateTime.Now
