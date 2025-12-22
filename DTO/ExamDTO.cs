@@ -19,6 +19,7 @@ namespace DTO
         public int SemesterId { get; set; }
         public SemesterDTO Semester { get; set; }
         public int Year { get; set; }
+        public string Status { get; set; }
 
         public ICollection<ExamFileDTO> ExamFiles { get; set; }
         public ICollection<QuestionDTO> Questions { get; set; }
