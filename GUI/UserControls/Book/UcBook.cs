@@ -19,6 +19,8 @@ namespace GUI.UserControls
         private int _pageIndex = 1;
         private int _pageSize = 10;
         private int _totalBooks = 0;
+        public event Action<string> OpenUserControlEditBook;
+        public event Action<string> OpenUserControlReadBook;
         public UcBook()
         {
             InitializeComponent();
@@ -107,7 +109,7 @@ namespace GUI.UserControls
                 foreach (var book in _books)
                 {
                     dgvBooks.Rows.Add(
-                        $"{book.Name}\n{book.ISBN}",
+                        $"{book.Name}",
                         $"{book.Author}",
                         book.Category != null ? book.Category.Name : "",
                         book.PublishedYear,
@@ -233,16 +235,28 @@ namespace GUI.UserControls
             DataGridViewRow row = dgvBooks.Rows[e.RowIndex];
             if (nameOfColumn == "colEdit")
             {
-
+                OpenUserControlEditBook?.Invoke(booknameSeleteced);
             }
             else if (nameOfColumn == "colDelete")
             {
-
+                var result = MessageBox.Show($"Bạn có chắc chắn muốn xóa sách '{booknameSeleteced}'?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    bool isDeleted = _bookBLL.DeleteAllRelationsOfBookByBookName(booknameSeleteced);
+                    if (isDeleted)
+                    {
+                        MessageBox.Show($"Xóa sách '{booknameSeleteced}' thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridViewBook();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa sách '{booknameSeleteced}' thất bại.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else if (nameOfColumn == "colView")
             {
-
-
+                OpenUserControlReadBook?.Invoke(booknameSeleteced);
             }
         }
 

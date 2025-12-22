@@ -16,6 +16,12 @@ namespace DTO
         public string Description { get; set; }
         public string DifficultyLevel { get; set; }
         public int CategoryId { get; set; }
+        public DateTime DateUpload { get; set; }
+        public int PersonId { get; set; }
+        public int TotalRead { get; set; }
+        public int TotalDownload { get; set; }
+
+        public PersonDTO Person { get; set; }
         public CategoryDTO Category { get; set; }
         public ICollection<BookFileDTO> BookFiles { get; set; }
 

@@ -15,10 +15,31 @@ namespace BLL
         {
             _bookDAL = new BookDAL();
         }
-
-        public int GetQuantityBookByDifficultyLevel(string difficultyLevel)
+        public bool PlusASummaryForTheBook(string bookName)
         {
-            return _bookDAL.GetQuantityBookByDifficultyLevel(difficultyLevel);
+            return _bookDAL.PlusASummaryForTheBook(bookName);
+        }
+
+        public bool DeleteAllRelationsOfBookByBookName(string bookName)
+        {
+            return _bookDAL.DeleteAllRelationsOfBookByBookName(bookName);
+        }
+        public bool DeleteBookByName(string bookId)
+        {
+            return _bookDAL.DeleteBookByName(bookId);
+        }
+
+        public bool UpdateBook(BookDTO book)
+        {
+            return _bookDAL.UpdateBook(book);
+        }
+        public BookDTO GetBookByName(string bookName)
+        {
+            return _bookDAL.GetBookByName(bookName);
+        }
+        public bool AddNewBook(BookDTO book) 
+        {             
+            return _bookDAL.AddNewBook(book);
         }
         public List<string> GetAllTheLevelNameOfTheBooks()
         {
@@ -28,17 +49,14 @@ namespace BLL
         {
             return _bookDAL.GetQuantityOfAllBooks(dateCreateBook, difficultyLevels);
         }
-        public IEnumerable<BookDTO> GetBooksByDifficultyLevel(string difficultyLevel, int pageIndex, int pageSize)
-        {
-            return _bookDAL.GetBooksByDifficultyLevel(difficultyLevel, pageIndex, pageSize);
-        }
         public IEnumerable<BookDTO> GetBookforPage(DateTime? dateCreateBook, string difficultyLevels,int pageIndex, int pageSize)
         {
             return _bookDAL.GetBookforPage(dateCreateBook, difficultyLevels, pageIndex, pageSize);
         }
-        public IEnumerable<BookDTO> GetAll()
+
+        public int GetIdbyBookName(string bookName)
         {
-            return _bookDAL.GetAll();
+            return _bookDAL.GetIdbyBookName(bookName);
         }
     }
 }

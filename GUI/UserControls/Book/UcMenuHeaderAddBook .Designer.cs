@@ -1,6 +1,6 @@
-﻿namespace GUI.UserControls
+﻿namespace GUI.UserControls.Book
 {
-    partial class UcMenuHeaderBook
+    partial class UcMenuHeaderAddBook
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,7 +35,7 @@
             panel1 = new Panel();
             btnAddBook = new Guna.UI2.WinForms.Guna2Button();
             panel2 = new Panel();
-            txtFindBook = new Guna.UI2.WinForms.Guna2TextBox();
+            btnBlack = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -47,7 +47,7 @@
             panel1.Location = new Point(615, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(311, 64);
-            panel1.TabIndex = 1;
+            panel1.TabIndex = 3;
             // 
             // btnAddBook
             // 
@@ -60,7 +60,6 @@
             btnAddBook.FillColor = Color.FromArgb(60, 131, 246);
             btnAddBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAddBook.ForeColor = Color.White;
-            btnAddBook.Image = Properties.Resources.add;
             btnAddBook.ImageAlign = HorizontalAlignment.Left;
             btnAddBook.ImageSize = new Size(24, 24);
             btnAddBook.Location = new Point(85, 10);
@@ -69,54 +68,48 @@
             btnAddBook.Size = new Size(207, 43);
             btnAddBook.TabIndex = 0;
             btnAddBook.TabStop = false;
-            btnAddBook.Text = "Thêm sách mới";
-            btnAddBook.TextAlign = HorizontalAlignment.Left;
+            btnAddBook.Text = "Lưu thêm mới";
             btnAddBook.Click += btnAddBook_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(txtFindBook);
+            panel2.Controls.Add(btnBlack);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(471, 64);
-            panel2.TabIndex = 2;
+            panel2.Size = new Size(293, 64);
+            panel2.TabIndex = 4;
             // 
-            // txtFindBook
+            // btnBlack
             // 
-            txtFindBook.BorderColor = Color.FromArgb(248, 250, 252);
-            txtFindBook.BorderRadius = 10;
-            txtFindBook.CustomizableEdges = customizableEdges3;
-            txtFindBook.DefaultText = "";
-            txtFindBook.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtFindBook.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtFindBook.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtFindBook.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtFindBook.FillColor = Color.FromArgb(248, 250, 252);
-            txtFindBook.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFindBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtFindBook.ForeColor = Color.Black;
-            txtFindBook.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFindBook.IconLeft = Properties.Resources.magnifyingGlass;
-            txtFindBook.IconLeftSize = new Size(24, 24);
-            txtFindBook.Location = new Point(19, 11);
-            txtFindBook.Margin = new Padding(4);
-            txtFindBook.Name = "txtFindBook";
-            txtFindBook.PlaceholderForeColor = Color.FromArgb(64, 64, 64);
-            txtFindBook.PlaceholderText = "Tìm kiếm sách, tác giả, môn học....";
-            txtFindBook.SelectedText = "";
-            txtFindBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtFindBook.Size = new Size(444, 42);
-            txtFindBook.TabIndex = 0;
-            txtFindBook.TabStop = false;
+            btnBlack.CustomizableEdges = customizableEdges3;
+            btnBlack.DisabledState.BorderColor = Color.DarkGray;
+            btnBlack.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnBlack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnBlack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnBlack.Dock = DockStyle.Left;
+            btnBlack.FillColor = Color.White;
+            btnBlack.Font = new Font("Segoe UI", 9F);
+            btnBlack.ForeColor = Color.FromArgb(104, 116, 135);
+            btnBlack.Image = Properties.Resources.leftArrow;
+            btnBlack.ImageAlign = HorizontalAlignment.Left;
+            btnBlack.Location = new Point(0, 0);
+            btnBlack.Name = "btnBlack";
+            btnBlack.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnBlack.Size = new Size(150, 64);
+            btnBlack.TabIndex = 0;
+            btnBlack.Text = "Quay lại";
+            btnBlack.TextAlign = HorizontalAlignment.Left;
+            btnBlack.Click += btnBlack_Click;
             // 
-            // UcMenuHeaderBook
+            // UcMenuHeaderAddBook
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "UcMenuHeaderBook";
+            Name = "UcMenuHeaderAddBook";
             Size = new Size(926, 64);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -126,8 +119,8 @@
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
         private Guna.UI2.WinForms.Guna2Button btnAddBook;
-        private Guna.UI2.WinForms.Guna2TextBox txtFindBook;
+        private Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button btnBlack;
     }
 }

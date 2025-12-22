@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20251215134532_InitialCreate")]
+    [Migration("20251221094559_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -118,6 +118,9 @@ namespace DAL.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DateUpload")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -134,7 +137,16 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PublishedYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalDownload")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalRead")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -148,6 +160,8 @@ namespace DAL.Migrations
 
                     b.HasIndex("Name")
                         .IsUnique();
+
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Book", (string)null);
                 });
@@ -1258,7 +1272,15 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("DTO.PersonDTO", "Person")
+                        .WithMany("Books")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("DTO.BookFileDTO", b =>
@@ -1921,6 +1943,8 @@ namespace DAL.Migrations
             modelBuilder.Entity("DTO.PersonDTO", b =>
                 {
                     b.Navigation("Accounts");
+
+                    b.Navigation("Books");
 
                     b.Navigation("Students");
 

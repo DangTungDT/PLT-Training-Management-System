@@ -10,6 +10,143 @@ namespace DAL
 {
     public class BookDAL
     {
+        public bool PlusASummaryForTheBook(string bookName)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books.FirstOrDefault(x => x.Name == bookName);
+                    if (book == null) return false;
+                    book.TotalRead++;
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteAllRelationsOfBookByBookName(string bookName)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books.Where(x=> x.Name == bookName).FirstOrDefault();
+                    if (book == null) return false;
+                    var relationBookFile = context.Book_Files.Where(bf => bf.BookId == book.Id).ToList();
+                    context.Book_Files.RemoveRange(relationBookFile);
+                    context.Books.Remove(book);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteBookByName(string bookName)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books.Where(x=> x.Name == bookName).FirstOrDefault();
+                    if (book == null) return false;
+                    context.Books.Remove(book);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateBook(BookDTO book)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    var existing = context.Books.Find(book.Id);
+                    if (existing == null) return false;
+                    existing.ISBN = book.ISBN;
+                    existing.Name = book.Name;
+                    existing.Author = book.Author;
+                    existing.PublishedYear = book.PublishedYear;
+                    existing.Description = book.Description;
+                    existing.DifficultyLevel = book.DifficultyLevel;
+                    existing.CategoryId = book.CategoryId;
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public BookDTO GetBookByName(string bookName)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    return context.Books
+                        .Include(b => b.Category)
+                        .Include(b => b.BookFiles)
+                        .FirstOrDefault(b => b.Name == bookName);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public bool AddNewBook(BookDTO book)
+        {
+            try
+            {
+                using(var context = new databaseContext.AppDBContext())
+                {
+                    context.Books.Add(book);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public int GetIdbyBookName(string bookName)
+        {
+            try
+            {
+                using (var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books
+                        .FirstOrDefault(b => b.Name == bookName);
+                    if (book != null)
+                    {
+                        return book.Id;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+        }
         public int GetQuantityBookByDifficultyLevel(string difficultyLevel)
         {
             try
