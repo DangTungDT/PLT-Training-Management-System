@@ -504,6 +504,7 @@ namespace DAL.Migrations
                     CourseId = table.Column<int>(type: "int", nullable: false),
                     SemesterId = table.Column<int>(type: "int", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CourseDTOId = table.Column<int>(type: "int", nullable: true),
                     SemesterDTOId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -532,6 +533,30 @@ namespace DAL.Migrations
                         principalTable: "Semester",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CourseClassDTO",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CourseClassDTO", x => new { x.CourseId, x.ClassId });
+                    table.ForeignKey(
+                        name: "FK_CourseClassDTO_Class_ClassId",
+                        column: x => x.ClassId,
+                        principalTable: "Class",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CourseClassDTO_Course_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Course",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -1200,6 +1225,11 @@ namespace DAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CourseClassDTO_ClassId",
+                table: "CourseClassDTO",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Exam_CourseDTOId",
                 table: "Exam",
                 column: "CourseDTOId");
@@ -1573,6 +1603,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Book_File");
+
+            migrationBuilder.DropTable(
+                name: "CourseClassDTO");
 
             migrationBuilder.DropTable(
                 name: "Exam_File");

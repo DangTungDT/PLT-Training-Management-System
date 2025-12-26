@@ -63,7 +63,6 @@ namespace GUI
             panel3 = new Panel();
             panel1 = new Panel();
             pnMenuLogo = new Panel();
-            lbLogo = new Label();
             pbLogo = new PictureBox();
             pbHeader = new Panel();
             pbHeaderContent = new Panel();
@@ -118,7 +117,7 @@ namespace GUI
             btnMenuExercise.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExercise.Dock = DockStyle.Top;
             btnMenuExercise.FillColor = Color.Transparent;
-            btnMenuExercise.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuExercise.Font = new Font("Segoe UI", 12F);
             btnMenuExercise.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuExercise.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuExercise.Image = Properties.Resources.homework;
@@ -142,7 +141,7 @@ namespace GUI
             btnMenuExam.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExam.Dock = DockStyle.Top;
             btnMenuExam.FillColor = Color.Transparent;
-            btnMenuExam.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuExam.Font = new Font("Segoe UI", 12F);
             btnMenuExam.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuExam.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuExam.Image = Properties.Resources.exam;
@@ -166,7 +165,7 @@ namespace GUI
             btnMenuResearchTopic.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuResearchTopic.Dock = DockStyle.Top;
             btnMenuResearchTopic.FillColor = Color.Transparent;
-            btnMenuResearchTopic.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuResearchTopic.Font = new Font("Segoe UI", 12F);
             btnMenuResearchTopic.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuResearchTopic.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuResearchTopic.Image = Properties.Resources.idea;
@@ -190,7 +189,7 @@ namespace GUI
             btnMenuScore.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuScore.Dock = DockStyle.Top;
             btnMenuScore.FillColor = Color.Transparent;
-            btnMenuScore.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuScore.Font = new Font("Segoe UI", 12F);
             btnMenuScore.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuScore.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuScore.Image = Properties.Resources.score;
@@ -214,7 +213,7 @@ namespace GUI
             btnMenuCalendar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuCalendar.Dock = DockStyle.Top;
             btnMenuCalendar.FillColor = Color.Transparent;
-            btnMenuCalendar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuCalendar.Font = new Font("Segoe UI", 12F);
             btnMenuCalendar.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuCalendar.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuCalendar.Image = Properties.Resources.calendar;
@@ -238,7 +237,7 @@ namespace GUI
             btnMenuLessonPlan.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuLessonPlan.Dock = DockStyle.Top;
             btnMenuLessonPlan.FillColor = Color.Transparent;
-            btnMenuLessonPlan.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuLessonPlan.Font = new Font("Segoe UI", 12F);
             btnMenuLessonPlan.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuLessonPlan.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuLessonPlan.Image = Properties.Resources.lessonPlan;
@@ -262,7 +261,7 @@ namespace GUI
             btnMenuBook.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuBook.Dock = DockStyle.Top;
             btnMenuBook.FillColor = Color.Transparent;
-            btnMenuBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuBook.Font = new Font("Segoe UI", 12F);
             btnMenuBook.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuBook.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuBook.Image = Properties.Resources.book;
@@ -286,7 +285,7 @@ namespace GUI
             btnMenuManagementAccount.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuManagementAccount.Dock = DockStyle.Top;
             btnMenuManagementAccount.FillColor = Color.Transparent;
-            btnMenuManagementAccount.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuManagementAccount.Font = new Font("Segoe UI", 12F);
             btnMenuManagementAccount.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuManagementAccount.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuManagementAccount.Image = Properties.Resources.user;
@@ -310,7 +309,7 @@ namespace GUI
             btnMenuHome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuHome.Dock = DockStyle.Top;
             btnMenuHome.FillColor = Color.Transparent;
-            btnMenuHome.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenuHome.Font = new Font("Segoe UI", 12F);
             btnMenuHome.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuHome.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuHome.Image = Properties.Resources.home;
@@ -351,7 +350,6 @@ namespace GUI
             // pnMenuLogo
             // 
             pnMenuLogo.BackColor = Color.White;
-            pnMenuLogo.Controls.Add(lbLogo);
             pnMenuLogo.Controls.Add(pbLogo);
             pnMenuLogo.Dock = DockStyle.Top;
             pnMenuLogo.Location = new Point(0, 0);
@@ -359,26 +357,14 @@ namespace GUI
             pnMenuLogo.Size = new Size(238, 64);
             pnMenuLogo.TabIndex = 0;
             // 
-            // lbLogo
-            // 
-            lbLogo.BackColor = Color.White;
-            lbLogo.Dock = DockStyle.Fill;
-            lbLogo.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLogo.Location = new Point(125, 0);
-            lbLogo.Name = "lbLogo";
-            lbLogo.Size = new Size(113, 64);
-            lbLogo.TabIndex = 1;
-            lbLogo.Text = "PTM";
-            lbLogo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pbLogo
             // 
             pbLogo.BackColor = Color.White;
-            pbLogo.Dock = DockStyle.Left;
+            pbLogo.Dock = DockStyle.Fill;
             pbLogo.Image = Properties.Resources.card;
             pbLogo.Location = new Point(0, 0);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(125, 64);
+            pbLogo.Size = new Size(238, 64);
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogo.TabIndex = 0;
             pbLogo.TabStop = false;
@@ -406,7 +392,7 @@ namespace GUI
             // lbHeaderRole
             // 
             lbHeaderRole.Dock = DockStyle.Right;
-            lbHeaderRole.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbHeaderRole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbHeaderRole.ImageAlign = ContentAlignment.MiddleLeft;
             lbHeaderRole.Location = new Point(922, 0);
             lbHeaderRole.Name = "lbHeaderRole";
@@ -448,7 +434,6 @@ namespace GUI
         private Panel pnMenu;
         private Panel pbHeader;
         private Panel pnMenuLogo;
-        private Label lbLogo;
         private PictureBox pbLogo;
         private Label lbHeaderRole;
         private Panel pbHeaderContent;

@@ -12,6 +12,7 @@ namespace DTO
         public string ExamName { get; set; }
         public string CourseName { get; set; }
         public string SchoolName { get; set; }
+        public string ClassName { get; set; }
         public string ExamType { get; set; }
         public int Duration { get; set; }
         public int QuestionCount { get; set; }

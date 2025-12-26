@@ -26,5 +26,14 @@ namespace BLL
         {
             return _courseDAL.GetById(id);
         }
+
+        public List<CourseDTO> GetAllBySemesterId(int semesterId)
+        {
+            if (semesterId <= 0)
+                throw new ArgumentException("Semester id không được bé hơn 1", nameof(semesterId));
+
+            return _courseDAL.GetAllBySemesterId(semesterId);
+        }
+
     }
 }

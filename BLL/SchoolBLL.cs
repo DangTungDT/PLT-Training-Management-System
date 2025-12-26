@@ -24,7 +24,7 @@ namespace BLL
 
         public SchoolDTO GetSchoolById(int id)
         {
-            return _schoolDAL.GetById(id);
+            return _schoolDAL.GetSchoolById(id);
         }
     }
 }

@@ -29,15 +29,22 @@ namespace GUI.UserControls.Book
         }
         private void LoadPdfToPanel(string filePath)
         {
-            panelFillContent.Controls.Clear();
-            panelFillContent.AutoScroll = true;
+            try
+            {
+                panelFillContent.Controls.Clear();
+                panelFillContent.AutoScroll = true;
 
-            _pdfDocument = PdfDocument.Load(filePath);
-            _totalPages = _pdfDocument.PageCount;
-            lbTotalPage.Text = $"{_totalPages}";
-            _currentPage = 0;
+                _pdfDocument = PdfDocument.Load(filePath);
+                _totalPages = _pdfDocument.PageCount;
+                lbTotalPage.Text = $"{_totalPages}";
+                _currentPage = 0;
 
-            RenderPage(_currentPage);
+                RenderPage(_currentPage);
+            }
+            catch
+            {
+                MessageBox.Show("Tài liệu hiện không tồn tại hoặc không tìm thấy!", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void RenderPage(int pageIndex)
         {

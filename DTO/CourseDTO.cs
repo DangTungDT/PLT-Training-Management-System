@@ -19,6 +19,7 @@ namespace DTO
         public int SemesterId { get; set; }
         public SemesterDTO Semester { get; set; }
 
+        public ICollection<CourseClassDTO> CourseClasses { get; set; }
         public ICollection<AssignmentDTO> Assignments { get; set; }
         public ICollection<TeachingScheduleDTO> TeachingSchedules { get; set; }
         public ICollection<LessonPlanDTO> LessonPlans { get; set; }

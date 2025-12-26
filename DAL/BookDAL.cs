@@ -10,6 +10,22 @@ namespace DAL
 {
     public class BookDAL
     {
+        public bool CheckISBNAlreadyExists(string newISBN)
+        {
+            try
+            {
+                using (var context = new databaseContext.AppDBContext())
+                {
+                    var book = context.Books.FirstOrDefault(x => x.ISBN == newISBN);
+                    if (book != null) return false;
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public bool PlusASummaryForTheBook(string bookName)
         {
             try
@@ -202,53 +218,37 @@ namespace DAL
                 return null;
             }
         }
-        public IEnumerable<BookDTO> GetBookforPage(DateTime? dateCreateBook, string difficultyLevels, int pageIndex, int pageSize)
+
+        public IEnumerable<BookDTO> GetBookforPage(string nameBookOrAuthor, DateTime? dateCreateBook, string difficultyLevels, int pageIndex, int pageSize)
         {
             try
             {
-                using(var context = new databaseContext.AppDBContext())
+                using (var context = new databaseContext.AppDBContext())
                 {
-                    if(dateCreateBook == null && difficultyLevels == "Tất cả")
+                    IQueryable<BookDTO> query = context.Books
+                        .Include(b => b.Category)
+                        .Include(b => b.BookFiles);
+                    if (!string.IsNullOrWhiteSpace(nameBookOrAuthor))
                     {
-                        return context.Books
-                            .Include(b => b.Category)
-                            .Include(b => b.BookFiles)
-                                    .OrderBy(c => c.Id)
-                                    .Skip((pageIndex - 1) * pageSize)
-                                    .Take(pageSize).ToList();
+                        query = query.Where(b =>
+                            b.Name.Contains(nameBookOrAuthor) ||
+                            b.Author.Contains(nameBookOrAuthor));
                     }
-                    else if(dateCreateBook != null && difficultyLevels == "Tất cả")
+                    if (dateCreateBook.HasValue)
                     {
                         int yearCreateBook = dateCreateBook.Value.Year;
-                        return context.Books
-                            .Include(b => b.Category)
-                            .Include(b => b.BookFiles)
-                            .Where(b => b.PublishedYear == yearCreateBook)
-                                    .OrderBy(c => c.Id)
-                                    .Skip((pageIndex - 1) * pageSize)
-                                    .Take(pageSize).ToList();
-                    } else if(dateCreateBook == null && difficultyLevels != "Tất cả")
-                    {
-                        return context.Books
-                            .Include(b => b.Category)
-                            .Include(b => b.BookFiles)
-                            .Where(b => b.DifficultyLevel == difficultyLevels)
-                                    .OrderBy(c => c.Id)
-                                    .Skip((pageIndex - 1) * pageSize)
-                                    .Take(pageSize).ToList();
+                        query = query.Where(b => b.PublishedYear == yearCreateBook);
                     }
-                    else
+                    if (!string.IsNullOrWhiteSpace(difficultyLevels)
+                        && difficultyLevels != "Tất cả")
                     {
-                        int yearCreateBook = dateCreateBook.Value.Year;
-                        return context.Books
-                            .Include(b => b.Category)
-                            .Include(b => b.BookFiles)
-                            .Where(b => b.PublishedYear == yearCreateBook
-                                        && b.DifficultyLevel == difficultyLevels)
-                                    .OrderBy(c => c.Id)
-                                    .Skip((pageIndex - 1) * pageSize)
-                                    .Take(pageSize).ToList();
+                        query = query.Where(b => b.DifficultyLevel == difficultyLevels);
                     }
+                    return query
+                        .OrderBy(b => b.Id)
+                        .Skip((pageIndex - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToList();
                 }
             }
             catch
@@ -256,6 +256,61 @@ namespace DAL
                 return null;
             }
         }
+
+        //public IEnumerable<BookDTO> GetBookforPage(string nameBookOrAuthor, DateTime? dateCreateBook, string difficultyLevels, int pageIndex, int pageSize)
+        //{
+        //    try
+        //    {
+        //        using(var context = new databaseContext.AppDBContext())
+        //        {
+        //            if(dateCreateBook == null && difficultyLevels == "Tất cả")
+        //            {
+        //                return context.Books
+        //                    .Include(b => b.Category)
+        //                    .Include(b => b.BookFiles)
+        //                            .OrderBy(c => c.Id)
+        //                            .Skip((pageIndex - 1) * pageSize)
+        //                            .Take(pageSize).ToList();
+        //            }
+        //            else if(dateCreateBook != null && difficultyLevels == "Tất cả")
+        //            {
+        //                int yearCreateBook = dateCreateBook.Value.Year;
+        //                return context.Books
+        //                    .Include(b => b.Category)
+        //                    .Include(b => b.BookFiles)
+        //                    .Where(b => b.PublishedYear == yearCreateBook)
+        //                            .OrderBy(c => c.Id)
+        //                            .Skip((pageIndex - 1) * pageSize)
+        //                            .Take(pageSize).ToList();
+        //            } else if(dateCreateBook == null && difficultyLevels != "Tất cả")
+        //            {
+        //                return context.Books
+        //                    .Include(b => b.Category)
+        //                    .Include(b => b.BookFiles)
+        //                    .Where(b => b.DifficultyLevel == difficultyLevels)
+        //                            .OrderBy(c => c.Id)
+        //                            .Skip((pageIndex - 1) * pageSize)
+        //                            .Take(pageSize).ToList();
+        //            }
+        //            else
+        //            {
+        //                int yearCreateBook = dateCreateBook.Value.Year;
+        //                return context.Books
+        //                    .Include(b => b.Category)
+        //                    .Include(b => b.BookFiles)
+        //                    .Where(b => b.PublishedYear == yearCreateBook
+        //                                && b.DifficultyLevel == difficultyLevels)
+        //                            .OrderBy(c => c.Id)
+        //                            .Skip((pageIndex - 1) * pageSize)
+        //                            .Take(pageSize).ToList();
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
 
         public int GetQuantityOfAllBooks(DateTime? dateCreateBook, string difficultyLevels)
         {

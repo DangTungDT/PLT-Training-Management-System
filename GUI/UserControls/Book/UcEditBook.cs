@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -198,10 +199,10 @@ namespace GUI.UserControls.Book
 
             try
             {
-                if (File.Exists(destFilePath))
-                    File.Delete(destFilePath);
+                if (System.IO.File.Exists(destFilePath))
+                    System.IO.File.Delete(destFilePath);
 
-                File.Copy(file.FullName, destFilePath);
+                System.IO.File.Copy(file.FullName, destFilePath);
             }
             catch (IOException ex)
             {
@@ -232,15 +233,28 @@ namespace GUI.UserControls.Book
 
             HandleSelectedFile(filePath);
         }
+        private bool ContainsSpecialCharacter(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+
+            return Regex.IsMatch(input, @"[^a-zA-Z0-9\sÀ-ỹ]");
+        }
         private bool ValidateControls()
         {
-            // Kiểm tra các TextBox bắt buộc không được để trống
             if (string.IsNullOrWhiteSpace(txtISBN.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã ISBN.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtISBN.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtISBN.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong ISBN.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtISBN.Focus();
+                return false;
+            }
+
 
             if (string.IsNullOrWhiteSpace(txtBookName.Text))
             {
@@ -248,6 +262,13 @@ namespace GUI.UserControls.Book
                 txtBookName.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtBookName.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong tên sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBookName.Focus();
+                return false;
+            }
+
 
             if (string.IsNullOrWhiteSpace(txtAuthor.Text))
             {
@@ -255,23 +276,30 @@ namespace GUI.UserControls.Book
                 txtAuthor.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtAuthor.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong tên tác giả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAuthor.Focus();
+                return false;
+            }
 
-            // Kiểm tra giá trị của ComboBox cbCategory
-            if (cbCategory.SelectedValue == null || string.IsNullOrEmpty(cbCategory.SelectedValue.ToString()) || (int)cbCategory.SelectedValue < 1)
+
+            if (cbCategory.SelectedValue == null
+                || !int.TryParse(cbCategory.SelectedValue.ToString(), out int categoryId)
+                || categoryId < 1)
             {
                 MessageBox.Show("Vui lòng chọn danh mục hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbCategory.Focus();
                 return false;
             }
 
-            // Kiểm tra trường txtPublicYearBook
+
             if (!int.TryParse(txtPublicYearBook.Text, out int publishedYear))
             {
                 MessageBox.Show("Năm xuất bản phải là số nguyên hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPublicYearBook.Focus();
                 return false;
             }
-
             int currentYear = DateTime.Now.Year;
             if (publishedYear < 1 || publishedYear > currentYear)
             {
@@ -280,7 +308,6 @@ namespace GUI.UserControls.Book
                 return false;
             }
 
-            // Tất cả các kiểm tra đều hợp lệ
             return true;
         }
 

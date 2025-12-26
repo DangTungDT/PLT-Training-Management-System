@@ -14,6 +14,7 @@ namespace GUI.UserControls
     public partial class UcMenuHeaderBook : UserControl
     {
         public event Action<UserControl> OpenContentRequested;
+        public event Action _findBookByNameOrAuthor;
         public UcMenuHeaderBook()
         {
             InitializeComponent();
@@ -22,6 +23,15 @@ namespace GUI.UserControls
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             OpenContentRequested?.Invoke(new UcAddBook());
+        }
+
+        private void btnFindBook_Click(object sender, EventArgs e)
+        {
+            _findBookByNameOrAuthor?.Invoke();
+        }
+        public string GetStringFindBook()
+        {
+            return txtFindBook.Text;
         }
     }
 }

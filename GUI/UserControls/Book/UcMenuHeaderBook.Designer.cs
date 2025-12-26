@@ -32,9 +32,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             btnAddBook = new Guna.UI2.WinForms.Guna2Button();
             panel2 = new Panel();
+            btnFindBook = new Guna.UI2.WinForms.Guna2Button();
             txtFindBook = new Guna.UI2.WinForms.Guna2TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -57,7 +60,7 @@
             btnAddBook.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddBook.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddBook.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddBook.FillColor = Color.FromArgb(60, 131, 246);
+            btnAddBook.FillColor = Color.FromArgb(76, 175, 80);
             btnAddBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAddBook.ForeColor = Color.White;
             btnAddBook.Image = Properties.Resources.add;
@@ -75,18 +78,43 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(btnFindBook);
             panel2.Controls.Add(txtFindBook);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(471, 64);
+            panel2.Size = new Size(596, 64);
             panel2.TabIndex = 2;
+            // 
+            // btnFindBook
+            // 
+            btnFindBook.BorderRadius = 10;
+            btnFindBook.CustomizableEdges = customizableEdges3;
+            btnFindBook.DisabledState.BorderColor = Color.DarkGray;
+            btnFindBook.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnFindBook.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnFindBook.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnFindBook.FillColor = Color.FromArgb(60, 131, 246);
+            btnFindBook.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFindBook.ForeColor = Color.White;
+            btnFindBook.Image = Properties.Resources.add;
+            btnFindBook.ImageAlign = HorizontalAlignment.Left;
+            btnFindBook.ImageSize = new Size(24, 24);
+            btnFindBook.Location = new Point(392, 11);
+            btnFindBook.Name = "btnFindBook";
+            btnFindBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnFindBook.Size = new Size(138, 43);
+            btnFindBook.TabIndex = 0;
+            btnFindBook.TabStop = false;
+            btnFindBook.Text = "Tìm kiếm";
+            btnFindBook.TextAlign = HorizontalAlignment.Left;
+            btnFindBook.Click += btnFindBook_Click;
             // 
             // txtFindBook
             // 
             txtFindBook.BorderColor = Color.FromArgb(248, 250, 252);
             txtFindBook.BorderRadius = 10;
-            txtFindBook.CustomizableEdges = customizableEdges3;
+            txtFindBook.CustomizableEdges = customizableEdges5;
             txtFindBook.DefaultText = "";
             txtFindBook.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtFindBook.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -103,10 +131,10 @@
             txtFindBook.Margin = new Padding(4);
             txtFindBook.Name = "txtFindBook";
             txtFindBook.PlaceholderForeColor = Color.FromArgb(64, 64, 64);
-            txtFindBook.PlaceholderText = "Tìm kiếm sách, tác giả, môn học....";
+            txtFindBook.PlaceholderText = "Tìm kiếm sách theo tên sách, tác giả";
             txtFindBook.SelectedText = "";
-            txtFindBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtFindBook.Size = new Size(444, 42);
+            txtFindBook.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtFindBook.Size = new Size(355, 42);
             txtFindBook.TabIndex = 0;
             txtFindBook.TabStop = false;
             // 
@@ -129,5 +157,6 @@
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2Button btnAddBook;
         private Guna.UI2.WinForms.Guna2TextBox txtFindBook;
+        private Guna.UI2.WinForms.Guna2Button btnFindBook;
     }
 }

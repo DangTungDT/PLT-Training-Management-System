@@ -18,11 +18,15 @@ namespace DAL.databaseContext
             modelBuilder.Entity<QuestionDTO>().Property(p => p.Score).HasColumnType("decimal(18,2)");
             modelBuilder.Entity<ResearchTopicDTO>().Property(p => p.TopicCost).HasColumnType("decimal(18,2)");
             modelBuilder.Entity<StudentScoreDTO>().Property(p => p.ScoreValue).HasColumnType("decimal(18,2)");
-
+                
             // School
             modelBuilder.Entity<SchoolDTO>()
                 .ToTable("School")
                 .HasKey(x => x.Id);
+
+            //CourseClassDTO
+            modelBuilder.Entity<CourseClassDTO>()
+        .HasKey(cc => new { cc.CourseId, cc.ClassId });
 
             // Semester
             modelBuilder.Entity<SemesterDTO>()
@@ -472,6 +476,16 @@ namespace DAL.databaseContext
                 .WithMany()
                 .HasForeignKey(x => x.LessonPlanId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CourseClassDTO>()
+        .HasOne(cc => cc.Course)
+        .WithMany(c => c.CourseClasses)
+        .HasForeignKey(cc => cc.CourseId);
+
+            modelBuilder.Entity<CourseClassDTO>()
+                .HasOne(cc => cc.Class)
+                .WithMany(c => c.CourseClasses)
+                .HasForeignKey(cc => cc.ClassId);
         }
     }
 }

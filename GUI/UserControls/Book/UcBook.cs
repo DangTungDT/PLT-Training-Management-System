@@ -1,10 +1,11 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace GUI.UserControls
         private int _pageIndex = 1;
         private int _pageSize = 10;
         private int _totalBooks = 0;
+        private string _nameBookOrAuthor = "";
         public event Action<string> OpenUserControlEditBook;
         public event Action<string> OpenUserControlReadBook;
         public UcBook()
@@ -51,6 +53,59 @@ namespace GUI.UserControls
             }
         }
 
+        public void FindBookByNameAuthorDateLevel(string nameBookOrAuthor)
+        {
+            _nameBookOrAuthor = nameBookOrAuthor;
+            _pageIndex = 1;
+            try
+            {
+                if (dtpFindDate.CustomFormat == " ")
+                {
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor ,null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                }
+                else
+                {
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor, dtpFindDate.Value, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                }
+
+
+                if (_books.Count() == 0)
+                {
+                    dgvBooks.Rows.Clear();
+                    return;
+                }
+                dgvBooks.Rows.Clear();
+                foreach (var book in _books)
+                {
+                    dgvBooks.Rows.Add(
+                        $"{book.Name}",
+                        $"{book.Author}",
+                        book.Category != null ? book.Category.Name : "",
+                        book.PublishedYear,
+                        book.DifficultyLevel,
+                        null, null, null
+                    );
+                }
+                lbPageIndex.Text = _pageIndex.ToString();
+
+                if (_books.Count() < 10)
+                {
+                    btnPageBefore.Visible = false;
+                    btnPageAfter.Visible = false;
+                }
+                else
+                {
+                    btnPageAfter.Visible = true;
+                }
+
+                return;
+            }
+            catch
+            {
+                return;
+            }
+            UpdateTotalBooks();
+        }
 
         private void cbFindLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,11 +149,11 @@ namespace GUI.UserControls
             {
                 if (dtpFindDate.CustomFormat == " ")
                 {
-                    _books = _bookBLL.GetBookforPage(null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor ,null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
                 }
                 else
                 {
-                    _books = _bookBLL.GetBookforPage(dtpFindDate.Value, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor, dtpFindDate.Value, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
                 }
                 if (_books.Count() == 0)
                 {
@@ -263,6 +318,30 @@ namespace GUI.UserControls
         private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            CustomFormatDateTimePickerFindDateToEmpty();
+            dtpFindDate.Focus();
+            cbFindLevel.SelectedItem = "Tất cả";
+            if (LoadDataForDataGridViewBook()) { }
+            UpdateTotalBooks();
+            _pageIndex = 1;
+            if (_pageIndex == 1)
+            {
+                btnPageBefore.Visible = false;
+            }
+
+            if (_books.Count() < 10)
+            {
+                btnPageBefore.Visible = false;
+                btnPageAfter.Visible = false;
+            }
+            else
+            {
+                btnPageAfter.Visible = true;
+            }
         }
     }
 }

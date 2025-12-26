@@ -15,25 +15,127 @@ namespace GUI.UserControls.Exam
     public partial class UcExam : UserControl
     {
         private ExamBLL _examBLL = new ExamBLL();
-        private 
+        private SchoolBLL _schoolBLL = new SchoolBLL();
+        private CourseBLL _courseBLL = new CourseBLL();
+        public Action OpenAddExam;
         public UcExam()
         {
             InitializeComponent();
         }
+        private void LoadImageForColumnDataGirdViewBook()
+        {
+            colEdit.Image = ResizeImage(Properties.Resources.edit, 24, 24);
+            colDelete.Image = ResizeImage(Properties.Resources.delete, 24, 24);
+        }
 
+        private void LoadDataForComboboxYear()
+        {
+            var years = _examBLL.GetAllYearForExam()
+                .Distinct()
+                .OrderByDescending(y => y)
+                .Select(y => new
+                {
+                    Id = y,
+                    Name = y.ToString()
+                })
+                .ToList();
+
+            years.Insert(0, new
+            {
+                Id = 0,
+                Name = "Chọn năm"
+            });
+            cbYearCourse.DisplayMember = "Name";
+            cbYearCourse.ValueMember = "Id";
+            cbYearCourse.DataSource = years;
+            cbYearCourse.SelectedIndex = 0;
+        }
+
+        private void LoadDataForComboboxCourse()
+        {
+            var courses = _courseBLL.GetAllCourses().ToList();
+
+            courses.Insert(0, new CourseDTO
+            {
+                Id = 0,
+                FullName = "Chọn khóa học"
+            });
+            cbCourse.DisplayMember = "FullName";
+            cbCourse.ValueMember = "Id";
+            cbCourse.DataSource = courses;
+            cbCourse.SelectedIndex = 0;
+        }
+        private void LoadDataForComboboxSchool()
+        {
+            var schools = _schoolBLL.GetAllSchools().ToList();
+            schools.Insert(0, new SchoolDTO
+            {
+                Id = 0,
+                Name = "Chọn trường học"
+            });
+            cbSchool.DisplayMember = "Name";
+            cbSchool.ValueMember = "Id";
+            cbSchool.DataSource = schools;
+            cbSchool.SelectedIndex = 0;
+        }
+
+        private static Image ResizeImage(Image img, int width, int height)
+        {
+            Bitmap bmp = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(img, 0, 0, width, height);
+            }
+            return bmp;
+        }
         private void UcExam_Load(object sender, EventArgs e)
         {
-            LoadExamData();
+            LoadImageForColumnDataGirdViewBook();
+            LoadDataForComboboxSchool();
+            LoadDataForComboboxCourse();
+            LoadDataForComboboxYear();
+            LoadExamDataToDGV();
         }
-        private void LoadExamData()
+        private int GetComboIntValue(ComboBox comboBox)
         {
-            var exams = _examBLL.GetAllExamsOverview();
+            if (comboBox.SelectedValue == null)
+                return 0;
+
+            return Convert.ToInt32(comboBox.SelectedValue);
+        }
+        private void LoadExamDataToDGV()
+        {
+            int schoolId = GetComboIntValue(cbSchool);
+            int courseId = GetComboIntValue(cbCourse);
+            int year = GetComboIntValue(cbYearCourse);
+            var exams = _examBLL.GetExamsOverviewFilter(courseId, schoolId, year);
             dgvExams.Rows.Clear();
             foreach (ExamOverviewDTO exam in exams)
             {
                 dgvExams.Rows.Add
-                    (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ExamType, exam.Duration, exam.Status, exam.QuestionCount, null, null);
+                    (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ClassName, exam.ExamType, exam.Duration, exam.QuestionCount, exam.Status, null, null);
             }
+            lbTotalExam.Text = $"Tổng số đề thi: {exams.Count()}";
+        }
+        private void cbYearCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadExamDataToDGV();
+        }
+
+        private void cbSchool_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadExamDataToDGV();
+        }
+
+        private void cbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadExamDataToDGV();
+        }
+
+        private void btnAddExam_Click(object sender, EventArgs e)
+        {
+            OpenAddExam?.Invoke();
         }
     }
 }

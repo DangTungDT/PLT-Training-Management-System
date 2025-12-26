@@ -11,7 +11,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
 namespace GUI.UserControls.Book
 {
     public partial class UcAddBook : UserControl
@@ -54,34 +53,55 @@ namespace GUI.UserControls.Book
         public BookDTO GetNewBook()
         {
 
-            if (!ValidateControls())
+            try
             {
+                if (!ValidateControls())
+                {
+                    return null;
+                }
+                return new BookDTO()
+                {
+                    ISBN = txtISBN.Text,
+                    Name = txtBookName.Text,
+                    Author = txtAuthor.Text,
+                    PublishedYear = int.Parse(txtPublicYearBook.Text),
+                    Description = txtDescription.Text,
+                    DifficultyLevel = cboLevel.SelectedItem.ToString(),
+                    CategoryId = (int)cbCategory.SelectedValue,
+                    DateUpload = DateTime.Now,
+                    PersonId = _accountId,
+                    TotalRead = 0,
+                    TotalDownload = 0
+                };
+            }
+            catch
+            {
+
                 return null;
             }
-            return new BookDTO()
-            {
-                ISBN = txtISBN.Text,
-                Name = txtBookName.Text,
-                Author = txtAuthor.Text,
-                PublishedYear = int.Parse(txtPublicYearBook.Text),
-                Description = txtDescription.Text,
-                DifficultyLevel = cboLevel.SelectedItem.ToString(),
-                CategoryId = (int)cbCategory.SelectedValue,
-                DateUpload = DateTime.Now,
-                PersonId = _accountId,
-                TotalRead = 0,
-                TotalDownload = 0
-            };
+        }
+        private bool ContainsSpecialCharacter(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+
+            return Regex.IsMatch(input, @"[^a-zA-Z0-9\sÀ-ỹ]");
         }
         private bool ValidateControls()
         {
-            // Kiểm tra các TextBox bắt buộc không được để trống
             if (string.IsNullOrWhiteSpace(txtISBN.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã ISBN.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtISBN.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtISBN.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong ISBN.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtISBN.Focus();
+                return false;
+            }
+
 
             if (string.IsNullOrWhiteSpace(txtBookName.Text))
             {
@@ -89,6 +109,13 @@ namespace GUI.UserControls.Book
                 txtBookName.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtBookName.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong tên sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBookName.Focus();
+                return false;
+            }
+
 
             if (string.IsNullOrWhiteSpace(txtAuthor.Text))
             {
@@ -96,23 +123,37 @@ namespace GUI.UserControls.Book
                 txtAuthor.Focus();
                 return false;
             }
+            if (ContainsSpecialCharacter(txtAuthor.Text))
+            {
+                MessageBox.Show("Không được nhập ký tự đặc biệt trong tên tác giả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAuthor.Focus();
+                return false;
+            }
 
-            // Kiểm tra giá trị của ComboBox cbCategory
-            if (cbCategory.SelectedValue == null || string.IsNullOrEmpty(cbCategory.SelectedValue.ToString()) || (int)cbCategory.SelectedValue < 1)
+
+            if (cboLevel.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn trình độ!.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            if (cbCategory.SelectedValue == null
+                || !int.TryParse(cbCategory.SelectedValue.ToString(), out int categoryId)
+                || categoryId < 1)
             {
                 MessageBox.Show("Vui lòng chọn danh mục hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbCategory.Focus();
                 return false;
             }
 
-            // Kiểm tra trường txtPublicYearBook
+
             if (!int.TryParse(txtPublicYearBook.Text, out int publishedYear))
             {
                 MessageBox.Show("Năm xuất bản phải là số nguyên hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPublicYearBook.Focus();
                 return false;
             }
-
             int currentYear = DateTime.Now.Year;
             if (publishedYear < 1 || publishedYear > currentYear)
             {
@@ -121,9 +162,9 @@ namespace GUI.UserControls.Book
                 return false;
             }
 
-            // Tất cả các kiểm tra đều hợp lệ
             return true;
         }
+
 
         private void lbInputValueBook_Click(object sender, EventArgs e)
         {
@@ -147,7 +188,7 @@ namespace GUI.UserControls.Book
             lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
             pnInputValueBook.Visible = true;
             pnInputFileBook.Visible = false;
-
+            LoadComboboxYear();
             LoadCategoriesForCombobox();
         }
 
@@ -288,10 +329,10 @@ namespace GUI.UserControls.Book
 
             try
             {
-                if (File.Exists(destFilePath))
-                    File.Delete(destFilePath);
+                if (System.IO.File.Exists(destFilePath))
+                    System.IO.File.Delete(destFilePath);
 
-                File.Copy(file.FullName, destFilePath);
+                System.IO.File.Copy(file.FullName, destFilePath);
             }
             catch (IOException ex)
             {
@@ -367,6 +408,53 @@ namespace GUI.UserControls.Book
         && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtPublicYearBook_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadComboboxYear()
+        {
+            cbYear.Items.Clear();
+
+            int currentYear = DateTime.Now.Year;
+            cbYear.Items.Add("");
+            for (int y = currentYear; y >= 1990; y--)
+            {
+                cbYear.Items.Add(y.ToString());
+            }
+        }
+
+        private void cbYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbYear.SelectedIndex == 0) return;
+            try
+            {
+                txtPublicYearBook.Text = cbYear.SelectedItem.ToString();
+            }
+            catch
+            {
+                txtPublicYearBook.Text = "";
+            }
+            finally
+            {
+                cbYear.SelectedIndex = 0;
+            }
+        }
+
+        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Control next = this.Controls
+                    .Cast<Control>()
+                    .FirstOrDefault(c => c.TabIndex == 1);
+
+                if (next != null)
+                    next.Focus();
             }
         }
     }

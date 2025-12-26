@@ -74,7 +74,13 @@ namespace GUI.UserControls.Book
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteFile?.Invoke(_fileId, _position);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DeleteFile?.Invoke(_fileId, _position);
+            }
+            
         }
 
         private void lblFileName_DoubleClick(object sender, EventArgs e)

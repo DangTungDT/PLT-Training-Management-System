@@ -266,6 +266,21 @@ namespace DAL.Migrations
                     b.ToTable("Class", (string)null);
                 });
 
+            modelBuilder.Entity("DTO.CourseClassDTO", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CourseId", "ClassId");
+
+                    b.HasIndex("ClassId");
+
+                    b.ToTable("CourseClassDTO");
+                });
+
             modelBuilder.Entity("DTO.CourseDTO", b =>
                 {
                     b.Property<int>("Id")
@@ -357,6 +372,10 @@ namespace DAL.Migrations
 
                     b.Property<int>("SemesterId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -1334,6 +1353,25 @@ namespace DAL.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("DTO.CourseClassDTO", b =>
+                {
+                    b.HasOne("DTO.ClassDTO", "Class")
+                        .WithMany("CourseClasses")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DTO.CourseDTO", "Course")
+                        .WithMany("CourseClasses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Class");
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("DTO.CourseDTO", b =>
                 {
                     b.HasOne("DTO.CategoryDTO", null)
@@ -1881,6 +1919,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DTO.ClassDTO", b =>
                 {
+                    b.Navigation("CourseClasses");
+
                     b.Navigation("LessonPlans");
 
                     b.Navigation("Students");
@@ -1893,6 +1933,8 @@ namespace DAL.Migrations
             modelBuilder.Entity("DTO.CourseDTO", b =>
                 {
                     b.Navigation("Assignments");
+
+                    b.Navigation("CourseClasses");
 
                     b.Navigation("Exams");
 

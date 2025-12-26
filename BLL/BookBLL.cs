@@ -15,6 +15,11 @@ namespace BLL
         {
             _bookDAL = new BookDAL();
         }
+
+        public bool CheckISBNAlreadyExists(string newISBN)
+        {
+            return _bookDAL.CheckISBNAlreadyExists(newISBN);
+        }
         public bool PlusASummaryForTheBook(string bookName)
         {
             return _bookDAL.PlusASummaryForTheBook(bookName);
@@ -49,9 +54,9 @@ namespace BLL
         {
             return _bookDAL.GetQuantityOfAllBooks(dateCreateBook, difficultyLevels);
         }
-        public IEnumerable<BookDTO> GetBookforPage(DateTime? dateCreateBook, string difficultyLevels,int pageIndex, int pageSize)
+        public IEnumerable<BookDTO> GetBookforPage(string nameBookOrAuthor, DateTime? dateCreateBook, string difficultyLevels,int pageIndex, int pageSize)
         {
-            return _bookDAL.GetBookforPage(dateCreateBook, difficultyLevels, pageIndex, pageSize);
+            return _bookDAL.GetBookforPage(nameBookOrAuthor, dateCreateBook, difficultyLevels, pageIndex, pageSize);
         }
 
         public int GetIdbyBookName(string bookName)

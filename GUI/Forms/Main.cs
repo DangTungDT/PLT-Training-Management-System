@@ -3,6 +3,8 @@ using DTO;
 using GUI.Helpers;
 using GUI.UserControls;
 using GUI.UserControls.Book;
+using GUI.UserControls.Exam;
+using GUI.UserControls.Question;
 using Guna.UI2.WinForms;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -27,7 +29,13 @@ namespace GUI
         private UcReadFile _ucReadFile;
         private ucFileOfBook _ucFileOfBook;
 
+        private UcMenuHeaderBook _ucMenuHeaderBook;
         private UcBook _ucBook;
+
+        private UcExam _ucExam;
+
+        private UcAddExam _ucAddExam;
+
         private BookBLL _bookBLL = new BookBLL();
         private BookFileBLL _bookFileBLL = new BookFileBLL();
         private FileBLL _fileBLL = new FileBLL();
@@ -35,6 +43,13 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        //private bool AddOptionToQuestion(UcAddQuestion ucAddQuestion)
+        //{
+        //    List<QuestionOptionDTO> options = ucAddQuestion.GetAllQuestionOption();
+        //    if(options == null) return false;
+
+        //}
         private void LoadContentAddBook(UserControl uc)
         {
 
@@ -52,7 +67,28 @@ namespace GUI
             _ucMenuHeaderAddBook._ActionAddBook += AddBook;
             _ucMenuHeaderAddBook.ActionBackForm += NavigatePop;
         }
+        private void LoadUcExam()
+        {
+            _ucExam = new UcExam();
+            LoadUserControlForPanel(_ucExam, pbContent);
+            _ucExam.OpenAddExam += ( ) =>
+            {
+                var ucAddExam = new UcAddExam();
+                NavigatePush(ucAddExam);
+            };
 
+        }
+
+        private void LoadUcAddExam()
+        {
+            _ucAddExam = new UcAddExam();
+            LoadUserControlForPanel(_ucAddExam, pbContent);
+            _ucAddExam.BackToUcExam += () =>
+            {
+                NavigatePop();
+            };
+
+        }
         private void LoadUcBook()
         {
             _ucBook = new UcBook();
@@ -68,9 +104,15 @@ namespace GUI
             };
             LoadUserControlForPanel(_ucBook, pbContent);
 
-            var header = new UcMenuHeaderBook();
-            header.OpenContentRequested += LoadContentAddBook;
-            LoadUserControlForPanel(header, pbHeaderContent);
+            _ucMenuHeaderBook = new UcMenuHeaderBook();
+            _ucMenuHeaderBook.OpenContentRequested += NavigatePush;
+            _ucMenuHeaderBook._findBookByNameOrAuthor += LoadFilter;
+            LoadUserControlForPanel(_ucMenuHeaderBook, pbHeaderContent);
+        }
+        private void LoadFilter()
+        {
+            string valueFind = _ucMenuHeaderBook.GetStringFindBook();
+            _ucBook.FindBookByNameAuthorDateLevel(valueFind);
         }
         private void EditBook()
         {
@@ -131,6 +173,12 @@ namespace GUI
             if (string.IsNullOrEmpty(data.ISBN) || string.IsNullOrEmpty(data.Name) || string.IsNullOrEmpty(data.Author) || data.CategoryId < 1)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!");
+                return;
+            }
+
+            if(!_bookBLL.CheckISBNAlreadyExists(data.ISBN))
+            {
+                MessageBox.Show("Mã ISBN đã tồn tại, vui lòng nhập lại!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -227,13 +275,17 @@ namespace GUI
         private void NavigatePush(UserControl uc)
         {
             Navigate.Instance.PushIfNotSame(uc);
-            if(uc is UcBook)
+            if(uc is UcAddExam)
+            {
+                LoadUcAddExam();
+            }
+            else if (uc is UcExam)
+            {
+                LoadUcExam();
+            }
+            else if (uc is UcBook)
             {
                 LoadUcBook();
-            }
-            if(uc is UcAddBook)
-            {
-                LoadContentAddBook(uc);
             }
             else if(uc is UcEditBook)
             {
@@ -248,6 +300,14 @@ namespace GUI
                 LoadUcReadFile(uc);
             }
         }
+
+        //private void LoadUcAddExam()
+        //{
+        //    var ucAddExam = new UcAddExam();
+        //    pbContent.Controls.Clear();
+        //    ucAddExam.Dock = DockStyle.Fill;
+        //    pbContent.Controls.Add(ucAddExam);
+        //}
         private void NavigatePop()
         {
             var previous = Navigate.Instance.Pop();
@@ -255,7 +315,18 @@ namespace GUI
             {
                 previous = Navigate.Instance.Peek();
                 pbContent.Controls.Clear();
-                if(previous is UcBook)
+                if (previous is UcExam)
+                {
+                    LoadUcExam();
+                    pbContent.Controls.Add(previous);
+                }
+                else
+                if (previous is UcAddExam)
+                {
+                    LoadUcAddExam();
+                    pbContent.Controls.Add(previous);
+                } else
+                if (previous is UcBook)
                 {
                     LoadUcBook();
                     pbContent.Controls.Add(previous);
@@ -363,7 +434,9 @@ namespace GUI
 
         private void btnMenuExam_Click(object sender, EventArgs e)
         {
+            Navigate.Instance.Clear();
             LoadBackGroundControlButtonMenu(btnMenuExam);
+            NavigatePush(new UcExam());
         }
 
         private void btnMenuExercise_Click(object sender, EventArgs e)

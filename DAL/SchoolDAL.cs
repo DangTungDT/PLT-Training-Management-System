@@ -15,7 +15,6 @@ namespace DAL
             using (var context = new databaseContext.AppDBContext())
             {
                 return context.Schools
-                    .Include(s => s.Semesters)
                     .ToList();
             }
         }
