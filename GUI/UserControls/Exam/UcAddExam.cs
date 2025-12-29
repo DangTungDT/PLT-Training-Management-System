@@ -11,6 +11,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna;
+using Guna.UI2.WinForms;
+using GUI.Helpers;
 
 namespace GUI.UserControls.Exam
 {
@@ -22,6 +25,7 @@ namespace GUI.UserControls.Exam
         private double _totalScoreQuestion = 0;
         private ExamDTO _newExam;
         private int _totalQuestion = 1;
+        private List<QuestionAndOption> _allQuestionAndOption;
 
         private ExamBLL _examBLL = new ExamBLL();
         private CourseBLL _courseBLl = new CourseBLL();
@@ -29,7 +33,8 @@ namespace GUI.UserControls.Exam
         private SemesterBLL _semesterBLL = new SemesterBLL();
         private ClassBLL _classBLL = new ClassBLL();
         private FacultyBLL _facultyBLL = new FacultyBLL();
-
+        private QuestionBLL _questionBLL = new QuestionBLL();
+        private QuestionOptionBLL _questionOptionBLL = new QuestionOptionBLL();
         public Action BackToUcExam;
         public UcAddExam()
         {
@@ -119,43 +124,63 @@ namespace GUI.UserControls.Exam
             }
         }
 
-        public bool AddAllQuestionForExam()
+        public bool GetAllQuestionForExam()
         {
+            List<QuestionAndOption> allQuestionAndOption = new List<QuestionAndOption>();
             foreach (Control controlItem in flpQuestion.Controls)
             {
                 if (controlItem is UcAddQuestion uc)
                 {
-                    if (!uc.AddQuestionBeforeAddAllQuestionOption(_newExam))
+                    QuestionAndOption newQuestion = uc.GetQuestionAndAllOptionQuestion();
+                    if (newQuestion == null)
                     {
                         int numberQuestion = uc.GetNumberQuestion();
                         MessageBox.Show($"Thêm câu hỏi {numberQuestion} thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
+                    else
+                    {
+                        allQuestionAndOption.Add(newQuestion);
+                    }
                 }
             }
+
+            _allQuestionAndOption = allQuestionAndOption;
             return true;
         }
 
-        public bool AddNewExam()
+
+        public ExamDTO GetExam()
         {
             try
             {
                 if (!ValidateExamControls())
                 {
-                    return false;
+                    return null;
                 }
 
                 _newExam = GetNewExamValue();
-                if (_newExam == null) return false;
-                if (AddAllQuestionForExam())
-                {
-                    return true;
-                }
-                return false;
+                if (_newExam == null) return null;
+                return _newExam;
             }
             catch
             {
-                return false;
+                return null;
+            }
+        }
+        public List<QuestionAndOption> GetAllQuestionAndOption()
+        {
+            try
+            {
+                if (!GetAllQuestionForExam())
+                {
+                    return null;
+                }
+                return _allQuestionAndOption;
+            }
+            catch
+            {
+                return null;
             }
         }
         public ExamDTO GetNewExamValue()
@@ -190,9 +215,6 @@ namespace GUI.UserControls.Exam
                 }
 
                 yearforNewExam = DateTime.Now.Year;
-
-
-
                 ExamDTO newExam = new ExamDTO()
                 {
                     Name = txtExamName.Text,
@@ -205,13 +227,7 @@ namespace GUI.UserControls.Exam
                     Year = yearforNewExam,
                     Status = statusForNewExam
                 };
-                if (_examBLL.AddExam(newExam))
-                {
-                    _newExam = _examBLL.GetExamByValue(newExam.Name, newExam.Type, newExam.CourseId, newExam.SemesterId, newExam.Year);
-                    if (_newExam != null) return _newExam;
-                    return null;
-                }
-                return null;
+                return newExam;
             }
             catch
             {
@@ -316,8 +332,12 @@ namespace GUI.UserControls.Exam
 
         private void UcAddExam_Load(object sender, EventArgs e)
         {
+            cbExamType.SelectedIndex = 0;
+            cbTimeType.SelectedIndex = 0;
+            RegisterTextBoxEvents();
             LoadStage(1);
             LoadSchoolToCombobox();
+
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e)
@@ -357,11 +377,94 @@ namespace GUI.UserControls.Exam
         }
         private void btnSaveExam_Click(object sender, EventArgs e)
         {
-            if (AddNewExam())
+            try
             {
-                MessageBox.Show("Thêm đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                BackToUcExam?.Invoke();
+                if (AddExam())
+                {
+                    MessageBox.Show("Thêm đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BackToUcExam?.Invoke();
+                    return;
+                }
                 return;
+            }
+            catch
+            {
+                return;
+            }
+            
+        }
+
+        private bool AddExam()
+        {
+            try
+            {
+                //Get value 
+                ExamDTO newExam = GetExam();
+                if (newExam == null)
+                {
+                    MessageBox.Show("Lấy thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                List<QuestionAndOption> listQuestion = GetAllQuestionAndOption();
+                if (listQuestion == null)
+                {
+                    MessageBox.Show("Lấy danh sách câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                //Add exam
+                if (!_examBLL.AddExam(newExam))
+                {
+                    MessageBox.Show("Thêm đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    //Add question
+                    newExam = _examBLL.GetExamByValue(newExam.Name, newExam.Type, newExam.CourseId, newExam.SemesterId, newExam.Year);
+                    if (newExam == null)
+                    {
+                        MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    foreach (QuestionAndOption itemQuestion in listQuestion)
+                    {
+                        QuestionDTO newQuestion = new QuestionDTO
+                        {
+                            Type = itemQuestion.TypeQuestion,
+                            Content = itemQuestion.ContentQuetion,
+                            Score = itemQuestion.ScoreQuetion,
+                            ExamId = newExam.Id
+                        };
+                        if (!_questionBLL.AddQuestion(newQuestion))
+                        {
+                            MessageBox.Show("Thêm câu hỏi cho đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        newQuestion = _questionBLL.GetQuestionByExamIdAndContent(newExam.Id, newQuestion.Content);
+                        if (newQuestion == null)
+                        {
+                            MessageBox.Show("Câu hỏi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        foreach (QuestionOptionDTO optionInQuestion in itemQuestion.Options)
+                        {
+                            optionInQuestion.QuestionId = newQuestion.Id;
+                            if (!_questionOptionBLL.InsertQuestionOption(optionInQuestion))
+                            {
+                                MessageBox.Show("Thêm lựa chọn cho câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+
+                }
+
+                
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -383,15 +486,12 @@ namespace GUI.UserControls.Exam
 
         private bool ContainsSpecialCharacter(string input)
         {
-            return !Regex.IsMatch(
-                input,
-                @"^[\p{L}0-9\s]+$"
-            );
+            return !Regex.IsMatch(input, @"^[\p{L}0-9\s]+$");
         }
 
         private bool IsValidExamName(string text)
         {
-            return Regex.IsMatch(text, @"^[a-zA-Z0-9\s]*$");
+            return Regex.IsMatch(text, @"^[\p{L}0-9\s]+$");
         }
         private bool ValidateExamControls()
         {
@@ -460,87 +560,6 @@ namespace GUI.UserControls.Exam
                 e.Handled = true;
             }
         }
-
-        private void txtExamTime_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtExamTime.Text))
-                return;
-
-            if (!txtExamTime.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("Chỉ được nhập số.", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                txtExamTime.Text = string.Empty;
-                txtExamTime.Focus();
-            }
-
-        }
-
-        private void txtExamTime_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.V)
-            {
-                if (Clipboard.ContainsText())
-                {
-                    string text = Clipboard.GetText();
-                    if (!text.All(char.IsDigit))
-                    {
-                        MessageBox.Show("Dữ liệu dán vào phải là số.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        e.SuppressKeyPress = true;
-                    }
-                }
-            }
-        }
-
-        private void txtExamName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtExamName_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtExamName.Text))
-                return;
-
-            if (!IsValidExamName(txtExamName.Text))
-            {
-                MessageBox.Show(
-                    "Tên bài thi không được chứa ký tự đặc biệt.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtExamName.Text = string.Empty;
-                txtExamName.Focus();
-            }
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtExamName.Text))
-                return;
-
-            if (!IsValidExamName(txtExamName.Text))
-            {
-                MessageBox.Show(
-                    "Mô tả bài thi không được chứa ký tự đặc biệt.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtExamName.Text = string.Empty;
-                txtExamName.Focus();
-            }
-        }
-
         private void txtDescription_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar))
@@ -552,35 +571,7 @@ namespace GUI.UserControls.Exam
             }
         }
 
-        private void txtExamInstruction_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtExamInstruction_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtExamName.Text))
-                return;
-
-            if (!IsValidExamName(txtExamName.Text))
-            {
-                MessageBox.Show(
-                    "Hướng dẫn bài thi không được chứa ký tự đặc biệt.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtExamName.Text = string.Empty;
-                txtExamName.Focus();
-            }
-        }
-
+        
         private void cbSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbSchool.SelectedIndex == -1)
@@ -665,7 +656,7 @@ namespace GUI.UserControls.Exam
 
         private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbSemester.SelectedIndex == -1)
+            if (cbSemester.SelectedIndex == -1)
             {
                 return;
             }
@@ -697,5 +688,117 @@ namespace GUI.UserControls.Exam
                 return;
             }
         }
+
+
+        private void TextBox_BlockSpecialChar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TextBox_BlockSpecialChar_Paste_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                string clipboardText = Clipboard.GetText();
+
+                if (ContainsSpecialCharacter(clipboardText))
+                {
+                    MessageBox.Show(
+                        "Không được dán ký tự đặc biệt!",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+        private void TextBox_BlockSpecialChar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null || string.IsNullOrEmpty(tb.Text)) return;
+
+            if (ContainsSpecialCharacter(tb.Text))
+            {
+                MessageBox.Show(
+                    "Nội dung không được chứa ký tự đặc biệt!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                tb.Text = Regex.Replace(tb.Text, @"[^\p{L}0-9\s]", "");
+                tb.SelectionStart = tb.Text.Length;
+            }
+        }
+
+        private void RegisterTextBoxEvents()
+        {
+            Guna2TextBox[] textBoxes =
+                                {
+                            txtExamName,
+                            txtExamInstruction,
+                            txtDescription
+                        };
+
+            foreach (var tb in textBoxes)
+            {
+                tb.KeyPress += TextBox_BlockSpecialChar_KeyPress;
+                tb.KeyDown += TextBox_BlockSpecialChar_Paste_KeyDown;
+                tb.TextChanged += TextBox_BlockSpecialChar_TextChanged;
+            }
+        }
+
+        private void NumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (!char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void NumericTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Guna2TextBox tb = sender as Guna2TextBox;
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    string text = Clipboard.GetText();
+                    if (!text.All(char.IsDigit))
+                    {
+                        MessageBox.Show(
+                            "Chỉ được nhập số.",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        tb.Text = string.Empty;
+                        tb.Focus();
+                        e.SuppressKeyPress = true;
+                    }
+                }
+            }
+        }
+
+        private void NumericTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null || string.IsNullOrEmpty(tb.Text))
+                return;
+
+            string digitsOnly = new string(tb.Text.Where(char.IsDigit).ToArray());
+
+            if (tb.Text != digitsOnly)
+            {
+                tb.Text = digitsOnly;
+                tb.SelectionStart = tb.Text.Length;
+            }
+        }
+
     }
 }

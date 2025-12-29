@@ -144,6 +144,9 @@
             txtScoreQuestion.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtScoreQuestion.Size = new Size(397, 39);
             txtScoreQuestion.TabIndex = 2;
+            txtScoreQuestion.TextChanged += NumericTextBox_TextChanged;
+            txtScoreQuestion.KeyDown += NumericTextBox_KeyDown;
+            txtScoreQuestion.KeyPress += NumericTextBox_KeyPress;
             // 
             // tableLayoutPanel2
             // 

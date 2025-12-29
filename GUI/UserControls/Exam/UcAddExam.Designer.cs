@@ -372,13 +372,11 @@
             txtDescription.Location = new Point(3, 44);
             txtDescription.Margin = new Padding(3, 4, 3, 4);
             txtDescription.Name = "txtDescription";
-            txtDescription.PlaceholderText = "";
+            txtDescription.PlaceholderText = "Nhập mô tả đề thi";
             txtDescription.SelectedText = "";
             txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtDescription.Size = new Size(990, 1);
             txtDescription.TabIndex = 1;
-            txtDescription.TextChanged += txtDescription_TextChanged;
-            txtDescription.KeyPress += txtDescription_KeyPress;
             // 
             // txtExamInstruction
             // 
@@ -397,13 +395,11 @@
             txtExamInstruction.Location = new Point(3, 49);
             txtExamInstruction.Margin = new Padding(3, 4, 3, 4);
             txtExamInstruction.Name = "txtExamInstruction";
-            txtExamInstruction.PlaceholderText = "";
+            txtExamInstruction.PlaceholderText = "Nhập hướng dẫn làm đề thi";
             txtExamInstruction.SelectedText = "";
             txtExamInstruction.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtExamInstruction.Size = new Size(990, 1);
             txtExamInstruction.TabIndex = 1;
-            txtExamInstruction.TextChanged += txtExamInstruction_TextChanged;
-            txtExamInstruction.KeyPress += txtExamInstruction_KeyPress;
             // 
             // tableLayoutPanel1
             // 
@@ -542,8 +538,6 @@
             txtExamName.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtExamName.Size = new Size(492, 36);
             txtExamName.TabIndex = 1;
-            txtExamName.TextChanged += txtExamName_TextChanged;
-            txtExamName.KeyPress += txtExamName_KeyPress;
             // 
             // cbSubject
             // 
@@ -579,6 +573,7 @@
             cbExamType.Font = new Font("Segoe UI", 10F);
             cbExamType.ForeColor = Color.Black;
             cbExamType.ItemHeight = 30;
+            cbExamType.Items.AddRange(new object[] { "Trắc nghiệm", "Tự luận", "Trắc nghiệm và tự luận" });
             cbExamType.Location = new Point(501, 153);
             cbExamType.Name = "cbExamType";
             cbExamType.ShadowDecoration.CustomizableEdges = customizableEdges16;
@@ -643,11 +638,14 @@
             txtTotalQuestion.Location = new Point(3, 314);
             txtTotalQuestion.Margin = new Padding(3, 4, 3, 4);
             txtTotalQuestion.Name = "txtTotalQuestion";
-            txtTotalQuestion.PlaceholderText = "";
+            txtTotalQuestion.PlaceholderText = "Nhập tổng số câu hỏi";
             txtTotalQuestion.SelectedText = "";
             txtTotalQuestion.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtTotalQuestion.Size = new Size(492, 36);
             txtTotalQuestion.TabIndex = 1;
+            txtTotalQuestion.TextChanged += NumericTextBox_TextChanged;
+            txtTotalQuestion.KeyDown += NumericTextBox_KeyDown;
+            txtTotalQuestion.KeyPress += NumericTextBox_KeyPress;
             // 
             // tableLayoutPanel2
             // 
@@ -681,14 +679,14 @@
             txtExamTime.Location = new Point(3, 4);
             txtExamTime.Margin = new Padding(3, 4, 3, 4);
             txtExamTime.Name = "txtExamTime";
-            txtExamTime.PlaceholderText = "";
+            txtExamTime.PlaceholderText = "Nhập thời gian làm bài";
             txtExamTime.SelectedText = "";
             txtExamTime.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtExamTime.Size = new Size(366, 36);
             txtExamTime.TabIndex = 1;
-            txtExamTime.TextChanged += txtExamTime_TextChanged;
-            txtExamTime.KeyDown += txtExamTime_KeyDown;
-            txtExamTime.KeyPress += txtExamTime_KeyPress;
+            txtExamTime.TextChanged += NumericTextBox_TextChanged;
+            txtExamTime.KeyDown += NumericTextBox_KeyDown;
+            txtExamTime.KeyPress += NumericTextBox_KeyPress;
             // 
             // cbTimeType
             // 
@@ -704,6 +702,7 @@
             cbTimeType.Font = new Font("Segoe UI", 10F);
             cbTimeType.ForeColor = Color.Black;
             cbTimeType.ItemHeight = 30;
+            cbTimeType.Items.AddRange(new object[] { "Phút", "Giờ" });
             cbTimeType.Location = new Point(375, 3);
             cbTimeType.Name = "cbTimeType";
             cbTimeType.ShadowDecoration.CustomizableEdges = customizableEdges26;

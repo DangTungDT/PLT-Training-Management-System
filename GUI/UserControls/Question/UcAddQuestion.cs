@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUI.Helpers;
 
 namespace GUI.UserControls.Question
 {
@@ -97,11 +98,10 @@ namespace GUI.UserControls.Question
             }
         }
 
-        public bool AddQuestionBeforeAddAllQuestionOption(ExamDTO newExam)
+        public QuestionAndOption GetQuestionAndAllOptionQuestion()
         {
             try
             {
-                _newExam = newExam;
                 string checkedOption = GetCheckedOption();
                 List<Guna2TextBox> controlInput = new List<Guna2TextBox>()
                 {
@@ -114,15 +114,9 @@ namespace GUI.UserControls.Question
                 if (string.IsNullOrEmpty(checkedOption))
                 {
                     MessageBox.Show("Vui lòng chọn câu đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
+                    return null;
                 }
-
-                //Add new question to database
-                ExamDTO examOfQuestion = _examBLL.GetExamByValue(_newExam.Name, _newExam.Type, _newExam.CourseId, _newExam.SemesterId, _newExam.Year);
-                _newQuestion = AddNewQuestion();
-                if (_newQuestion == null) return false;
-
-                //Add all questionOption to database
+                
                 int sortOrder = 1;
                 foreach (var option in controlInput)
                 {
@@ -130,8 +124,7 @@ namespace GUI.UserControls.Question
                     {
                         Content = option.Text,
                         IsCorrect = false,
-                        SortOrder = sortOrder,
-                        QuestionId = _newQuestion.Id
+                        SortOrder = sortOrder
                     };
                     newQuestionOption.Add(newOption);
                     sortOrder++;
@@ -141,49 +134,55 @@ namespace GUI.UserControls.Question
                     case "a":
                         if (string.IsNullOrEmpty(newQuestionOption[0].Content))
                         {
-                            MessageBox.Show("Vui lòng chọn câu trả lời đúng là câu có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return false;
+                            MessageBox.Show($"Vui lòng chọn câu trả lời đúng là câu có dữ liệu cho câu hỏi {_numberQuestionForExam}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return null;
                         }
                         newQuestionOption[0].IsCorrect = true;
                         break;
                     case "b":
                         if (string.IsNullOrEmpty(newQuestionOption[1].Content))
                         {
-                            MessageBox.Show("Vui lòng chọn câu trả lời đúng là câu có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return false;
+                            MessageBox.Show($"Vui lòng chọn câu trả lời đúng là câu có dữ liệu cho câu hỏi {_numberQuestionForExam}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return null;
                         }
                         newQuestionOption[1].IsCorrect = true;
                         break;
                     case "c":
                         if (string.IsNullOrEmpty(newQuestionOption[2].Content))
                         {
-                            MessageBox.Show("Vui lòng chọn câu trả lời đúng là câu có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return false;
+                            MessageBox.Show($"Vui lòng chọn câu trả lời đúng là câu có dữ liệu cho câu hỏi {_numberQuestionForExam}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return null;
                         }
                         newQuestionOption[2].IsCorrect = true;
                         break;
                     case "d":
                         if (string.IsNullOrEmpty(newQuestionOption[3].Content))
                         {
-                            MessageBox.Show("Vui lòng chọn câu trả lời đúng là câu có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return false;
+                            MessageBox.Show($"Vui lòng chọn câu trả lời đúng là câu có dữ liệu cho câu hỏi {_numberQuestionForExam}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return null;
                         }
                         newQuestionOption[3].IsCorrect = true;
                         break;
 
                 }
-                foreach (QuestionOptionDTO item in newQuestionOption)
+                decimal scoreQuestion = 0;
+                if(!decimal.TryParse(txtScoreQuestion.Text, out scoreQuestion))
                 {
-                    if (!_questionOptionBLL.InsertQuestionOption(item)) return false;
+                    MessageBox.Show($"Vui lòng nhập số điểm hợp lệ cho câu hỏi {_numberQuestionForExam}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
                 }
-                newQuestionOption = _questionOptionBLL.GetAllQuestionOptionByQuestionId(_newQuestion.Id);
-                if (newQuestionOption == null) return false;
-
-                return true;
+                QuestionAndOption newQuestionAndOption = new QuestionAndOption
+                {
+                    TypeQuestion = cbTypeQuestion.Text,
+                    ContentQuetion = txtContentQuestion.Text,
+                    ScoreQuetion = scoreQuestion,
+                    Options = newQuestionOption
+                };
+                return newQuestionAndOption;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
         private string GetCheckedOption()
@@ -203,6 +202,53 @@ namespace GUI.UserControls.Question
             catch
             {
                 return 0;
+            }
+        }
+
+        private void NumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (!char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void NumericTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Guna2TextBox tb = sender as Guna2TextBox;
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    string text = Clipboard.GetText();
+                    if (!text.All(char.IsDigit))
+                    {
+                        MessageBox.Show(
+                            "Chỉ được nhập số.",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        tb.Text = string.Empty;
+                        tb.Focus();
+                        e.SuppressKeyPress = true;
+                    }
+                }
+            }
+        }
+
+        private void NumericTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null || string.IsNullOrEmpty(tb.Text))
+                return;
+
+            string digitsOnly = new string(tb.Text.Where(char.IsDigit).ToArray());
+
+            if (tb.Text != digitsOnly)
+            {
+                tb.Text = digitsOnly;
+                tb.SelectionStart = tb.Text.Length;
             }
         }
     }
