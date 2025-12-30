@@ -11,6 +11,19 @@ namespace DAL
     {
         AppDBContext _dbContext = new AppDBContext();
 
+        public List<QuestionDTO> GetQuestionByIdExam(int examId)
+        {
+            try
+            {
+                List<QuestionDTO> questions = _dbContext.Questions.Where(x=> x.ExamId == examId).ToList();
+
+                return questions;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public QuestionDTO FindQuestionByValue(QuestionDTO questionDTO)
         {
             try

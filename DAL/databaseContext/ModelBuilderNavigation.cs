@@ -486,6 +486,27 @@ namespace DAL.databaseContext
                 .HasOne(cc => cc.Class)
                 .WithMany(c => c.CourseClasses)
                 .HasForeignKey(cc => cc.ClassId);
+
+            //ClassExam
+            modelBuilder.Entity<ClassExamDTO>(entity =>
+            {
+                entity.ToTable("ClassExam");
+
+                entity.HasKey(x => x.Id);
+
+                entity.HasOne(x => x.Exam)
+                      .WithMany(e => e.ClassExams)
+                      .HasForeignKey(x => x.ExamId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(x => x.Class)
+                      .WithMany(c => c.ClassExams)
+                      .HasForeignKey(x => x.ClassId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasIndex(x => new { x.ExamId, x.ClassId }).IsUnique();
+            });
+
         }
     }
 }

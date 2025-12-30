@@ -11,6 +11,11 @@ namespace BLL
     public class QuestionOptionBLL
     {
         public QuestionOptionDAL _questionOptionDAL = new QuestionOptionDAL();
+
+        public List<QuestionOptionDTO> GetQuestionOptionByIdQuestion(int questionId)
+        {
+            return _questionOptionDAL.GetQuestionOptionByIdQuestion(questionId);
+        }
         public bool InsertQuestionOption(QuestionOptionDTO questionOption)
         {
             return _questionOptionDAL.InsertQuestionOption(questionOption);

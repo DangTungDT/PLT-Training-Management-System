@@ -1,5 +1,6 @@
 ﻿using System;
 using DTO;
+using DAL.databaseContext;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,19 @@ namespace DAL
 {
     public class QuestionOptionDAL
     {
+        AppDBContext _context = new AppDBContext();
+        public List<QuestionOptionDTO> GetQuestionOptionByIdQuestion(int questionId)
+        {
+            try
+            {
+                List<QuestionOptionDTO> questionOptions = _context.QuestionOptions.Where(x=> x.QuestionId == questionId).ToList();
+                return questionOptions;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<QuestionOptionDTO> GetAllQuestionOptionByQuestionId(int questionId)
         {
             try

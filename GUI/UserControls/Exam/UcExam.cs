@@ -18,6 +18,9 @@ namespace GUI.UserControls.Exam
         private SchoolBLL _schoolBLL = new SchoolBLL();
         private CourseBLL _courseBLL = new CourseBLL();
         public Action OpenAddExam;
+
+        public event Action<int> OpenUserControlEditExam;
+        public event Action<int> OpenUserControlReadExam;
         public UcExam()
         {
             InitializeComponent();
@@ -25,6 +28,7 @@ namespace GUI.UserControls.Exam
         private void LoadImageForColumnDataGirdViewBook()
         {
             colEdit.Image = ResizeImage(Properties.Resources.edit, 24, 24);
+            colView.Image = ResizeImage(Properties.Resources.view, 24, 24);
             colDelete.Image = ResizeImage(Properties.Resources.delete, 24, 24);
         }
 
@@ -114,7 +118,7 @@ namespace GUI.UserControls.Exam
             foreach (ExamOverviewDTO exam in exams)
             {
                 dgvExams.Rows.Add
-                    (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ClassName, exam.ExamType, exam.Duration, exam.QuestionCount, exam.Status, null, null);
+                    (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ClassName, exam.ExamType, exam.Duration, exam.QuestionCount, exam.Status, null, null, null);
             }
             lbTotalExam.Text = $"Tổng số đề thi: {exams.Count()}";
         }
@@ -136,6 +140,35 @@ namespace GUI.UserControls.Exam
         private void btnAddExam_Click(object sender, EventArgs e)
         {
             OpenAddExam?.Invoke();
+        }
+
+        private void dgvExams_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            int rowIndex = e.RowIndex;
+            int columnIndex = e.ColumnIndex;
+            int idExamSelected = 0;
+            int.TryParse(dgvExams.Rows[rowIndex].Cells[0].Value.ToString(), out idExamSelected);
+            string nameOfColumn = dgvExams.Columns[columnIndex].Name;
+            DataGridViewRow row = dgvExams.Rows[e.RowIndex];
+            if (nameOfColumn == "colEdit")
+            {
+                OpenUserControlEditExam?.Invoke(idExamSelected);
+            }
+            else if (nameOfColumn == "colDelete")
+            {
+                var result = MessageBox.Show($"Bạn có chắc chắn muốn xóa đề thi?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    
+                }
+            }
+            else if (nameOfColumn == "colView")
+            {
+                OpenUserControlReadExam?.Invoke(idExamSelected);
+            }
         }
     }
 }

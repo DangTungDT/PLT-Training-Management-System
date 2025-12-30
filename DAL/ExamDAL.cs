@@ -11,6 +11,19 @@ namespace DAL
 {
     public class ExamDAL
     {
+        AppDBContext _context = new AppDBContext();
+        public ExamDTO GetExamById(int idExamSelected)
+        {
+            try
+            {
+                ExamDTO examSelected = _context.Exams.FirstOrDefault(x => x.Id == idExamSelected);
+                return examSelected;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public bool AddExam(ExamDTO newExam)
         {
             try

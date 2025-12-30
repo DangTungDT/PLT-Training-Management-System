@@ -75,6 +75,7 @@
             colExamTime = new DataGridViewTextBoxColumn();
             colTotalQuestion = new DataGridViewTextBoxColumn();
             colStatus = new DataGridViewTextBoxColumn();
+            colView = new DataGridViewImageColumn();
             colEdit = new DataGridViewImageColumn();
             colDelete = new DataGridViewImageColumn();
             pnContentTop.SuspendLayout();
@@ -365,7 +366,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvExams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvExams.ColumnHeadersHeight = 55;
-            dgvExams.Columns.AddRange(new DataGridViewColumn[] { colExamId, colExamName, colSubject, colSchool, colClassName, colExamType, colExamTime, colTotalQuestion, colStatus, colEdit, colDelete });
+            dgvExams.Columns.AddRange(new DataGridViewColumn[] { colExamId, colExamName, colSubject, colSchool, colClassName, colExamType, colExamTime, colTotalQuestion, colStatus, colView, colEdit, colDelete });
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.Window;
             dataGridViewCellStyle7.Font = new Font("Times New Roman", 10F);
@@ -396,6 +397,7 @@
             dgvExams.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvExams.Size = new Size(1036, 288);
             dgvExams.TabIndex = 0;
+            dgvExams.CellClick += dgvExams_CellClick;
             // 
             // colExamId
             // 
@@ -487,6 +489,17 @@
             colStatus.ReadOnly = true;
             colStatus.Width = 120;
             // 
+            // colView
+            // 
+            colView.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            colView.HeaderText = "";
+            colView.MinimumWidth = 6;
+            colView.Name = "colView";
+            colView.ReadOnly = true;
+            colView.Resizable = DataGridViewTriState.True;
+            colView.SortMode = DataGridViewColumnSortMode.Automatic;
+            colView.Width = 90;
+            // 
             // colEdit
             // 
             colEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -565,6 +578,7 @@
         private DataGridViewTextBoxColumn colExamTime;
         private DataGridViewTextBoxColumn colTotalQuestion;
         private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewImageColumn colView;
         private DataGridViewImageColumn colEdit;
         private DataGridViewImageColumn colDelete;
     }

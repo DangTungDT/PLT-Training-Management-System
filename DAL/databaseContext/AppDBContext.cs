@@ -32,7 +32,8 @@ namespace DAL.databaseContext
             modelBuilder.RelationshipEntities();
             
         }
-        
+
+        public DbSet<ClassExamDTO> ClassExams { get; set; }
         public DbSet<SchoolDTO> Schools { get; set; }
         public DbSet<SemesterDTO> Semesters { get; set; }
         public DbSet<TeacherSchoolDTO> Teacher_Schools { get; set; }

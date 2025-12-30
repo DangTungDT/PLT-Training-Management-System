@@ -23,5 +23,6 @@ namespace DTO
 
         public ICollection<ExamFileDTO> ExamFiles { get; set; }
         public ICollection<QuestionDTO> Questions { get; set; }
+        public ICollection<ClassExamDTO> ClassExams { get; set; }
     }
 }

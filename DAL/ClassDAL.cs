@@ -18,6 +18,18 @@ namespace DAL
         //    _context = context;
         //}
 
+        public ClassDTO GetClassById(int idClass)
+        {
+            try
+            {
+                ClassDTO classSelected = _context.Classes.FirstOrDefault(x=> x.Id == idClass);
+                return classSelected;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<ClassDTO> GetAllByFacultyId(int facultyId)
         {
             return _context.Classes

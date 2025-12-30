@@ -36,6 +36,9 @@ namespace GUI
 
         private UcAddExam _ucAddExam;
 
+        private UcEditExam _ucEditExam;
+
+
         private BookBLL _bookBLL = new BookBLL();
         private BookFileBLL _bookFileBLL = new BookFileBLL();
         private FileBLL _fileBLL = new FileBLL();
@@ -76,6 +79,11 @@ namespace GUI
                 var ucAddExam = new UcAddExam();
                 NavigatePush(ucAddExam);
             };
+            _ucExam.OpenUserControlEditExam += (int examId) =>
+            {
+                _ucEditExam = new UcEditExam(examId);
+                NavigatePush(_ucEditExam);
+            };
 
         }
 
@@ -87,6 +95,15 @@ namespace GUI
             {
                 NavigatePop();
             };
+
+        }
+
+        private void LoadUcEditExam(UserControl uc)
+        {
+            pbContent.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(uc);
+            pbHeaderContent.Controls.Clear();
 
         }
         private void LoadUcBook()
@@ -275,7 +292,10 @@ namespace GUI
         private void NavigatePush(UserControl uc)
         {
             Navigate.Instance.PushIfNotSame(uc);
-            if(uc is UcAddExam)
+            if(uc is UcEditExam)
+            {
+                LoadUcEditExam(uc);
+            }else if(uc is UcAddExam)
             {
                 LoadUcAddExam();
             }

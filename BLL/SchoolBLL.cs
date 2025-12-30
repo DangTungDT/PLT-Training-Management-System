@@ -12,11 +12,16 @@ namespace BLL
     {
         private readonly SchoolDAL _schoolDAL;
 
+        
         public SchoolBLL()
         {
             _schoolDAL = new SchoolDAL();
         }
 
+        public int GetSchoolIdBySemesterId(int semesterId)
+        {
+            return _schoolDAL.GetSchoolIdBySemesterId(semesterId);
+        }
         public List<SchoolDTO> GetAllSchools()
         {
             return _schoolDAL.GetAll();

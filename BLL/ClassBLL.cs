@@ -12,6 +12,10 @@ namespace BLL
     {
         private readonly ClassDAL _ClassDAL = new ClassDAL();
 
+        public ClassDTO GetClassById(int idClass)
+        {
+            return _ClassDAL.GetClassById(idClass);
+        }
         public List<ClassDTO> GetAllByFacultyId(int facultyId)
         {
             if (facultyId <= 0)

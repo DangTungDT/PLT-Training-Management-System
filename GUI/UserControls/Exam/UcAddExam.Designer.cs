@@ -65,9 +65,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
+            panel11 = new Panel();
             btnSaveExam = new Guna.UI2.WinForms.Guna2Button();
             btnPreview = new Guna.UI2.WinForms.Guna2Button();
             label2 = new Label();
@@ -85,25 +84,25 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
             label9 = new Label();
             label10 = new Label();
             txtExamName = new Guna.UI2.WinForms.Guna2TextBox();
-            cbSubject = new Guna.UI2.WinForms.Guna2ComboBox();
-            cbExamType = new Guna.UI2.WinForms.Guna2ComboBox();
-            cbClass = new Guna.UI2.WinForms.Guna2ComboBox();
-            cbSchool = new Guna.UI2.WinForms.Guna2ComboBox();
             txtTotalQuestion = new Guna.UI2.WinForms.Guna2TextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             txtExamTime = new Guna.UI2.WinForms.Guna2TextBox();
             cbTimeType = new Guna.UI2.WinForms.Guna2ComboBox();
-            cbSemester = new Guna.UI2.WinForms.Guna2ComboBox();
+            cbSubject = new Guna.UI2.WinForms.Guna2ComboBox();
+            label5 = new Label();
+            label8 = new Label();
+            cbSchool = new Guna.UI2.WinForms.Guna2ComboBox();
             label14 = new Label();
+            cbSemester = new Guna.UI2.WinForms.Guna2ComboBox();
+            label6 = new Label();
+            label7 = new Label();
+            cbExamType = new Guna.UI2.WinForms.Guna2ComboBox();
             label15 = new Label();
             cbFaculty = new Guna.UI2.WinForms.Guna2ComboBox();
+            clbClass = new CheckedListBox();
             pnInputExam2 = new Panel();
             flpQuestion = new FlowLayoutPanel();
             panel3 = new Panel();
@@ -154,6 +153,7 @@
             tableLayoutPanel5 = new TableLayoutPanel();
             crbStage1 = new Guna.UI2.WinForms.Guna2CircleButton();
             panel1.SuspendLayout();
+            panel11.SuspendLayout();
             panel2.SuspendLayout();
             panelContent.SuspendLayout();
             pnContentFill.SuspendLayout();
@@ -180,8 +180,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(btnSaveExam);
-            panel1.Controls.Add(btnPreview);
+            panel1.Controls.Add(panel11);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnPreviousPage);
@@ -191,9 +190,18 @@
             panel1.Size = new Size(1076, 81);
             panel1.TabIndex = 0;
             // 
+            // panel11
+            // 
+            panel11.Controls.Add(btnSaveExam);
+            panel11.Controls.Add(btnPreview);
+            panel11.Dock = DockStyle.Right;
+            panel11.Location = new Point(732, 0);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(344, 81);
+            panel11.TabIndex = 14;
+            // 
             // btnSaveExam
             // 
-            btnSaveExam.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSaveExam.BorderColor = Color.FromArgb(226, 230, 233);
             btnSaveExam.BorderRadius = 10;
             btnSaveExam.BorderThickness = 2;
@@ -205,7 +213,7 @@
             btnSaveExam.FillColor = Color.FromArgb(60, 131, 246);
             btnSaveExam.Font = new Font("Segoe UI", 9F);
             btnSaveExam.ForeColor = Color.White;
-            btnSaveExam.Location = new Point(934, 13);
+            btnSaveExam.Location = new Point(198, 13);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnSaveExam.Size = new Size(126, 41);
@@ -215,7 +223,6 @@
             // 
             // btnPreview
             // 
-            btnPreview.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPreview.BorderColor = Color.FromArgb(226, 230, 233);
             btnPreview.BorderRadius = 10;
             btnPreview.BorderThickness = 2;
@@ -227,7 +234,7 @@
             btnPreview.FillColor = Color.White;
             btnPreview.Font = new Font("Segoe UI", 9F);
             btnPreview.ForeColor = Color.FromArgb(104, 116, 135);
-            btnPreview.Location = new Point(749, 13);
+            btnPreview.Location = new Point(13, 13);
             btnPreview.Name = "btnPreview";
             btnPreview.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnPreview.Size = new Size(126, 41);
@@ -408,23 +415,23 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label3, 0, 0);
             tableLayoutPanel1.Controls.Add(label4, 0, 1);
-            tableLayoutPanel1.Controls.Add(label5, 1, 1);
-            tableLayoutPanel1.Controls.Add(label6, 0, 3);
-            tableLayoutPanel1.Controls.Add(label7, 1, 3);
-            tableLayoutPanel1.Controls.Add(label8, 1, 5);
             tableLayoutPanel1.Controls.Add(label9, 0, 7);
             tableLayoutPanel1.Controls.Add(label10, 0, 5);
             tableLayoutPanel1.Controls.Add(txtExamName, 0, 2);
-            tableLayoutPanel1.Controls.Add(cbSubject, 1, 2);
-            tableLayoutPanel1.Controls.Add(cbExamType, 1, 4);
-            tableLayoutPanel1.Controls.Add(cbClass, 0, 4);
-            tableLayoutPanel1.Controls.Add(cbSchool, 1, 6);
             tableLayoutPanel1.Controls.Add(txtTotalQuestion, 0, 8);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 6);
-            tableLayoutPanel1.Controls.Add(cbSemester, 1, 8);
-            tableLayoutPanel1.Controls.Add(label14, 1, 7);
-            tableLayoutPanel1.Controls.Add(label15, 0, 9);
-            tableLayoutPanel1.Controls.Add(cbFaculty, 0, 10);
+            tableLayoutPanel1.Controls.Add(cbSubject, 1, 10);
+            tableLayoutPanel1.Controls.Add(label5, 1, 9);
+            tableLayoutPanel1.Controls.Add(label8, 1, 1);
+            tableLayoutPanel1.Controls.Add(cbSchool, 1, 2);
+            tableLayoutPanel1.Controls.Add(label14, 1, 5);
+            tableLayoutPanel1.Controls.Add(cbSemester, 1, 6);
+            tableLayoutPanel1.Controls.Add(label6, 1, 7);
+            tableLayoutPanel1.Controls.Add(label7, 0, 3);
+            tableLayoutPanel1.Controls.Add(cbExamType, 0, 4);
+            tableLayoutPanel1.Controls.Add(label15, 1, 3);
+            tableLayoutPanel1.Controls.Add(cbFaculty, 1, 4);
+            tableLayoutPanel1.Controls.Add(clbClass, 1, 8);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -461,42 +468,6 @@
             label4.Size = new Size(74, 20);
             label4.TabIndex = 0;
             label4.Text = "Tên đề thi";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(501, 40);
-            label5.Name = "label5";
-            label5.Size = new Size(67, 20);
-            label5.TabIndex = 0;
-            label5.Text = "Môn học";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(3, 130);
-            label6.Name = "label6";
-            label6.Size = new Size(34, 20);
-            label6.TabIndex = 0;
-            label6.Text = "Lớp";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(501, 130);
-            label7.Name = "label7";
-            label7.Size = new Size(79, 20);
-            label7.TabIndex = 0;
-            label7.Text = "Loại đề thi";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(501, 210);
-            label8.Name = "label8";
-            label8.Size = new Size(56, 20);
-            label8.TabIndex = 0;
-            label8.Text = "Trường";
             // 
             // label9
             // 
@@ -539,94 +510,12 @@
             txtExamName.Size = new Size(492, 36);
             txtExamName.TabIndex = 1;
             // 
-            // cbSubject
-            // 
-            cbSubject.BackColor = Color.Transparent;
-            cbSubject.BorderRadius = 10;
-            cbSubject.CustomizableEdges = customizableEdges13;
-            cbSubject.Dock = DockStyle.Fill;
-            cbSubject.DrawMode = DrawMode.OwnerDrawFixed;
-            cbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSubject.FillColor = Color.FromArgb(217, 217, 217);
-            cbSubject.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbSubject.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbSubject.Font = new Font("Segoe UI", 10F);
-            cbSubject.ForeColor = Color.Black;
-            cbSubject.ItemHeight = 30;
-            cbSubject.Location = new Point(501, 73);
-            cbSubject.Name = "cbSubject";
-            cbSubject.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cbSubject.Size = new Size(492, 36);
-            cbSubject.TabIndex = 2;
-            // 
-            // cbExamType
-            // 
-            cbExamType.BackColor = Color.Transparent;
-            cbExamType.BorderRadius = 10;
-            cbExamType.CustomizableEdges = customizableEdges15;
-            cbExamType.Dock = DockStyle.Fill;
-            cbExamType.DrawMode = DrawMode.OwnerDrawFixed;
-            cbExamType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbExamType.FillColor = Color.FromArgb(217, 217, 217);
-            cbExamType.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbExamType.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbExamType.Font = new Font("Segoe UI", 10F);
-            cbExamType.ForeColor = Color.Black;
-            cbExamType.ItemHeight = 30;
-            cbExamType.Items.AddRange(new object[] { "Trắc nghiệm", "Tự luận", "Trắc nghiệm và tự luận" });
-            cbExamType.Location = new Point(501, 153);
-            cbExamType.Name = "cbExamType";
-            cbExamType.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cbExamType.Size = new Size(492, 36);
-            cbExamType.TabIndex = 2;
-            // 
-            // cbClass
-            // 
-            cbClass.BackColor = Color.Transparent;
-            cbClass.BorderRadius = 10;
-            cbClass.CustomizableEdges = customizableEdges17;
-            cbClass.Dock = DockStyle.Fill;
-            cbClass.DrawMode = DrawMode.OwnerDrawFixed;
-            cbClass.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbClass.FillColor = Color.FromArgb(217, 217, 217);
-            cbClass.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbClass.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbClass.Font = new Font("Segoe UI", 10F);
-            cbClass.ForeColor = Color.Black;
-            cbClass.ItemHeight = 30;
-            cbClass.Location = new Point(3, 153);
-            cbClass.Name = "cbClass";
-            cbClass.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            cbClass.Size = new Size(492, 36);
-            cbClass.TabIndex = 2;
-            // 
-            // cbSchool
-            // 
-            cbSchool.BackColor = Color.Transparent;
-            cbSchool.BorderRadius = 10;
-            cbSchool.CustomizableEdges = customizableEdges19;
-            cbSchool.Dock = DockStyle.Fill;
-            cbSchool.DrawMode = DrawMode.OwnerDrawFixed;
-            cbSchool.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSchool.FillColor = Color.FromArgb(217, 217, 217);
-            cbSchool.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbSchool.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbSchool.Font = new Font("Segoe UI", 10F);
-            cbSchool.ForeColor = Color.Black;
-            cbSchool.ItemHeight = 30;
-            cbSchool.Location = new Point(501, 233);
-            cbSchool.Name = "cbSchool";
-            cbSchool.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            cbSchool.Size = new Size(492, 36);
-            cbSchool.TabIndex = 2;
-            cbSchool.SelectedIndexChanged += cbSchool_SelectedIndexChanged;
-            // 
             // txtTotalQuestion
             // 
             txtTotalQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtTotalQuestion.BorderColor = Color.Black;
             txtTotalQuestion.BorderRadius = 10;
-            txtTotalQuestion.CustomizableEdges = customizableEdges21;
+            txtTotalQuestion.CustomizableEdges = customizableEdges13;
             txtTotalQuestion.DefaultText = "";
             txtTotalQuestion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTotalQuestion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -640,9 +529,9 @@
             txtTotalQuestion.Name = "txtTotalQuestion";
             txtTotalQuestion.PlaceholderText = "Nhập tổng số câu hỏi";
             txtTotalQuestion.SelectedText = "";
-            txtTotalQuestion.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtTotalQuestion.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtTotalQuestion.Size = new Size(492, 36);
-            txtTotalQuestion.TabIndex = 1;
+            txtTotalQuestion.TabIndex = 4;
             txtTotalQuestion.TextChanged += NumericTextBox_TextChanged;
             txtTotalQuestion.KeyDown += NumericTextBox_KeyDown;
             txtTotalQuestion.KeyPress += NumericTextBox_KeyPress;
@@ -667,7 +556,7 @@
             txtExamTime.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtExamTime.BorderColor = Color.Black;
             txtExamTime.BorderRadius = 10;
-            txtExamTime.CustomizableEdges = customizableEdges23;
+            txtExamTime.CustomizableEdges = customizableEdges15;
             txtExamTime.DefaultText = "";
             txtExamTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtExamTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -681,9 +570,9 @@
             txtExamTime.Name = "txtExamTime";
             txtExamTime.PlaceholderText = "Nhập thời gian làm bài";
             txtExamTime.SelectedText = "";
-            txtExamTime.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            txtExamTime.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtExamTime.Size = new Size(366, 36);
-            txtExamTime.TabIndex = 1;
+            txtExamTime.TabIndex = 3;
             txtExamTime.TextChanged += NumericTextBox_TextChanged;
             txtExamTime.KeyDown += NumericTextBox_KeyDown;
             txtExamTime.KeyPress += NumericTextBox_KeyPress;
@@ -692,7 +581,7 @@
             // 
             cbTimeType.BackColor = Color.Transparent;
             cbTimeType.BorderRadius = 10;
-            cbTimeType.CustomizableEdges = customizableEdges25;
+            cbTimeType.CustomizableEdges = customizableEdges17;
             cbTimeType.Dock = DockStyle.Fill;
             cbTimeType.DrawMode = DrawMode.OwnerDrawFixed;
             cbTimeType.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -705,15 +594,83 @@
             cbTimeType.Items.AddRange(new object[] { "Phút", "Giờ" });
             cbTimeType.Location = new Point(375, 3);
             cbTimeType.Name = "cbTimeType";
-            cbTimeType.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            cbTimeType.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cbTimeType.Size = new Size(114, 36);
             cbTimeType.TabIndex = 2;
+            // 
+            // cbSubject
+            // 
+            cbSubject.BackColor = Color.Transparent;
+            cbSubject.BorderRadius = 10;
+            cbSubject.CustomizableEdges = customizableEdges19;
+            cbSubject.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSubject.FillColor = Color.FromArgb(217, 217, 217);
+            cbSubject.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbSubject.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSubject.Font = new Font("Segoe UI", 10F);
+            cbSubject.ForeColor = Color.Black;
+            cbSubject.ItemHeight = 30;
+            cbSubject.Location = new Point(501, 393);
+            cbSubject.Name = "cbSubject";
+            cbSubject.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            cbSubject.Size = new Size(492, 36);
+            cbSubject.TabIndex = 9;
+            cbSubject.KeyDown += cbSubject_KeyDown;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(501, 370);
+            label5.Name = "label5";
+            label5.Size = new Size(67, 20);
+            label5.TabIndex = 0;
+            label5.Text = "Môn học";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(501, 40);
+            label8.Name = "label8";
+            label8.Size = new Size(56, 20);
+            label8.TabIndex = 0;
+            label8.Text = "Trường";
+            // 
+            // cbSchool
+            // 
+            cbSchool.BackColor = Color.Transparent;
+            cbSchool.BorderRadius = 10;
+            cbSchool.CustomizableEdges = customizableEdges21;
+            cbSchool.Dock = DockStyle.Fill;
+            cbSchool.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSchool.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSchool.FillColor = Color.FromArgb(217, 217, 217);
+            cbSchool.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbSchool.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSchool.Font = new Font("Segoe UI", 10F);
+            cbSchool.ForeColor = Color.Black;
+            cbSchool.ItemHeight = 30;
+            cbSchool.Location = new Point(501, 73);
+            cbSchool.Name = "cbSchool";
+            cbSchool.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            cbSchool.Size = new Size(492, 36);
+            cbSchool.TabIndex = 5;
+            cbSchool.SelectedIndexChanged += cbSchool_SelectedIndexChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(501, 210);
+            label14.Name = "label14";
+            label14.Size = new Size(54, 20);
+            label14.TabIndex = 0;
+            label14.Text = "Học kỳ";
             // 
             // cbSemester
             // 
             cbSemester.BackColor = Color.Transparent;
             cbSemester.BorderRadius = 10;
-            cbSemester.CustomizableEdges = customizableEdges27;
+            cbSemester.CustomizableEdges = customizableEdges23;
             cbSemester.Dock = DockStyle.Fill;
             cbSemester.DrawMode = DrawMode.OwnerDrawFixed;
             cbSemester.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -723,26 +680,56 @@
             cbSemester.Font = new Font("Segoe UI", 10F);
             cbSemester.ForeColor = Color.Black;
             cbSemester.ItemHeight = 30;
-            cbSemester.Location = new Point(501, 313);
+            cbSemester.Location = new Point(501, 233);
             cbSemester.Name = "cbSemester";
-            cbSemester.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            cbSemester.ShadowDecoration.CustomizableEdges = customizableEdges24;
             cbSemester.Size = new Size(492, 36);
-            cbSemester.TabIndex = 4;
+            cbSemester.TabIndex = 7;
             cbSemester.SelectedIndexChanged += cbSemester_SelectedIndexChanged;
             // 
-            // label14
+            // label6
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(501, 290);
-            label14.Name = "label14";
-            label14.Size = new Size(54, 20);
-            label14.TabIndex = 0;
-            label14.Text = "Học kỳ";
+            label6.AutoSize = true;
+            label6.Location = new Point(501, 290);
+            label6.Name = "label6";
+            label6.Size = new Size(34, 20);
+            label6.TabIndex = 0;
+            label6.Text = "Lớp";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 130);
+            label7.Name = "label7";
+            label7.Size = new Size(79, 20);
+            label7.TabIndex = 0;
+            label7.Text = "Loại đề thi";
+            // 
+            // cbExamType
+            // 
+            cbExamType.BackColor = Color.Transparent;
+            cbExamType.BorderRadius = 10;
+            cbExamType.CustomizableEdges = customizableEdges25;
+            cbExamType.Dock = DockStyle.Fill;
+            cbExamType.DrawMode = DrawMode.OwnerDrawFixed;
+            cbExamType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbExamType.FillColor = Color.FromArgb(217, 217, 217);
+            cbExamType.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbExamType.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbExamType.Font = new Font("Segoe UI", 10F);
+            cbExamType.ForeColor = Color.Black;
+            cbExamType.ItemHeight = 30;
+            cbExamType.Items.AddRange(new object[] { "Trắc nghiệm", "Tự luận", "Trắc nghiệm và tự luận" });
+            cbExamType.Location = new Point(3, 153);
+            cbExamType.Name = "cbExamType";
+            cbExamType.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            cbExamType.Size = new Size(492, 36);
+            cbExamType.TabIndex = 2;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(3, 370);
+            label15.Location = new Point(501, 130);
             label15.Name = "label15";
             label15.Size = new Size(43, 20);
             label15.TabIndex = 0;
@@ -752,7 +739,7 @@
             // 
             cbFaculty.BackColor = Color.Transparent;
             cbFaculty.BorderRadius = 10;
-            cbFaculty.CustomizableEdges = customizableEdges29;
+            cbFaculty.CustomizableEdges = customizableEdges27;
             cbFaculty.Dock = DockStyle.Fill;
             cbFaculty.DrawMode = DrawMode.OwnerDrawFixed;
             cbFaculty.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -762,12 +749,21 @@
             cbFaculty.Font = new Font("Segoe UI", 10F);
             cbFaculty.ForeColor = Color.Black;
             cbFaculty.ItemHeight = 30;
-            cbFaculty.Location = new Point(3, 393);
+            cbFaculty.Location = new Point(501, 153);
             cbFaculty.Name = "cbFaculty";
-            cbFaculty.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            cbFaculty.ShadowDecoration.CustomizableEdges = customizableEdges28;
             cbFaculty.Size = new Size(492, 36);
-            cbFaculty.TabIndex = 4;
+            cbFaculty.TabIndex = 6;
             cbFaculty.SelectedIndexChanged += cbFaculty_SelectedIndexChanged;
+            // 
+            // clbClass
+            // 
+            clbClass.Dock = DockStyle.Fill;
+            clbClass.FormattingEnabled = true;
+            clbClass.Location = new Point(501, 313);
+            clbClass.Name = "clbClass";
+            clbClass.Size = new Size(492, 54);
+            clbClass.TabIndex = 10;
             // 
             // pnInputExam2
             // 
@@ -816,14 +812,14 @@
             // 
             btnAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddQuestion.BorderRadius = 10;
-            btnAddQuestion.CustomizableEdges = customizableEdges31;
+            btnAddQuestion.CustomizableEdges = customizableEdges29;
             btnAddQuestion.FillColor = Color.FromArgb(34, 197, 94);
             btnAddQuestion.Font = new Font("Segoe UI", 9F);
             btnAddQuestion.ForeColor = Color.White;
             btnAddQuestion.Location = new Point(88, 11);
             btnAddQuestion.Margin = new Padding(0, 8, 0, 0);
             btnAddQuestion.Name = "btnAddQuestion";
-            btnAddQuestion.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            btnAddQuestion.ShadowDecoration.CustomizableEdges = customizableEdges30;
             btnAddQuestion.Size = new Size(139, 40);
             btnAddQuestion.TabIndex = 2;
             btnAddQuestion.Text = "Thêm câu hỏi";
@@ -1215,7 +1211,7 @@
             btnNextStage.BorderColor = Color.FromArgb(226, 230, 233);
             btnNextStage.BorderRadius = 10;
             btnNextStage.BorderThickness = 2;
-            btnNextStage.CustomizableEdges = customizableEdges33;
+            btnNextStage.CustomizableEdges = customizableEdges31;
             btnNextStage.DisabledState.BorderColor = Color.DarkGray;
             btnNextStage.DisabledState.CustomBorderColor = Color.DarkGray;
             btnNextStage.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -1225,7 +1221,7 @@
             btnNextStage.ForeColor = Color.White;
             btnNextStage.Location = new Point(904, 6);
             btnNextStage.Name = "btnNextStage";
-            btnNextStage.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btnNextStage.ShadowDecoration.CustomizableEdges = customizableEdges32;
             btnNextStage.Size = new Size(126, 41);
             btnNextStage.TabIndex = 13;
             btnNextStage.Text = "Tiếp theo";
@@ -1236,7 +1232,7 @@
             btnBackStage.BorderColor = Color.FromArgb(226, 230, 233);
             btnBackStage.BorderRadius = 10;
             btnBackStage.BorderThickness = 2;
-            btnBackStage.CustomizableEdges = customizableEdges35;
+            btnBackStage.CustomizableEdges = customizableEdges33;
             btnBackStage.DisabledState.BorderColor = Color.DarkGray;
             btnBackStage.DisabledState.CustomBorderColor = Color.DarkGray;
             btnBackStage.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -1246,7 +1242,7 @@
             btnBackStage.ForeColor = Color.FromArgb(104, 116, 135);
             btnBackStage.Location = new Point(6, 6);
             btnBackStage.Name = "btnBackStage";
-            btnBackStage.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnBackStage.ShadowDecoration.CustomizableEdges = customizableEdges34;
             btnBackStage.Size = new Size(126, 41);
             btnBackStage.TabIndex = 13;
             btnBackStage.Text = "Quay lại";
@@ -1316,7 +1312,7 @@
             crbStage3.ForeColor = Color.White;
             crbStage3.Location = new Point(155, 3);
             crbStage3.Name = "crbStage3";
-            crbStage3.ShadowDecoration.CustomizableEdges = customizableEdges37;
+            crbStage3.ShadowDecoration.CustomizableEdges = customizableEdges35;
             crbStage3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             crbStage3.Size = new Size(44, 50);
             crbStage3.TabIndex = 2;
@@ -1350,7 +1346,7 @@
             crbStage2.ForeColor = Color.White;
             crbStage2.Location = new Point(154, 3);
             crbStage2.Name = "crbStage2";
-            crbStage2.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            crbStage2.ShadowDecoration.CustomizableEdges = customizableEdges36;
             crbStage2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             crbStage2.Size = new Size(44, 50);
             crbStage2.TabIndex = 2;
@@ -1416,7 +1412,7 @@
             crbStage1.ForeColor = Color.White;
             crbStage1.Location = new Point(154, 3);
             crbStage1.Name = "crbStage1";
-            crbStage1.ShadowDecoration.CustomizableEdges = customizableEdges39;
+            crbStage1.ShadowDecoration.CustomizableEdges = customizableEdges37;
             crbStage1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             crbStage1.Size = new Size(44, 50);
             crbStage1.TabIndex = 2;
@@ -1433,6 +1429,7 @@
             Size = new Size(1076, 741);
             Load += UcAddExam_Load;
             panel1.ResumeLayout(false);
+            panel11.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             pnContentFill.ResumeLayout(false);
@@ -1497,7 +1494,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtExamName;
         private Guna.UI2.WinForms.Guna2ComboBox cbSubject;
         private Guna.UI2.WinForms.Guna2ComboBox cbExamType;
-        private Guna.UI2.WinForms.Guna2ComboBox cbClass;
         private Guna.UI2.WinForms.Guna2ComboBox cbSchool;
         private Guna.UI2.WinForms.Guna2TextBox txtTotalQuestion;
         private TableLayoutPanel tableLayoutPanel2;
@@ -1552,5 +1548,7 @@
         private Label label14;
         private Label label15;
         private Guna.UI2.WinForms.Guna2ComboBox cbFaculty;
+        private Panel panel11;
+        private CheckedListBox clbClass;
     }
 }

@@ -864,6 +864,32 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ClassExam",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ExamId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClassExam", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ClassExam_Class_ClassId",
+                        column: x => x.ClassId,
+                        principalTable: "Class",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ClassExam_Exam_ExamId",
+                        column: x => x.ExamId,
+                        principalTable: "Exam",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Exam_File",
                 columns: table => new
                 {
@@ -1191,6 +1217,17 @@ namespace DAL.Migrations
                 name: "IX_Class_TeacherId",
                 table: "Class",
                 column: "TeacherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClassExam_ClassId",
+                table: "ClassExam",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClassExam_ExamId_ClassId",
+                table: "ClassExam",
+                columns: new[] { "ExamId", "ClassId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Course_CategoryDTOId",
@@ -1603,6 +1640,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Book_File");
+
+            migrationBuilder.DropTable(
+                name: "ClassExam");
 
             migrationBuilder.DropTable(
                 name: "CourseClassDTO");

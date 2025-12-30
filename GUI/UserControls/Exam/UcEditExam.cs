@@ -2,7 +2,6 @@
 using DTO;
 using GUI.Helpers;
 using GUI.UserControls.Question;
-using Guna;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -14,19 +13,24 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI.UserControls.Exam
 {
-    public partial class UcAddExam : UserControl
+    public partial class UcEditExam : UserControl
     {
         private int _stageAddExam = 1;
         private bool _flagImportQuestion = false;
         private int _totalOptionsQuestion = 0;
-        private double _totalScoreQuestion = 0;
         private ExamDTO _newExam;
         private int _totalQuestion = 1;
         private List<QuestionAndOption> _allQuestionAndOption;
+        private double _totalScoreQuestion = 0;
+        private int _schoolId = 0;
+        private int _semesterId = 0;
+        private int _courseId = 0;
+        private int _subjectId = 0;
+        private int _classId = 0;
+
 
         private ExamBLL _examBLL = new ExamBLL();
         private CourseBLL _courseBLl = new CourseBLL();
@@ -39,10 +43,110 @@ namespace GUI.UserControls.Exam
         private ClassExamBLL _classExamBLL = new ClassExamBLL();
 
         public Action BackToUcExam;
-        public UcAddExam()
+
+        private ExamDTO _examSelected;
+
+        public UcEditExam(int examId)
         {
             InitializeComponent();
-            _stageAddExam = 1;
+            _examSelected = _examBLL.GetExamById(examId);
+
+        }
+
+        private void UcEditExam_Load(object sender, EventArgs e)
+        {
+            if (_examSelected == null)
+            {
+                MessageBox.Show("Không tìm thấy đề thi đã chọn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                cbExamType.SelectedIndex = 0;
+                cbTimeType.SelectedIndex = 0;
+                RegisterTextBoxEvents();
+                LoadStage(1);
+                LoadSchoolToCombobox();
+                LoadValueExam();
+            }
+
+        }
+        private void LoadClassToCheckedListBox(int facultyId)
+        {
+            try
+            {
+                //Clear item for control 
+                clbClass.DataSource = null;
+                clbClass.Items.Clear();
+
+                //Get new value
+                List<ClassDTO> classes = _classBLL.GetAllByFacultyId(facultyId);
+                clbClass.DisplayMember = "Name";
+
+                foreach (ClassDTO itemClass in classes)
+                {
+                    clbClass.Items.Add(itemClass, false);
+                }
+
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+        private void LoadValueExam()
+        {
+            try
+            {
+                cbExamType.Text = _examSelected.Type;
+                txtExamName.Text = _examSelected.Name;
+                cbTimeType.Text = "Phút";
+                txtExamTime.Text = _examSelected.Duration.ToString();
+                txtExamInstruction.Text = _examSelected.ExamInstruction;
+                txtDescription.Text = _examSelected.Description;
+                _schoolId = _schoolBLL.GetSchoolIdBySemesterId(_examSelected.SemesterId);
+                if(_schoolId == 0)
+                {
+                    MessageBox.Show("Không tìm thấy trường của đề thi đã chọn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+
+                    cbSchool.SelectedValue = _schoolId;
+                    cbSubject.SelectedValue = _examSelected.CourseId;
+                    cbSemester.SelectedValue = _examSelected.SemesterId;
+
+                    List<int> idClassSelected = _classExamBLL.GetIdClassByIdExam(_examSelected.Id);
+                    List<ClassDTO> classSelcted = new List<ClassDTO>();
+                    foreach(int idClass in idClassSelected)
+                    {
+                        ClassDTO classDTO = _classBLL.GetClassById(idClass);
+                        classSelcted.Add(classDTO);
+                    }
+
+                    cbFaculty.SelectedValue = classSelcted[0].FacultyId;
+
+                    foreach(ClassDTO classDTO in classSelcted)
+                    {
+                        foreach(ClassDTO classInCheckList in clbClass.Items)
+                        {
+                            if(classDTO.Id == classInCheckList.Id)
+                            {
+                                int index = clbClass.Items.IndexOf(classInCheckList);
+                                if (index != -1)
+                                {
+                                    clbClass.SetItemChecked(index, true);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void LoadCourseToCombobox(int semesterId)
@@ -84,30 +188,6 @@ namespace GUI.UserControls.Exam
                 cbFaculty.DisplayMember = "Name";
                 cbFaculty.ValueMember = "Id";
                 cbFaculty.DataSource = facultyes.ToList();
-
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-        private void LoadClassToCheckedListBox(int facultyId)
-        {
-            try
-            {
-                //Clear item for control 
-                clbClass.DataSource = null;
-                clbClass.Items.Clear();
-
-                //Get new value
-                List<ClassDTO> classes = _classBLL.GetAllByFacultyId(facultyId);
-                clbClass.DisplayMember = "Name";
-
-                foreach(ClassDTO itemClass in classes)
-                {
-                    clbClass.Items.Add(itemClass, false);
-                }
 
             }
             catch (ArgumentException ex)
@@ -252,13 +332,12 @@ namespace GUI.UserControls.Exam
 
         private void LoadUserControlAddQuestion()
         {
-            int.TryParse(txtTotalQuestion.Text, out _totalQuestion);
-            if (_totalQuestion == 0) _totalQuestion = 1;
-            for (int i = 0; i < _totalQuestion; i++)
+            List<QuestionDTO> questions = _questionBLL.GetQuestionByIdExam(_examSelected.Id);
+
+            foreach(QuestionDTO question in questions)
             {
                 UcAddQuestion ucAddQuestion;
-                if (_newExam == null) _newExam = GetNewExamValue();
-                ucAddQuestion = new UcAddQuestion();
+                ucAddQuestion = new UcAddQuestion(question);
                 ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 int width = flpQuestion.ClientSize.Width - 60;
                 ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
@@ -499,27 +578,6 @@ namespace GUI.UserControls.Exam
                             }
                         }
                     }
-
-                    int classId = 0;
-                    foreach (var item in clbClass.CheckedItems)
-                    {
-                        classId = 0;
-                        if (item is ClassDTO cls)
-                        {
-                            if (!int.TryParse(cls.Id.ToString(), out classId))
-                            {
-                                MessageBox.Show("Lấy id lớp thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                if (!_classExamBLL.AddClassExam(classId, _newExam.Id))
-                                {
-                                    MessageBox.Show("Thêm class_Exam thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                    }
-                    
                     return true;
 
                 }
@@ -553,6 +611,10 @@ namespace GUI.UserControls.Exam
             return !Regex.IsMatch(input, @"^[\p{L}0-9\s]+$");
         }
 
+        private bool IsValidExamName(string text)
+        {
+            return Regex.IsMatch(text, @"^[\p{L}0-9\s]+$");
+        }
         private bool ValidateExamControls()
         {
             // Tên bài thi
@@ -640,6 +702,9 @@ namespace GUI.UserControls.Exam
             }
             try
             {
+                clbClass.DataSource = null;
+                clbClass.Items.Clear();
+
                 List<Control> controlCombobox = new List<Control>
                 {
                     cbSemester,
@@ -653,9 +718,6 @@ namespace GUI.UserControls.Exam
                     control.Text = string.Empty;
                     control.SelectedIndex = -1;
                 }
-
-                clbClass.DataSource = null;
-                clbClass.Items.Clear();
 
                 int idSchoolSelected = -1;
                 if (!int.TryParse(cbSchool.SelectedValue.ToString(), out idSchoolSelected))
@@ -691,6 +753,7 @@ namespace GUI.UserControls.Exam
             {
                 clbClass.DataSource = null;
                 clbClass.Items.Clear();
+
                 int idFaculty = -1;
                 if (!int.TryParse(cbFaculty.SelectedValue.ToString(), out idFaculty))
                 {
@@ -800,10 +863,10 @@ namespace GUI.UserControls.Exam
         {
             Guna2TextBox[] textBoxes =
                                 {
-                            txtExamName,
-                            txtExamInstruction,
-                            txtDescription
-                        };
+                    txtExamName,
+                    txtExamInstruction,
+                    txtDescription
+                };
 
             foreach (var tb in textBoxes)
             {
@@ -869,6 +932,11 @@ namespace GUI.UserControls.Exam
 
                 txtExamName.Focus();
             }
+        }
+
+        private void crbStage1_ClientSizeChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

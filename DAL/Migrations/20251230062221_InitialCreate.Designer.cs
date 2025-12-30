@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20251222135550_InitialCreate")]
+    [Migration("20251230062221_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -267,6 +267,30 @@ namespace DAL.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Class", (string)null);
+                });
+
+            modelBuilder.Entity("DTO.ClassExamDTO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("ExamId", "ClassId")
+                        .IsUnique();
+
+                    b.ToTable("ClassExam", (string)null);
                 });
 
             modelBuilder.Entity("DTO.CourseClassDTO", b =>
@@ -1356,6 +1380,25 @@ namespace DAL.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("DTO.ClassExamDTO", b =>
+                {
+                    b.HasOne("DTO.ClassDTO", "Class")
+                        .WithMany("ClassExams")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DTO.ExamDTO", "Exam")
+                        .WithMany("ClassExams")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Class");
+
+                    b.Navigation("Exam");
+                });
+
             modelBuilder.Entity("DTO.CourseClassDTO", b =>
                 {
                     b.HasOne("DTO.ClassDTO", "Class")
@@ -1922,6 +1965,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DTO.ClassDTO", b =>
                 {
+                    b.Navigation("ClassExams");
+
                     b.Navigation("CourseClasses");
 
                     b.Navigation("LessonPlans");
@@ -1950,6 +1995,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DTO.ExamDTO", b =>
                 {
+                    b.Navigation("ClassExams");
+
                     b.Navigation("ExamFiles");
 
                     b.Navigation("Questions");

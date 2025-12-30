@@ -42,12 +42,17 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label4 = new Label();
             label5 = new Label();
             txtScoreQuestion = new Guna.UI2.WinForms.Guna2TextBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            pnEesayQuestion = new Panel();
+            txtResult = new Guna.UI2.WinForms.Guna2TextBox();
+            label6 = new Label();
+            tlpOptionForMultipleQuestion = new TableLayoutPanel();
             txtOptionD = new Guna.UI2.WinForms.Guna2TextBox();
             txtOptionC = new Guna.UI2.WinForms.Guna2TextBox();
             txtOptionB = new Guna.UI2.WinForms.Guna2TextBox();
@@ -59,14 +64,15 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
             txtContentQuestion = new Guna.UI2.WinForms.Guna2TextBox();
-            label3 = new Label();
+            lbOptionMultipleQuestion = new Label();
             panel2 = new Panel();
             cbTypeQuestion = new Guna.UI2.WinForms.Guna2ComboBox();
             lbNumberQuestion = new Label();
             label1 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            pnEesayQuestion.SuspendLayout();
+            tlpOptionForMultipleQuestion.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -74,15 +80,17 @@
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel3);
-            panel1.Controls.Add(tableLayoutPanel2);
+            panel1.Controls.Add(pnEesayQuestion);
+            panel1.Controls.Add(tlpOptionForMultipleQuestion);
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20);
-            panel1.Size = new Size(1034, 596);
+            panel1.Size = new Size(1034, 733);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // tableLayoutPanel3
             // 
@@ -92,13 +100,13 @@
             tableLayoutPanel3.Controls.Add(label5, 0, 1);
             tableLayoutPanel3.Controls.Add(txtScoreQuestion, 0, 2);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(20, 464);
+            tableLayoutPanel3.Location = new Point(20, 629);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 3;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel3.Size = new Size(994, 112);
+            tableLayoutPanel3.Size = new Size(994, 84);
             tableLayoutPanel3.TabIndex = 4;
             // 
             // label4
@@ -148,36 +156,80 @@
             txtScoreQuestion.KeyDown += NumericTextBox_KeyDown;
             txtScoreQuestion.KeyPress += NumericTextBox_KeyPress;
             // 
-            // tableLayoutPanel2
+            // pnEesayQuestion
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(txtOptionD, 1, 3);
-            tableLayoutPanel2.Controls.Add(txtOptionC, 1, 2);
-            tableLayoutPanel2.Controls.Add(txtOptionB, 1, 1);
-            tableLayoutPanel2.Controls.Add(txtOptionA, 1, 0);
-            tableLayoutPanel2.Controls.Add(radA, 0, 0);
-            tableLayoutPanel2.Controls.Add(radB, 0, 1);
-            tableLayoutPanel2.Controls.Add(radC, 0, 2);
-            tableLayoutPanel2.Controls.Add(radD, 0, 3);
-            tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(20, 299);
-            tableLayoutPanel2.MinimumSize = new Size(996, 165);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 4;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.Size = new Size(996, 165);
-            tableLayoutPanel2.TabIndex = 3;
+            pnEesayQuestion.Controls.Add(txtResult);
+            pnEesayQuestion.Controls.Add(label6);
+            pnEesayQuestion.Dock = DockStyle.Top;
+            pnEesayQuestion.Location = new Point(20, 464);
+            pnEesayQuestion.Name = "pnEesayQuestion";
+            pnEesayQuestion.Size = new Size(994, 165);
+            pnEesayQuestion.TabIndex = 5;
+            // 
+            // txtResult
+            // 
+            txtResult.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtResult.BorderColor = Color.Black;
+            txtResult.BorderRadius = 10;
+            txtResult.CustomizableEdges = customizableEdges3;
+            txtResult.DefaultText = "";
+            txtResult.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtResult.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtResult.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtResult.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtResult.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtResult.Font = new Font("Segoe UI", 9F);
+            txtResult.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtResult.Location = new Point(3, 40);
+            txtResult.Margin = new Padding(3, 4, 3, 4);
+            txtResult.Multiline = true;
+            txtResult.Name = "txtResult";
+            txtResult.PlaceholderText = "Nhập kết quả câu hỏi tự luận (nếu có)";
+            txtResult.SelectedText = "";
+            txtResult.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtResult.Size = new Size(988, 118);
+            txtResult.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(3, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(223, 28);
+            label6.TabIndex = 0;
+            label6.Text = "Nhập kết quả (nếu có)";
+            // 
+            // tlpOptionForMultipleQuestion
+            // 
+            tlpOptionForMultipleQuestion.ColumnCount = 2;
+            tlpOptionForMultipleQuestion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tlpOptionForMultipleQuestion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpOptionForMultipleQuestion.Controls.Add(txtOptionD, 1, 3);
+            tlpOptionForMultipleQuestion.Controls.Add(txtOptionC, 1, 2);
+            tlpOptionForMultipleQuestion.Controls.Add(txtOptionB, 1, 1);
+            tlpOptionForMultipleQuestion.Controls.Add(txtOptionA, 1, 0);
+            tlpOptionForMultipleQuestion.Controls.Add(radA, 0, 0);
+            tlpOptionForMultipleQuestion.Controls.Add(radB, 0, 1);
+            tlpOptionForMultipleQuestion.Controls.Add(radC, 0, 2);
+            tlpOptionForMultipleQuestion.Controls.Add(radD, 0, 3);
+            tlpOptionForMultipleQuestion.Dock = DockStyle.Top;
+            tlpOptionForMultipleQuestion.Location = new Point(20, 299);
+            tlpOptionForMultipleQuestion.MinimumSize = new Size(996, 165);
+            tlpOptionForMultipleQuestion.Name = "tlpOptionForMultipleQuestion";
+            tlpOptionForMultipleQuestion.RowCount = 4;
+            tlpOptionForMultipleQuestion.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tlpOptionForMultipleQuestion.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tlpOptionForMultipleQuestion.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tlpOptionForMultipleQuestion.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tlpOptionForMultipleQuestion.Size = new Size(996, 165);
+            tlpOptionForMultipleQuestion.TabIndex = 3;
             // 
             // txtOptionD
             // 
             txtOptionD.BorderColor = Color.Black;
             txtOptionD.BorderRadius = 10;
-            txtOptionD.CustomizableEdges = customizableEdges3;
+            txtOptionD.CustomizableEdges = customizableEdges5;
             txtOptionD.DefaultText = "";
             txtOptionD.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtOptionD.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -192,7 +244,7 @@
             txtOptionD.Name = "txtOptionD";
             txtOptionD.PlaceholderText = "Lựa chọn D";
             txtOptionD.SelectedText = "";
-            txtOptionD.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtOptionD.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtOptionD.Size = new Size(890, 37);
             txtOptionD.TabIndex = 9;
             // 
@@ -200,7 +252,7 @@
             // 
             txtOptionC.BorderColor = Color.Black;
             txtOptionC.BorderRadius = 10;
-            txtOptionC.CustomizableEdges = customizableEdges5;
+            txtOptionC.CustomizableEdges = customizableEdges7;
             txtOptionC.DefaultText = "";
             txtOptionC.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtOptionC.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -215,7 +267,7 @@
             txtOptionC.Name = "txtOptionC";
             txtOptionC.PlaceholderText = "Lựa chọn C";
             txtOptionC.SelectedText = "";
-            txtOptionC.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtOptionC.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtOptionC.Size = new Size(890, 32);
             txtOptionC.TabIndex = 7;
             // 
@@ -223,7 +275,7 @@
             // 
             txtOptionB.BorderColor = Color.Black;
             txtOptionB.BorderRadius = 10;
-            txtOptionB.CustomizableEdges = customizableEdges7;
+            txtOptionB.CustomizableEdges = customizableEdges9;
             txtOptionB.DefaultText = "";
             txtOptionB.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtOptionB.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -238,7 +290,7 @@
             txtOptionB.Name = "txtOptionB";
             txtOptionB.PlaceholderText = "Lựa chọn B";
             txtOptionB.SelectedText = "";
-            txtOptionB.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtOptionB.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtOptionB.Size = new Size(890, 32);
             txtOptionB.TabIndex = 5;
             // 
@@ -246,7 +298,7 @@
             // 
             txtOptionA.BorderColor = Color.Black;
             txtOptionA.BorderRadius = 10;
-            txtOptionA.CustomizableEdges = customizableEdges9;
+            txtOptionA.CustomizableEdges = customizableEdges11;
             txtOptionA.DefaultText = "";
             txtOptionA.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtOptionA.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -261,7 +313,7 @@
             txtOptionA.Name = "txtOptionA";
             txtOptionA.PlaceholderText = "Lựa chọn A";
             txtOptionA.SelectedText = "";
-            txtOptionA.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtOptionA.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtOptionA.Size = new Size(890, 32);
             txtOptionA.TabIndex = 3;
             // 
@@ -319,7 +371,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(txtContentQuestion, 0, 1);
-            tableLayoutPanel1.Controls.Add(label3, 0, 2);
+            tableLayoutPanel1.Controls.Add(lbOptionMultipleQuestion, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(20, 137);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -345,7 +397,7 @@
             // 
             txtContentQuestion.BorderColor = Color.Black;
             txtContentQuestion.BorderRadius = 10;
-            txtContentQuestion.CustomizableEdges = customizableEdges11;
+            txtContentQuestion.CustomizableEdges = customizableEdges13;
             txtContentQuestion.DefaultText = "";
             txtContentQuestion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtContentQuestion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -357,22 +409,23 @@
             txtContentQuestion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtContentQuestion.Location = new Point(3, 34);
             txtContentQuestion.Margin = new Padding(3, 4, 3, 4);
+            txtContentQuestion.Multiline = true;
             txtContentQuestion.Name = "txtContentQuestion";
-            txtContentQuestion.PlaceholderText = "";
+            txtContentQuestion.PlaceholderText = "Nhập nội dung câu hỏi";
             txtContentQuestion.SelectedText = "";
-            txtContentQuestion.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtContentQuestion.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtContentQuestion.Size = new Size(988, 94);
             txtContentQuestion.TabIndex = 1;
             // 
-            // label3
+            // lbOptionMultipleQuestion
             // 
-            label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label3.Location = new Point(3, 132);
-            label3.Name = "label3";
-            label3.Size = new Size(988, 30);
-            label3.TabIndex = 2;
-            label3.Text = "Các lựa chọn";
+            lbOptionMultipleQuestion.Dock = DockStyle.Fill;
+            lbOptionMultipleQuestion.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lbOptionMultipleQuestion.Location = new Point(3, 132);
+            lbOptionMultipleQuestion.Name = "lbOptionMultipleQuestion";
+            lbOptionMultipleQuestion.Size = new Size(988, 30);
+            lbOptionMultipleQuestion.TabIndex = 2;
+            lbOptionMultipleQuestion.Text = "Các lựa chọn";
             // 
             // panel2
             // 
@@ -389,7 +442,7 @@
             // 
             cbTypeQuestion.BackColor = Color.Transparent;
             cbTypeQuestion.BorderRadius = 10;
-            cbTypeQuestion.CustomizableEdges = customizableEdges13;
+            cbTypeQuestion.CustomizableEdges = customizableEdges15;
             cbTypeQuestion.DrawMode = DrawMode.OwnerDrawFixed;
             cbTypeQuestion.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTypeQuestion.FillColor = Color.FromArgb(217, 217, 217);
@@ -401,9 +454,10 @@
             cbTypeQuestion.Items.AddRange(new object[] { "Trắc nghiệm", "Tự luận" });
             cbTypeQuestion.Location = new Point(3, 76);
             cbTypeQuestion.Name = "cbTypeQuestion";
-            cbTypeQuestion.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            cbTypeQuestion.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cbTypeQuestion.Size = new Size(397, 36);
             cbTypeQuestion.TabIndex = 3;
+            cbTypeQuestion.SelectedIndexChanged += cbTypeQuestion_SelectedIndexChanged;
             // 
             // lbNumberQuestion
             // 
@@ -433,12 +487,15 @@
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(panel1);
             Name = "UcAddQuestion";
-            Size = new Size(1034, 596);
+            Size = new Size(1034, 733);
+            Load += UcAddQuestion_Load;
             panel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
+            pnEesayQuestion.ResumeLayout(false);
+            pnEesayQuestion.PerformLayout();
+            tlpOptionForMultipleQuestion.ResumeLayout(false);
+            tlpOptionForMultipleQuestion.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -454,10 +511,10 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtContentQuestion;
-        private Label label3;
+        private Label lbOptionMultipleQuestion;
         private Guna.UI2.WinForms.Guna2ComboBox cbTypeQuestion;
         private TableLayoutPanel tableLayoutPanel3;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tlpOptionForMultipleQuestion;
         private Guna.UI2.WinForms.Guna2TextBox txtOptionD;
         private Guna.UI2.WinForms.Guna2TextBox txtOptionC;
         private Guna.UI2.WinForms.Guna2TextBox txtOptionB;
@@ -470,5 +527,8 @@
         private Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txtScoreQuestion;
         private Label lbNumberQuestion;
+        private Panel pnEesayQuestion;
+        private Guna.UI2.WinForms.Guna2TextBox txtResult;
+        private Label label6;
     }
 }

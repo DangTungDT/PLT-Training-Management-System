@@ -12,6 +12,10 @@ namespace BLL
     {
         private QuestionDAL _questionDAL = new QuestionDAL();
 
+        public List<QuestionDTO> GetQuestionByIdExam(int examId)
+        {
+            return _questionDAL.GetQuestionByIdExam(examId);    
+        }
         public bool AddQuestion(QuestionDTO newQuestion)
         {
             return _questionDAL.AddQuestion(newQuestion);
