@@ -140,6 +140,7 @@
             cbExamType = new Guna.UI2.WinForms.Guna2ComboBox();
             label15 = new Label();
             cbFaculty = new Guna.UI2.WinForms.Guna2ComboBox();
+            clbClass = new CheckedListBox();
             pnInputExam2 = new Panel();
             flpQuestion = new FlowLayoutPanel();
             panel3 = new Panel();
@@ -151,7 +152,6 @@
             btnPreviousPage = new Guna.UI2.WinForms.Guna2Button();
             label2 = new Label();
             panel1 = new Panel();
-            clbClass = new CheckedListBox();
             pnInputExam3.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             panel8.SuspendLayout();
@@ -569,12 +569,12 @@
             btnSaveExam.FillColor = Color.FromArgb(60, 131, 246);
             btnSaveExam.Font = new Font("Segoe UI", 9F);
             btnSaveExam.ForeColor = Color.White;
-            btnSaveExam.Location = new Point(198, 13);
+            btnSaveExam.Location = new Point(178, 13);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btnSaveExam.Size = new Size(126, 41);
+            btnSaveExam.Size = new Size(146, 41);
             btnSaveExam.TabIndex = 13;
-            btnSaveExam.Text = "Lưu đề thi";
+            btnSaveExam.Text = "Cập nhật đề thi";
             btnSaveExam.Click += btnSaveExam_Click;
             // 
             // btnPreview
@@ -1272,6 +1272,15 @@
             cbFaculty.TabIndex = 6;
             cbFaculty.SelectedIndexChanged += cbFaculty_SelectedIndexChanged;
             // 
+            // clbClass
+            // 
+            clbClass.Dock = DockStyle.Fill;
+            clbClass.FormattingEnabled = true;
+            clbClass.Location = new Point(501, 313);
+            clbClass.Name = "clbClass";
+            clbClass.Size = new Size(492, 54);
+            clbClass.TabIndex = 11;
+            // 
             // pnInputExam2
             // 
             pnInputExam2.Controls.Add(flpQuestion);
@@ -1330,6 +1339,7 @@
             btnAddQuestion.Size = new Size(139, 40);
             btnAddQuestion.TabIndex = 2;
             btnAddQuestion.Text = "Thêm câu hỏi";
+            btnAddQuestion.Click += btnAddQuestion_Click;
             // 
             // panelContent
             // 
@@ -1402,15 +1412,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1076, 81);
             panel1.TabIndex = 2;
-            // 
-            // clbClass
-            // 
-            clbClass.Dock = DockStyle.Fill;
-            clbClass.FormattingEnabled = true;
-            clbClass.Location = new Point(501, 313);
-            clbClass.Name = "clbClass";
-            clbClass.Size = new Size(492, 54);
-            clbClass.TabIndex = 11;
             // 
             // UcEditExam
             // 

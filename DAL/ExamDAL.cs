@@ -12,6 +12,31 @@ namespace DAL
     public class ExamDAL
     {
         AppDBContext _context = new AppDBContext();
+
+        public bool UpdateExam(ExamDTO newExam)
+        {
+            try
+            {
+                ExamDTO oldExam = _context.Exams.FirstOrDefault(x => x.Id == newExam.Id);
+                if (oldExam == null) return false;
+
+                oldExam.Name = newExam.Name;
+                oldExam.Type = newExam.Type;
+                oldExam.Duration = newExam.Duration;
+                oldExam.ExamInstruction = newExam.ExamInstruction;
+                oldExam.Description = newExam.Description;
+                oldExam.Year = newExam.Year;
+                oldExam.Status = newExam.Status;
+                oldExam.CourseId = newExam.CourseId;
+                oldExam.SemesterId = newExam.SemesterId;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public ExamDTO GetExamById(int idExamSelected)
         {
             try

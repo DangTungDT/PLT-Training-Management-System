@@ -12,6 +12,11 @@ namespace BLL
     {
         private ExamDAL _examDAL = new ExamDAL();
 
+
+        public bool UpdateExam(ExamDTO newExam)
+        {
+            return _examDAL.UpdateExam(newExam);
+        }
         public ExamDTO GetExamById(int idExamSelected)
         {
             return _examDAL.GetExamById(idExamSelected);

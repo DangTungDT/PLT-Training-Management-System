@@ -12,6 +12,10 @@ namespace BLL
     {
         private QuestionDAL _questionDAL = new QuestionDAL();
 
+        public bool DeleteQuestion(int questionId)
+        {
+            return _questionDAL.DeleteQuestion(questionId);
+        }
         public List<QuestionDTO> GetQuestionByIdExam(int examId)
         {
             return _questionDAL.GetQuestionByIdExam(examId);    

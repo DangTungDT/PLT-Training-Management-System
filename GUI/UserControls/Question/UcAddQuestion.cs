@@ -153,6 +153,10 @@ namespace GUI.UserControls.Question
                     Score = examScore,
                     ExamId = _newExam.Id
                 };
+                if(_questionSelected != null)
+                {
+                    newQuestion.Id = _questionSelected.Id;
+                }
                 return newQuestion;
             }
             catch

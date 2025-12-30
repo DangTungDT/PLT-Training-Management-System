@@ -97,15 +97,30 @@ namespace GUI
             };
 
         }
-
         private void LoadUcEditExam(UserControl uc)
         {
+            _ucEditExam = uc as UcEditExam;
+            if (_ucEditExam == null) return;
+
             pbContent.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            pbContent.Controls.Add(uc);
+            _ucEditExam.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(_ucEditExam);
             pbHeaderContent.Controls.Clear();
 
+            // Wire up event để quay lại
+            _ucEditExam.BackToUcExam += () =>
+            {
+                NavigatePop();
+            };
         }
+        //private void LoadUcEditExam(UserControl uc)
+        //{
+        //    pbContent.Controls.Clear();
+        //    uc.Dock = DockStyle.Fill;
+        //    pbContent.Controls.Add(uc);
+        //    pbHeaderContent.Controls.Clear();
+
+        //}
         private void LoadUcBook()
         {
             _ucBook = new UcBook();

@@ -12,6 +12,10 @@ namespace BLL
     {
         public QuestionOptionDAL _questionOptionDAL = new QuestionOptionDAL();
 
+        public bool DeleteQuestionOption(int optionId)
+        {
+            return _questionOptionDAL.DeleteQuestionOption(optionId);
+        }
         public List<QuestionOptionDTO> GetQuestionOptionByIdQuestion(int questionId)
         {
             return _questionOptionDAL.GetQuestionOptionByIdQuestion(questionId);

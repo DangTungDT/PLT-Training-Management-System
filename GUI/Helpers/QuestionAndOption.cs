@@ -9,6 +9,7 @@ namespace GUI.Helpers
 {
     public class QuestionAndOption
     {
+        public int IdQuestion { get; set; }
         public string TypeQuestion { get; set; }
         public string ContentQuetion { get; set; }
         public decimal ScoreQuetion { get; set; }

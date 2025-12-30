@@ -12,6 +12,24 @@ namespace DAL
     {
         AppDBContext _context = new AppDBContext();
 
+
+        public bool DeleteClassExam(int classId, int examId)
+        {
+            try
+            {
+                ClassExamDTO classExam = _context.ClassExams
+                    .FirstOrDefault(x => x.ClassId == classId && x.ExamId == examId);
+                if (classExam == null) return false;
+
+                _context.ClassExams.Remove(classExam);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public bool AddClassExam(int classId, int examId)
         {
             try

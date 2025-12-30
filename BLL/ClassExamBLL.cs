@@ -12,6 +12,11 @@ namespace BLL
     {
         private ClassExamDAL _dal = new ClassExamDAL();
 
+
+        public bool DeleteClassExam(int classId, int examId)
+        {
+            return _dal.DeleteClassExam(classId, examId);
+        }
         public List<int> GetIdClassByIdExam(int examId)
         {
             return _dal.GetIdClassByIdExam(examId);

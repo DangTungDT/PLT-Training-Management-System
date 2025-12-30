@@ -11,6 +11,23 @@ namespace DAL
     public class QuestionOptionDAL
     {
         AppDBContext _context = new AppDBContext();
+
+        public bool DeleteQuestionOption(int optionId)
+        {
+            try
+            {
+                QuestionOptionDTO option = _context.QuestionOptions.FirstOrDefault(x => x.Id == optionId);
+                if (option == null) return false;
+
+                _context.QuestionOptions.Remove(option);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public List<QuestionOptionDTO> GetQuestionOptionByIdQuestion(int questionId)
         {
             try

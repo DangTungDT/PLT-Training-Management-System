@@ -11,6 +11,22 @@ namespace DAL
     {
         AppDBContext _dbContext = new AppDBContext();
 
+        public bool DeleteQuestion(int questionId)
+        {
+            try
+            {
+                QuestionDTO question = _dbContext.Questions.FirstOrDefault(x => x.Id == questionId);
+                if (question == null) return false;
+
+                _dbContext.Questions.Remove(question);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public List<QuestionDTO> GetQuestionByIdExam(int examId)
         {
             try

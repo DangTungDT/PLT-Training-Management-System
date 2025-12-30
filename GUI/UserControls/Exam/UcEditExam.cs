@@ -104,48 +104,71 @@ namespace GUI.UserControls.Exam
                 txtExamTime.Text = _examSelected.Duration.ToString();
                 txtExamInstruction.Text = _examSelected.ExamInstruction;
                 txtDescription.Text = _examSelected.Description;
+
                 _schoolId = _schoolBLL.GetSchoolIdBySemesterId(_examSelected.SemesterId);
-                if(_schoolId == 0)
+                if (_schoolId == 0)
                 {
                     MessageBox.Show("Không tìm thấy trường của đề thi đã chọn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
                 {
-
                     cbSchool.SelectedValue = _schoolId;
                     cbSubject.SelectedValue = _examSelected.CourseId;
                     cbSemester.SelectedValue = _examSelected.SemesterId;
 
+                    // Lấy danh sách ID các Class đã chọn
                     List<int> idClassSelected = _classExamBLL.GetIdClassByIdExam(_examSelected.Id);
-                    List<ClassDTO> classSelcted = new List<ClassDTO>();
-                    foreach(int idClass in idClassSelected)
+
+                    if (idClassSelected == null || idClassSelected.Count == 0)
                     {
-                        ClassDTO classDTO = _classBLL.GetClassById(idClass);
-                        classSelcted.Add(classDTO);
+                        MessageBox.Show("Không tìm thấy lớp học của đề thi!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
 
-                    cbFaculty.SelectedValue = classSelcted[0].FacultyId;
-
-                    foreach(ClassDTO classDTO in classSelcted)
+                    // Lấy Faculty từ Class đầu tiên
+                    ClassDTO firstClass = _classBLL.GetClassById(idClassSelected[0]);
+                    if (firstClass != null)
                     {
-                        foreach(ClassDTO classInCheckList in clbClass.Items)
+                        cbFaculty.SelectedValue = firstClass.FacultyId;
+
+                        // CHỜ CheckedListBox load xong thì mới check items
+                        // Sử dụng BeginInvoke để đảm bảo clbClass đã load xong
+                        this.BeginInvoke(new Action(() =>
                         {
-                            if(classDTO.Id == classInCheckList.Id)
-                            {
-                                int index = clbClass.Items.IndexOf(classInCheckList);
-                                if (index != -1)
-                                {
-                                    clbClass.SetItemChecked(index, true);
-                                }
-                            }
+                            CheckClassItems(idClassSelected);
+                        }));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi load dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        // Tách riêng hàm check items
+        private void CheckClassItems(List<int> idClassSelected)
+        {
+            try
+            {
+                // Duyệt qua tất cả items trong CheckedListBox
+                for (int i = 0; i < clbClass.Items.Count; i++)
+                {
+                    if (clbClass.Items[i] is ClassDTO classDTO)
+                    {
+                        // Nếu Id của class này có trong danh sách đã chọn thì check
+                        if (idClassSelected.Contains(classDTO.Id))
+                        {
+                            clbClass.SetItemChecked(i, true);
                         }
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show($"Lỗi khi check items: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -308,6 +331,7 @@ namespace GUI.UserControls.Exam
                 yearforNewExam = DateTime.Now.Year;
                 ExamDTO newExam = new ExamDTO()
                 {
+                    Id = _examSelected.Id,
                     Name = txtExamName.Text,
                     Type = cbExamType.Text,
                     Duration = examduration,
@@ -360,6 +384,8 @@ namespace GUI.UserControls.Exam
             switch (stageIndex)
             {
                 case 1:
+                    btnBackStage.Visible = false;
+                    btnNextStage.Visible = true;
                     crbStage1.FillColor = Color.FromArgb(94, 148, 255);
                     crbStage1.ForeColor = Color.White;
                     crbStage2.FillColor = Color.FromArgb(226, 230, 233);
@@ -376,6 +402,8 @@ namespace GUI.UserControls.Exam
                     pnInputExam3.Visible = false;
                     break;
                 case 2:
+                    btnBackStage.Visible = true;
+                    btnNextStage.Visible = true;
                     crbStage1.FillColor = Color.FromArgb(94, 148, 255);
                     crbStage1.ForeColor = Color.White;
                     crbStage2.FillColor = Color.FromArgb(94, 148, 255);
@@ -398,6 +426,8 @@ namespace GUI.UserControls.Exam
                     }
                     break;
                 case 3:
+                    btnBackStage.Visible = true;
+                    btnNextStage.Visible = false;
                     crbStage1.FillColor = Color.FromArgb(94, 148, 255);
                     crbStage1.ForeColor = Color.White;
                     crbStage2.FillColor = Color.FromArgb(94, 148, 255);
@@ -502,9 +532,9 @@ namespace GUI.UserControls.Exam
         {
             try
             {
-                if (AddExam())
+                if (EditExam())
                 {
-                    MessageBox.Show("Thêm đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     BackToUcExam?.Invoke();
                     return;
                 }
@@ -517,13 +547,13 @@ namespace GUI.UserControls.Exam
 
         }
 
-        private bool AddExam()
+        private bool EditExam()
         {
             try
             {
-                //Get value 
-                ExamDTO newExam = GetExam();
-                if (newExam == null) return false;
+                // Get value 
+                ExamDTO updatedExam = GetExam();
+                if (updatedExam == null) return false;
 
                 List<QuestionAndOption> listQuestion = GetAllQuestionAndOption();
                 if (listQuestion == null)
@@ -532,60 +562,115 @@ namespace GUI.UserControls.Exam
                     return false;
                 }
 
-                //Add exam
-                if (!_examBLL.AddExam(newExam))
+                // 1. Update Exam
+                if (!_examBLL.UpdateExam(updatedExam))
                 {
-                    MessageBox.Show("Thêm đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cập nhật đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                else
-                {
-                    //Add question
-                    newExam = _examBLL.GetExamByValue(newExam.Name, newExam.Type, newExam.CourseId, newExam.SemesterId, newExam.Year);
-                    if (newExam == null)
-                    {
-                        MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    foreach (QuestionAndOption itemQuestion in listQuestion)
-                    {
-                        QuestionDTO newQuestion = new QuestionDTO
-                        {
-                            Type = itemQuestion.TypeQuestion,
-                            Content = itemQuestion.ContentQuetion,
-                            Score = itemQuestion.ScoreQuetion,
-                            ExamId = newExam.Id
-                        };
-                        if (!_questionBLL.AddQuestion(newQuestion))
-                        {
-                            MessageBox.Show("Thêm câu hỏi cho đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        newQuestion = _questionBLL.GetQuestionByExamIdAndContent(newExam.Id, newQuestion.Content);
-                        if (newQuestion == null)
-                        {
-                            MessageBox.Show("Câu hỏi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        foreach (QuestionOptionDTO optionInQuestion in itemQuestion.Options)
-                        {
-                            if (string.IsNullOrEmpty(optionInQuestion.Content) && optionInQuestion.IsCorrect == false) continue;
 
-                            optionInQuestion.QuestionId = newQuestion.Id;
-                            if (!_questionOptionBLL.InsertQuestionOption(optionInQuestion))
+                // 2. Xóa tất cả Questions cũ và QuestionOptions cũ
+                List<QuestionDTO> oldQuestions = _questionBLL.GetQuestionByIdExam(updatedExam.Id);
+                if (oldQuestions != null && oldQuestions.Count > 0)
+                {
+                    foreach (QuestionDTO oldQuestion in oldQuestions)
+                    {
+                        // Xóa tất cả QuestionOptions của question này
+                        List<QuestionOptionDTO> oldOptions = _questionOptionBLL.GetQuestionOptionByIdQuestion(oldQuestion.Id);
+                        if (oldOptions != null)
+                        {
+                            foreach (QuestionOptionDTO oldOption in oldOptions)
                             {
-                                MessageBox.Show("Thêm lựa chọn cho câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
+                                if (!_questionOptionBLL.DeleteQuestionOption(oldOption.Id))
+                                {
+                                    MessageBox.Show($"Xóa lựa chọn cũ thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return false;
+                                }
                             }
                         }
-                    }
-                    return true;
 
+                        // Xóa Question
+                        if (!_questionBLL.DeleteQuestion(oldQuestion.Id))
+                        {
+                            MessageBox.Show($"Xóa câu hỏi cũ thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
                 }
 
+                // 3. Thêm Questions mới và QuestionOptions mới
+                foreach (QuestionAndOption itemQuestion in listQuestion)
+                {
+                    QuestionDTO newQuestion = new QuestionDTO
+                    {
+                        Type = itemQuestion.TypeQuestion,
+                        Content = itemQuestion.ContentQuetion,
+                        Score = itemQuestion.ScoreQuetion,
+                        ExamId = updatedExam.Id
+                    };
 
+                    if (!_questionBLL.AddQuestion(newQuestion))
+                    {
+                        MessageBox.Show("Thêm câu hỏi mới thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                    // Lấy Question vừa thêm để có Id
+                    newQuestion = _questionBLL.GetQuestionByExamIdAndContent(updatedExam.Id, newQuestion.Content);
+                    if (newQuestion == null)
+                    {
+                        MessageBox.Show("Không tìm thấy câu hỏi vừa thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                    // Thêm QuestionOptions
+                    foreach (QuestionOptionDTO optionInQuestion in itemQuestion.Options)
+                    {
+                        if (string.IsNullOrEmpty(optionInQuestion.Content) && optionInQuestion.IsCorrect == false)
+                            continue;
+
+                        optionInQuestion.QuestionId = newQuestion.Id;
+                        if (!_questionOptionBLL.InsertQuestionOption(optionInQuestion))
+                        {
+                            MessageBox.Show("Thêm lựa chọn cho câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
+
+                // 4. Update ClassExam
+                // Xóa tất cả ClassExam cũ
+                List<int> oldClassIds = _classExamBLL.GetIdClassByIdExam(updatedExam.Id);
+                if (oldClassIds != null && oldClassIds.Count > 0)
+                {
+                    foreach (int oldClassId in oldClassIds)
+                    {
+                        if (!_classExamBLL.DeleteClassExam(oldClassId, updatedExam.Id))
+                        {
+                            MessageBox.Show("Xóa lớp học cũ thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // Không return false vì có thể tiếp tục
+                        }
+                    }
+                }
+
+                // Thêm ClassExam mới từ CheckedListBox
+                foreach (var item in clbClass.CheckedItems)
+                {
+                    if (item is ClassDTO cls)
+                    {
+                        if (!_classExamBLL.AddClassExam(cls.Id, updatedExam.Id))
+                        {
+                            MessageBox.Show($"Thêm lớp {cls.Name} vào đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // Không return false, tiếp tục thêm các lớp khác
+                        }
+                    }
+                }
+
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
