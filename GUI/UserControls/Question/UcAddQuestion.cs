@@ -96,6 +96,7 @@ namespace GUI.UserControls.Question
                         }
                     }
                     txtScoreQuestion.Text = _questionSelected.Score.ToString();
+                    txtContentQuestion.Text = _questionSelected.Content.ToString();
                 }
             }
             catch

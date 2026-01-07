@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -67,6 +67,19 @@
             pbContentMain = new Panel();
             panel1 = new Panel();
             pbContentInput = new Panel();
+            pnInputFileBook = new Panel();
+            dgvFileBook = new DataGridView();
+            colName = new DataGridViewTextBoxColumn();
+            colFilePath = new DataGridViewTextBoxColumn();
+            colSizeFile = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
+            pnUploadFile = new Guna.UI2.WinForms.Guna2Panel();
+            btnChooseFile = new Guna.UI2.WinForms.Guna2Button();
+            picUpload = new Guna.UI2.WinForms.Guna2PictureBox();
+            lblNote = new Label();
+            lblTitle = new Label();
+            label2 = new Label();
+            label3 = new Label();
             pnInputValueBook = new Guna.UI2.WinForms.Guna2Panel();
             pnFill = new Panel();
             lblDescription = new Label();
@@ -86,34 +99,21 @@
             lblAuthor = new Label();
             lblSubject = new Label();
             txtAuthor = new Guna.UI2.WinForms.Guna2TextBox();
-            pnInputFileBook = new Panel();
-            dgvFileBook = new DataGridView();
-            colName = new DataGridViewTextBoxColumn();
-            colFilePath = new DataGridViewTextBoxColumn();
-            colSizeFile = new DataGridViewTextBoxColumn();
-            panel2 = new Panel();
-            pnUploadFile = new Guna.UI2.WinForms.Guna2Panel();
-            btnChooseFile = new Guna.UI2.WinForms.Guna2Button();
-            picUpload = new Guna.UI2.WinForms.Guna2PictureBox();
-            lblNote = new Label();
-            lblTitle = new Label();
-            label2 = new Label();
-            label3 = new Label();
             pbContentRight = new Panel();
             panelContentHeader.SuspendLayout();
             pnHeader.SuspendLayout();
             pbContent.SuspendLayout();
             pbContentMain.SuspendLayout();
             pbContentInput.SuspendLayout();
-            pnInputValueBook.SuspendLayout();
-            pnFill.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            guna2Panel1.SuspendLayout();
             pnInputFileBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFileBook).BeginInit();
             panel2.SuspendLayout();
             pnUploadFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUpload).BeginInit();
+            pnInputValueBook.SuspendLayout();
+            pnFill.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pbContentBottom
@@ -244,302 +244,13 @@
             // 
             // pbContentInput
             // 
-            pbContentInput.Controls.Add(pnInputValueBook);
             pbContentInput.Controls.Add(pnInputFileBook);
+            pbContentInput.Controls.Add(pnInputValueBook);
             pbContentInput.Dock = DockStyle.Fill;
             pbContentInput.Location = new Point(0, 122);
             pbContentInput.Name = "pbContentInput";
             pbContentInput.Size = new Size(1036, 480);
             pbContentInput.TabIndex = 1;
-            // 
-            // pnInputValueBook
-            // 
-            pnInputValueBook.Controls.Add(pnFill);
-            pnInputValueBook.Controls.Add(tableLayoutPanel1);
-            pnInputValueBook.CustomizableEdges = customizableEdges19;
-            pnInputValueBook.Dock = DockStyle.Fill;
-            pnInputValueBook.Location = new Point(0, 0);
-            pnInputValueBook.Name = "pnInputValueBook";
-            pnInputValueBook.Padding = new Padding(20);
-            pnInputValueBook.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            pnInputValueBook.Size = new Size(1036, 480);
-            pnInputValueBook.TabIndex = 1;
-            // 
-            // pnFill
-            // 
-            pnFill.Controls.Add(lblDescription);
-            pnFill.Controls.Add(txtDescription);
-            pnFill.Dock = DockStyle.Fill;
-            pnFill.Location = new Point(20, 314);
-            pnFill.Name = "pnFill";
-            pnFill.Size = new Size(996, 146);
-            pnFill.TabIndex = 15;
-            // 
-            // lblDescription
-            // 
-            lblDescription.Font = new Font("Segoe UI", 11F);
-            lblDescription.Location = new Point(17, 0);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(100, 23);
-            lblDescription.TabIndex = 14;
-            lblDescription.Text = "Mô tả";
-            // 
-            // txtDescription
-            // 
-            txtDescription.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtDescription.BorderColor = Color.Black;
-            txtDescription.BorderRadius = 6;
-            txtDescription.CustomizableEdges = customizableEdges1;
-            txtDescription.DefaultText = "";
-            txtDescription.Font = new Font("Segoe UI", 11F);
-            txtDescription.Location = new Point(4, 31);
-            txtDescription.Margin = new Padding(4, 5, 4, 5);
-            txtDescription.MaxLength = 500;
-            txtDescription.Multiline = true;
-            txtDescription.Name = "txtDescription";
-            txtDescription.PlaceholderText = "Mô tả ngắn gọn về sách";
-            txtDescription.SelectedText = "";
-            txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtDescription.Size = new Size(989, 110);
-            txtDescription.TabIndex = 7;
-            txtDescription.KeyDown += txtDescription_KeyDown;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(guna2Panel1, 1, 3);
-            tableLayoutPanel1.Controls.Add(cbCategory, 0, 5);
-            tableLayoutPanel1.Controls.Add(cboLevel, 1, 5);
-            tableLayoutPanel1.Controls.Add(lblLevel, 1, 4);
-            tableLayoutPanel1.Controls.Add(lblBookName, 1, 0);
-            tableLayoutPanel1.Controls.Add(txtBookName, 1, 1);
-            tableLayoutPanel1.Controls.Add(lblPublishYear, 1, 2);
-            tableLayoutPanel1.Controls.Add(lblISBN, 0, 0);
-            tableLayoutPanel1.Controls.Add(txtISBN, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblAuthor, 0, 2);
-            tableLayoutPanel1.Controls.Add(lblSubject, 0, 4);
-            tableLayoutPanel1.Controls.Add(txtAuthor, 0, 3);
-            tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(20, 20);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
-            tableLayoutPanel1.Size = new Size(996, 294);
-            tableLayoutPanel1.TabIndex = 16;
-            // 
-            // guna2Panel1
-            // 
-            guna2Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            guna2Panel1.BackColor = Color.White;
-            guna2Panel1.BorderColor = Color.Black;
-            guna2Panel1.BorderRadius = 6;
-            guna2Panel1.BorderThickness = 1;
-            guna2Panel1.Controls.Add(txtPublicYearBook);
-            guna2Panel1.Controls.Add(cbYear);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.Location = new Point(501, 133);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.Padding = new Padding(6);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(492, 45);
-            guna2Panel1.TabIndex = 35;
-            // 
-            // txtPublicYearBook
-            // 
-            txtPublicYearBook.BorderColor = Color.Transparent;
-            txtPublicYearBook.BorderThickness = 0;
-            txtPublicYearBook.CustomizableEdges = customizableEdges3;
-            txtPublicYearBook.DefaultText = "";
-            txtPublicYearBook.Dock = DockStyle.Fill;
-            txtPublicYearBook.Font = new Font("Times New Roman", 11F);
-            txtPublicYearBook.Location = new Point(6, 6);
-            txtPublicYearBook.Margin = new Padding(3, 4, 3, 4);
-            txtPublicYearBook.MaxLength = 4;
-            txtPublicYearBook.Name = "txtPublicYearBook";
-            txtPublicYearBook.PlaceholderText = "Năm xuất bản";
-            txtPublicYearBook.SelectedText = "";
-            txtPublicYearBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtPublicYearBook.Size = new Size(337, 33);
-            txtPublicYearBook.TabIndex = 4;
-            // 
-            // cbYear
-            // 
-            cbYear.BackColor = Color.Transparent;
-            cbYear.BorderColor = Color.Transparent;
-            cbYear.BorderThickness = 0;
-            cbYear.CustomizableEdges = customizableEdges5;
-            cbYear.Dock = DockStyle.Right;
-            cbYear.DrawMode = DrawMode.OwnerDrawFixed;
-            cbYear.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbYear.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbYear.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbYear.Font = new Font("Segoe UI", 10F);
-            cbYear.ForeColor = Color.FromArgb(68, 88, 112);
-            cbYear.ItemHeight = 30;
-            cbYear.Location = new Point(343, 6);
-            cbYear.Name = "cbYear";
-            cbYear.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cbYear.Size = new Size(143, 36);
-            cbYear.TabIndex = 6;
-            cbYear.SelectedIndexChanged += cbYear_SelectedIndexChanged;
-            // 
-            // cbCategory
-            // 
-            cbCategory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbCategory.BackColor = Color.Transparent;
-            cbCategory.BorderRadius = 6;
-            cbCategory.CustomizableEdges = customizableEdges9;
-            cbCategory.DrawMode = DrawMode.OwnerDrawFixed;
-            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCategory.FillColor = Color.FromArgb(217, 217, 217);
-            cbCategory.FocusedColor = Color.Empty;
-            cbCategory.Font = new Font("Times New Roman", 11F);
-            cbCategory.ForeColor = Color.FromArgb(68, 88, 112);
-            cbCategory.ItemHeight = 30;
-            cbCategory.Items.AddRange(new object[] { "Chọn trình độ" });
-            cbCategory.Location = new Point(3, 233);
-            cbCategory.Name = "cbCategory";
-            cbCategory.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            cbCategory.Size = new Size(492, 36);
-            cbCategory.TabIndex = 5;
-            // 
-            // cboLevel
-            // 
-            cboLevel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cboLevel.BackColor = Color.Transparent;
-            cboLevel.BorderRadius = 6;
-            cboLevel.CustomizableEdges = customizableEdges11;
-            cboLevel.DrawMode = DrawMode.OwnerDrawFixed;
-            cboLevel.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboLevel.FillColor = Color.FromArgb(217, 217, 217);
-            cboLevel.FocusedColor = Color.Empty;
-            cboLevel.Font = new Font("Times New Roman", 11F);
-            cboLevel.ForeColor = Color.FromArgb(68, 88, 112);
-            cboLevel.ItemHeight = 30;
-            cboLevel.Items.AddRange(new object[] { "Chọn trình độ", "Beginner", "Expert", "Advanced", "Intermediate" });
-            cboLevel.Location = new Point(501, 233);
-            cboLevel.Name = "cboLevel";
-            cboLevel.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cboLevel.Size = new Size(492, 36);
-            cboLevel.TabIndex = 6;
-            // 
-            // lblLevel
-            // 
-            lblLevel.Font = new Font("Segoe UI", 11F);
-            lblLevel.Location = new Point(501, 200);
-            lblLevel.Name = "lblLevel";
-            lblLevel.Size = new Size(100, 23);
-            lblLevel.TabIndex = 34;
-            lblLevel.Text = "Trình độ";
-            // 
-            // lblBookName
-            // 
-            lblBookName.Font = new Font("Segoe UI", 11F);
-            lblBookName.Location = new Point(501, 0);
-            lblBookName.Name = "lblBookName";
-            lblBookName.Size = new Size(100, 23);
-            lblBookName.TabIndex = 30;
-            lblBookName.Text = "Tên sách *";
-            // 
-            // txtBookName
-            // 
-            txtBookName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtBookName.BorderColor = Color.Black;
-            txtBookName.BorderRadius = 6;
-            txtBookName.CustomizableEdges = customizableEdges13;
-            txtBookName.DefaultText = "";
-            txtBookName.Font = new Font("Times New Roman", 11F);
-            txtBookName.Location = new Point(501, 34);
-            txtBookName.Margin = new Padding(3, 4, 3, 4);
-            txtBookName.MaxLength = 255;
-            txtBookName.Name = "txtBookName";
-            txtBookName.PlaceholderText = "Nhập tên sách";
-            txtBookName.SelectedText = "";
-            txtBookName.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtBookName.Size = new Size(492, 45);
-            txtBookName.TabIndex = 2;
-            txtBookName.KeyPress += txtBookName_KeyPress;
-            // 
-            // lblPublishYear
-            // 
-            lblPublishYear.Font = new Font("Segoe UI", 11F);
-            lblPublishYear.Location = new Point(501, 100);
-            lblPublishYear.Name = "lblPublishYear";
-            lblPublishYear.Size = new Size(100, 23);
-            lblPublishYear.TabIndex = 33;
-            lblPublishYear.Text = "Năm xuất bản";
-            // 
-            // lblISBN
-            // 
-            lblISBN.Font = new Font("Segoe UI", 11F);
-            lblISBN.Location = new Point(3, 0);
-            lblISBN.Name = "lblISBN";
-            lblISBN.Size = new Size(100, 23);
-            lblISBN.TabIndex = 24;
-            lblISBN.Text = "ISBN *";
-            // 
-            // txtISBN
-            // 
-            txtISBN.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtISBN.BorderColor = Color.Black;
-            txtISBN.BorderRadius = 6;
-            txtISBN.CustomizableEdges = customizableEdges15;
-            txtISBN.DefaultText = "";
-            txtISBN.Font = new Font("Times New Roman", 11F);
-            txtISBN.Location = new Point(3, 34);
-            txtISBN.Margin = new Padding(3, 4, 3, 4);
-            txtISBN.MaxLength = 20;
-            txtISBN.Name = "txtISBN";
-            txtISBN.PlaceholderText = "Nhập ISBN sách hoặc giáo trình";
-            txtISBN.SelectedText = "";
-            txtISBN.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtISBN.Size = new Size(492, 45);
-            txtISBN.TabIndex = 1;
-            txtISBN.KeyPress += txtISBN_KeyPress;
-            // 
-            // lblAuthor
-            // 
-            lblAuthor.Font = new Font("Segoe UI", 11F);
-            lblAuthor.Location = new Point(3, 100);
-            lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(100, 23);
-            lblAuthor.TabIndex = 26;
-            lblAuthor.Text = "Tác giả *";
-            // 
-            // lblSubject
-            // 
-            lblSubject.Font = new Font("Segoe UI", 11F);
-            lblSubject.Location = new Point(3, 200);
-            lblSubject.Name = "lblSubject";
-            lblSubject.Size = new Size(100, 23);
-            lblSubject.TabIndex = 28;
-            lblSubject.Text = "Môn học *";
-            // 
-            // txtAuthor
-            // 
-            txtAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtAuthor.BorderColor = Color.Black;
-            txtAuthor.BorderRadius = 6;
-            txtAuthor.CustomizableEdges = customizableEdges17;
-            txtAuthor.DefaultText = "";
-            txtAuthor.Font = new Font("Times New Roman", 11F);
-            txtAuthor.Location = new Point(3, 134);
-            txtAuthor.Margin = new Padding(3, 4, 3, 4);
-            txtAuthor.MaxLength = 255;
-            txtAuthor.Name = "txtAuthor";
-            txtAuthor.PlaceholderText = "Nhập tên tác giả";
-            txtAuthor.SelectedText = "";
-            txtAuthor.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtAuthor.Size = new Size(492, 45);
-            txtAuthor.TabIndex = 3;
-            txtAuthor.KeyPress += txtAuthor_KeyPress;
             // 
             // pnInputFileBook
             // 
@@ -622,10 +333,10 @@
             pnUploadFile.Controls.Add(picUpload);
             pnUploadFile.Controls.Add(lblNote);
             pnUploadFile.Controls.Add(lblTitle);
-            pnUploadFile.CustomizableEdges = customizableEdges25;
+            pnUploadFile.CustomizableEdges = customizableEdges5;
             pnUploadFile.Location = new Point(30, 60);
             pnUploadFile.Name = "pnUploadFile";
-            pnUploadFile.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            pnUploadFile.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnUploadFile.Size = new Size(976, 216);
             pnUploadFile.TabIndex = 4;
             pnUploadFile.DragDrop += pnUploadFile_DragDrop;
@@ -634,14 +345,14 @@
             // btnChooseFile
             // 
             btnChooseFile.BorderRadius = 8;
-            btnChooseFile.CustomizableEdges = customizableEdges21;
+            btnChooseFile.CustomizableEdges = customizableEdges1;
             btnChooseFile.FillColor = Color.FromArgb(59, 130, 246);
             btnChooseFile.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnChooseFile.ForeColor = Color.White;
             btnChooseFile.Location = new Point(420, 117);
             btnChooseFile.Margin = new Padding(3, 4, 3, 4);
             btnChooseFile.Name = "btnChooseFile";
-            btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnChooseFile.Size = new Size(137, 48);
             btnChooseFile.TabIndex = 2;
             btnChooseFile.TabStop = false;
@@ -650,13 +361,13 @@
             // 
             // picUpload
             // 
-            picUpload.CustomizableEdges = customizableEdges23;
+            picUpload.CustomizableEdges = customizableEdges3;
             picUpload.Image = Properties.Resources.downArrow;
             picUpload.ImageRotate = 0F;
             picUpload.Location = new Point(465, 21);
             picUpload.Margin = new Padding(3, 4, 3, 4);
             picUpload.Name = "picUpload";
-            picUpload.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            picUpload.ShadowDecoration.CustomizableEdges = customizableEdges4;
             picUpload.Size = new Size(46, 53);
             picUpload.SizeMode = PictureBoxSizeMode.Zoom;
             picUpload.TabIndex = 0;
@@ -707,6 +418,295 @@
             label3.TabIndex = 3;
             label3.Text = "Tài liệu đính kèm";
             // 
+            // pnInputValueBook
+            // 
+            pnInputValueBook.Controls.Add(pnFill);
+            pnInputValueBook.Controls.Add(tableLayoutPanel1);
+            pnInputValueBook.CustomizableEdges = customizableEdges25;
+            pnInputValueBook.Dock = DockStyle.Fill;
+            pnInputValueBook.Location = new Point(0, 0);
+            pnInputValueBook.Name = "pnInputValueBook";
+            pnInputValueBook.Padding = new Padding(20);
+            pnInputValueBook.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            pnInputValueBook.Size = new Size(1036, 480);
+            pnInputValueBook.TabIndex = 1;
+            // 
+            // pnFill
+            // 
+            pnFill.Controls.Add(lblDescription);
+            pnFill.Controls.Add(txtDescription);
+            pnFill.Dock = DockStyle.Fill;
+            pnFill.Location = new Point(20, 314);
+            pnFill.Name = "pnFill";
+            pnFill.Size = new Size(996, 146);
+            pnFill.TabIndex = 15;
+            // 
+            // lblDescription
+            // 
+            lblDescription.Font = new Font("Segoe UI", 11F);
+            lblDescription.Location = new Point(17, 0);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(100, 23);
+            lblDescription.TabIndex = 14;
+            lblDescription.Text = "Mô tả";
+            // 
+            // txtDescription
+            // 
+            txtDescription.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtDescription.BorderColor = Color.Black;
+            txtDescription.BorderRadius = 6;
+            txtDescription.CustomizableEdges = customizableEdges7;
+            txtDescription.DefaultText = "";
+            txtDescription.Font = new Font("Segoe UI", 11F);
+            txtDescription.Location = new Point(4, 31);
+            txtDescription.Margin = new Padding(4, 5, 4, 5);
+            txtDescription.MaxLength = 500;
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.PlaceholderText = "Mô tả ngắn gọn về sách";
+            txtDescription.SelectedText = "";
+            txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtDescription.Size = new Size(989, 110);
+            txtDescription.TabIndex = 7;
+            txtDescription.KeyDown += txtDescription_KeyDown;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(guna2Panel1, 1, 3);
+            tableLayoutPanel1.Controls.Add(cbCategory, 0, 5);
+            tableLayoutPanel1.Controls.Add(cboLevel, 1, 5);
+            tableLayoutPanel1.Controls.Add(lblLevel, 1, 4);
+            tableLayoutPanel1.Controls.Add(lblBookName, 1, 0);
+            tableLayoutPanel1.Controls.Add(txtBookName, 1, 1);
+            tableLayoutPanel1.Controls.Add(lblPublishYear, 1, 2);
+            tableLayoutPanel1.Controls.Add(lblISBN, 0, 0);
+            tableLayoutPanel1.Controls.Add(txtISBN, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblAuthor, 0, 2);
+            tableLayoutPanel1.Controls.Add(lblSubject, 0, 4);
+            tableLayoutPanel1.Controls.Add(txtAuthor, 0, 3);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(20, 20);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.Size = new Size(996, 294);
+            tableLayoutPanel1.TabIndex = 16;
+            // 
+            // guna2Panel1
+            // 
+            guna2Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            guna2Panel1.BackColor = Color.White;
+            guna2Panel1.BorderColor = Color.Black;
+            guna2Panel1.BorderRadius = 6;
+            guna2Panel1.BorderThickness = 1;
+            guna2Panel1.Controls.Add(txtPublicYearBook);
+            guna2Panel1.Controls.Add(cbYear);
+            guna2Panel1.CustomizableEdges = customizableEdges13;
+            guna2Panel1.Location = new Point(501, 133);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.Padding = new Padding(6);
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel1.Size = new Size(492, 45);
+            guna2Panel1.TabIndex = 35;
+            // 
+            // txtPublicYearBook
+            // 
+            txtPublicYearBook.BorderColor = Color.Transparent;
+            txtPublicYearBook.BorderThickness = 0;
+            txtPublicYearBook.CustomizableEdges = customizableEdges9;
+            txtPublicYearBook.DefaultText = "";
+            txtPublicYearBook.Dock = DockStyle.Fill;
+            txtPublicYearBook.Font = new Font("Times New Roman", 11F);
+            txtPublicYearBook.Location = new Point(6, 6);
+            txtPublicYearBook.Margin = new Padding(3, 4, 3, 4);
+            txtPublicYearBook.MaxLength = 4;
+            txtPublicYearBook.Name = "txtPublicYearBook";
+            txtPublicYearBook.PlaceholderText = "Năm xuất bản";
+            txtPublicYearBook.SelectedText = "";
+            txtPublicYearBook.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtPublicYearBook.Size = new Size(337, 33);
+            txtPublicYearBook.TabIndex = 4;
+            // 
+            // cbYear
+            // 
+            cbYear.BackColor = Color.Transparent;
+            cbYear.BorderColor = Color.Transparent;
+            cbYear.BorderThickness = 0;
+            cbYear.CustomizableEdges = customizableEdges11;
+            cbYear.Dock = DockStyle.Right;
+            cbYear.DrawMode = DrawMode.OwnerDrawFixed;
+            cbYear.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbYear.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbYear.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbYear.Font = new Font("Segoe UI", 10F);
+            cbYear.ForeColor = Color.FromArgb(68, 88, 112);
+            cbYear.ItemHeight = 30;
+            cbYear.Location = new Point(343, 6);
+            cbYear.Name = "cbYear";
+            cbYear.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cbYear.Size = new Size(143, 36);
+            cbYear.TabIndex = 6;
+            cbYear.SelectedIndexChanged += cbYear_SelectedIndexChanged;
+            // 
+            // cbCategory
+            // 
+            cbCategory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbCategory.BackColor = Color.Transparent;
+            cbCategory.BorderRadius = 6;
+            cbCategory.CustomizableEdges = customizableEdges15;
+            cbCategory.DrawMode = DrawMode.OwnerDrawFixed;
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategory.FillColor = Color.FromArgb(217, 217, 217);
+            cbCategory.FocusedColor = Color.Empty;
+            cbCategory.Font = new Font("Times New Roman", 11F);
+            cbCategory.ForeColor = Color.FromArgb(68, 88, 112);
+            cbCategory.ItemHeight = 30;
+            cbCategory.Items.AddRange(new object[] { "Chọn trình độ" });
+            cbCategory.Location = new Point(3, 233);
+            cbCategory.Name = "cbCategory";
+            cbCategory.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            cbCategory.Size = new Size(492, 36);
+            cbCategory.TabIndex = 5;
+            // 
+            // cboLevel
+            // 
+            cboLevel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cboLevel.BackColor = Color.Transparent;
+            cboLevel.BorderRadius = 6;
+            cboLevel.CustomizableEdges = customizableEdges17;
+            cboLevel.DrawMode = DrawMode.OwnerDrawFixed;
+            cboLevel.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLevel.FillColor = Color.FromArgb(217, 217, 217);
+            cboLevel.FocusedColor = Color.Empty;
+            cboLevel.Font = new Font("Times New Roman", 11F);
+            cboLevel.ForeColor = Color.FromArgb(68, 88, 112);
+            cboLevel.ItemHeight = 30;
+            cboLevel.Items.AddRange(new object[] { "Chọn trình độ", "Beginner", "Expert", "Advanced", "Intermediate" });
+            cboLevel.Location = new Point(501, 233);
+            cboLevel.Name = "cboLevel";
+            cboLevel.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            cboLevel.Size = new Size(492, 36);
+            cboLevel.TabIndex = 6;
+            // 
+            // lblLevel
+            // 
+            lblLevel.Font = new Font("Segoe UI", 11F);
+            lblLevel.Location = new Point(501, 200);
+            lblLevel.Name = "lblLevel";
+            lblLevel.Size = new Size(100, 23);
+            lblLevel.TabIndex = 34;
+            lblLevel.Text = "Trình độ";
+            // 
+            // lblBookName
+            // 
+            lblBookName.Font = new Font("Segoe UI", 11F);
+            lblBookName.Location = new Point(501, 0);
+            lblBookName.Name = "lblBookName";
+            lblBookName.Size = new Size(100, 23);
+            lblBookName.TabIndex = 30;
+            lblBookName.Text = "Tên sách *";
+            // 
+            // txtBookName
+            // 
+            txtBookName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtBookName.BorderColor = Color.Black;
+            txtBookName.BorderRadius = 6;
+            txtBookName.CustomizableEdges = customizableEdges19;
+            txtBookName.DefaultText = "";
+            txtBookName.Font = new Font("Times New Roman", 11F);
+            txtBookName.Location = new Point(501, 34);
+            txtBookName.Margin = new Padding(3, 4, 3, 4);
+            txtBookName.MaxLength = 255;
+            txtBookName.Name = "txtBookName";
+            txtBookName.PlaceholderText = "Nhập tên sách";
+            txtBookName.SelectedText = "";
+            txtBookName.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtBookName.Size = new Size(492, 45);
+            txtBookName.TabIndex = 2;
+            txtBookName.KeyPress += txtBookName_KeyPress;
+            // 
+            // lblPublishYear
+            // 
+            lblPublishYear.Font = new Font("Segoe UI", 11F);
+            lblPublishYear.Location = new Point(501, 100);
+            lblPublishYear.Name = "lblPublishYear";
+            lblPublishYear.Size = new Size(100, 23);
+            lblPublishYear.TabIndex = 33;
+            lblPublishYear.Text = "Năm xuất bản";
+            // 
+            // lblISBN
+            // 
+            lblISBN.Font = new Font("Segoe UI", 11F);
+            lblISBN.Location = new Point(3, 0);
+            lblISBN.Name = "lblISBN";
+            lblISBN.Size = new Size(100, 23);
+            lblISBN.TabIndex = 24;
+            lblISBN.Text = "ISBN *";
+            // 
+            // txtISBN
+            // 
+            txtISBN.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtISBN.BorderColor = Color.Black;
+            txtISBN.BorderRadius = 6;
+            txtISBN.CustomizableEdges = customizableEdges21;
+            txtISBN.DefaultText = "";
+            txtISBN.Font = new Font("Times New Roman", 11F);
+            txtISBN.Location = new Point(3, 34);
+            txtISBN.Margin = new Padding(3, 4, 3, 4);
+            txtISBN.MaxLength = 20;
+            txtISBN.Name = "txtISBN";
+            txtISBN.PlaceholderText = "Nhập ISBN sách hoặc giáo trình";
+            txtISBN.SelectedText = "";
+            txtISBN.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtISBN.Size = new Size(492, 45);
+            txtISBN.TabIndex = 1;
+            txtISBN.KeyPress += txtISBN_KeyPress;
+            // 
+            // lblAuthor
+            // 
+            lblAuthor.Font = new Font("Segoe UI", 11F);
+            lblAuthor.Location = new Point(3, 100);
+            lblAuthor.Name = "lblAuthor";
+            lblAuthor.Size = new Size(100, 23);
+            lblAuthor.TabIndex = 26;
+            lblAuthor.Text = "Tác giả *";
+            // 
+            // lblSubject
+            // 
+            lblSubject.Font = new Font("Segoe UI", 11F);
+            lblSubject.Location = new Point(3, 200);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(100, 23);
+            lblSubject.TabIndex = 28;
+            lblSubject.Text = "Môn học *";
+            // 
+            // txtAuthor
+            // 
+            txtAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtAuthor.BorderColor = Color.Black;
+            txtAuthor.BorderRadius = 6;
+            txtAuthor.CustomizableEdges = customizableEdges23;
+            txtAuthor.DefaultText = "";
+            txtAuthor.Font = new Font("Times New Roman", 11F);
+            txtAuthor.Location = new Point(3, 134);
+            txtAuthor.Margin = new Padding(3, 4, 3, 4);
+            txtAuthor.MaxLength = 255;
+            txtAuthor.Name = "txtAuthor";
+            txtAuthor.PlaceholderText = "Nhập tên tác giả";
+            txtAuthor.SelectedText = "";
+            txtAuthor.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            txtAuthor.Size = new Size(492, 45);
+            txtAuthor.TabIndex = 3;
+            txtAuthor.KeyPress += txtAuthor_KeyPress;
+            // 
             // pbContentRight
             // 
             pbContentRight.Dock = DockStyle.Right;
@@ -731,10 +731,6 @@
             pbContent.ResumeLayout(false);
             pbContentMain.ResumeLayout(false);
             pbContentInput.ResumeLayout(false);
-            pnInputValueBook.ResumeLayout(false);
-            pnFill.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            guna2Panel1.ResumeLayout(false);
             pnInputFileBook.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvFileBook).EndInit();
             panel2.ResumeLayout(false);
@@ -742,6 +738,10 @@
             pnUploadFile.ResumeLayout(false);
             pnUploadFile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picUpload).EndInit();
+            pnInputValueBook.ResumeLayout(false);
+            pnFill.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            guna2Panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

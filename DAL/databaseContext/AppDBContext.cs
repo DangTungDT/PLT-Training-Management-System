@@ -13,20 +13,39 @@ namespace DAL.databaseContext
 
     public class AppDBContext : DbContext
     {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        IConfigurationRoot configuration = new ConfigurationBuilder()
+        //            .SetBasePath(Directory.GetCurrentDirectory())
+        //            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        //            .Build();
+
+        //        var connectionString = configuration.GetConnectionString("Default");
+
+        //        optionsBuilder.UseSqlServer(connectionString);
+        //    }
+        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    .SetBasePath(AppContext.BaseDirectory)
+                    .AddJsonFile("appsettings.json", optional: false)
                     .Build();
 
-                var connectionString = configuration.GetConnectionString("Default");
+                var rawConnection = configuration.GetConnectionString("Default");
+
+                string serverName = Environment.MachineName + "\\SQLEXPRESS";
+
+                var connectionString = rawConnection.Replace("{SERVER_NAME}", serverName);
 
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
+
         override protected void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.RelationshipEntities();

@@ -10,6 +10,7 @@ namespace BLL
 {
     public class FileBLL
     {
+        FileDAL _fileDAL = new FileDAL();
         public bool UpdateFile(FilesDTO file)
         {
             FileDAL fileDAL = new FileDAL();
@@ -27,7 +28,10 @@ namespace BLL
             return fileDAL.GetFileById(fileId);
         }
 
-
+        public FilesDTO GetFileByFileName(string fileName)
+        {
+            return _fileDAL.GetFileByFileName(fileName);
+        }
         public bool AddNewFile(FilesDTO file)
         {
             FileDAL fileDAL = new FileDAL();

@@ -9,6 +9,36 @@ namespace DAL
 {
     public class FileDAL
     {
+
+        public FilesDTO GetFileByFileName(string fileName)
+        {
+            try
+            {
+                using (var context = new databaseContext.AppDBContext())
+                {
+                    var fileEntity = context.Files
+                        .FirstOrDefault(x => x.FileName == fileName);
+
+                    if (fileEntity == null) return null;
+
+                    return new FilesDTO
+                    {
+                        Id = fileEntity.Id,
+                        FileName = fileEntity.FileName,
+                        FilePath = fileEntity.FilePath,
+                        FileType = fileEntity.FileType,
+                        FileSize = fileEntity.FileSize,
+                        CreatedAt = fileEntity.CreatedAt
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log exception nếu cần
+                return null;
+            }
+        }
+
         public List<FilesDTO> GetAllFiles()
         {
             try

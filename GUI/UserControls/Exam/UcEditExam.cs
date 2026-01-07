@@ -24,6 +24,7 @@ namespace GUI.UserControls.Exam
         private ExamDTO _newExam;
         private int _totalQuestion = 1;
         private List<QuestionAndOption> _allQuestionAndOption;
+        private List<QuestionDTO> _questionForExamSelected;
         private double _totalScoreQuestion = 0;
         private int _schoolId = 0;
         private int _semesterId = 0;
@@ -63,6 +64,12 @@ namespace GUI.UserControls.Exam
             {
                 cbExamType.SelectedIndex = 0;
                 cbTimeType.SelectedIndex = 0;
+
+                _questionForExamSelected = _questionBLL.GetQuestionByIdExam(_examSelected.Id);
+                _totalQuestion = _questionForExamSelected.Count();
+                txtTotalQuestion.Text = _totalQuestion.ToString();
+
+
                 RegisterTextBoxEvents();
                 LoadStage(1);
                 LoadSchoolToCombobox();
@@ -356,7 +363,7 @@ namespace GUI.UserControls.Exam
 
         private void LoadUserControlAddQuestion()
         {
-            List<QuestionDTO> questions = _questionBLL.GetQuestionByIdExam(_examSelected.Id);
+            List<QuestionDTO> questions = _questionForExamSelected;
 
             foreach(QuestionDTO question in questions)
             {
@@ -473,7 +480,14 @@ namespace GUI.UserControls.Exam
 
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
-            LoadUserControlAddQuestion();
+            UcAddQuestion ucAddQuestion;
+            if (_newExam == null) _newExam = GetNewExamValue();
+            ucAddQuestion = new UcAddQuestion();
+            ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            int width = flpQuestion.ClientSize.Width - 60;
+            ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
+            ucAddQuestion.SetNumberQuestion(flpQuestion.Controls.Count + 1);
+            flpQuestion.Controls.Add(ucAddQuestion);
         }
 
         private void btnNextStage_Click(object sender, EventArgs e)

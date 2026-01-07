@@ -28,30 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1034, 207);
-            panel1.TabIndex = 0;
             // 
             // userTest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(panel1);
             Name = "userTest";
             Size = new Size(1034, 596);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel1;
     }
 }

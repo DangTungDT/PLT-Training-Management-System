@@ -35,7 +35,7 @@ namespace GUI
         private UcExam _ucExam;
 
         private UcAddExam _ucAddExam;
-
+        private UcReadExam _ucReadExam;
         private UcEditExam _ucEditExam;
 
 
@@ -46,13 +46,6 @@ namespace GUI
         {
             InitializeComponent();
         }
-
-        //private bool AddOptionToQuestion(UcAddQuestion ucAddQuestion)
-        //{
-        //    List<QuestionOptionDTO> options = ucAddQuestion.GetAllQuestionOption();
-        //    if(options == null) return false;
-
-        //}
         private void LoadContentAddBook(UserControl uc)
         {
 
@@ -74,19 +67,48 @@ namespace GUI
         {
             _ucExam = new UcExam();
             LoadUserControlForPanel(_ucExam, pbContent);
-            _ucExam.OpenAddExam += ( ) =>
+
+            _ucExam.OpenAddExam += () =>
             {
                 var ucAddExam = new UcAddExam();
                 NavigatePush(ucAddExam);
             };
+
             _ucExam.OpenUserControlEditExam += (int examId) =>
             {
                 _ucEditExam = new UcEditExam(examId);
                 NavigatePush(_ucEditExam);
             };
-
+            _ucExam.OpenUserControlReadExam += (int examId) =>
+            {
+                _ucReadExam = new UcReadExam(examId);
+                NavigatePush(_ucReadExam);
+            };
         }
 
+        private void LoadUcReadExam(UserControl uc)
+        {
+            _ucReadExam = uc as UcReadExam;
+            if (_ucReadExam == null) return;
+
+            pbContent.Controls.Clear();
+            _ucReadExam.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(_ucReadExam);
+            pbHeaderContent.Controls.Clear();
+
+            // Wire up events
+            _ucReadExam.BackToExamList += () =>
+            {
+                NavigatePop();
+            };
+
+            _ucReadExam.OpenUserControlEditExam += (int examId) =>
+            {
+                _ucEditExam = new UcEditExam(examId);
+                NavigatePush(_ucEditExam);
+            };
+            _ucReadExam.OpenUserControlReadFile += GoToReadFile;
+        }
         private void LoadUcAddExam()
         {
             _ucAddExam = new UcAddExam();
@@ -310,7 +332,12 @@ namespace GUI
             if(uc is UcEditExam)
             {
                 LoadUcEditExam(uc);
-            }else if(uc is UcAddExam)
+            }
+            else if (uc is UcReadExam)
+            {
+                LoadUcReadExam(uc);
+            }
+            else if(uc is UcAddExam)
             {
                 LoadUcAddExam();
             }
@@ -321,6 +348,10 @@ namespace GUI
             else if (uc is UcBook)
             {
                 LoadUcBook();
+            }
+            else if (uc is UcAddBook)
+            {
+                LoadContentAddBook(uc);
             }
             else if(uc is UcEditBook)
             {
@@ -353,6 +384,11 @@ namespace GUI
                 if (previous is UcExam)
                 {
                     LoadUcExam();
+                    pbContent.Controls.Add(previous);
+                }
+                else if (previous is UcReadExam)
+                {
+                    LoadUcReadExam(previous);
                     pbContent.Controls.Add(previous);
                 }
                 else

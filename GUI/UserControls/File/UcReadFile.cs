@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfiumViewer;
 using BLL;
+using DTO;
 
 namespace GUI.UserControls.Book
 {
     public partial class UcReadFile : UserControl
     {
         private string _filePath = "";
+        private FilesDTO _fileSelected;
         private FileBLL _fileBLL = new FileBLL();
         private PdfRenderer _pdfRenderer;
         private PdfDocument _pdfDocument;
@@ -25,7 +27,16 @@ namespace GUI.UserControls.Book
         public UcReadFile(int fileId)
         {
             InitializeComponent();
-            _filePath = _fileBLL.GetFileById(fileId).FilePath;
+            _fileSelected = _fileBLL.GetFileById(fileId);
+            _filePath = _fileSelected.FilePath;
+        }
+
+        private void LoadValueExamToControl()
+        {
+            lblFileName.Text = _fileSelected.FileName;
+            lblTenFileValue.Text = _fileSelected.FileName;
+            lblNgayTaiValue.Text =_fileSelected.CreatedAt.ToString();
+            lblKichThuocValue.Text = (_fileSelected.FileSize / 1024) + " MB";
         }
         private void LoadPdfToPanel(string filePath)
         {
@@ -38,7 +49,7 @@ namespace GUI.UserControls.Book
                 _totalPages = _pdfDocument.PageCount;
                 lbTotalPage.Text = $"{_totalPages}";
                 _currentPage = 0;
-
+                lblSoTrangText.Text = _pdfDocument.PageCount.ToString();
                 RenderPage(_currentPage);
             }
             catch
@@ -117,6 +128,7 @@ namespace GUI.UserControls.Book
                 {
                     LoadPdfToPanel(_filePath);
                 }));
+                LoadValueExamToControl();
             }
             else
             {
