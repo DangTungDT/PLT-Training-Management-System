@@ -37,6 +37,7 @@ namespace DAL
                 return false;
             }
         }
+
         public ExamDTO GetExamById(int idExamSelected)
         {
             try
@@ -49,6 +50,7 @@ namespace DAL
                 return null;
             }
         }
+
         public bool AddExam(ExamDTO newExam)
         {
             try
@@ -65,6 +67,7 @@ namespace DAL
                 return false;
             }
         }
+
         public ExamDTO GetExamByValue(string name, string type, int courseId, int semesterId, int year)
         {
             try
@@ -80,6 +83,7 @@ namespace DAL
                 return null;
             }
         }
+
         public List<int> GetAllYearForExam()
         {
             try
@@ -98,6 +102,7 @@ namespace DAL
                 return null;
             }
         }
+
         public IEnumerable<ExamOverviewDTO> GetAllExamsOverview()
         {
             try
@@ -182,7 +187,6 @@ namespace DAL
             }
         }
 
-
         public IEnumerable<ExamOverviewDTO> GetExamsOverviewFilter(int courseId, int schoolId, int year)
         {
             try
@@ -242,6 +246,83 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Xóa exam và các bản ghi liên quan theo thứ tự:
+        ///  - Exam_File (ExamFile) với ExamId = id
+        ///  - ClassExam (ClassExams) với ExamId = id
+        ///  - QuestionOption (QuestionOptions) của các Question có ExamId = id
+        ///  - Question (Questions) có ExamId = id
+        ///  - Exam (Exams) có Id = id
+        /// Trả về true nếu xóa thành công, false nếu có lỗi hoặc không tìm thấy exam.
+        /// </summary>
+        public bool DeleteById(int id)
+        {
+            try
+            {
+                using (var context = new AppDBContext())
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            // find exam
+                            var exam = context.Exams.FirstOrDefault(e => e.Id == id);
+                            if (exam == null)
+                                return false;
 
+                            // 0) Delete Exam_File (ExamFile) entries referencing this exam
+                            // use Set<ExamFileDTO>() in case DbSet property name differs
+                            var examFiles = context.Set<ExamFileDTO>().Where(ef => ef.ExamId == id).ToList();
+                            if (examFiles.Any())
+                            {
+                                context.Set<ExamFileDTO>().RemoveRange(examFiles);
+                                context.SaveChanges();
+                            }
+
+                            // 1) Delete ClassExam entries referencing this exam
+                            var classExams = context.Set<ClassExamDTO>().Where(ce => ce.ExamId == id).ToList();
+                            if (classExams.Any())
+                            {
+                                context.Set<ClassExamDTO>().RemoveRange(classExams);
+                                context.SaveChanges();
+                            }
+
+                            // 2) Delete QuestionOption entries for questions of this exam
+                            var questions = context.Questions.Where(q => q.ExamId == id).ToList();
+                            if (questions.Any())
+                            {
+                                var questionIds = questions.Select(q => q.Id).ToList();
+                                var options = context.Set<QuestionOptionDTO>().Where(o => questionIds.Contains(o.QuestionId)).ToList();
+                                if (options.Any())
+                                {
+                                    context.Set<QuestionOptionDTO>().RemoveRange(options);
+                                    context.SaveChanges();
+                                }
+
+                                // 3) Delete Questions
+                                context.Questions.RemoveRange(questions);
+                                context.SaveChanges();
+                            }
+
+                            // 4) Finally delete exam
+                            context.Exams.Remove(exam);
+                            context.SaveChanges();
+
+                            transaction.Commit();
+                            return true;
+                        }
+                        catch
+                        {
+                            transaction.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -27,6 +27,24 @@ namespace DAL
         }
 
         /// <summary>
+        /// Lấy tất cả học kỳ
+        /// </summary>
+        public List<SemesterDTO> GetAll()
+        {
+            return _context.Semesters
+                .Select(s => new SemesterDTO
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Year = s.Year,
+                    StartDate = s.StartDate,
+                    EndDate = s.EndDate,
+                    SchoolId = s.SchoolId
+                })
+                .ToList();
+        }
+
+        /// <summary>
         /// Thêm học kỳ mới
         /// </summary>
         public bool AddSemester(SemesterDTO semester)

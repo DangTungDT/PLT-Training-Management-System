@@ -21,6 +21,14 @@ namespace BLL
         }
 
         /// <summary>
+        /// Lấy tất cả học kỳ
+        /// </summary>
+        public List<SemesterDTO> GetAll()
+        {
+            return _semesterDAL.GetAll();
+        }
+
+        /// <summary>
         /// Thêm học kỳ mới
         /// </summary>
         public bool AddSemester(SemesterDTO semester)

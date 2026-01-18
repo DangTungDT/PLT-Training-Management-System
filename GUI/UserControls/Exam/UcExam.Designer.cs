@@ -36,6 +36,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
@@ -57,6 +59,8 @@
             label2 = new Label();
             cbCourse = new Guna.UI2.WinForms.Guna2ComboBox();
             cbSchool = new Guna.UI2.WinForms.Guna2ComboBox();
+            label3 = new Label();
+            cbSemester = new Guna.UI2.WinForms.Guna2ComboBox();
             cbYearCourse = new Guna.UI2.WinForms.Guna2ComboBox();
             panel2 = new Panel();
             panel1 = new Panel();
@@ -155,15 +159,18 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.Controls.Add(label5, 0, 0);
             tableLayoutPanel1.Controls.Add(label4, 1, 0);
             tableLayoutPanel1.Controls.Add(label2, 2, 0);
             tableLayoutPanel1.Controls.Add(cbCourse, 0, 1);
             tableLayoutPanel1.Controls.Add(cbSchool, 1, 1);
+            tableLayoutPanel1.Controls.Add(label3, 3, 0);
+            tableLayoutPanel1.Controls.Add(cbSemester, 3, 1);
             tableLayoutPanel1.Controls.Add(cbYearCourse, 2, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(20, 0);
@@ -186,7 +193,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(200, 0);
+            label4.Location = new Point(151, 0);
             label4.Name = "label4";
             label4.Size = new Size(56, 20);
             label4.TabIndex = 11;
@@ -195,7 +202,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(397, 0);
+            label2.Location = new Point(299, 0);
             label2.Name = "label2";
             label2.Size = new Size(69, 20);
             label2.TabIndex = 12;
@@ -218,7 +225,7 @@
             cbCourse.Location = new Point(3, 23);
             cbCourse.Name = "cbCourse";
             cbCourse.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            cbCourse.Size = new Size(191, 36);
+            cbCourse.Size = new Size(142, 36);
             cbCourse.TabIndex = 7;
             cbCourse.SelectedIndexChanged += cbCourse_SelectedIndexChanged;
             // 
@@ -236,19 +243,49 @@
             cbSchool.Font = new Font("Times New Roman", 12F);
             cbSchool.ForeColor = Color.Black;
             cbSchool.ItemHeight = 30;
-            cbSchool.Location = new Point(200, 23);
+            cbSchool.Location = new Point(151, 23);
             cbSchool.Name = "cbSchool";
             cbSchool.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cbSchool.Size = new Size(191, 36);
+            cbSchool.Size = new Size(142, 36);
             cbSchool.TabIndex = 8;
             cbSchool.SelectedIndexChanged += cbSchool_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(447, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(54, 20);
+            label3.TabIndex = 12;
+            label3.Text = "Học kỳ";
+            // 
+            // cbSemester
+            // 
+            cbSemester.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbSemester.BackColor = Color.Transparent;
+            cbSemester.BorderRadius = 10;
+            cbSemester.CustomizableEdges = customizableEdges5;
+            cbSemester.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSemester.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSemester.FillColor = Color.FromArgb(217, 217, 217);
+            cbSemester.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbSemester.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSemester.Font = new Font("Times New Roman", 12F);
+            cbSemester.ForeColor = Color.Black;
+            cbSemester.ItemHeight = 30;
+            cbSemester.Location = new Point(447, 23);
+            cbSemester.Name = "cbSemester";
+            cbSemester.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cbSemester.Size = new Size(142, 36);
+            cbSemester.TabIndex = 9;
+            cbSemester.SelectedIndexChanged += cbSemester_SelectedIndexChanged;
             // 
             // cbYearCourse
             // 
             cbYearCourse.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbYearCourse.BackColor = Color.Transparent;
             cbYearCourse.BorderRadius = 10;
-            cbYearCourse.CustomizableEdges = customizableEdges5;
+            cbYearCourse.CustomizableEdges = customizableEdges7;
             cbYearCourse.DrawMode = DrawMode.OwnerDrawFixed;
             cbYearCourse.DropDownStyle = ComboBoxStyle.DropDownList;
             cbYearCourse.FillColor = Color.FromArgb(217, 217, 217);
@@ -257,12 +294,12 @@
             cbYearCourse.Font = new Font("Times New Roman", 12F);
             cbYearCourse.ForeColor = Color.Black;
             cbYearCourse.ItemHeight = 30;
-            cbYearCourse.Location = new Point(397, 23);
+            cbYearCourse.Location = new Point(299, 23);
             cbYearCourse.Name = "cbYearCourse";
-            cbYearCourse.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cbYearCourse.Size = new Size(192, 36);
+            cbYearCourse.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cbYearCourse.Size = new Size(142, 36);
             cbYearCourse.TabIndex = 9;
-            cbYearCourse.SelectedIndexChanged += cbYearCourse_SelectedIndexChanged_1;
+            cbYearCourse.SelectedIndexChanged += cbYearCourse_SelectedIndexChanged;
             // 
             // panel2
             // 
@@ -286,7 +323,7 @@
             btnAddExam.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddExam.BackColor = Color.Transparent;
             btnAddExam.BorderRadius = 8;
-            btnAddExam.CustomizableEdges = customizableEdges7;
+            btnAddExam.CustomizableEdges = customizableEdges9;
             btnAddExam.FillColor = Color.FromArgb(59, 130, 246);
             btnAddExam.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnAddExam.ForeColor = Color.White;
@@ -295,7 +332,7 @@
             btnAddExam.Location = new Point(254, 23);
             btnAddExam.Margin = new Padding(3, 4, 3, 4);
             btnAddExam.Name = "btnAddExam";
-            btnAddExam.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnAddExam.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnAddExam.Size = new Size(190, 36);
             btnAddExam.TabIndex = 3;
             btnAddExam.TabStop = false;
@@ -582,5 +619,7 @@
         private DataGridViewImageColumn colView;
         private DataGridViewImageColumn colEdit;
         private DataGridViewImageColumn colDelete;
+        private Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox cbSemester;
     }
 }

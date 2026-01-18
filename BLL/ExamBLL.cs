@@ -41,5 +41,9 @@ namespace BLL
         {
             return _examDAL.GetAllExamsOverview();
         }
+        public bool DeleteById(int id)
+        {
+            return _examDAL.DeleteById(id);
+        }
     }
 }
