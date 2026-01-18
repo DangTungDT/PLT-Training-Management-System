@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -13,10 +11,7 @@ namespace DAL
     {
         private readonly AppDBContext _context = new AppDBContext();
 
-        //public CourseDAL(YourDbContext context)
-        //{
-        //    _context = context;
-        //}
+        // existing methods...
 
         public List<CourseDTO> GetAllBySemesterId(int semesterId)
         {
@@ -54,6 +49,27 @@ namespace DAL
                     .Include(c => c.Semester)
                         .ThenInclude(s => s.School)
                     .FirstOrDefault(c => c.Id == id);
+            }
+        }
+
+        /// <summary>
+        /// Thêm Course mới vào DB
+        /// </summary>
+        public bool AddCourse(CourseDTO course)
+        {
+            try
+            {
+                if (course == null) return false;
+
+                using (var context = new AppDBContext())
+                {
+                    context.Courses.Add(course);
+                    return context.SaveChanges() > 0;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }
