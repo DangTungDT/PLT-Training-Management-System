@@ -27,11 +27,18 @@ namespace GUI.UserControls.Exam
         }
         private void LoadImageForColumnDataGirdViewBook()
         {
-            colEdit.Image = ResizeImage(Properties.Resources.edit, 24, 24);
-            colView.Image = ResizeImage(Properties.Resources.view, 24, 24);
-            colDelete.Image = ResizeImage(Properties.Resources.delete, 24, 24);
-        }
+            colEdit.Width = 60;
+            colView.Width = 60;
+            colDelete.Width = 60;
 
+            colEdit.ImageLayout = DataGridViewImageCellLayout.Normal;
+            colView.ImageLayout = DataGridViewImageCellLayout.Normal;
+            colDelete.ImageLayout = DataGridViewImageCellLayout.Normal;
+
+            colEdit.Image = Properties.Resources.edit_32;
+            colView.Image = Properties.Resources.view_32;
+            colDelete.Image = Properties.Resources.delete_32;
+        }
         private void LoadDataForComboboxYear()
         {
             var years = _examBLL.GetAllYearForExam()
@@ -83,16 +90,6 @@ namespace GUI.UserControls.Exam
             cbSchool.SelectedIndex = 0;
         }
 
-        private static Image ResizeImage(Image img, int width, int height)
-        {
-            Bitmap bmp = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(img, 0, 0, width, height);
-            }
-            return bmp;
-        }
         private void UcExam_Load(object sender, EventArgs e)
         {
             LoadImageForColumnDataGirdViewBook();
@@ -162,13 +159,18 @@ namespace GUI.UserControls.Exam
                 var result = MessageBox.Show($"Bạn có chắc chắn muốn xóa đề thi?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    
+
                 }
             }
             else if (nameOfColumn == "colView")
             {
                 OpenUserControlReadExam?.Invoke(idExamSelected);
             }
+        }
+
+        private void cbYearCourse_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            LoadExamDataToDGV();
         }
     }
 }

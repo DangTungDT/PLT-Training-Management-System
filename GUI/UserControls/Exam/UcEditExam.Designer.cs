@@ -551,9 +551,9 @@
             panel11.Controls.Add(btnSaveExam);
             panel11.Controls.Add(btnPreview);
             panel11.Dock = DockStyle.Right;
-            panel11.Location = new Point(732, 0);
+            panel11.Location = new Point(613, 0);
             panel11.Name = "panel11";
-            panel11.Size = new Size(344, 81);
+            panel11.Size = new Size(463, 81);
             panel11.TabIndex = 14;
             // 
             // btnSaveExam
@@ -569,7 +569,7 @@
             btnSaveExam.FillColor = Color.FromArgb(60, 131, 246);
             btnSaveExam.Font = new Font("Segoe UI", 9F);
             btnSaveExam.ForeColor = Color.White;
-            btnSaveExam.Location = new Point(178, 13);
+            btnSaveExam.Location = new Point(285, 13);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.ShadowDecoration.CustomizableEdges = customizableEdges3;
             btnSaveExam.Size = new Size(146, 41);
@@ -590,12 +590,12 @@
             btnPreview.FillColor = Color.White;
             btnPreview.Font = new Font("Segoe UI", 9F);
             btnPreview.ForeColor = Color.FromArgb(104, 116, 135);
-            btnPreview.Location = new Point(13, 13);
+            btnPreview.Location = new Point(45, 13);
             btnPreview.Name = "btnPreview";
             btnPreview.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            btnPreview.Size = new Size(126, 41);
+            btnPreview.Size = new Size(201, 41);
             btnPreview.TabIndex = 13;
-            btnPreview.Text = "Xem trước";
+            btnPreview.Text = "Thêm đề thi bằng file";
             // 
             // lbStage3
             // 

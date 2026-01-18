@@ -43,6 +43,7 @@ namespace GUI.UserControls.Book
         private void UcReadBook_Load(object sender, EventArgs e)
         {
             LoadBookInformation();
+            LoadFileOfBook();
         }
 
         private void LoadBookInformation()
@@ -51,65 +52,43 @@ namespace GUI.UserControls.Book
             lbISBN.Text = _selectedBook.ISBN;
             lbAuthor.Text = _selectedBook.Author;
             lbPublicYear.Text = _selectedBook.PublishedYear.ToString();
-            lbCategory.Text = _categoryBLL.GetCategoryById(_selectedBook.CategoryId).Name;
             lbDescribe.Text = _selectedBook.Description;
             lbDateUpLoad.Text = _selectedBook.DateUpload.Date.ToString();
             string namePersonUpload = _personBLL.GetPersonNameById(_selectedBook.PersonId);
             lbUpLoadBy.Text = namePersonUpload;
             lbTotalView.Text = _selectedBook.TotalRead.ToString();
-            lbTotalView2.Text = _selectedBook.TotalRead.ToString();
             lbTotalDownload.Text = _selectedBook.TotalDownload.ToString();
-            lbTotalDownload2.Text = _selectedBook.TotalDownload.ToString();
 
             lblTotalFiles.Text = _allFileIdOfBookSelected.Count.ToString();
         }
 
-        private void lblOverview_Click(object sender, EventArgs e)
-        {
-            lblAttachmentTab.ForeColor = Color.Black;
-            lblOverview.ForeColor = Color.FromArgb(60, 131, 246);
 
-            pnDataBook.Visible = true;
-            pnlRightFill.Visible = false;
-        }
-
-        private void lblAttachmentTab_Click(object sender, EventArgs e)
-        {
-            lblOverview.ForeColor = Color.Black;
-            lblAttachmentTab.ForeColor = Color.FromArgb(60, 131, 246);
-
-            pnDataBook.Visible = false;
-            pnlRightFill.Visible = true;
-
-            if (!flagLoadFile)
-            {
-                LoadFileOfBook();
-                flagLoadFile = true;
-            }
-        }
 
         private void LoadFileOfBook()
         {
             flpFiles.Controls.Clear();
             _ListFileOfBookSelected = new List<FilesDTO>();
-
             int positionForm = 1;
+
             foreach (int fileId in _allFileIdOfBookSelected)
             {
                 FilesDTO file = _fileBLL.GetFileById(fileId);
                 if (file == null) continue;
 
                 _ListFileOfBookSelected.Add(file);
-
                 ucFileOfBook ucFile = new ucFileOfBook(file, positionForm);
 
-                ucFile.Margin = new Padding(0, 0, 0, 8);
-                ucFile.Dock = DockStyle.Top;
+                // Tính toán kích thước dựa theo FlowLayoutPanel
+                int targetWidth = flpFiles.ClientSize.Width - flpFiles.Padding.Left - flpFiles.Padding.Right;
+                int targetHeight = (int)(targetWidth * 0.3f); // Tỷ lệ chiều cao, có thể điều chỉnh
 
+                ucFile.Size = new Size(targetWidth, targetHeight);
+                ucFile.Margin = new Padding(0, 0, 0, 8);
+                ucFile.Dock = DockStyle.None; // Đổi từ Top sang None để có thể set Size
                 ucFile.DeleteFile += UcFileOfBook_ButtonDelete;
                 ucFile.ActionReadFile += ReadFileOfBook;
-                flpFiles.Controls.Add(ucFile);
 
+                flpFiles.Controls.Add(ucFile);
                 positionForm++;
             }
         }

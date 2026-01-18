@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using GUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,8 @@ namespace GUI.UserControls.Book
                 }
             }
         }
+
+
         public List<FilesDTO> GetNewFileOfBook()
         {
             return _allNewFileAddedBook;
@@ -144,8 +147,21 @@ namespace GUI.UserControls.Book
                 return;
             }
 
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
+            {
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
+
+            // Lưu trực tiếp vào LinkFolder
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
             var row = dgvFileBook.Rows
                     .Cast<DataGridViewRow>()
@@ -153,22 +169,18 @@ namespace GUI.UserControls.Book
                         !r.IsNewRow &&
                         r.Cells["colName"].Value?.ToString() == nameFile
                     );
-            if(row != null)
+
+            if (row != null)
             {
                 row.Cells["colName"].Value = nameFile;
-                row.Cells["colFilePath"].Value = filePath;
+                row.Cells["colFilePath"].Value = destFilePath;
                 row.Cells["colSizeFile"].Value = capacityFile;
             }
             else
             {
-                dgvFileBook.Rows.Add(nameFile, filePath, capacityFile);
+                dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
             }
 
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
             FilesDTO newFile = new FilesDTO()
             {
                 FileName = nameFile,
@@ -177,37 +189,65 @@ namespace GUI.UserControls.Book
                 FileType = "pdf",
                 CreatedAt = DateTime.Now
             };
+
             _allNewFileAddedBook.Add(newFile);
             SaveFileToProject(filePath);
         }
 
         private void SaveFileToProject(string filePath)
         {
-
             FileInfo file = new FileInfo(filePath);
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
 
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-
-            if (!Directory.Exists(filesFolderPath))
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
             {
-                Directory.CreateDirectory(filesFolderPath);
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
             }
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+
+            // Lưu trực tiếp vào LinkFolder
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
             try
             {
                 if (System.IO.File.Exists(destFilePath))
+                {
+                    DialogResult result = MessageBox.Show(
+                        $"File '{file.Name}' đã tồn tại. Bạn có muốn ghi đè không?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     System.IO.File.Delete(destFilePath);
+                }
 
                 System.IO.File.Copy(file.FullName, destFilePath);
+
+                MessageBox.Show($"Lưu file thành công tại:\n{destFilePath}",
+                                "Thành công",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Không thể lưu file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Lỗi khi lưu file: {ex.Message}",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -341,23 +381,6 @@ namespace GUI.UserControls.Book
             cbCategory.ValueMember = "Id";
         }
 
-        private void lbInputValueBook_Click(object sender, EventArgs e)
-        {
-            lbInputFileBook.ForeColor = Color.FromArgb(104, 116, 135);
-            lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
-
-            pnInputValueBook.Visible = true;
-            pnInputFileBook.Visible = false;
-        }
-
-        private void lbInputFileBook_Click(object sender, EventArgs e)
-        {
-            lbInputValueBook.ForeColor = Color.FromArgb(104, 116, 135);
-            lbInputFileBook.ForeColor = Color.FromArgb(60, 131, 246);
-
-            pnInputValueBook.Visible = false;
-            pnInputFileBook.Visible = true;
-        }
         private void txtAuthor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar)
@@ -373,6 +396,20 @@ namespace GUI.UserControls.Book
             if (!char.IsLetterOrDigit(e.KeyChar)
         && !char.IsWhiteSpace(e.KeyChar)
         && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtISBN_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+
+
+        private void txtISBN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

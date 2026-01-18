@@ -609,6 +609,7 @@
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Button1.Size = new Size(50, 50);
             guna2Button1.TabIndex = 6;
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // lblFileInfo
             // 

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using GUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -165,17 +166,6 @@ namespace GUI.UserControls.Book
             return true;
         }
 
-
-        private void lbInputValueBook_Click(object sender, EventArgs e)
-        {
-            lbInputFileBook.ForeColor = Color.FromArgb(104, 116, 135);
-            lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
-
-            pnInputValueBook.Visible = true;
-            pnInputFileBook.Visible = false;
-        }
-
-
         private void LoadCategoriesForCombobox()
         {
             var categories = _categoryBLL.GetAllCategories();
@@ -185,22 +175,9 @@ namespace GUI.UserControls.Book
         }
         private void UcAddBook_Load(object sender, EventArgs e)
         {
-            lbInputValueBook.ForeColor = Color.FromArgb(60, 131, 246);
-            pnInputValueBook.Visible = true;
-            pnInputFileBook.Visible = false;
             LoadComboboxYear();
             LoadCategoriesForCombobox();
         }
-
-        private void lbInputFileBook_Click(object sender, EventArgs e)
-        {
-            lbInputValueBook.ForeColor = Color.FromArgb(104, 116, 135);
-            lbInputFileBook.ForeColor = Color.FromArgb(60, 131, 246);
-
-            pnInputValueBook.Visible = false;
-            pnInputFileBook.Visible = true;
-        }
-
         private void txtISBN_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -274,7 +251,6 @@ namespace GUI.UserControls.Book
                 HandleSelectedFile(ofd.FileName);
             }
         }
-
         private void HandleSelectedFile(string filePath)
         {
             if (!Path.GetExtension(filePath)
@@ -298,51 +274,153 @@ namespace GUI.UserControls.Book
                 return;
             }
 
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
+            {
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
 
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+            // Lưu trực tiếp vào LinkFolder (không tạo subfolder)
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
+
             dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
             SaveFileToProject(filePath);
         }
 
-
         private void SaveFileToProject(string filePath)
         {
-
             FileInfo file = new FileInfo(filePath);
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
 
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-
-            if (!Directory.Exists(filesFolderPath))
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
             {
-                Directory.CreateDirectory(filesFolderPath);
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
             }
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
+
+            // Lưu trực tiếp vào thư mục LinkFolder
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
             try
             {
                 if (System.IO.File.Exists(destFilePath))
+                {
+                    DialogResult result = MessageBox.Show(
+                        $"File '{file.Name}' đã tồn tại. Bạn có muốn ghi đè không?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     System.IO.File.Delete(destFilePath);
+                }
 
                 System.IO.File.Copy(file.FullName, destFilePath);
+
+                MessageBox.Show($"Lưu file thành công tại:\n{destFilePath}",
+                                "Thành công",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Không thể lưu file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Lỗi khi lưu file: {ex.Message}",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
+        //private void HandleSelectedFile(string filePath)
+        //{
+        //    if (!Path.GetExtension(filePath)
+        //        .Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        MessageBox.Show("File không hợp lệ. Vui lòng chọn file PDF.",
+        //                        "Lỗi",
+        //                        MessageBoxButtons.OK,
+        //                        MessageBoxIcon.Error);
+        //        return;
+        //    }
+
+        //    FileInfo file = new FileInfo(filePath);
+
+        //    if (file.Length > 500 * 1024 * 1024)
+        //    {
+        //        MessageBox.Show("File vượt quá 500MB",
+        //                        "Lỗi",
+        //                        MessageBoxButtons.OK,
+        //                        MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    string nameFile = file.Name;
+        //    string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
+
+        //    string guiRootPath = Path.GetFullPath(
+        //        Path.Combine(Application.StartupPath, @"..\..\..\")
+        //    );
+        //    string filesFolderPath = Path.Combine(guiRootPath, "Files");
+        //    string destFilePath = Path.Combine(filesFolderPath, file.Name);
+        //    dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
+        //    SaveFileToProject(filePath);
+        //}
+
+
+        //private void SaveFileToProject(string filePath)
+        //{
+
+        //    FileInfo file = new FileInfo(filePath);
+        //    string guiRootPath = Path.GetFullPath(
+        //        Path.Combine(Application.StartupPath, @"..\..\..\")
+        //    );
+
+        //    string filesFolderPath = Path.Combine(guiRootPath, "Files");
+
+        //    if (!Directory.Exists(filesFolderPath))
+        //    {
+        //        Directory.CreateDirectory(filesFolderPath);
+        //    }
+        //    string destFilePath = Path.Combine(filesFolderPath, file.Name);
+
+        //    try
+        //    {
+        //        if (System.IO.File.Exists(destFilePath))
+        //            System.IO.File.Delete(destFilePath);
+
+        //        System.IO.File.Copy(file.FullName, destFilePath);
+        //    }
+        //    catch (IOException ex)
+        //    {
+        //        MessageBox.Show(
+        //            "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+        //            "Lỗi",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error);
+        //    }
+        //}
 
         public bool AddBookFile()
         {
@@ -456,6 +534,11 @@ namespace GUI.UserControls.Book
                 if (next != null)
                     next.Focus();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

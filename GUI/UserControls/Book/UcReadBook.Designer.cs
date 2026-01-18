@@ -25,6 +25,16 @@
             lblSubTitle = new Label();
             pnlMain = new Panel();
             pnlRight = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            pnlRightFill = new Panel();
+            flpFiles = new FlowLayoutPanel();
+            panel3 = new Panel();
+            panel2 = new Panel();
+            lbTotalFilesSize = new Label();
+            label6 = new Label();
+            pnlAttachHeader = new Panel();
+            lblTotalFiles = new Label();
+            lblAttachLeft = new Label();
             pnDataBook = new Panel();
             panel4 = new Panel();
             lbDescribe = new Label();
@@ -48,47 +58,23 @@
             label18 = new Label();
             label19 = new Label();
             lbTotalDownload = new Label();
-            pnlRightFill = new Panel();
-            flpFiles = new FlowLayoutPanel();
-            panel3 = new Panel();
-            panel2 = new Panel();
-            lbTotalFilesSize = new Label();
-            label6 = new Label();
-            pnlAttachHeader = new Panel();
-            lblTotalFiles = new Label();
-            lblAttachLeft = new Label();
             pnlRightBottom = new Panel();
             panel1 = new Panel();
             btnDownload = new Guna.UI2.WinForms.Guna2Button();
             btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            pnlRightTop = new Panel();
-            lblAttachmentTab = new Label();
-            lblOverview = new Label();
-            pnlLeft = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            lbCategory = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            lbTotalView2 = new Label();
-            lbTotalDownload2 = new Label();
-            label5 = new Label();
-            picLeft = new PictureBox();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTop).BeginInit();
             pnlMain.SuspendLayout();
             pnlRight.SuspendLayout();
-            pnDataBook.SuspendLayout();
-            panel4.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             pnlRightFill.SuspendLayout();
             panel2.SuspendLayout();
             pnlAttachHeader.SuspendLayout();
+            pnDataBook.SuspendLayout();
+            panel4.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             pnlRightBottom.SuspendLayout();
             panel1.SuspendLayout();
-            pnlRightTop.SuspendLayout();
-            pnlLeft.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLeft).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -138,7 +124,6 @@
             // pnlMain
             // 
             pnlMain.Controls.Add(pnlRight);
-            pnlMain.Controls.Add(pnlLeft);
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 70);
             pnlMain.Name = "pnlMain";
@@ -148,15 +133,122 @@
             // pnlRight
             // 
             pnlRight.BorderStyle = BorderStyle.FixedSingle;
-            pnlRight.Controls.Add(pnDataBook);
-            pnlRight.Controls.Add(pnlRightFill);
+            pnlRight.Controls.Add(tableLayoutPanel1);
             pnlRight.Controls.Add(pnlRightBottom);
-            pnlRight.Controls.Add(pnlRightTop);
             pnlRight.Dock = DockStyle.Fill;
-            pnlRight.Location = new Point(322, 0);
+            pnlRight.Location = new Point(0, 0);
             pnlRight.Name = "pnlRight";
-            pnlRight.Size = new Size(754, 677);
+            pnlRight.Size = new Size(1076, 677);
             pnlRight.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel1.Controls.Add(pnlRightFill, 1, 0);
+            tableLayoutPanel1.Controls.Add(pnDataBook, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(1074, 615);
+            tableLayoutPanel1.TabIndex = 3;
+            // 
+            // pnlRightFill
+            // 
+            pnlRightFill.BackColor = Color.White;
+            pnlRightFill.Controls.Add(flpFiles);
+            pnlRightFill.Controls.Add(panel3);
+            pnlRightFill.Controls.Add(panel2);
+            pnlRightFill.Controls.Add(pnlAttachHeader);
+            pnlRightFill.Dock = DockStyle.Fill;
+            pnlRightFill.Location = new Point(647, 3);
+            pnlRightFill.Name = "pnlRightFill";
+            pnlRightFill.Size = new Size(424, 609);
+            pnlRightFill.TabIndex = 0;
+            // 
+            // flpFiles
+            // 
+            flpFiles.AutoScroll = true;
+            flpFiles.Dock = DockStyle.Fill;
+            flpFiles.FlowDirection = FlowDirection.TopDown;
+            flpFiles.Location = new Point(0, 32);
+            flpFiles.Name = "flpFiles";
+            flpFiles.Size = new Size(424, 441);
+            flpFiles.TabIndex = 4;
+            flpFiles.WrapContents = false;
+            // 
+            // panel3
+            // 
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 473);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(424, 1);
+            panel3.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(lbTotalFilesSize);
+            panel2.Controls.Add(label6);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 474);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(424, 135);
+            panel2.TabIndex = 2;
+            // 
+            // lbTotalFilesSize
+            // 
+            lbTotalFilesSize.AutoSize = true;
+            lbTotalFilesSize.Dock = DockStyle.Right;
+            lbTotalFilesSize.Location = new Point(374, 0);
+            lbTotalFilesSize.Name = "lbTotalFilesSize";
+            lbTotalFilesSize.Size = new Size(50, 20);
+            lbTotalFilesSize.TabIndex = 1;
+            lbTotalFilesSize.Text = "label7";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Left;
+            label6.Location = new Point(0, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(127, 20);
+            label6.TabIndex = 0;
+            label6.Text = "Tổng dung lượng:";
+            // 
+            // pnlAttachHeader
+            // 
+            pnlAttachHeader.BackColor = Color.White;
+            pnlAttachHeader.Controls.Add(lblTotalFiles);
+            pnlAttachHeader.Controls.Add(lblAttachLeft);
+            pnlAttachHeader.Dock = DockStyle.Top;
+            pnlAttachHeader.Location = new Point(0, 0);
+            pnlAttachHeader.Name = "pnlAttachHeader";
+            pnlAttachHeader.Size = new Size(424, 32);
+            pnlAttachHeader.TabIndex = 1;
+            // 
+            // lblTotalFiles
+            // 
+            lblTotalFiles.Dock = DockStyle.Right;
+            lblTotalFiles.Location = new Point(324, 0);
+            lblTotalFiles.Name = "lblTotalFiles";
+            lblTotalFiles.Padding = new Padding(0, 8, 20, 0);
+            lblTotalFiles.Size = new Size(100, 32);
+            lblTotalFiles.TabIndex = 0;
+            lblTotalFiles.Text = "3 tệp";
+            // 
+            // lblAttachLeft
+            // 
+            lblAttachLeft.Dock = DockStyle.Left;
+            lblAttachLeft.Location = new Point(0, 0);
+            lblAttachLeft.Name = "lblAttachLeft";
+            lblAttachLeft.Padding = new Padding(20, 8, 0, 0);
+            lblAttachLeft.Size = new Size(186, 32);
+            lblAttachLeft.TabIndex = 1;
+            lblAttachLeft.Text = "Tệp đính kèm";
             // 
             // pnDataBook
             // 
@@ -165,9 +257,9 @@
             pnDataBook.Controls.Add(tableLayoutPanel2);
             pnDataBook.Dock = DockStyle.Fill;
             pnDataBook.Font = new Font("Times New Roman", 10.8F);
-            pnDataBook.Location = new Point(0, 45);
+            pnDataBook.Location = new Point(3, 3);
             pnDataBook.Name = "pnDataBook";
-            pnDataBook.Size = new Size(752, 570);
+            pnDataBook.Size = new Size(638, 609);
             pnDataBook.TabIndex = 3;
             // 
             // panel4
@@ -178,7 +270,7 @@
             panel4.Font = new Font("Times New Roman", 10.8F);
             panel4.Location = new Point(0, 277);
             panel4.Name = "panel4";
-            panel4.Size = new Size(752, 293);
+            panel4.Size = new Size(638, 332);
             panel4.TabIndex = 1;
             // 
             // lbDescribe
@@ -188,7 +280,7 @@
             lbDescribe.ForeColor = Color.Black;
             lbDescribe.Location = new Point(0, 38);
             lbDescribe.Name = "lbDescribe";
-            lbDescribe.Size = new Size(752, 255);
+            lbDescribe.Size = new Size(638, 294);
             lbDescribe.TabIndex = 1;
             lbDescribe.Text = "Cuốn sách cung cấp kiến thức toàn diện về hệ quản trị cơ sở dữ liệu Oracle, từ cơ bản đến nâng cao. Nội dung bao gồm thiết kế cơ sở dữ liệu, SQL, PL/SQL, quản trị và tối ưu hóa hiệu suất.";
             // 
@@ -198,7 +290,7 @@
             label8.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
             label8.Location = new Point(0, 0);
             label8.Name = "label8";
-            label8.Size = new Size(752, 38);
+            label8.Size = new Size(638, 38);
             label8.TabIndex = 0;
             label8.Text = "Mô tả";
             // 
@@ -239,7 +331,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(752, 277);
+            tableLayoutPanel2.Size = new Size(638, 277);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // label9
@@ -248,7 +340,7 @@
             label9.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
             label9.Location = new Point(3, 20);
             label9.Name = "label9";
-            label9.Size = new Size(183, 25);
+            label9.Size = new Size(145, 50);
             label9.TabIndex = 0;
             label9.Text = "Thông tin cơ bản";
             // 
@@ -258,9 +350,9 @@
             lbISBN.Dock = DockStyle.Right;
             lbISBN.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbISBN.ForeColor = Color.Black;
-            lbISBN.Location = new Point(221, 70);
+            lbISBN.Location = new Point(179, 70);
             lbISBN.Name = "lbISBN";
-            lbISBN.Size = new Size(150, 20);
+            lbISBN.Size = new Size(135, 20);
             lbISBN.TabIndex = 0;
             lbISBN.Text = "978-604-0-12347-8";
             lbISBN.TextAlign = ContentAlignment.TopRight;
@@ -271,9 +363,9 @@
             lbAuthor.Dock = DockStyle.Right;
             lbAuthor.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbAuthor.ForeColor = Color.Black;
-            lbAuthor.Location = new Point(216, 90);
+            lbAuthor.Location = new Point(217, 90);
             lbAuthor.Name = "lbAuthor";
-            lbAuthor.Size = new Size(155, 20);
+            lbAuthor.Size = new Size(97, 20);
             lbAuthor.TabIndex = 0;
             lbAuthor.Text = "TS. Lê Văn Cường";
             lbAuthor.TextAlign = ContentAlignment.TopRight;
@@ -284,7 +376,7 @@
             lbPublicYear.Dock = DockStyle.Right;
             lbPublicYear.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbPublicYear.ForeColor = Color.Black;
-            lbPublicYear.Location = new Point(326, 110);
+            lbPublicYear.Location = new Point(269, 110);
             lbPublicYear.Name = "lbPublicYear";
             lbPublicYear.Size = new Size(45, 20);
             lbPublicYear.TabIndex = 0;
@@ -328,9 +420,9 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
-            label13.Location = new Point(377, 20);
+            label13.Location = new Point(320, 20);
             label13.Name = "label13";
-            label13.Size = new Size(203, 25);
+            label13.Size = new Size(145, 50);
             label13.TabIndex = 0;
             label13.Text = "Thông tin hệ thống";
             // 
@@ -339,7 +431,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Times New Roman", 10.8F);
             label14.ForeColor = Color.FromArgb(104, 116, 135);
-            label14.Location = new Point(377, 70);
+            label14.Location = new Point(320, 70);
             label14.Name = "label14";
             label14.Size = new Size(84, 20);
             label14.TabIndex = 0;
@@ -350,7 +442,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Times New Roman", 10.8F);
             label15.ForeColor = Color.FromArgb(104, 116, 135);
-            label15.Location = new Point(377, 90);
+            label15.Location = new Point(320, 90);
             label15.Name = "label15";
             label15.Size = new Size(95, 20);
             label15.TabIndex = 0;
@@ -361,7 +453,7 @@
             label16.AutoSize = true;
             label16.Font = new Font("Times New Roman", 10.8F);
             label16.ForeColor = Color.FromArgb(104, 116, 135);
-            label16.Location = new Point(377, 110);
+            label16.Location = new Point(320, 110);
             label16.Name = "label16";
             label16.Size = new Size(102, 20);
             label16.TabIndex = 0;
@@ -372,7 +464,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Times New Roman", 10.8F);
             label17.ForeColor = Color.FromArgb(104, 116, 135);
-            label17.Location = new Point(377, 130);
+            label17.Location = new Point(320, 130);
             label17.Name = "label17";
             label17.Size = new Size(80, 20);
             label17.TabIndex = 0;
@@ -384,7 +476,7 @@
             lbTotalView.Dock = DockStyle.Right;
             lbTotalView.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbTotalView.ForeColor = Color.Black;
-            lbTotalView.Location = new Point(704, 130);
+            lbTotalView.Location = new Point(590, 130);
             lbTotalView.Name = "lbTotalView";
             lbTotalView.Size = new Size(45, 20);
             lbTotalView.TabIndex = 0;
@@ -397,7 +489,7 @@
             lbUpLoadBy.Dock = DockStyle.Right;
             lbUpLoadBy.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbUpLoadBy.ForeColor = Color.Black;
-            lbUpLoadBy.Location = new Point(687, 110);
+            lbUpLoadBy.Location = new Point(573, 110);
             lbUpLoadBy.Name = "lbUpLoadBy";
             lbUpLoadBy.Size = new Size(62, 20);
             lbUpLoadBy.TabIndex = 0;
@@ -410,7 +502,7 @@
             lbDateUpLoad.Dock = DockStyle.Right;
             lbDateUpLoad.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbDateUpLoad.ForeColor = Color.Black;
-            lbDateUpLoad.Location = new Point(658, 90);
+            lbDateUpLoad.Location = new Point(544, 90);
             lbDateUpLoad.Name = "lbDateUpLoad";
             lbDateUpLoad.Size = new Size(91, 20);
             lbDateUpLoad.TabIndex = 0;
@@ -423,7 +515,7 @@
             label18.Dock = DockStyle.Right;
             label18.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             label18.ForeColor = Color.Black;
-            label18.Location = new Point(622, 70);
+            label18.Location = new Point(508, 70);
             label18.Name = "label18";
             label18.Size = new Size(127, 20);
             label18.TabIndex = 0;
@@ -435,7 +527,7 @@
             label19.AutoSize = true;
             label19.Font = new Font("Times New Roman", 10.8F);
             label19.ForeColor = Color.FromArgb(104, 116, 135);
-            label19.Location = new Point(377, 150);
+            label19.Location = new Point(320, 150);
             label19.Name = "label19";
             label19.Size = new Size(115, 20);
             label19.TabIndex = 0;
@@ -447,107 +539,12 @@
             lbTotalDownload.Dock = DockStyle.Right;
             lbTotalDownload.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
             lbTotalDownload.ForeColor = Color.Black;
-            lbTotalDownload.Location = new Point(704, 150);
+            lbTotalDownload.Location = new Point(590, 150);
             lbTotalDownload.Name = "lbTotalDownload";
             lbTotalDownload.Size = new Size(45, 127);
             lbTotalDownload.TabIndex = 0;
             lbTotalDownload.Text = "1234";
             lbTotalDownload.TextAlign = ContentAlignment.TopRight;
-            // 
-            // pnlRightFill
-            // 
-            pnlRightFill.BackColor = Color.White;
-            pnlRightFill.Controls.Add(flpFiles);
-            pnlRightFill.Controls.Add(panel3);
-            pnlRightFill.Controls.Add(panel2);
-            pnlRightFill.Controls.Add(pnlAttachHeader);
-            pnlRightFill.Dock = DockStyle.Fill;
-            pnlRightFill.Location = new Point(0, 45);
-            pnlRightFill.Name = "pnlRightFill";
-            pnlRightFill.Size = new Size(752, 570);
-            pnlRightFill.TabIndex = 0;
-            pnlRightFill.Visible = false;
-            // 
-            // flpFiles
-            // 
-            flpFiles.AutoScroll = true;
-            flpFiles.Dock = DockStyle.Fill;
-            flpFiles.FlowDirection = FlowDirection.TopDown;
-            flpFiles.Location = new Point(0, 32);
-            flpFiles.Name = "flpFiles";
-            flpFiles.Size = new Size(752, 402);
-            flpFiles.TabIndex = 4;
-            flpFiles.WrapContents = false;
-            // 
-            // panel3
-            // 
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 434);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(752, 1);
-            panel3.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(lbTotalFilesSize);
-            panel2.Controls.Add(label6);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 435);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(752, 135);
-            panel2.TabIndex = 2;
-            // 
-            // lbTotalFilesSize
-            // 
-            lbTotalFilesSize.AutoSize = true;
-            lbTotalFilesSize.Dock = DockStyle.Right;
-            lbTotalFilesSize.Location = new Point(702, 0);
-            lbTotalFilesSize.Name = "lbTotalFilesSize";
-            lbTotalFilesSize.Size = new Size(50, 20);
-            lbTotalFilesSize.TabIndex = 1;
-            lbTotalFilesSize.Text = "label7";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Dock = DockStyle.Left;
-            label6.Location = new Point(0, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(127, 20);
-            label6.TabIndex = 0;
-            label6.Text = "Tổng dung lượng:";
-            // 
-            // pnlAttachHeader
-            // 
-            pnlAttachHeader.BackColor = Color.White;
-            pnlAttachHeader.Controls.Add(lblTotalFiles);
-            pnlAttachHeader.Controls.Add(lblAttachLeft);
-            pnlAttachHeader.Dock = DockStyle.Top;
-            pnlAttachHeader.Location = new Point(0, 0);
-            pnlAttachHeader.Name = "pnlAttachHeader";
-            pnlAttachHeader.Size = new Size(752, 32);
-            pnlAttachHeader.TabIndex = 1;
-            // 
-            // lblTotalFiles
-            // 
-            lblTotalFiles.Dock = DockStyle.Right;
-            lblTotalFiles.Location = new Point(652, 0);
-            lblTotalFiles.Name = "lblTotalFiles";
-            lblTotalFiles.Padding = new Padding(0, 8, 20, 0);
-            lblTotalFiles.Size = new Size(100, 32);
-            lblTotalFiles.TabIndex = 0;
-            lblTotalFiles.Text = "3 tệp";
-            // 
-            // lblAttachLeft
-            // 
-            lblAttachLeft.Dock = DockStyle.Left;
-            lblAttachLeft.Location = new Point(0, 0);
-            lblAttachLeft.Name = "lblAttachLeft";
-            lblAttachLeft.Padding = new Padding(20, 8, 0, 0);
-            lblAttachLeft.Size = new Size(186, 32);
-            lblAttachLeft.TabIndex = 1;
-            lblAttachLeft.Text = "Tệp đính kèm";
             // 
             // pnlRightBottom
             // 
@@ -557,7 +554,7 @@
             pnlRightBottom.Dock = DockStyle.Bottom;
             pnlRightBottom.Location = new Point(0, 615);
             pnlRightBottom.Name = "pnlRightBottom";
-            pnlRightBottom.Size = new Size(752, 60);
+            pnlRightBottom.Size = new Size(1074, 60);
             pnlRightBottom.TabIndex = 1;
             // 
             // panel1
@@ -565,7 +562,7 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(btnDownload);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(406, 0);
+            panel1.Location = new Point(728, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(346, 60);
             panel1.TabIndex = 3;
@@ -600,142 +597,6 @@
             btnEdit.Text = "Chỉnh sửa";
             btnEdit.Click += btnEdit_Click;
             // 
-            // pnlRightTop
-            // 
-            pnlRightTop.BackColor = Color.White;
-            pnlRightTop.BorderStyle = BorderStyle.FixedSingle;
-            pnlRightTop.Controls.Add(lblAttachmentTab);
-            pnlRightTop.Controls.Add(lblOverview);
-            pnlRightTop.Dock = DockStyle.Top;
-            pnlRightTop.Location = new Point(0, 0);
-            pnlRightTop.Name = "pnlRightTop";
-            pnlRightTop.Size = new Size(752, 45);
-            pnlRightTop.TabIndex = 2;
-            // 
-            // lblAttachmentTab
-            // 
-            lblAttachmentTab.Dock = DockStyle.Left;
-            lblAttachmentTab.ForeColor = Color.Black;
-            lblAttachmentTab.Location = new Point(168, 0);
-            lblAttachmentTab.Name = "lblAttachmentTab";
-            lblAttachmentTab.Padding = new Padding(20, 12, 0, 0);
-            lblAttachmentTab.Size = new Size(149, 43);
-            lblAttachmentTab.TabIndex = 0;
-            lblAttachmentTab.Text = "Tệp đính kèm";
-            lblAttachmentTab.Click += lblAttachmentTab_Click;
-            // 
-            // lblOverview
-            // 
-            lblOverview.Dock = DockStyle.Left;
-            lblOverview.ForeColor = Color.FromArgb(60, 131, 246);
-            lblOverview.Location = new Point(0, 0);
-            lblOverview.Name = "lblOverview";
-            lblOverview.Padding = new Padding(20, 12, 0, 0);
-            lblOverview.Size = new Size(168, 43);
-            lblOverview.TabIndex = 1;
-            lblOverview.Text = "Tổng quan";
-            lblOverview.Click += lblOverview_Click;
-            // 
-            // pnlLeft
-            // 
-            pnlLeft.BackColor = Color.White;
-            pnlLeft.Controls.Add(tableLayoutPanel1);
-            pnlLeft.Controls.Add(picLeft);
-            pnlLeft.Dock = DockStyle.Left;
-            pnlLeft.Location = new Point(0, 0);
-            pnlLeft.Name = "pnlLeft";
-            pnlLeft.Padding = new Padding(20);
-            pnlLeft.Size = new Size(322, 677);
-            pnlLeft.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(lbCategory, 0, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 0);
-            tableLayoutPanel1.Controls.Add(label2, 0, 1);
-            tableLayoutPanel1.Controls.Add(lbTotalView2, 1, 1);
-            tableLayoutPanel1.Controls.Add(lbTotalDownload2, 1, 2);
-            tableLayoutPanel1.Controls.Add(label5, 0, 2);
-            tableLayoutPanel1.Location = new Point(23, 218);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tableLayoutPanel1.Size = new Size(279, 125);
-            tableLayoutPanel1.TabIndex = 8;
-            // 
-            // lbCategory
-            // 
-            lbCategory.AutoSize = true;
-            lbCategory.Location = new Point(3, 0);
-            lbCategory.Name = "lbCategory";
-            lbCategory.Size = new Size(96, 20);
-            lbCategory.TabIndex = 0;
-            lbCategory.Text = "Cơ sở dữ liệu";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(142, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(60, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Đại học";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 50);
-            label2.Name = "label2";
-            label2.Size = new Size(71, 20);
-            label2.TabIndex = 0;
-            label2.Text = "Lượt xem";
-            // 
-            // lbTotalView2
-            // 
-            lbTotalView2.AutoSize = true;
-            lbTotalView2.Dock = DockStyle.Right;
-            lbTotalView2.Location = new Point(235, 50);
-            lbTotalView2.Name = "lbTotalView2";
-            lbTotalView2.Size = new Size(41, 39);
-            lbTotalView2.TabIndex = 0;
-            lbTotalView2.Text = "3521";
-            // 
-            // lbTotalDownload2
-            // 
-            lbTotalDownload2.AutoSize = true;
-            lbTotalDownload2.Dock = DockStyle.Right;
-            lbTotalDownload2.Location = new Point(235, 89);
-            lbTotalDownload2.Name = "lbTotalDownload2";
-            lbTotalDownload2.Size = new Size(41, 36);
-            lbTotalDownload2.TabIndex = 0;
-            lbTotalDownload2.Text = "1247";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 89);
-            label5.Name = "label5";
-            label5.Size = new Size(60, 20);
-            label5.TabIndex = 0;
-            label5.Text = "Lượt tải";
-            // 
-            // picLeft
-            // 
-            picLeft.BackColor = Color.FromArgb(248, 250, 252);
-            picLeft.Dock = DockStyle.Top;
-            picLeft.Image = Properties.Resources.book;
-            picLeft.Location = new Point(20, 20);
-            picLeft.Name = "picLeft";
-            picLeft.Size = new Size(282, 180);
-            picLeft.SizeMode = PictureBoxSizeMode.Zoom;
-            picLeft.TabIndex = 6;
-            picLeft.TabStop = false;
-            // 
             // UcReadBook
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -749,21 +610,17 @@
             ((System.ComponentModel.ISupportInitialize)picTop).EndInit();
             pnlMain.ResumeLayout(false);
             pnlRight.ResumeLayout(false);
-            pnDataBook.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             pnlRightFill.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             pnlAttachHeader.ResumeLayout(false);
+            pnDataBook.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             pnlRightBottom.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            pnlRightTop.ResumeLayout(false);
-            pnlLeft.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLeft).EndInit();
             ResumeLayout(false);
         }
 
@@ -771,25 +628,13 @@
 
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Panel pnlRight;
-        private System.Windows.Forms.Panel pnlRightTop;
         private System.Windows.Forms.Panel pnlRightFill;
 
         private System.Windows.Forms.PictureBox picTop;
-        private System.Windows.Forms.PictureBox picLeft;
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubTitle;
-        private System.Windows.Forms.Label lblAttachmentTab;
-        private System.Windows.Forms.Label lblOverview;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label lbCategory;
-        private Label label1;
-        private Label label2;
-        private Label lbTotalView2;
-        private Label lbTotalDownload2;
-        private Label label5;
         private Panel panel3;
         private Panel panel2;
         private Label lbTotalFilesSize;
@@ -825,5 +670,6 @@
         private Label label19;
         private Label lbTotalDownload;
         private FlowLayoutPanel flpFiles;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

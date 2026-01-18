@@ -24,6 +24,7 @@ namespace GUI.UserControls.Book
         private int _currentPage = 0;
         private int _totalPages = 0;
         private float _zoom = 1.0f;
+        public event Action ActionBackForm;
         public UcReadFile(int fileId)
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace GUI.UserControls.Book
         {
             lblFileName.Text = _fileSelected.FileName;
             lblTenFileValue.Text = _fileSelected.FileName;
-            lblNgayTaiValue.Text =_fileSelected.CreatedAt.ToString();
+            lblNgayTaiValue.Text = _fileSelected.CreatedAt.ToString();
             lblKichThuocValue.Text = (_fileSelected.FileSize / 1024) + " MB";
         }
         private void LoadPdfToPanel(string filePath)
@@ -54,7 +55,7 @@ namespace GUI.UserControls.Book
             }
             catch
             {
-                MessageBox.Show("Tài liệu hiện không tồn tại hoặc không tìm thấy!", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tài liệu hiện không tồn tại hoặc không tìm thấy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void RenderPage(int pageIndex)
@@ -151,7 +152,12 @@ namespace GUI.UserControls.Book
                 RenderPage(_currentPage);
                 lbMagnification.Text = $"{_zoom * 100}%";
             }
-            
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ActionBackForm?.Invoke();
         }
     }
 }

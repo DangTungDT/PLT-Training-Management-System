@@ -157,7 +157,7 @@
             BackColor = Color.Transparent;
             Controls.Add(pnlMain);
             Margin = new Padding(4, 5, 4, 5);
-            MinimumSize = new Size(960, 123);
+            MinimumSize = new Size(452, 123);
             Name = "ucFileOfBook";
             Size = new Size(960, 123);
             pnlMain.ResumeLayout(false);

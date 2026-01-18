@@ -85,7 +85,7 @@ namespace GUI
             pnMenu.Dock = DockStyle.Left;
             pnMenu.Location = new Point(0, 0);
             pnMenu.Name = "pnMenu";
-            pnMenu.Size = new Size(240, 595);
+            pnMenu.Size = new Size(301, 657);
             pnMenu.TabIndex = 0;
             // 
             // pnMenuContent
@@ -104,7 +104,7 @@ namespace GUI
             pnMenuContent.Dock = DockStyle.Fill;
             pnMenuContent.Location = new Point(0, 79);
             pnMenuContent.Name = "pnMenuContent";
-            pnMenuContent.Size = new Size(238, 514);
+            pnMenuContent.Size = new Size(299, 576);
             pnMenuContent.TabIndex = 2;
             // 
             // btnMenuExercise
@@ -117,15 +117,15 @@ namespace GUI
             btnMenuExercise.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExercise.Dock = DockStyle.Top;
             btnMenuExercise.FillColor = Color.Transparent;
-            btnMenuExercise.Font = new Font("Segoe UI", 12F);
+            btnMenuExercise.Font = new Font("Segoe UI", 13.8F);
             btnMenuExercise.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuExercise.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuExercise.Image = Properties.Resources.homework;
             btnMenuExercise.ImageAlign = HorizontalAlignment.Left;
-            btnMenuExercise.Location = new Point(15, 320);
+            btnMenuExercise.Location = new Point(15, 440);
             btnMenuExercise.Name = "btnMenuExercise";
             btnMenuExercise.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnMenuExercise.Size = new Size(208, 40);
+            btnMenuExercise.Size = new Size(269, 55);
             btnMenuExercise.TabIndex = 10;
             btnMenuExercise.Text = "Bài tập và đồ án";
             btnMenuExercise.TextAlign = HorizontalAlignment.Left;
@@ -141,15 +141,15 @@ namespace GUI
             btnMenuExam.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuExam.Dock = DockStyle.Top;
             btnMenuExam.FillColor = Color.Transparent;
-            btnMenuExam.Font = new Font("Segoe UI", 12F);
+            btnMenuExam.Font = new Font("Segoe UI", 13.8F);
             btnMenuExam.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuExam.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuExam.Image = Properties.Resources.exam;
             btnMenuExam.ImageAlign = HorizontalAlignment.Left;
-            btnMenuExam.Location = new Point(15, 280);
+            btnMenuExam.Location = new Point(15, 385);
             btnMenuExam.Name = "btnMenuExam";
             btnMenuExam.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnMenuExam.Size = new Size(208, 40);
+            btnMenuExam.Size = new Size(269, 55);
             btnMenuExam.TabIndex = 9;
             btnMenuExam.Text = "Quản lý đề thi";
             btnMenuExam.TextAlign = HorizontalAlignment.Left;
@@ -165,15 +165,15 @@ namespace GUI
             btnMenuResearchTopic.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuResearchTopic.Dock = DockStyle.Top;
             btnMenuResearchTopic.FillColor = Color.Transparent;
-            btnMenuResearchTopic.Font = new Font("Segoe UI", 12F);
+            btnMenuResearchTopic.Font = new Font("Segoe UI", 13.8F);
             btnMenuResearchTopic.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuResearchTopic.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuResearchTopic.Image = Properties.Resources.idea;
             btnMenuResearchTopic.ImageAlign = HorizontalAlignment.Left;
-            btnMenuResearchTopic.Location = new Point(15, 240);
+            btnMenuResearchTopic.Location = new Point(15, 330);
             btnMenuResearchTopic.Name = "btnMenuResearchTopic";
             btnMenuResearchTopic.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnMenuResearchTopic.Size = new Size(208, 40);
+            btnMenuResearchTopic.Size = new Size(269, 55);
             btnMenuResearchTopic.TabIndex = 8;
             btnMenuResearchTopic.Text = "Đề tài nghiên cứu";
             btnMenuResearchTopic.TextAlign = HorizontalAlignment.Left;
@@ -189,15 +189,15 @@ namespace GUI
             btnMenuScore.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuScore.Dock = DockStyle.Top;
             btnMenuScore.FillColor = Color.Transparent;
-            btnMenuScore.Font = new Font("Segoe UI", 12F);
+            btnMenuScore.Font = new Font("Segoe UI", 13.8F);
             btnMenuScore.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuScore.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuScore.Image = Properties.Resources.score;
             btnMenuScore.ImageAlign = HorizontalAlignment.Left;
-            btnMenuScore.Location = new Point(15, 200);
+            btnMenuScore.Location = new Point(15, 275);
             btnMenuScore.Name = "btnMenuScore";
             btnMenuScore.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnMenuScore.Size = new Size(208, 40);
+            btnMenuScore.Size = new Size(269, 55);
             btnMenuScore.TabIndex = 7;
             btnMenuScore.Text = "Quản lý điểm";
             btnMenuScore.TextAlign = HorizontalAlignment.Left;
@@ -213,15 +213,15 @@ namespace GUI
             btnMenuCalendar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuCalendar.Dock = DockStyle.Top;
             btnMenuCalendar.FillColor = Color.Transparent;
-            btnMenuCalendar.Font = new Font("Segoe UI", 12F);
+            btnMenuCalendar.Font = new Font("Segoe UI", 13.8F);
             btnMenuCalendar.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuCalendar.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuCalendar.Image = Properties.Resources.calendar;
             btnMenuCalendar.ImageAlign = HorizontalAlignment.Left;
-            btnMenuCalendar.Location = new Point(15, 160);
+            btnMenuCalendar.Location = new Point(15, 220);
             btnMenuCalendar.Name = "btnMenuCalendar";
             btnMenuCalendar.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnMenuCalendar.Size = new Size(208, 40);
+            btnMenuCalendar.Size = new Size(269, 55);
             btnMenuCalendar.TabIndex = 6;
             btnMenuCalendar.Text = "Lịch dạy";
             btnMenuCalendar.TextAlign = HorizontalAlignment.Left;
@@ -237,15 +237,15 @@ namespace GUI
             btnMenuLessonPlan.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuLessonPlan.Dock = DockStyle.Top;
             btnMenuLessonPlan.FillColor = Color.Transparent;
-            btnMenuLessonPlan.Font = new Font("Segoe UI", 12F);
+            btnMenuLessonPlan.Font = new Font("Segoe UI", 13.8F);
             btnMenuLessonPlan.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuLessonPlan.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuLessonPlan.Image = Properties.Resources.lessonPlan;
             btnMenuLessonPlan.ImageAlign = HorizontalAlignment.Left;
-            btnMenuLessonPlan.Location = new Point(15, 120);
+            btnMenuLessonPlan.Location = new Point(15, 165);
             btnMenuLessonPlan.Name = "btnMenuLessonPlan";
             btnMenuLessonPlan.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnMenuLessonPlan.Size = new Size(208, 40);
+            btnMenuLessonPlan.Size = new Size(269, 55);
             btnMenuLessonPlan.TabIndex = 5;
             btnMenuLessonPlan.Text = "Giáo án";
             btnMenuLessonPlan.TextAlign = HorizontalAlignment.Left;
@@ -261,15 +261,15 @@ namespace GUI
             btnMenuBook.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuBook.Dock = DockStyle.Top;
             btnMenuBook.FillColor = Color.Transparent;
-            btnMenuBook.Font = new Font("Segoe UI", 12F);
+            btnMenuBook.Font = new Font("Segoe UI", 13.8F);
             btnMenuBook.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuBook.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuBook.Image = Properties.Resources.book;
             btnMenuBook.ImageAlign = HorizontalAlignment.Left;
-            btnMenuBook.Location = new Point(15, 80);
+            btnMenuBook.Location = new Point(15, 110);
             btnMenuBook.Name = "btnMenuBook";
             btnMenuBook.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnMenuBook.Size = new Size(208, 40);
+            btnMenuBook.Size = new Size(269, 55);
             btnMenuBook.TabIndex = 4;
             btnMenuBook.Text = "Sách và giáo trình";
             btnMenuBook.TextAlign = HorizontalAlignment.Left;
@@ -285,15 +285,15 @@ namespace GUI
             btnMenuManagementAccount.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuManagementAccount.Dock = DockStyle.Top;
             btnMenuManagementAccount.FillColor = Color.Transparent;
-            btnMenuManagementAccount.Font = new Font("Segoe UI", 12F);
+            btnMenuManagementAccount.Font = new Font("Segoe UI", 13.8F);
             btnMenuManagementAccount.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuManagementAccount.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuManagementAccount.Image = Properties.Resources.user;
             btnMenuManagementAccount.ImageAlign = HorizontalAlignment.Left;
-            btnMenuManagementAccount.Location = new Point(15, 40);
+            btnMenuManagementAccount.Location = new Point(15, 55);
             btnMenuManagementAccount.Name = "btnMenuManagementAccount";
             btnMenuManagementAccount.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnMenuManagementAccount.Size = new Size(208, 40);
+            btnMenuManagementAccount.Size = new Size(269, 55);
             btnMenuManagementAccount.TabIndex = 3;
             btnMenuManagementAccount.Text = "Quản lý tài khoản";
             btnMenuManagementAccount.TextAlign = HorizontalAlignment.Left;
@@ -309,7 +309,7 @@ namespace GUI
             btnMenuHome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnMenuHome.Dock = DockStyle.Top;
             btnMenuHome.FillColor = Color.Transparent;
-            btnMenuHome.Font = new Font("Segoe UI", 12F);
+            btnMenuHome.Font = new Font("Segoe UI", 13.8F);
             btnMenuHome.ForeColor = Color.FromArgb(104, 116, 135);
             btnMenuHome.HoverState.FillColor = Color.FromArgb(192, 255, 255);
             btnMenuHome.Image = Properties.Resources.home;
@@ -317,7 +317,7 @@ namespace GUI
             btnMenuHome.Location = new Point(15, 0);
             btnMenuHome.Name = "btnMenuHome";
             btnMenuHome.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnMenuHome.Size = new Size(208, 40);
+            btnMenuHome.Size = new Size(269, 55);
             btnMenuHome.TabIndex = 2;
             btnMenuHome.Text = "Tổng quan";
             btnMenuHome.TextAlign = HorizontalAlignment.Left;
@@ -328,15 +328,15 @@ namespace GUI
             panel4.Dock = DockStyle.Left;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(15, 514);
+            panel4.Size = new Size(15, 576);
             panel4.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(223, 0);
+            panel3.Location = new Point(284, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(15, 514);
+            panel3.Size = new Size(15, 576);
             panel3.TabIndex = 0;
             // 
             // panel1
@@ -344,7 +344,7 @@ namespace GUI
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 64);
             panel1.Name = "panel1";
-            panel1.Size = new Size(238, 15);
+            panel1.Size = new Size(299, 15);
             panel1.TabIndex = 1;
             // 
             // pnMenuLogo
@@ -354,7 +354,7 @@ namespace GUI
             pnMenuLogo.Dock = DockStyle.Top;
             pnMenuLogo.Location = new Point(0, 0);
             pnMenuLogo.Name = "pnMenuLogo";
-            pnMenuLogo.Size = new Size(238, 64);
+            pnMenuLogo.Size = new Size(299, 64);
             pnMenuLogo.TabIndex = 0;
             // 
             // pbLogo
@@ -364,7 +364,7 @@ namespace GUI
             pbLogo.Image = Properties.Resources.card;
             pbLogo.Location = new Point(0, 0);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(238, 64);
+            pbLogo.Size = new Size(299, 64);
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogo.TabIndex = 0;
             pbLogo.TabStop = false;
@@ -376,9 +376,9 @@ namespace GUI
             pbHeader.Controls.Add(pbHeaderContent);
             pbHeader.Controls.Add(lbHeaderRole);
             pbHeader.Dock = DockStyle.Top;
-            pbHeader.Location = new Point(240, 0);
+            pbHeader.Location = new Point(301, 0);
             pbHeader.Name = "pbHeader";
-            pbHeader.Size = new Size(1076, 64);
+            pbHeader.Size = new Size(1015, 64);
             pbHeader.TabIndex = 1;
             // 
             // pbHeaderContent
@@ -386,7 +386,7 @@ namespace GUI
             pbHeaderContent.Dock = DockStyle.Fill;
             pbHeaderContent.Location = new Point(0, 0);
             pbHeaderContent.Name = "pbHeaderContent";
-            pbHeaderContent.Size = new Size(922, 60);
+            pbHeaderContent.Size = new Size(861, 60);
             pbHeaderContent.TabIndex = 1;
             // 
             // lbHeaderRole
@@ -394,7 +394,7 @@ namespace GUI
             lbHeaderRole.Dock = DockStyle.Right;
             lbHeaderRole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbHeaderRole.ImageAlign = ContentAlignment.MiddleLeft;
-            lbHeaderRole.Location = new Point(922, 0);
+            lbHeaderRole.Location = new Point(861, 0);
             lbHeaderRole.Name = "lbHeaderRole";
             lbHeaderRole.Size = new Size(150, 60);
             lbHeaderRole.TabIndex = 0;
@@ -403,17 +403,20 @@ namespace GUI
             // 
             // pbContent
             // 
+            pbContent.BackColor = Color.Transparent;
+            pbContent.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            pbContent.BackgroundImageLayout = ImageLayout.Zoom;
             pbContent.Dock = DockStyle.Fill;
-            pbContent.Location = new Point(240, 64);
+            pbContent.Location = new Point(301, 64);
             pbContent.Name = "pbContent";
-            pbContent.Size = new Size(1076, 531);
+            pbContent.Size = new Size(1015, 593);
             pbContent.TabIndex = 2;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1316, 595);
+            ClientSize = new Size(1316, 657);
             Controls.Add(pbContent);
             Controls.Add(pbHeader);
             Controls.Add(pnMenu);

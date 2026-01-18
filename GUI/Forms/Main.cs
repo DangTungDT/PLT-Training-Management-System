@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class Main : Form
     {
-        //Variable lobal
+        //Variable global
         private List<Guna2Button> _menuBuottons;
 
         private UcMenuHeaderAddBook _ucMenuHeaderAddBook;
@@ -42,13 +42,15 @@ namespace GUI
         private BookBLL _bookBLL = new BookBLL();
         private BookFileBLL _bookFileBLL = new BookFileBLL();
         private FileBLL _fileBLL = new FileBLL();
+
         public Main()
         {
             InitializeComponent();
+            // LinkFolder sẽ tự động load khi lần đầu gọi Instance
         }
+
         private void LoadContentAddBook(UserControl uc)
         {
-
             _ucAddBook = uc as UcAddBook;
             if (_ucAddBook == null) return;
             pbContent.Controls.Clear();
@@ -63,6 +65,7 @@ namespace GUI
             _ucMenuHeaderAddBook._ActionAddBook += AddBook;
             _ucMenuHeaderAddBook.ActionBackForm += NavigatePop;
         }
+
         private void LoadUcExam()
         {
             _ucExam = new UcExam();
@@ -84,6 +87,8 @@ namespace GUI
                 _ucReadExam = new UcReadExam(examId);
                 NavigatePush(_ucReadExam);
             };
+
+            pbHeaderContent.Controls.Clear();
         }
 
         private void LoadUcReadExam(UserControl uc)
@@ -96,11 +101,8 @@ namespace GUI
             pbContent.Controls.Add(_ucReadExam);
             pbHeaderContent.Controls.Clear();
 
-            // Wire up events
-            _ucReadExam.BackToExamList += () =>
-            {
-                NavigatePop();
-            };
+            _ucReadExam.BackToExamList -= NavigatePop;
+            _ucReadExam.BackToExamList += NavigatePop;
 
             _ucReadExam.OpenUserControlEditExam += (int examId) =>
             {
@@ -109,6 +111,7 @@ namespace GUI
             };
             _ucReadExam.OpenUserControlReadFile += GoToReadFile;
         }
+
         private void LoadUcAddExam()
         {
             _ucAddExam = new UcAddExam();
@@ -117,8 +120,8 @@ namespace GUI
             {
                 NavigatePop();
             };
-
         }
+
         private void LoadUcEditExam(UserControl uc)
         {
             _ucEditExam = uc as UcEditExam;
@@ -129,20 +132,12 @@ namespace GUI
             pbContent.Controls.Add(_ucEditExam);
             pbHeaderContent.Controls.Clear();
 
-            // Wire up event để quay lại
             _ucEditExam.BackToUcExam += () =>
             {
                 NavigatePop();
             };
         }
-        //private void LoadUcEditExam(UserControl uc)
-        //{
-        //    pbContent.Controls.Clear();
-        //    uc.Dock = DockStyle.Fill;
-        //    pbContent.Controls.Add(uc);
-        //    pbHeaderContent.Controls.Clear();
 
-        //}
         private void LoadUcBook()
         {
             _ucBook = new UcBook();
@@ -163,22 +158,23 @@ namespace GUI
             _ucMenuHeaderBook._findBookByNameOrAuthor += LoadFilter;
             LoadUserControlForPanel(_ucMenuHeaderBook, pbHeaderContent);
         }
+
         private void LoadFilter()
         {
             string valueFind = _ucMenuHeaderBook.GetStringFindBook();
             _ucBook.FindBookByNameAuthorDateLevel(valueFind);
         }
+
         private void EditBook()
         {
-
             BookDTO data = _ucEditBook.GetNewBook();
             if (data == null)
             {
                 DialogResult kq = MessageBox.Show("Thông tin chưa được thay đổi bạn vẫn muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(kq == DialogResult.Yes)
+                if (kq == DialogResult.Yes)
                 {
                     LoadUcBook();
-                    return; 
+                    return;
                 }
                 else
                 {
@@ -189,11 +185,11 @@ namespace GUI
             if (_bookBLL.UpdateBook(data))
             {
                 List<FilesDTO> newFilesOfBook = _ucEditBook.GetNewFileOfBook();
-                if(newFilesOfBook.Count > 0)
+                if (newFilesOfBook.Count > 0)
                 {
-                    foreach(FilesDTO newFile in newFilesOfBook)
+                    foreach (FilesDTO newFile in newFilesOfBook)
                     {
-                        if(_fileBLL.UpdateFile(newFile))
+                        if (_fileBLL.UpdateFile(newFile))
                         {
                             int bookId = data.Id;
                             BookFileDTO bookFile = new BookFileDTO()
@@ -207,7 +203,6 @@ namespace GUI
                 }
                 MessageBox.Show("Cập nhật thành công!");
 
-                //LoadUcBook();
                 Navigate.Instance.Clear();
                 NavigatePush(new UcBook());
             }
@@ -215,12 +210,12 @@ namespace GUI
             {
                 MessageBox.Show("Cập nhật thất bại!");
             }
-
         }
+
         private void AddBook()
         {
             BookDTO data = _ucAddBook.GetNewBook();
-            if(data == null)
+            if (data == null)
             {
                 return;
             }
@@ -230,16 +225,16 @@ namespace GUI
                 return;
             }
 
-            if(!_bookBLL.CheckISBNAlreadyExists(data.ISBN))
+            if (!_bookBLL.CheckISBNAlreadyExists(data.ISBN))
             {
-                MessageBox.Show("Mã ISBN đã tồn tại, vui lòng nhập lại!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã ISBN đã tồn tại, vui lòng nhập lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (_bookBLL.AddNewBook(data))
             {
                 int quanlityFilesOfBook = _ucAddBook.GetCountFileBook();
-                
+
                 if (quanlityFilesOfBook > 0)
                 {
                     if (!_ucAddBook.AddBookFile())
@@ -249,7 +244,6 @@ namespace GUI
                 }
                 MessageBox.Show("Thêm sách mới thành công!");
 
-                //LoadUcBook();
                 Navigate.Instance.Clear();
                 NavigatePush(new UcBook());
             }
@@ -257,8 +251,8 @@ namespace GUI
             {
                 MessageBox.Show("Thêm sách mới thất bại!");
             }
-
         }
+
         private void LoadBackGroundControlButtonMenu(Guna2Button buttonSelected)
         {
             if (_menuBuottons.Count > 0)
@@ -276,6 +270,7 @@ namespace GUI
                 }
             }
         }
+
         private Image ResizeImage(Image img, int width, int height)
         {
             Bitmap bmp = new Bitmap(width, height);
@@ -295,17 +290,57 @@ namespace GUI
             userControlIsLoaded.Dock = DockStyle.Fill;
             pnaelToLoadUserControl.Controls.Add(userControlIsLoaded);
         }
+
         private void LoadResizeImageControl()
         {
             lbHeaderRole.Image = ResizeImage(Properties.Resources.login, 24, 24);
-
         }
+
         private void Main_Load(object sender, EventArgs e)
         {
             _menuBuottons = pnMenuContent.Controls.OfType<Guna2Button>().ToList();
-
             LoadResizeImageControl();
-            //OpenUcEditBook();
+
+            // Kiểm tra file link.txt trong thư mục bin/debug
+            CheckAndLoadLinkFolder();
+        }
+
+        /// <summary>
+        /// Kiểm tra file link.txt, nếu không có thì mở FormInputLink
+        /// </summary>
+        private void CheckAndLoadLinkFolder()
+        {
+            try
+            {
+                string currentDirectory = Application.StartupPath;
+                string linkFilePath = Path.Combine(currentDirectory, "link.txt");
+
+                // Kiểm tra file có tồn tại không
+                if (!File.Exists(linkFilePath) || string.IsNullOrWhiteSpace(File.ReadAllText(linkFilePath)))
+                {
+                    // File không tồn tại hoặc rỗng, mở form nhập link
+                    using (Forms.FormInputLink formInput = new Forms.FormInputLink())
+                    {
+                        DialogResult result = formInput.ShowDialog();
+
+                        if (result == DialogResult.Cancel)
+                        {
+                            MessageBox.Show("Bạn chưa cấu hình đường dẫn thư mục!",
+                                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    // File tồn tại, khởi tạo LinkFolder để load đường dẫn
+                    var linkFolder = LinkFolder.Instance;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi kiểm tra file link: {ex.Message}",
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
@@ -323,13 +358,12 @@ namespace GUI
             LoadBackGroundControlButtonMenu(btnMenuBook);
             Navigate.Instance.Clear();
             NavigatePush(new UcBook());
-
         }
 
         private void NavigatePush(UserControl uc)
         {
             Navigate.Instance.PushIfNotSame(uc);
-            if(uc is UcEditExam)
+            if (uc is UcEditExam)
             {
                 LoadUcEditExam(uc);
             }
@@ -337,7 +371,7 @@ namespace GUI
             {
                 LoadUcReadExam(uc);
             }
-            else if(uc is UcAddExam)
+            else if (uc is UcAddExam)
             {
                 LoadUcAddExam();
             }
@@ -353,11 +387,11 @@ namespace GUI
             {
                 LoadContentAddBook(uc);
             }
-            else if(uc is UcEditBook)
+            else if (uc is UcEditBook)
             {
                 LoadUcEditBook(uc);
             }
-            else if(uc is UcReadBook)
+            else if (uc is UcReadBook)
             {
                 LoadUcReadBook(uc);
             }
@@ -367,13 +401,6 @@ namespace GUI
             }
         }
 
-        //private void LoadUcAddExam()
-        //{
-        //    var ucAddExam = new UcAddExam();
-        //    pbContent.Controls.Clear();
-        //    ucAddExam.Dock = DockStyle.Fill;
-        //    pbContent.Controls.Add(ucAddExam);
-        //}
         private void NavigatePop()
         {
             var previous = Navigate.Instance.Pop();
@@ -391,19 +418,17 @@ namespace GUI
                     LoadUcReadExam(previous);
                     pbContent.Controls.Add(previous);
                 }
-                else
-                if (previous is UcAddExam)
+                else if (previous is UcAddExam)
                 {
                     LoadUcAddExam();
                     pbContent.Controls.Add(previous);
-                } else
-                if (previous is UcBook)
+                }
+                else if (previous is UcBook)
                 {
                     LoadUcBook();
                     pbContent.Controls.Add(previous);
                 }
-                else
-                if (previous is UcAddBook)
+                else if (previous is UcAddBook)
                 {
                     LoadContentAddBook(previous);
                     pbContent.Controls.Add(previous);
@@ -423,9 +448,7 @@ namespace GUI
                     LoadUcReadFile(previous);
                     pbContent.Controls.Add(previous);
                 }
-
             }
-            
         }
 
         private void LoadUcReadFile(UserControl uc)
@@ -436,11 +459,13 @@ namespace GUI
             _ucReadFile.Dock = DockStyle.Fill;
             pbContent.Controls.Add(_ucReadFile);
             pbHeaderContent.Controls.Clear();
+            _ucReadFile.ActionBackForm += NavigatePop;
             var header = new UcMenuHeaderReadFile();
             header.ActionBackForm += NavigatePop;
             header.Dock = DockStyle.Fill;
             pbHeaderContent.Controls.Add(header);
         }
+
         private void LoadUcEditBook(UserControl uc)
         {
             pbContent.Controls.Clear();
@@ -470,19 +495,20 @@ namespace GUI
             _ucMenuHeaderReadBook.ActionBackForm += NavigatePop;
             _ucReadBook.OpenUserControlEditBook += GoToEditBook;
             _ucReadBook.OpenUserControlReadFile += GoToReadFile;
-            
-
         }
+
         private void GoToReadFile(int fileID)
         {
             _ucReadFile = new UcReadFile(fileID);
             NavigatePush(_ucReadFile);
         }
+
         private void GoToEditBook(string nameBook)
         {
             _ucEditBook = new UcEditBook(nameBook);
             NavigatePush(_ucEditBook);
         }
+
         private void btnMenuLessonPlan_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuLessonPlan);

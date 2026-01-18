@@ -262,6 +262,7 @@
             cbYearCourse.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cbYearCourse.Size = new Size(192, 36);
             cbYearCourse.TabIndex = 9;
+            cbYearCourse.SelectedIndexChanged += cbYearCourse_SelectedIndexChanged_1;
             // 
             // panel2
             // 

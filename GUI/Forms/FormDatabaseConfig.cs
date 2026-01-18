@@ -51,7 +51,7 @@ namespace GUI.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string serverFull = cbServerName.SelectedItem?.ToString().Trim();
+            string serverFull = cbServerName.Text?.ToString().Trim();
 
             if (string.IsNullOrEmpty(serverFull))
             {

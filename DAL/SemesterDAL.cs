@@ -13,11 +13,6 @@ namespace DAL
     {
         private readonly AppDBContext _context = new AppDBContext();
 
-        //public SemesterDAL(AppDBContext context)
-        //{
-        //    _context = context;
-        //}
-
         public List<SemesterDTO> GetAllBySchoolId(int schoolId)
         {
             return _context.Semesters
@@ -31,5 +26,84 @@ namespace DAL
                 .ToList();
         }
 
+        /// <summary>
+        /// Thêm học kỳ mới
+        /// </summary>
+        public bool AddSemester(SemesterDTO semester)
+        {
+            try
+            {
+                var newSemester = new SemesterDTO
+                {
+                    Name = semester.Name,
+                    Year = semester.Year,
+                    StartDate = semester.StartDate,
+                    EndDate = semester.EndDate,
+                    SchoolId = semester.SchoolId
+                };
+
+                _context.Semesters.Add(newSemester);
+                return _context.SaveChanges() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Tìm học kỳ theo tên và năm
+        /// </summary>
+        public SemesterDTO FindByNameAndYear(string name, int year)
+        {
+            try
+            {
+                var semester = _context.Semesters
+                    .FirstOrDefault(s => s.Name == name && s.Year == year);
+
+                if (semester == null)
+                    return null;
+
+                return new SemesterDTO
+                {
+                    Id = semester.Id,
+                    Name = semester.Name,
+                    Year = semester.Year,
+                    StartDate = semester.StartDate,
+                    EndDate = semester.EndDate,
+                    SchoolId = semester.SchoolId
+                };
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Cập nhật học kỳ
+        /// </summary>
+        public bool UpdateSemester(SemesterDTO semester)
+        {
+            try
+            {
+                var existingSemester = _context.Semesters.Find(semester.Id);
+
+                if (existingSemester == null)
+                    return false;
+
+                existingSemester.Name = semester.Name;
+                existingSemester.Year = semester.Year;
+                existingSemester.StartDate = semester.StartDate;
+                existingSemester.EndDate = semester.EndDate;
+                existingSemester.SchoolId = semester.SchoolId;
+
+                return _context.SaveChanges() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

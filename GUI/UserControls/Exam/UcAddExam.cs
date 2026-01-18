@@ -572,21 +572,25 @@ namespace GUI.UserControls.Exam
             {
                 if (AddExam())
                 {
+                    // Try thêm file, nếu thất bại thì chỉ thông báo nhưng vẫn thành công
                     if (!AddBookFile())
                     {
-                        MessageBox.Show("Thêm File cho đề thi thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thêm File cho đề thi thất bại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
                     MessageBox.Show("Thêm đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     BackToUcExam?.Invoke();
                     return;
                 }
-                return;
+                else
+                {
+                    MessageBox.Show("Thêm đề thi thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         public bool AddBookFile()
         {
@@ -643,86 +647,84 @@ namespace GUI.UserControls.Exam
                 ExamDTO newExam = GetExam();
                 if (newExam == null) return false;
 
-                List<QuestionAndOption> listQuestion = GetAllQuestionAndOption();
-                if (listQuestion == null)
-                {
-                    MessageBox.Show("Lấy danh sách câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
                 //Add exam
                 if (!_examBLL.AddExam(newExam))
                 {
                     MessageBox.Show("Thêm đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                else
+
+                // Lấy exam vừa thêm
+                newExam = _examBLL.GetExamByValue(newExam.Name, newExam.Type, newExam.CourseId, newExam.SemesterId, newExam.Year);
+                _newExam = newExam;
+
+                if (newExam == null)
                 {
-                    //Add question
-                    newExam = _examBLL.GetExamByValue(newExam.Name, newExam.Type, newExam.CourseId, newExam.SemesterId, newExam.Year);
-                    _newExam = newExam;
-                    if (newExam == null)
-                    {
-                        MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    foreach (QuestionAndOption itemQuestion in listQuestion)
-                    {
-                        QuestionDTO newQuestion = new QuestionDTO
-                        {
-                            Type = itemQuestion.TypeQuestion,
-                            Content = itemQuestion.ContentQuetion,
-                            Score = itemQuestion.ScoreQuetion,
-                            ExamId = newExam.Id
-                        };
-                        if (!_questionBLL.AddQuestion(newQuestion))
-                        {
-                            MessageBox.Show("Thêm câu hỏi cho đề thi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        newQuestion = _questionBLL.GetQuestionByExamIdAndContent(newExam.Id, newQuestion.Content);
-                        if (newQuestion == null)
-                        {
-                            MessageBox.Show("Câu hỏi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        foreach (QuestionOptionDTO optionInQuestion in itemQuestion.Options)
-                        {
-                            if (string.IsNullOrEmpty(optionInQuestion.Content) && optionInQuestion.IsCorrect == false) continue;
-
-                            optionInQuestion.QuestionId = newQuestion.Id;
-                            if (!_questionOptionBLL.InsertQuestionOption(optionInQuestion))
-                            {
-                                MessageBox.Show("Thêm lựa chọn cho câu hỏi thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
-                            }
-                        }
-                    }
-
-                    int classId = 0;
-                    foreach (var item in clbClass.CheckedItems)
-                    {
-                        classId = 0;
-                        if (item is ClassDTO cls)
-                        {
-                            if (!int.TryParse(cls.Id.ToString(), out classId))
-                            {
-                                MessageBox.Show("Lấy id lớp thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                if (!_classExamBLL.AddClassExam(classId, _newExam.Id))
-                                {
-                                    MessageBox.Show("Thêm class_Exam thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                    }
-
-                    return true;
-
+                    MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
 
+                // TRY thêm questions - nếu thất bại thì bỏ qua, không thông báo
+                try
+                {
+                    List<QuestionAndOption> listQuestion = GetAllQuestionAndOption();
 
+                    // Nếu có questions thì mới thêm
+                    if (listQuestion != null && listQuestion.Count > 0)
+                    {
+                        foreach (QuestionAndOption itemQuestion in listQuestion)
+                        {
+                            QuestionDTO newQuestion = new QuestionDTO
+                            {
+                                Type = itemQuestion.TypeQuestion,
+                                Content = itemQuestion.ContentQuetion,
+                                Score = itemQuestion.ScoreQuetion,
+                                ExamId = newExam.Id
+                            };
+
+                            if (!_questionBLL.AddQuestion(newQuestion))
+                            {
+                                continue; // Bỏ qua câu hỏi này, tiếp tục câu tiếp theo
+                            }
+
+                            newQuestion = _questionBLL.GetQuestionByExamIdAndContent(newExam.Id, newQuestion.Content);
+
+                            if (newQuestion == null)
+                            {
+                                continue; // Bỏ qua câu hỏi này
+                            }
+
+                            foreach (QuestionOptionDTO optionInQuestion in itemQuestion.Options)
+                            {
+                                if (string.IsNullOrEmpty(optionInQuestion.Content) && optionInQuestion.IsCorrect == false)
+                                    continue;
+
+                                optionInQuestion.QuestionId = newQuestion.Id;
+                                _questionOptionBLL.InsertQuestionOption(optionInQuestion); // Không kiểm tra kết quả
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    // Bỏ qua lỗi khi thêm questions, không thông báo
+                }
+
+                // Thêm Class-Exam
+                int classId = 0;
+                foreach (var item in clbClass.CheckedItems)
+                {
+                    classId = 0;
+                    if (item is ClassDTO cls)
+                    {
+                        if (int.TryParse(cls.Id.ToString(), out classId))
+                        {
+                            _classExamBLL.AddClassExam(classId, _newExam.Id); // Không kiểm tra kết quả
+                        }
+                    }
+                }
+
+                return true;
             }
             catch
             {
@@ -774,9 +776,9 @@ namespace GUI.UserControls.Exam
                 ContainsSpecialCharacter(txtDescription.Text))
                 return ShowError(txtDescription, "Mô tả không được chứa ký tự đặc biệt.");
 
-            // Tổng số câu hỏi
-            if (!int.TryParse(txtTotalQuestion.Text, out int totalQuestion) || totalQuestion <= 0)
-                return ShowError(txtTotalQuestion, "Tổng số câu hỏi phải là số nguyên > 0.");
+            //// Tổng số câu hỏi
+            //if (!int.TryParse(txtTotalQuestion.Text, out int totalQuestion) || totalQuestion <= 0)
+            //    return ShowError(txtTotalQuestion, "Tổng số câu hỏi phải là số nguyên > 0.");
 
             // Học kỳ
             if (cbSemester.SelectedValue == null || cbSemester.SelectedIndex == -1)

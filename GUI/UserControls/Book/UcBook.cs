@@ -194,9 +194,18 @@ namespace GUI.UserControls
 
         private void LoadImageForColumnDataGirdViewBook()
         {
-            colEdit.Image = ResizeImage(Properties.Resources.edit, 24, 24);
-            colDelete.Image = ResizeImage(Properties.Resources.delete, 24, 24);
-            colView.Image = ResizeImage(Properties.Resources.view, 24, 24);
+            colEdit.Width = 60;
+            colView.Width = 60;
+            colDelete.Width = 60;
+
+            // Quan trọng: Set ImageLayout để ảnh không bị scale
+            colEdit.ImageLayout = DataGridViewImageCellLayout.Normal; // Hoặc .Zoom
+            colView.ImageLayout = DataGridViewImageCellLayout.Normal;
+            colDelete.ImageLayout = DataGridViewImageCellLayout.Normal;
+
+            colEdit.Image = Properties.Resources.edit_32;
+            colView.Image = Properties.Resources.view_32;
+            colDelete.Image = Properties.Resources.delete_32;
         }
 
         private void btnPageAfter_Click(object sender, EventArgs e)
@@ -250,17 +259,6 @@ namespace GUI.UserControls
             dtpFindDate.Format = DateTimePickerFormat.Custom;
             dtpFindDate.CustomFormat = " ";
         }
-        private static Image ResizeImage(Image img, int width, int height)
-        {
-            Bitmap bmp = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(img, 0, 0, width, height);
-            }
-            return bmp;
-        }
-
         private void dtpFindDate_ValueChanged(object sender, EventArgs e)
         {
             if (dtpFindDate.CustomFormat != "dd/MM/yyyy")

@@ -34,12 +34,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -58,12 +58,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -82,19 +82,6 @@
             panel2 = new Panel();
             panelContent = new Panel();
             pnContentFill = new Panel();
-            pnInputFileExam = new Panel();
-            dgvFileBook = new DataGridView();
-            colName = new DataGridViewTextBoxColumn();
-            colFilePath = new DataGridViewTextBoxColumn();
-            colSizeFile = new DataGridViewTextBoxColumn();
-            panel12 = new Panel();
-            pnUploadFile = new Guna.UI2.WinForms.Guna2Panel();
-            btnChooseFile = new Guna.UI2.WinForms.Guna2Button();
-            picUpload = new Guna.UI2.WinForms.Guna2PictureBox();
-            lblNote = new Label();
-            label16 = new Label();
-            label29 = new Label();
-            label30 = new Label();
             pnInputExam1 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label11 = new Label();
@@ -123,13 +110,6 @@
             label15 = new Label();
             cbFaculty = new Guna.UI2.WinForms.Guna2ComboBox();
             clbClass = new CheckedListBox();
-            pnInputExam2 = new Panel();
-            flpQuestion = new FlowLayoutPanel();
-            panel3 = new Panel();
-            panel7 = new Panel();
-            btnAddQuestion = new Guna.UI2.WinForms.Guna2Button();
-            panel10 = new Panel();
-            label13 = new Label();
             pnInputExam3 = new Panel();
             tableLayoutPanel8 = new TableLayoutPanel();
             lbSchool = new Label();
@@ -157,6 +137,26 @@
             lbTotalOptionsQuestion = new Label();
             lbTotalScore = new Label();
             lbTotalQuestion2 = new Label();
+            pnInputExam2 = new Panel();
+            flpQuestion = new FlowLayoutPanel();
+            panel3 = new Panel();
+            panel7 = new Panel();
+            btnAddQuestion = new Guna.UI2.WinForms.Guna2Button();
+            panel10 = new Panel();
+            label13 = new Label();
+            pnInputFileExam = new Panel();
+            dgvFileBook = new DataGridView();
+            colName = new DataGridViewTextBoxColumn();
+            colFilePath = new DataGridViewTextBoxColumn();
+            colSizeFile = new DataGridViewTextBoxColumn();
+            panel12 = new Panel();
+            pnUploadFile = new Guna.UI2.WinForms.Guna2Panel();
+            btnChooseFile = new Guna.UI2.WinForms.Guna2Button();
+            picUpload = new Guna.UI2.WinForms.Guna2PictureBox();
+            lblNote = new Label();
+            label16 = new Label();
+            label29 = new Label();
+            label30 = new Label();
             panel6 = new Panel();
             btnNextStage = new Guna.UI2.WinForms.Guna2Button();
             btnBackStage = new Guna.UI2.WinForms.Guna2Button();
@@ -180,24 +180,24 @@
             panel2.SuspendLayout();
             panelContent.SuspendLayout();
             pnContentFill.SuspendLayout();
-            pnInputFileExam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvFileBook).BeginInit();
-            panel12.SuspendLayout();
-            pnUploadFile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picUpload).BeginInit();
             pnInputExam1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            pnInputExam2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel7.SuspendLayout();
-            panel10.SuspendLayout();
             pnInputExam3.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
+            pnInputExam2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel7.SuspendLayout();
+            panel10.SuspendLayout();
+            pnInputFileExam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFileBook).BeginInit();
+            panel12.SuspendLayout();
+            pnUploadFile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picUpload).BeginInit();
             panel6.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
@@ -332,182 +332,16 @@
             // pnContentFill
             // 
             pnContentFill.BackColor = Color.White;
-            pnContentFill.Controls.Add(pnInputFileExam);
             pnContentFill.Controls.Add(pnInputExam1);
-            pnContentFill.Controls.Add(pnInputExam2);
             pnContentFill.Controls.Add(pnInputExam3);
+            pnContentFill.Controls.Add(pnInputExam2);
+            pnContentFill.Controls.Add(pnInputFileExam);
             pnContentFill.Dock = DockStyle.Fill;
             pnContentFill.Location = new Point(0, 0);
             pnContentFill.Name = "pnContentFill";
             pnContentFill.Padding = new Padding(20);
             pnContentFill.Size = new Size(1036, 485);
             pnContentFill.TabIndex = 1;
-            // 
-            // pnInputFileExam
-            // 
-            pnInputFileExam.Controls.Add(dgvFileBook);
-            pnInputFileExam.Controls.Add(panel12);
-            pnInputFileExam.Dock = DockStyle.Fill;
-            pnInputFileExam.Location = new Point(20, 20);
-            pnInputFileExam.Name = "pnInputFileExam";
-            pnInputFileExam.Size = new Size(996, 445);
-            pnInputFileExam.TabIndex = 7;
-            pnInputFileExam.Visible = false;
-            // 
-            // dgvFileBook
-            // 
-            dgvFileBook.AllowUserToAddRows = false;
-            dgvFileBook.AllowUserToResizeColumns = false;
-            dgvFileBook.AllowUserToResizeRows = false;
-            dgvFileBook.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFileBook.BackgroundColor = Color.White;
-            dgvFileBook.BorderStyle = BorderStyle.None;
-            dgvFileBook.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvFileBook.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvFileBook.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFileBook.Columns.AddRange(new DataGridViewColumn[] { colName, colFilePath, colSizeFile });
-            dgvFileBook.Dock = DockStyle.Fill;
-            dgvFileBook.Location = new Point(0, 301);
-            dgvFileBook.MultiSelect = false;
-            dgvFileBook.Name = "dgvFileBook";
-            dgvFileBook.ReadOnly = true;
-            dgvFileBook.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvFileBook.RowHeadersVisible = false;
-            dgvFileBook.RowHeadersWidth = 51;
-            dgvFileBook.Size = new Size(996, 144);
-            dgvFileBook.TabIndex = 4;
-            dgvFileBook.TabStop = false;
-            // 
-            // colName
-            // 
-            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colName.HeaderText = "Tên tệp tin";
-            colName.MinimumWidth = 6;
-            colName.Name = "colName";
-            colName.ReadOnly = true;
-            // 
-            // colFilePath
-            // 
-            colFilePath.HeaderText = "Đường dẫn";
-            colFilePath.MinimumWidth = 6;
-            colFilePath.Name = "colFilePath";
-            colFilePath.ReadOnly = true;
-            colFilePath.Visible = false;
-            // 
-            // colSizeFile
-            // 
-            colSizeFile.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colSizeFile.HeaderText = "Kích thước";
-            colSizeFile.MinimumWidth = 6;
-            colSizeFile.Name = "colSizeFile";
-            colSizeFile.ReadOnly = true;
-            colSizeFile.Width = 175;
-            // 
-            // panel12
-            // 
-            panel12.Controls.Add(pnUploadFile);
-            panel12.Controls.Add(label29);
-            panel12.Controls.Add(label30);
-            panel12.Dock = DockStyle.Top;
-            panel12.Location = new Point(0, 0);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(996, 301);
-            panel12.TabIndex = 5;
-            // 
-            // pnUploadFile
-            // 
-            pnUploadFile.AllowDrop = true;
-            pnUploadFile.BorderColor = Color.FromArgb(226, 230, 233);
-            pnUploadFile.BorderRadius = 12;
-            pnUploadFile.BorderThickness = 2;
-            pnUploadFile.Controls.Add(btnChooseFile);
-            pnUploadFile.Controls.Add(picUpload);
-            pnUploadFile.Controls.Add(lblNote);
-            pnUploadFile.Controls.Add(label16);
-            pnUploadFile.CustomizableEdges = customizableEdges11;
-            pnUploadFile.Location = new Point(30, 60);
-            pnUploadFile.Name = "pnUploadFile";
-            pnUploadFile.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            pnUploadFile.Size = new Size(976, 216);
-            pnUploadFile.TabIndex = 4;
-            pnUploadFile.DragDrop += pnUploadFile_DragDrop;
-            pnUploadFile.DragEnter += pnUploadFile_DragEnter;
-            // 
-            // btnChooseFile
-            // 
-            btnChooseFile.BorderRadius = 8;
-            btnChooseFile.CustomizableEdges = customizableEdges7;
-            btnChooseFile.FillColor = Color.FromArgb(59, 130, 246);
-            btnChooseFile.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            btnChooseFile.ForeColor = Color.White;
-            btnChooseFile.Location = new Point(420, 117);
-            btnChooseFile.Margin = new Padding(3, 4, 3, 4);
-            btnChooseFile.Name = "btnChooseFile";
-            btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnChooseFile.Size = new Size(137, 48);
-            btnChooseFile.TabIndex = 2;
-            btnChooseFile.TabStop = false;
-            btnChooseFile.Text = "Chọn tệp tin";
-            btnChooseFile.Click += btnChooseFile_Click;
-            // 
-            // picUpload
-            // 
-            picUpload.CustomizableEdges = customizableEdges9;
-            picUpload.Image = Properties.Resources.downArrow;
-            picUpload.ImageRotate = 0F;
-            picUpload.Location = new Point(465, 21);
-            picUpload.Margin = new Padding(3, 4, 3, 4);
-            picUpload.Name = "picUpload";
-            picUpload.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            picUpload.Size = new Size(46, 53);
-            picUpload.SizeMode = PictureBoxSizeMode.Zoom;
-            picUpload.TabIndex = 0;
-            picUpload.TabStop = false;
-            // 
-            // lblNote
-            // 
-            lblNote.AutoSize = true;
-            lblNote.BackColor = Color.Transparent;
-            lblNote.Font = new Font("Segoe UI", 9F);
-            lblNote.ForeColor = Color.Gray;
-            lblNote.Location = new Point(389, 183);
-            lblNote.Name = "lblNote";
-            lblNote.Size = new Size(191, 20);
-            lblNote.TabIndex = 3;
-            lblNote.Text = "Hỗ trợ: PDF (Tối đa 500MB)";
-            lblNote.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label16.ForeColor = Color.FromArgb(60, 60, 60);
-            label16.Location = new Point(369, 84);
-            label16.Name = "label16";
-            label16.Size = new Size(239, 23);
-            label16.TabIndex = 1;
-            label16.Text = "Kéo thả tệp tin vào đây hoặc";
-            label16.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.ForeColor = Color.Red;
-            label29.Location = new Point(164, 20);
-            label29.Name = "label29";
-            label29.Size = new Size(15, 20);
-            label29.TabIndex = 4;
-            label29.Text = "*";
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Location = new Point(30, 20);
-            label30.Name = "label30";
-            label30.Size = new Size(120, 20);
-            label30.TabIndex = 3;
-            label30.Text = "Tài liệu đính kèm";
             // 
             // pnInputExam1
             // 
@@ -562,7 +396,7 @@
             // 
             txtDescription.BorderColor = Color.Black;
             txtDescription.BorderRadius = 10;
-            txtDescription.CustomizableEdges = customizableEdges13;
+            txtDescription.CustomizableEdges = customizableEdges7;
             txtDescription.DefaultText = "";
             txtDescription.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtDescription.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -577,7 +411,7 @@
             txtDescription.Name = "txtDescription";
             txtDescription.PlaceholderText = "Nhập mô tả đề thi";
             txtDescription.SelectedText = "";
-            txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtDescription.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtDescription.Size = new Size(990, 1);
             txtDescription.TabIndex = 1;
             // 
@@ -585,7 +419,7 @@
             // 
             txtExamInstruction.BorderColor = Color.Black;
             txtExamInstruction.BorderRadius = 10;
-            txtExamInstruction.CustomizableEdges = customizableEdges15;
+            txtExamInstruction.CustomizableEdges = customizableEdges9;
             txtExamInstruction.DefaultText = "";
             txtExamInstruction.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtExamInstruction.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -600,7 +434,7 @@
             txtExamInstruction.Name = "txtExamInstruction";
             txtExamInstruction.PlaceholderText = "Nhập hướng dẫn làm đề thi";
             txtExamInstruction.SelectedText = "";
-            txtExamInstruction.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtExamInstruction.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtExamInstruction.Size = new Size(990, 1);
             txtExamInstruction.TabIndex = 1;
             // 
@@ -688,7 +522,7 @@
             txtExamName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtExamName.BorderColor = Color.Black;
             txtExamName.BorderRadius = 10;
-            txtExamName.CustomizableEdges = customizableEdges17;
+            txtExamName.CustomizableEdges = customizableEdges11;
             txtExamName.DefaultText = "";
             txtExamName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtExamName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -702,7 +536,7 @@
             txtExamName.Name = "txtExamName";
             txtExamName.PlaceholderText = "Nhập tên đề thi";
             txtExamName.SelectedText = "";
-            txtExamName.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtExamName.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtExamName.Size = new Size(492, 36);
             txtExamName.TabIndex = 1;
             // 
@@ -711,7 +545,7 @@
             txtTotalQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtTotalQuestion.BorderColor = Color.Black;
             txtTotalQuestion.BorderRadius = 10;
-            txtTotalQuestion.CustomizableEdges = customizableEdges19;
+            txtTotalQuestion.CustomizableEdges = customizableEdges13;
             txtTotalQuestion.DefaultText = "";
             txtTotalQuestion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTotalQuestion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -725,7 +559,7 @@
             txtTotalQuestion.Name = "txtTotalQuestion";
             txtTotalQuestion.PlaceholderText = "Nhập tổng số câu hỏi";
             txtTotalQuestion.SelectedText = "";
-            txtTotalQuestion.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtTotalQuestion.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtTotalQuestion.Size = new Size(492, 36);
             txtTotalQuestion.TabIndex = 4;
             txtTotalQuestion.TextChanged += NumericTextBox_TextChanged;
@@ -752,7 +586,7 @@
             txtExamTime.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtExamTime.BorderColor = Color.Black;
             txtExamTime.BorderRadius = 10;
-            txtExamTime.CustomizableEdges = customizableEdges21;
+            txtExamTime.CustomizableEdges = customizableEdges15;
             txtExamTime.DefaultText = "";
             txtExamTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtExamTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -766,7 +600,7 @@
             txtExamTime.Name = "txtExamTime";
             txtExamTime.PlaceholderText = "Nhập thời gian làm bài";
             txtExamTime.SelectedText = "";
-            txtExamTime.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtExamTime.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtExamTime.Size = new Size(366, 36);
             txtExamTime.TabIndex = 3;
             txtExamTime.TextChanged += NumericTextBox_TextChanged;
@@ -777,7 +611,7 @@
             // 
             cbTimeType.BackColor = Color.Transparent;
             cbTimeType.BorderRadius = 10;
-            cbTimeType.CustomizableEdges = customizableEdges23;
+            cbTimeType.CustomizableEdges = customizableEdges17;
             cbTimeType.Dock = DockStyle.Fill;
             cbTimeType.DrawMode = DrawMode.OwnerDrawFixed;
             cbTimeType.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -790,7 +624,7 @@
             cbTimeType.Items.AddRange(new object[] { "Phút", "Giờ" });
             cbTimeType.Location = new Point(375, 3);
             cbTimeType.Name = "cbTimeType";
-            cbTimeType.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            cbTimeType.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cbTimeType.Size = new Size(114, 36);
             cbTimeType.TabIndex = 2;
             // 
@@ -798,7 +632,7 @@
             // 
             cbSubject.BackColor = Color.Transparent;
             cbSubject.BorderRadius = 10;
-            cbSubject.CustomizableEdges = customizableEdges25;
+            cbSubject.CustomizableEdges = customizableEdges19;
             cbSubject.DrawMode = DrawMode.OwnerDrawFixed;
             cbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSubject.FillColor = Color.FromArgb(217, 217, 217);
@@ -809,7 +643,7 @@
             cbSubject.ItemHeight = 30;
             cbSubject.Location = new Point(501, 393);
             cbSubject.Name = "cbSubject";
-            cbSubject.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            cbSubject.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cbSubject.Size = new Size(492, 36);
             cbSubject.TabIndex = 9;
             cbSubject.KeyDown += cbSubject_KeyDown;
@@ -836,7 +670,7 @@
             // 
             cbSchool.BackColor = Color.Transparent;
             cbSchool.BorderRadius = 10;
-            cbSchool.CustomizableEdges = customizableEdges27;
+            cbSchool.CustomizableEdges = customizableEdges21;
             cbSchool.Dock = DockStyle.Fill;
             cbSchool.DrawMode = DrawMode.OwnerDrawFixed;
             cbSchool.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -848,7 +682,7 @@
             cbSchool.ItemHeight = 30;
             cbSchool.Location = new Point(501, 73);
             cbSchool.Name = "cbSchool";
-            cbSchool.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            cbSchool.ShadowDecoration.CustomizableEdges = customizableEdges22;
             cbSchool.Size = new Size(492, 36);
             cbSchool.TabIndex = 5;
             cbSchool.SelectedIndexChanged += cbSchool_SelectedIndexChanged;
@@ -866,7 +700,7 @@
             // 
             cbSemester.BackColor = Color.Transparent;
             cbSemester.BorderRadius = 10;
-            cbSemester.CustomizableEdges = customizableEdges29;
+            cbSemester.CustomizableEdges = customizableEdges23;
             cbSemester.Dock = DockStyle.Fill;
             cbSemester.DrawMode = DrawMode.OwnerDrawFixed;
             cbSemester.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -878,7 +712,7 @@
             cbSemester.ItemHeight = 30;
             cbSemester.Location = new Point(501, 233);
             cbSemester.Name = "cbSemester";
-            cbSemester.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            cbSemester.ShadowDecoration.CustomizableEdges = customizableEdges24;
             cbSemester.Size = new Size(492, 36);
             cbSemester.TabIndex = 7;
             cbSemester.SelectedIndexChanged += cbSemester_SelectedIndexChanged;
@@ -905,7 +739,7 @@
             // 
             cbExamType.BackColor = Color.Transparent;
             cbExamType.BorderRadius = 10;
-            cbExamType.CustomizableEdges = customizableEdges31;
+            cbExamType.CustomizableEdges = customizableEdges25;
             cbExamType.Dock = DockStyle.Fill;
             cbExamType.DrawMode = DrawMode.OwnerDrawFixed;
             cbExamType.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -918,7 +752,7 @@
             cbExamType.Items.AddRange(new object[] { "Trắc nghiệm", "Tự luận", "Trắc nghiệm và tự luận" });
             cbExamType.Location = new Point(3, 153);
             cbExamType.Name = "cbExamType";
-            cbExamType.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            cbExamType.ShadowDecoration.CustomizableEdges = customizableEdges26;
             cbExamType.Size = new Size(492, 36);
             cbExamType.TabIndex = 2;
             // 
@@ -935,7 +769,7 @@
             // 
             cbFaculty.BackColor = Color.Transparent;
             cbFaculty.BorderRadius = 10;
-            cbFaculty.CustomizableEdges = customizableEdges33;
+            cbFaculty.CustomizableEdges = customizableEdges27;
             cbFaculty.Dock = DockStyle.Fill;
             cbFaculty.DrawMode = DrawMode.OwnerDrawFixed;
             cbFaculty.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -947,7 +781,7 @@
             cbFaculty.ItemHeight = 30;
             cbFaculty.Location = new Point(501, 153);
             cbFaculty.Name = "cbFaculty";
-            cbFaculty.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            cbFaculty.ShadowDecoration.CustomizableEdges = customizableEdges28;
             cbFaculty.Size = new Size(492, 36);
             cbFaculty.TabIndex = 6;
             cbFaculty.SelectedIndexChanged += cbFaculty_SelectedIndexChanged;
@@ -960,86 +794,6 @@
             clbClass.Name = "clbClass";
             clbClass.Size = new Size(492, 54);
             clbClass.TabIndex = 10;
-            // 
-            // pnInputExam2
-            // 
-            pnInputExam2.Controls.Add(flpQuestion);
-            pnInputExam2.Controls.Add(panel3);
-            pnInputExam2.Controls.Add(panel10);
-            pnInputExam2.Dock = DockStyle.Fill;
-            pnInputExam2.Location = new Point(20, 20);
-            pnInputExam2.Name = "pnInputExam2";
-            pnInputExam2.Size = new Size(996, 445);
-            pnInputExam2.TabIndex = 4;
-            // 
-            // flpQuestion
-            // 
-            flpQuestion.AutoScroll = true;
-            flpQuestion.BackColor = SystemColors.ButtonShadow;
-            flpQuestion.Dock = DockStyle.Fill;
-            flpQuestion.FlowDirection = FlowDirection.TopDown;
-            flpQuestion.Location = new Point(0, 63);
-            flpQuestion.Margin = new Padding(0);
-            flpQuestion.Name = "flpQuestion";
-            flpQuestion.Padding = new Padding(20);
-            flpQuestion.Size = new Size(996, 311);
-            flpQuestion.TabIndex = 2;
-            flpQuestion.WrapContents = false;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(panel7);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 374);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(996, 71);
-            panel3.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(btnAddQuestion);
-            panel7.Dock = DockStyle.Right;
-            panel7.Location = new Point(746, 0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(250, 71);
-            panel7.TabIndex = 0;
-            // 
-            // btnAddQuestion
-            // 
-            btnAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAddQuestion.BorderRadius = 10;
-            btnAddQuestion.CustomizableEdges = customizableEdges35;
-            btnAddQuestion.FillColor = Color.FromArgb(34, 197, 94);
-            btnAddQuestion.Font = new Font("Segoe UI", 9F);
-            btnAddQuestion.ForeColor = Color.White;
-            btnAddQuestion.Location = new Point(88, 11);
-            btnAddQuestion.Margin = new Padding(0, 8, 0, 0);
-            btnAddQuestion.Name = "btnAddQuestion";
-            btnAddQuestion.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            btnAddQuestion.Size = new Size(139, 40);
-            btnAddQuestion.TabIndex = 2;
-            btnAddQuestion.Text = "Thêm câu hỏi";
-            btnAddQuestion.Click += btnAddQuestion_Click;
-            // 
-            // panel10
-            // 
-            panel10.Controls.Add(label13);
-            panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(0, 0);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(996, 63);
-            panel10.TabIndex = 0;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Dock = DockStyle.Top;
-            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(0, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(165, 28);
-            label13.TabIndex = 0;
-            label13.Text = "Tạo câu hỏi mới";
             // 
             // pnInputExam3
             // 
@@ -1391,6 +1145,252 @@
             lbTotalQuestion2.Text = "label16";
             lbTotalQuestion2.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pnInputExam2
+            // 
+            pnInputExam2.Controls.Add(flpQuestion);
+            pnInputExam2.Controls.Add(panel3);
+            pnInputExam2.Controls.Add(panel10);
+            pnInputExam2.Dock = DockStyle.Fill;
+            pnInputExam2.Location = new Point(20, 20);
+            pnInputExam2.Name = "pnInputExam2";
+            pnInputExam2.Size = new Size(996, 445);
+            pnInputExam2.TabIndex = 4;
+            // 
+            // flpQuestion
+            // 
+            flpQuestion.AutoScroll = true;
+            flpQuestion.BackColor = SystemColors.ButtonShadow;
+            flpQuestion.Dock = DockStyle.Fill;
+            flpQuestion.FlowDirection = FlowDirection.TopDown;
+            flpQuestion.Location = new Point(0, 63);
+            flpQuestion.Margin = new Padding(0);
+            flpQuestion.Name = "flpQuestion";
+            flpQuestion.Padding = new Padding(20);
+            flpQuestion.Size = new Size(996, 311);
+            flpQuestion.TabIndex = 2;
+            flpQuestion.WrapContents = false;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(panel7);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 374);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(996, 71);
+            panel3.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnAddQuestion);
+            panel7.Dock = DockStyle.Right;
+            panel7.Location = new Point(746, 0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(250, 71);
+            panel7.TabIndex = 0;
+            // 
+            // btnAddQuestion
+            // 
+            btnAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddQuestion.BorderRadius = 10;
+            btnAddQuestion.CustomizableEdges = customizableEdges29;
+            btnAddQuestion.FillColor = Color.FromArgb(34, 197, 94);
+            btnAddQuestion.Font = new Font("Segoe UI", 9F);
+            btnAddQuestion.ForeColor = Color.White;
+            btnAddQuestion.Location = new Point(88, 11);
+            btnAddQuestion.Margin = new Padding(0, 8, 0, 0);
+            btnAddQuestion.Name = "btnAddQuestion";
+            btnAddQuestion.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btnAddQuestion.Size = new Size(139, 40);
+            btnAddQuestion.TabIndex = 2;
+            btnAddQuestion.Text = "Thêm câu hỏi";
+            btnAddQuestion.Click += btnAddQuestion_Click;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(label13);
+            panel10.Dock = DockStyle.Top;
+            panel10.Location = new Point(0, 0);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(996, 63);
+            panel10.TabIndex = 0;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Dock = DockStyle.Top;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(0, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(165, 28);
+            label13.TabIndex = 0;
+            label13.Text = "Tạo câu hỏi mới";
+            // 
+            // pnInputFileExam
+            // 
+            pnInputFileExam.Controls.Add(dgvFileBook);
+            pnInputFileExam.Controls.Add(panel12);
+            pnInputFileExam.Dock = DockStyle.Fill;
+            pnInputFileExam.Location = new Point(20, 20);
+            pnInputFileExam.Name = "pnInputFileExam";
+            pnInputFileExam.Size = new Size(996, 445);
+            pnInputFileExam.TabIndex = 7;
+            pnInputFileExam.Visible = false;
+            // 
+            // dgvFileBook
+            // 
+            dgvFileBook.AllowUserToAddRows = false;
+            dgvFileBook.AllowUserToResizeColumns = false;
+            dgvFileBook.AllowUserToResizeRows = false;
+            dgvFileBook.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFileBook.BackgroundColor = Color.White;
+            dgvFileBook.BorderStyle = BorderStyle.None;
+            dgvFileBook.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvFileBook.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvFileBook.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFileBook.Columns.AddRange(new DataGridViewColumn[] { colName, colFilePath, colSizeFile });
+            dgvFileBook.Dock = DockStyle.Fill;
+            dgvFileBook.Location = new Point(0, 301);
+            dgvFileBook.MultiSelect = false;
+            dgvFileBook.Name = "dgvFileBook";
+            dgvFileBook.ReadOnly = true;
+            dgvFileBook.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvFileBook.RowHeadersVisible = false;
+            dgvFileBook.RowHeadersWidth = 51;
+            dgvFileBook.Size = new Size(996, 144);
+            dgvFileBook.TabIndex = 4;
+            dgvFileBook.TabStop = false;
+            // 
+            // colName
+            // 
+            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colName.HeaderText = "Tên tệp tin";
+            colName.MinimumWidth = 6;
+            colName.Name = "colName";
+            colName.ReadOnly = true;
+            // 
+            // colFilePath
+            // 
+            colFilePath.HeaderText = "Đường dẫn";
+            colFilePath.MinimumWidth = 6;
+            colFilePath.Name = "colFilePath";
+            colFilePath.ReadOnly = true;
+            colFilePath.Visible = false;
+            // 
+            // colSizeFile
+            // 
+            colSizeFile.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            colSizeFile.HeaderText = "Kích thước";
+            colSizeFile.MinimumWidth = 6;
+            colSizeFile.Name = "colSizeFile";
+            colSizeFile.ReadOnly = true;
+            colSizeFile.Width = 175;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(pnUploadFile);
+            panel12.Controls.Add(label29);
+            panel12.Controls.Add(label30);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 0);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(996, 301);
+            panel12.TabIndex = 5;
+            // 
+            // pnUploadFile
+            // 
+            pnUploadFile.AllowDrop = true;
+            pnUploadFile.BorderColor = Color.FromArgb(226, 230, 233);
+            pnUploadFile.BorderRadius = 12;
+            pnUploadFile.BorderThickness = 2;
+            pnUploadFile.Controls.Add(btnChooseFile);
+            pnUploadFile.Controls.Add(picUpload);
+            pnUploadFile.Controls.Add(lblNote);
+            pnUploadFile.Controls.Add(label16);
+            pnUploadFile.CustomizableEdges = customizableEdges35;
+            pnUploadFile.Location = new Point(30, 60);
+            pnUploadFile.Name = "pnUploadFile";
+            pnUploadFile.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            pnUploadFile.Size = new Size(943, 216);
+            pnUploadFile.TabIndex = 4;
+            pnUploadFile.DragDrop += pnUploadFile_DragDrop;
+            pnUploadFile.DragEnter += pnUploadFile_DragEnter;
+            // 
+            // btnChooseFile
+            // 
+            btnChooseFile.BorderRadius = 8;
+            btnChooseFile.CustomizableEdges = customizableEdges31;
+            btnChooseFile.FillColor = Color.FromArgb(59, 130, 246);
+            btnChooseFile.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnChooseFile.ForeColor = Color.White;
+            btnChooseFile.Location = new Point(420, 117);
+            btnChooseFile.Margin = new Padding(3, 4, 3, 4);
+            btnChooseFile.Name = "btnChooseFile";
+            btnChooseFile.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            btnChooseFile.Size = new Size(137, 48);
+            btnChooseFile.TabIndex = 2;
+            btnChooseFile.TabStop = false;
+            btnChooseFile.Text = "Chọn tệp tin";
+            btnChooseFile.Click += btnChooseFile_Click;
+            // 
+            // picUpload
+            // 
+            picUpload.CustomizableEdges = customizableEdges33;
+            picUpload.Image = Properties.Resources.downArrow;
+            picUpload.ImageRotate = 0F;
+            picUpload.Location = new Point(465, 21);
+            picUpload.Margin = new Padding(3, 4, 3, 4);
+            picUpload.Name = "picUpload";
+            picUpload.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            picUpload.Size = new Size(46, 53);
+            picUpload.SizeMode = PictureBoxSizeMode.Zoom;
+            picUpload.TabIndex = 0;
+            picUpload.TabStop = false;
+            // 
+            // lblNote
+            // 
+            lblNote.AutoSize = true;
+            lblNote.BackColor = Color.Transparent;
+            lblNote.Font = new Font("Segoe UI", 9F);
+            lblNote.ForeColor = Color.Gray;
+            lblNote.Location = new Point(389, 183);
+            lblNote.Name = "lblNote";
+            lblNote.Size = new Size(191, 20);
+            lblNote.TabIndex = 3;
+            lblNote.Text = "Hỗ trợ: PDF (Tối đa 500MB)";
+            lblNote.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.Transparent;
+            label16.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label16.ForeColor = Color.FromArgb(60, 60, 60);
+            label16.Location = new Point(369, 84);
+            label16.Name = "label16";
+            label16.Size = new Size(239, 23);
+            label16.TabIndex = 1;
+            label16.Text = "Kéo thả tệp tin vào đây hoặc";
+            label16.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.ForeColor = Color.Red;
+            label29.Location = new Point(164, 20);
+            label29.Name = "label29";
+            label29.Size = new Size(15, 20);
+            label29.TabIndex = 4;
+            label29.Text = "*";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(30, 20);
+            label30.Name = "label30";
+            label30.Size = new Size(120, 20);
+            label30.TabIndex = 3;
+            label30.Text = "Tài liệu đính kèm";
+            // 
             // panel6
             // 
             panel6.Controls.Add(btnNextStage);
@@ -1677,24 +1677,12 @@
             panel2.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             pnContentFill.ResumeLayout(false);
-            pnInputFileExam.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvFileBook).EndInit();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            pnUploadFile.ResumeLayout(false);
-            pnUploadFile.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picUpload).EndInit();
             pnInputExam1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
-            pnInputExam2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
             pnInputExam3.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel8.PerformLayout();
@@ -1702,6 +1690,18 @@
             panel9.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel9.PerformLayout();
+            pnInputExam2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            pnInputFileExam.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvFileBook).EndInit();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            pnUploadFile.ResumeLayout(false);
+            pnUploadFile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picUpload).EndInit();
             panel6.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();

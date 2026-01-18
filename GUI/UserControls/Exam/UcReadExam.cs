@@ -51,20 +51,9 @@ namespace GUI.UserControls.Exam
             LoadExamInfo();
             LoadExamStatistics();
             LoadExamDetails();
-            //LoadQuestions();
-            UpdatePublishButton();
-            //SetupButtonEvents();
-            //LoadUserControlAddQuestion();
             _allFileIdOfExamSelected = _examFileBLL.GetAllFileByExamId(_examSelected.Id);
+            LoadFileOfBook();
         }
-
-        //private void SetupButtonEvents()
-        //{
-        //    btnBack.Click += btnBack_Click;
-        //    btnEdit.Click += btnEdit_Click;
-        //    btnDelete.Click += btnDelete_Click;
-        //    btnPublish.Click += btnPublish_Click;
-        //}
 
         private void LoadExamInfo()
         {
@@ -179,11 +168,24 @@ namespace GUI.UserControls.Exam
                 flpQuestion.Controls.Add(ucAddQuestion);
             }
         }
+
+        // --- START: File list / layout fixes ----------------------------------
+
         private void LoadFileOfBook()
         {
             flpFiles.Controls.Clear();
             _ListFileOfBookSelected = new List<FilesDTO>();
 
+            // Ensure vertical stacking and no wrap
+            flpFiles.FlowDirection = FlowDirection.TopDown;
+            flpFiles.WrapContents = false;
+            flpFiles.AutoScroll = true;
+
+            // Subscribe layout event which fires when the internal layout changes
+            flpFiles.Layout -= FlpFiles_Layout;
+            flpFiles.Layout += FlpFiles_Layout;
+
+            flpFiles.SuspendLayout();
             int positionForm = 1;
             foreach (int fileId in _allFileIdOfExamSelected)
             {
@@ -191,23 +193,82 @@ namespace GUI.UserControls.Exam
                 if (file == null) continue;
 
                 _ListFileOfBookSelected.Add(file);
-
                 ucFileOfBook ucFile = new ucFileOfBook(file, positionForm);
 
+                // important: ensure the user control itself does not AutoSize to true
+                ucFile.AutoSize = false;
                 ucFile.Margin = new Padding(0, 0, 0, 8);
-                ucFile.Dock = DockStyle.Top;
-
+                ucFile.Dock = DockStyle.None; // FlowLayoutPanel will position items
                 ucFile.DeleteFile += UcFileOfBook_ButtonDelete;
                 ucFile.ActionReadFile += ReadFileOfBook;
-                flpFiles.Controls.Add(ucFile);
 
+                // Set an initial width; final width will be corrected in Layout event
+                int initialWidth = GetFlpInnerWidth();
+                ucFile.Width = Math.Max(0, initialWidth - ucFile.Margin.Left - ucFile.Margin.Right);
+
+                flpFiles.Controls.Add(ucFile);
                 positionForm++;
             }
+            flpFiles.ResumeLayout();
+
+            // Force a layout pass and adjust widths immediately
+            flpFiles.PerformLayout();
+            AdjustFileControlsWidth();
         }
-        private void ReadFileOfBook(int fileId)
+
+        /// <summary>
+        /// Tính chiều ngang khả dụng bên trong flpFiles (trừ padding và thanh cuộn dọc nếu có).
+        /// </summary>
+        private int GetFlpInnerWidth()
         {
-            OpenUserControlReadFile?.Invoke(fileId);
+            int w = flpFiles.ClientSize.Width - flpFiles.Padding.Left - flpFiles.Padding.Right;
+            // Nếu scrollbar dọc hiển thị thì trừ bớt chiều rộng của nó
+            if (flpFiles.VerticalScroll.Visible)
+            {
+                w -= SystemInformation.VerticalScrollBarWidth;
+            }
+            return Math.Max(0, w);
         }
+
+        /// <summary>
+        /// Thiết lập lại width cho tất cả control con trong flpFiles.
+        /// Gọi khi layout thay đổi, khi thêm/xóa item, hoặc khi size container thay đổi.
+        /// </summary>
+        private void AdjustFileControlsWidth()
+        {
+            int targetWidth = GetFlpInnerWidth();
+            foreach (Control control in flpFiles.Controls)
+            {
+                // trừ margin của control để tránh tràn
+                int newW = Math.Max(0, targetWidth - control.Margin.Left - control.Margin.Right);
+                if (control.Width != newW)
+                    control.Width = newW;
+            }
+        }
+
+        private void FlpFiles_Layout(object sender, LayoutEventArgs e)
+        {
+            // Mọi lần layout (kể cả khi scrollbar xuất hiện), cập nhật lại width
+            AdjustFileControlsWidth();
+        }
+
+        private void FlpFiles_SizeChanged(object sender, EventArgs e)
+        {
+            // nếu vẫn dùng SizeChanged ở chỗ khác, chỉ gọi hàm điều chỉnh
+            AdjustFileControlsWidth();
+        }
+
+        private void FlpFiles_ControlAdded(object sender, ControlEventArgs e)
+        {
+            // đảm bảo control mới nhận chiều rộng phù hợp
+            if (e.Control != null)
+            {
+                int w = GetFlpInnerWidth() - e.Control.Margin.Left - e.Control.Margin.Right;
+                e.Control.Width = Math.Max(0, w);
+            }
+        }
+
+        // Khi xóa item: cập nhật lại chiều rộng (và label tổng số)
         private void UcFileOfBook_ButtonDelete(int e, int position)
         {
             try
@@ -217,8 +278,19 @@ namespace GUI.UserControls.Exam
                     MessageBox.Show("Xóa tệp của sách thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                flpFiles.Controls.RemoveAt(position - 1);
-                lblTotalFiles.Text = (int.Parse(lblTotalFiles.Text) - 1).ToString();
+
+                if (position - 1 >= 0 && position - 1 < flpFiles.Controls.Count)
+                    flpFiles.Controls.RemoveAt(position - 1);
+
+                // cập nhật lại số lượng hiển thị nếu lblTotalFiles chứa số nguyên
+                if (int.TryParse(lblTotalFiles.Text.Split(' ')[0], out int current))
+                {
+                    var newCount = Math.Max(0, current - 1);
+                    lblTotalFiles.Text = $"{newCount} tệp";
+                }
+
+                // điều chỉnh lại width sau khi xóa
+                AdjustFileControlsWidth();
             }
             catch
             {
@@ -226,111 +298,14 @@ namespace GUI.UserControls.Exam
             }
         }
 
-        //private void LoadQuestions()
-        //{
-        //    try
-        //    {
-        //        flpQuestion.Controls.Clear();
+        private void ReadFileOfBook(int fileId)
+        {
+            OpenUserControlReadFile?.Invoke(fileId);
+        }
 
-        //        List<QuestionDTO> questions = _questionBLL.GetQuestionByIdExam(_examSelected.Id);
+        // --- END: File list / layout fixes ----------------------------------
 
-        //        if (questions == null || questions.Count == 0)
-        //        {
-        //            Label noQuestionLabel = new Label
-        //            {
-        //                Text = "Chưa có câu hỏi nào",
-        //                AutoSize = true,
-        //                ForeColor = Color.Gray,
-        //                Font = new Font("Segoe UI", 12F)
-        //            };
-        //            flpQuestion.Controls.Add(noQuestionLabel);
-        //            return;
-        //        }
-
-        //        int questionNumber = 1;
-        //        foreach (QuestionDTO question in questions)
-        //        {
-        //            // Tạo panel cho mỗi câu hỏi
-        //            Panel questionPanel = CreateQuestionPanel(question, questionNumber);
-        //            flpQuestion.Controls.Add(questionPanel);
-        //            questionNumber++;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Lỗi khi load câu hỏi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private Panel CreateQuestionPanel(QuestionDTO question, int questionNumber)
-        //{
-        //    Panel panel = new Panel
-        //    {
-        //        Width = flpQuestion.ClientSize.Width - 60,
-        //        AutoSize = true,
-        //        BackColor = Color.White,
-        //        Margin = new Padding(0, 0, 0, 15),
-        //        Padding = new Padding(20)
-        //    };
-
-        //    // Header câu hỏi
-        //    Label lblQuestionHeader = new Label
-        //    {
-        //        Text = $"Câu hỏi {questionNumber} ({question.Type}) - {question.Score} điểm",
-        //        Font = new Font("Segoe UI", 11F, FontStyle.Bold),
-        //        AutoSize = true,
-        //        ForeColor = Color.FromArgb(60, 131, 246),
-        //        Dock = DockStyle.Top
-        //    };
-        //    panel.Controls.Add(lblQuestionHeader);
-
-        //    // Nội dung câu hỏi
-        //    Label lblQuestionContent = new Label
-        //    {
-        //        Text = question.Content,
-        //        Font = new Font("Segoe UI", 10F),
-        //        AutoSize = true,
-        //        MaximumSize = new Size(panel.Width - 40, 0),
-        //        Padding = new Padding(0, 10, 0, 10),
-        //        Dock = DockStyle.Top
-        //    };
-        //    panel.Controls.Add(lblQuestionContent);
-
-        //    // Load các options
-        //    List<QuestionOptionDTO> options = _questionOptionBLL.GetQuestionOptionByIdQuestion(question.Id);
-        //    if (options != null && options.Count > 0)
-        //    {
-        //        FlowLayoutPanel optionsPanel = new FlowLayoutPanel
-        //        {
-        //            FlowDirection = FlowDirection.TopDown,
-        //            AutoSize = true,
-        //            WrapContents = false,
-        //            Dock = DockStyle.Top,
-        //            Padding = new Padding(20, 0, 0, 0)
-        //        };
-
-        //        char optionLetter = 'A';
-        //        foreach (QuestionOptionDTO option in options)
-        //        {
-        //            Label lblOption = new Label
-        //            {
-        //                Text = $"{optionLetter}. {option.Content}",
-        //                Font = new Font("Segoe UI", 9F, option.IsCorrect ? FontStyle.Bold : FontStyle.Regular),
-        //                ForeColor = option.IsCorrect ? Color.FromArgb(34, 197, 94) : Color.Black,
-        //                AutoSize = true,
-        //                MaximumSize = new Size(panel.Width - 80, 0),
-        //                Padding = new Padding(0, 5, 0, 5)
-        //            };
-        //            optionsPanel.Controls.Add(lblOption);
-        //            optionLetter++;
-        //        }
-
-        //        panel.Controls.Add(optionsPanel);
-        //    }
-
-        //    return panel;
-        //}
-
+        // rest of the file unchanged (load questions, button handlers etc.)
         private void btnBack_Click(object sender, EventArgs e)
         {
             BackToExamList?.Invoke();
@@ -356,22 +331,7 @@ namespace GUI.UserControls.Exam
 
             if (result == DialogResult.Yes)
             {
-                //try
-                //{
-                //    if (_examBLL.DeleteExam(_examSelected.Id))
-                //    {
-                //        MessageBox.Show("Xóa đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //        BackToExamList?.Invoke();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Xóa đề thi thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show($"Lỗi khi xóa đề thi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                // delete logic...
             }
         }
 
@@ -381,15 +341,13 @@ namespace GUI.UserControls.Exam
 
             try
             {
-                // Toggle trạng thái
                 string newStatus = _examSelected.Status == "Đang sử dụng" ? "Ngừng sử dụng" : "Đang sử dụng";
                 _examSelected.Status = newStatus;
 
                 if (_examBLL.UpdateExam(_examSelected))
                 {
                     MessageBox.Show($"Cập nhật trạng thái thành '{newStatus}' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadExamInfo(); // Reload để cập nhật UI
-                    UpdatePublishButton();
+                    LoadExamInfo();
                 }
                 else
                 {
@@ -402,30 +360,15 @@ namespace GUI.UserControls.Exam
             }
         }
 
-        private void UpdatePublishButton()
-        {
-            if (_examSelected.Status == "Đang sử dụng")
-            {
-                btnPublish.Text = "Ngừng xuất bản";
-                btnPublish.FillColor = Color.FromArgb(239, 68, 68); // Red
-            }
-            else
-            {
-                btnPublish.Text = "Xuất bản";
-                btnPublish.FillColor = Color.FromArgb(34, 197, 94); // Green
-            }
-        }
 
         private void lblTabQuestion_Click(object sender, EventArgs e)
         {
             lblTabOverview.ForeColor = Color.Black;
-            lblTabFile.ForeColor = Color.Black;
             lblTabQuestion.ForeColor = Color.FromArgb(59, 130, 246);
 
             // Hiển thị tab câu hỏi
-            tlpTabContent.Visible = false;
             flpQuestion.Visible = true;
-            pnlRightFill.Visible = false;
+            tlpValueExam.Visible = false;
             if (!_flagLoadQuestion)
             {
                 LoadUserControlAddQuestion();
@@ -437,29 +380,10 @@ namespace GUI.UserControls.Exam
         {
             lblTabOverview.ForeColor = Color.FromArgb(59, 130, 246);
             lblTabQuestion.ForeColor = Color.Black;
-            lblTabFile.ForeColor = Color.Black;
 
             // Hiển thị tab tổng quan
-            tlpTabContent.Visible = true;
+            tlpValueExam.Visible = true;
             flpQuestion.Visible = false;
-            pnlRightFill.Visible = false;
-        }
-
-        private void lblTabFile_Click(object sender, EventArgs e)
-        {
-            lblTabOverview.ForeColor = Color.Black;
-            lblTabQuestion.ForeColor = Color.Black;
-            lblTabFile.ForeColor = Color.FromArgb(59, 130, 246);
-
-            // Hiển thị tab câu hỏi
-            tlpTabContent.Visible = false;
-            flpQuestion.Visible = false;
-            pnlRightFill.Visible = true;
-            if (!_flagLoadFile)
-            {
-                LoadFileOfBook();
-                _flagLoadFile = true;
-            }
         }
     }
 }
