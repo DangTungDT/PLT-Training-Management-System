@@ -416,6 +416,7 @@ namespace GUI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1316, 657);
             Controls.Add(pbContent);
             Controls.Add(pbHeader);

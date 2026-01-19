@@ -265,6 +265,8 @@ namespace GUI.UserControls.Exam
             // panelContent
             // 
             panelContent.BackColor = Color.FromArgb(245, 247, 250);
+            panelContent.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            panelContent.BackgroundImageLayout = ImageLayout.Zoom;
             panelContent.Controls.Add(tlpValueExam);
             panelContent.Controls.Add(flpQuestion);
             panelContent.Controls.Add(panelTabHeader);
@@ -279,6 +281,7 @@ namespace GUI.UserControls.Exam
             // 
             // tlpValueExam
             // 
+            tlpValueExam.BackColor = Color.Transparent;
             tlpValueExam.ColumnCount = 2;
             tlpValueExam.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tlpValueExam.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
@@ -295,7 +298,8 @@ namespace GUI.UserControls.Exam
             // 
             // pnlRightFill
             // 
-            pnlRightFill.BackColor = Color.White;
+            pnlRightFill.BackColor = Color.Transparent;
+            pnlRightFill.BorderStyle = BorderStyle.FixedSingle;
             pnlRightFill.Controls.Add(flpFiles);
             pnlRightFill.Controls.Add(panel3);
             pnlRightFill.Controls.Add(panel4);
@@ -313,7 +317,7 @@ namespace GUI.UserControls.Exam
             flpFiles.FlowDirection = FlowDirection.TopDown;
             flpFiles.Location = new Point(0, 32);
             flpFiles.Name = "flpFiles";
-            flpFiles.Size = new Size(406, 215);
+            flpFiles.Size = new Size(404, 213);
             flpFiles.TabIndex = 4;
             flpFiles.WrapContents = false;
             // 
@@ -321,9 +325,9 @@ namespace GUI.UserControls.Exam
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 247);
+            panel3.Location = new Point(0, 245);
             panel3.Name = "panel3";
-            panel3.Size = new Size(406, 1);
+            panel3.Size = new Size(404, 1);
             panel3.TabIndex = 3;
             // 
             // panel4
@@ -331,16 +335,16 @@ namespace GUI.UserControls.Exam
             panel4.Controls.Add(lbTotalFilesSize);
             panel4.Controls.Add(label2);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 248);
+            panel4.Location = new Point(0, 246);
             panel4.Name = "panel4";
-            panel4.Size = new Size(406, 135);
+            panel4.Size = new Size(404, 135);
             panel4.TabIndex = 2;
             // 
             // lbTotalFilesSize
             // 
             lbTotalFilesSize.AutoSize = true;
             lbTotalFilesSize.Dock = DockStyle.Right;
-            lbTotalFilesSize.Location = new Point(356, 0);
+            lbTotalFilesSize.Location = new Point(354, 0);
             lbTotalFilesSize.Name = "lbTotalFilesSize";
             lbTotalFilesSize.Size = new Size(50, 20);
             lbTotalFilesSize.TabIndex = 1;
@@ -358,19 +362,19 @@ namespace GUI.UserControls.Exam
             // 
             // pnlAttachHeader
             // 
-            pnlAttachHeader.BackColor = Color.White;
+            pnlAttachHeader.BackColor = Color.Transparent;
             pnlAttachHeader.Controls.Add(lblTotalFiles);
             pnlAttachHeader.Controls.Add(lblAttachLeft);
             pnlAttachHeader.Dock = DockStyle.Top;
             pnlAttachHeader.Location = new Point(0, 0);
             pnlAttachHeader.Name = "pnlAttachHeader";
-            pnlAttachHeader.Size = new Size(406, 32);
+            pnlAttachHeader.Size = new Size(404, 32);
             pnlAttachHeader.TabIndex = 1;
             // 
             // lblTotalFiles
             // 
             lblTotalFiles.Dock = DockStyle.Right;
-            lblTotalFiles.Location = new Point(306, 0);
+            lblTotalFiles.Location = new Point(304, 0);
             lblTotalFiles.Name = "lblTotalFiles";
             lblTotalFiles.Padding = new Padding(0, 8, 20, 0);
             lblTotalFiles.Size = new Size(100, 32);
@@ -600,6 +604,7 @@ namespace GUI.UserControls.Exam
             // 
             // panelTabHeader
             // 
+            panelTabHeader.BackColor = Color.Transparent;
             panelTabHeader.Controls.Add(lblTabQuestion);
             panelTabHeader.Controls.Add(lblTabOverview);
             panelTabHeader.Dock = DockStyle.Top;
@@ -633,6 +638,7 @@ namespace GUI.UserControls.Exam
             // 
             // tlpStatistic
             // 
+            tlpStatistic.BackColor = Color.Transparent;
             tlpStatistic.ColumnCount = 4;
             tlpStatistic.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tlpStatistic.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
@@ -652,6 +658,7 @@ namespace GUI.UserControls.Exam
             // panelStatQuestion
             // 
             panelStatQuestion.BackColor = Color.White;
+            panelStatQuestion.BorderStyle = BorderStyle.FixedSingle;
             panelStatQuestion.Controls.Add(label12);
             panelStatQuestion.Controls.Add(lbTotalQuestion);
             panelStatQuestion.Controls.Add(pictureBox1);
@@ -694,6 +701,7 @@ namespace GUI.UserControls.Exam
             // panelStatScore
             // 
             panelStatScore.BackColor = Color.White;
+            panelStatScore.BorderStyle = BorderStyle.FixedSingle;
             panelStatScore.Controls.Add(label15);
             panelStatScore.Controls.Add(lbTotalSocre);
             panelStatScore.Controls.Add(pictureBox2);
@@ -736,6 +744,7 @@ namespace GUI.UserControls.Exam
             // panelStatTime
             // 
             panelStatTime.BackColor = Color.White;
+            panelStatTime.BorderStyle = BorderStyle.FixedSingle;
             panelStatTime.Controls.Add(label19);
             panelStatTime.Controls.Add(lbTime);
             panelStatTime.Controls.Add(pictureBox3);
@@ -778,6 +787,7 @@ namespace GUI.UserControls.Exam
             // panelStatAttempt
             // 
             panelStatAttempt.BackColor = Color.White;
+            panelStatAttempt.BorderStyle = BorderStyle.FixedSingle;
             panelStatAttempt.Controls.Add(label21);
             panelStatAttempt.Controls.Add(lbLuocThi);
             panelStatAttempt.Controls.Add(pictureBox4);

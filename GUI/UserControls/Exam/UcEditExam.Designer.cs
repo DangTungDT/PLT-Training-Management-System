@@ -782,7 +782,7 @@
             btnBackStage.DisabledState.CustomBorderColor = Color.DarkGray;
             btnBackStage.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnBackStage.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnBackStage.FillColor = Color.White;
+            btnBackStage.FillColor = Color.FromArgb(128, 255, 128);
             btnBackStage.Font = new Font("Segoe UI", 9F);
             btnBackStage.ForeColor = Color.FromArgb(104, 116, 135);
             btnBackStage.Location = new Point(6, 6);
@@ -795,6 +795,7 @@
             // 
             // panel6
             // 
+            panel6.BackColor = Color.Transparent;
             panel6.Controls.Add(btnNextStage);
             panel6.Controls.Add(btnBackStage);
             panel6.Dock = DockStyle.Bottom;
@@ -947,7 +948,7 @@
             // 
             // pnContentFill
             // 
-            pnContentFill.BackColor = Color.White;
+            pnContentFill.BackColor = Color.Transparent;
             pnContentFill.Controls.Add(pnInputExam1);
             pnContentFill.Controls.Add(pnInputExam2);
             pnContentFill.Controls.Add(pnInputExam3);
@@ -1343,6 +1344,9 @@
             // 
             // panelContent
             // 
+            panelContent.BackColor = Color.WhiteSmoke;
+            panelContent.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            panelContent.BackgroundImageLayout = ImageLayout.Zoom;
             panelContent.Controls.Add(pnContentFill);
             panelContent.Controls.Add(panel6);
             panelContent.Dock = DockStyle.Fill;

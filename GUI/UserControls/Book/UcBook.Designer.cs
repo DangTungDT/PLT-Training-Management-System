@@ -135,6 +135,8 @@ namespace GUI.UserControls
             // pbContentMain
             // 
             pbContentMain.BackColor = Color.White;
+            pbContentMain.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            pbContentMain.BackgroundImageLayout = ImageLayout.Zoom;
             pbContentMain.Controls.Add(dgvBooks);
             pbContentMain.Controls.Add(panel1);
             pbContentMain.Controls.Add(panelContentHeader);

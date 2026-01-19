@@ -79,7 +79,7 @@
             // 
             // pnlTop
             // 
-            pnlTop.BackColor = Color.White;
+            pnlTop.BackColor = Color.Transparent;
             pnlTop.BorderStyle = BorderStyle.FixedSingle;
             pnlTop.Controls.Add(picTop);
             pnlTop.Controls.Add(lblTitle);
@@ -123,6 +123,9 @@
             // 
             // pnlMain
             // 
+            pnlMain.BackColor = Color.WhiteSmoke;
+            pnlMain.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            pnlMain.BackgroundImageLayout = ImageLayout.Zoom;
             pnlMain.Controls.Add(pnlRight);
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 70);
@@ -132,6 +135,7 @@
             // 
             // pnlRight
             // 
+            pnlRight.BackColor = Color.Transparent;
             pnlRight.BorderStyle = BorderStyle.FixedSingle;
             pnlRight.Controls.Add(tableLayoutPanel1);
             pnlRight.Controls.Add(pnlRightBottom);
@@ -158,7 +162,7 @@
             // 
             // pnlRightFill
             // 
-            pnlRightFill.BackColor = Color.White;
+            pnlRightFill.BackColor = Color.Transparent;
             pnlRightFill.Controls.Add(flpFiles);
             pnlRightFill.Controls.Add(panel3);
             pnlRightFill.Controls.Add(panel2);
@@ -221,7 +225,7 @@
             // 
             // pnlAttachHeader
             // 
-            pnlAttachHeader.BackColor = Color.White;
+            pnlAttachHeader.BackColor = Color.Transparent;
             pnlAttachHeader.Controls.Add(lblTotalFiles);
             pnlAttachHeader.Controls.Add(lblAttachLeft);
             pnlAttachHeader.Dock = DockStyle.Top;
@@ -252,7 +256,7 @@
             // 
             // pnDataBook
             // 
-            pnDataBook.BackColor = Color.White;
+            pnDataBook.BackColor = Color.Transparent;
             pnDataBook.Controls.Add(panel4);
             pnDataBook.Controls.Add(tableLayoutPanel2);
             pnDataBook.Dock = DockStyle.Fill;
@@ -548,7 +552,7 @@
             // 
             // pnlRightBottom
             // 
-            pnlRightBottom.BackColor = Color.White;
+            pnlRightBottom.BackColor = Color.Transparent;
             pnlRightBottom.Controls.Add(panel1);
             pnlRightBottom.Controls.Add(btnEdit);
             pnlRightBottom.Dock = DockStyle.Bottom;
@@ -559,7 +563,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(btnDownload);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(728, 0);
@@ -582,13 +586,13 @@
             // 
             // btnEdit
             // 
-            btnEdit.BorderColor = Color.FromArgb(226, 230, 233);
+            btnEdit.BorderColor = Color.Transparent;
             btnEdit.BorderRadius = 10;
             btnEdit.BorderThickness = 1;
             btnEdit.CustomizableEdges = customizableEdges3;
-            btnEdit.FillColor = Color.FromArgb(248, 250, 252);
+            btnEdit.FillColor = Color.Yellow;
             btnEdit.Font = new Font("Segoe UI", 9F);
-            btnEdit.ForeColor = Color.FromArgb(104, 116, 135);
+            btnEdit.ForeColor = Color.Black;
             btnEdit.Location = new Point(20, 12);
             btnEdit.Name = "btnEdit";
             btnEdit.ShadowDecoration.CustomizableEdges = customizableEdges4;

@@ -79,6 +79,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(tableLayoutPanel3);
             panel1.Controls.Add(pnEesayQuestion);
             panel1.Controls.Add(tlpOptionForMultipleQuestion);
@@ -483,9 +484,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.WhiteSmoke;
+            BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            BackgroundImageLayout = ImageLayout.Zoom;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(panel1);
+            DoubleBuffered = true;
             Name = "UcAddQuestion";
             Size = new Size(1034, 733);
             Load += UcAddQuestion_Load;

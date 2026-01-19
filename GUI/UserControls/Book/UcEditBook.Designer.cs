@@ -153,6 +153,7 @@
             // 
             // panelContentHeader
             // 
+            panelContentHeader.BackColor = Color.Transparent;
             panelContentHeader.Controls.Add(lbContentFillHeader);
             panelContentHeader.Dock = DockStyle.Top;
             panelContentHeader.Location = new Point(0, 0);
@@ -196,7 +197,9 @@
             // 
             // pbContentMain
             // 
-            pbContentMain.BackColor = Color.White;
+            pbContentMain.BackColor = Color.WhiteSmoke;
+            pbContentMain.BackgroundImage = Properties.Resources.Cardmoi_PLT_Trang;
+            pbContentMain.BackgroundImageLayout = ImageLayout.Zoom;
             pbContentMain.Controls.Add(tlpInputBook);
             pbContentMain.Controls.Add(panel1);
             pbContentMain.Controls.Add(panelContentHeader);
@@ -208,6 +211,8 @@
             // 
             // tlpInputBook
             // 
+            tlpInputBook.BackColor = Color.Transparent;
+            tlpInputBook.BackgroundImageLayout = ImageLayout.Zoom;
             tlpInputBook.ColumnCount = 2;
             tlpInputBook.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             tlpInputBook.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
@@ -704,6 +709,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Transparent;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 60);
