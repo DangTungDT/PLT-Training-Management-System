@@ -5,6 +5,7 @@ using GUI.UserControls;
 using GUI.UserControls.Book;
 using GUI.UserControls.Exam;
 using GUI.UserControls.Question;
+using GUI.UserControls.Schedule;
 using Guna.UI2.WinForms;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -157,6 +158,7 @@ namespace GUI
             _ucMenuHeaderBook.OpenContentRequested += NavigatePush;
             _ucMenuHeaderBook._findBookByNameOrAuthor += LoadFilter;
             LoadUserControlForPanel(_ucMenuHeaderBook, pbHeaderContent);
+            
         }
 
         private void LoadFilter()
@@ -362,6 +364,7 @@ namespace GUI
 
         private void NavigatePush(UserControl uc)
         {
+            pbContent.Visible = false;
             Navigate.Instance.PushIfNotSame(uc);
             if (uc is UcEditExam)
             {
@@ -399,10 +402,13 @@ namespace GUI
             {
                 LoadUcReadFile(uc);
             }
+
+            pbContent.Visible = true;
         }
 
         private void NavigatePop()
         {
+            pbContent.Visible = false;
             var previous = Navigate.Instance.Pop();
             if (previous != null)
             {
@@ -449,6 +455,7 @@ namespace GUI
                     pbContent.Controls.Add(previous);
                 }
             }
+            pbContent.Visible = true;
         }
 
         private void LoadUcReadFile(UserControl uc)
@@ -517,6 +524,10 @@ namespace GUI
         private void btnMenuCalendar_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuCalendar);
+            UcSchedule ucSchedule = new UcSchedule();
+            pbContent.Controls.Clear();
+            ucSchedule.Dock = DockStyle.Fill;
+            pbContent.Controls.Add(ucSchedule);
         }
 
         private void btnMenuScore_Click(object sender, EventArgs e)

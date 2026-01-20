@@ -29,6 +29,15 @@ namespace GUI.UserControls
         }
         private void UcBook_Load(object sender, EventArgs e)
         {
+
+            LoadData();
+            pbContent.Visible = true;
+            pnHeader.Visible = true;
+        }
+        private void LoadData()
+        {
+            pbContent.Visible = false;
+            pnHeader.Visible = false;
             CustomFormatDateTimePickerFindDateToEmpty();
             GetAllDifficultyLevelOfBookForTheCombobox();
 
@@ -52,7 +61,6 @@ namespace GUI.UserControls
                 btnPageAfter.Visible = true;
             }
         }
-
         public void FindBookByNameAuthorDateLevel(string nameBookOrAuthor)
         {
             _nameBookOrAuthor = nameBookOrAuthor;
@@ -61,7 +69,7 @@ namespace GUI.UserControls
             {
                 if (dtpFindDate.CustomFormat == " ")
                 {
-                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor ,null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor, null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
                 }
                 else
                 {
@@ -149,7 +157,7 @@ namespace GUI.UserControls
             {
                 if (dtpFindDate.CustomFormat == " ")
                 {
-                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor ,null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
+                    _books = _bookBLL.GetBookforPage(_nameBookOrAuthor, null, cbFindLevel.SelectedItem?.ToString(), _pageIndex, _pageSize);
                 }
                 else
                 {
