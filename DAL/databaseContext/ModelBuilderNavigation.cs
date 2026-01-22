@@ -507,6 +507,31 @@ namespace DAL.databaseContext
                 entity.HasIndex(x => new { x.ExamId, x.ClassId }).IsUnique();
             });
 
+            // LessonSchedule
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .ToTable("LessonSchedule")
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .Property(x => x.Session)
+                .HasColumnType("char(1)")
+                .IsRequired();
+
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .Property(x => x.StartTime)
+                .HasColumnType("time")
+                .IsRequired();
+
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .Property(x => x.EndTime)
+                .HasColumnType("time")
+                .IsRequired();
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .HasOne(x => x.LessonPlan)
+                .WithMany(lp => lp.LessonSchedules)
+                .HasForeignKey(x => x.LessonPlanId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

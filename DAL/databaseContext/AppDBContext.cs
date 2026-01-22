@@ -84,5 +84,6 @@ namespace DAL.databaseContext
         public DbSet<CourseDTO> Courses { get; set; }
         public DbSet<LessonPlanDTO> LessonPlans { get; set; }
         public DbSet<LessonActivityDTO> LessonActivities { get; set; }
+        public DbSet<LessonScheduleDTO> LessonSchedules { get; set; }
     }
 }

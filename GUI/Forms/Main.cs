@@ -402,6 +402,10 @@ namespace GUI
             {
                 LoadUcReadFile(uc);
             }
+            else if (uc is UcSchedule)
+            {
+                LoadUcSchedule();
+            }
 
             pbContent.Visible = true;
         }
@@ -454,10 +458,24 @@ namespace GUI
                     LoadUcReadFile(previous);
                     pbContent.Controls.Add(previous);
                 }
+                else if (previous is UcSchedule)
+                {
+                    LoadUcSchedule();
+                }
             }
             pbContent.Visible = true;
         }
 
+        private void LoadUcSchedule()
+        {
+            var ucSchedule = new UcSchedule();
+            LoadUserControlForPanel(ucSchedule, pbContent);
+            pbHeaderContent.Controls.Clear();
+            var header = new UcMenuHeaderReadFile();
+            header.ActionBackForm += NavigatePop;
+            header.Dock = DockStyle.Fill;
+            pbHeaderContent.Controls.Add(header);
+        }
         private void LoadUcReadFile(UserControl uc)
         {
             _ucReadFile = uc as UcReadFile;
@@ -524,10 +542,7 @@ namespace GUI
         private void btnMenuCalendar_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuCalendar);
-            UcSchedule ucSchedule = new UcSchedule();
-            pbContent.Controls.Clear();
-            ucSchedule.Dock = DockStyle.Fill;
-            pbContent.Controls.Add(ucSchedule);
+            NavigatePush(new UcSchedule());
         }
 
         private void btnMenuScore_Click(object sender, EventArgs e)

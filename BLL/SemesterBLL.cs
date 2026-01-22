@@ -12,6 +12,10 @@ namespace BLL
     {
         private readonly SemesterDAL _semesterDAL = new SemesterDAL();
 
+        public SemesterDTO GetById(int id)
+        {
+            return _semesterDAL.GetById(id);
+        }
         public List<SemesterDTO> GetAllBySchoolId(int schoolId)
         {
             if (schoolId <= 0)

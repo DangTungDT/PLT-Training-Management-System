@@ -13,6 +13,21 @@ namespace DAL
     {
         private readonly AppDBContext _context = new AppDBContext();
 
+        public SemesterDTO GetById(int id)
+        {
+            var semester = _context.Semesters.Find(id);
+            if (semester == null)
+                return null;
+            return new SemesterDTO
+            {
+                Id = semester.Id,
+                Name = semester.Name,
+                Year = semester.Year,
+                StartDate = semester.StartDate,
+                EndDate = semester.EndDate,
+                SchoolId = semester.SchoolId
+            };
+        }
         public List<SemesterDTO> GetAllBySchoolId(int schoolId)
         {
             return _context.Semesters

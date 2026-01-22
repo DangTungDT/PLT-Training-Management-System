@@ -23,5 +23,6 @@ namespace DTO
         public int RoomId { get; set; }
         public RoomDTO Room { get; set; }
         public ICollection<LessonActivityDTO> LessonActivities { get; set; }
+        public ICollection<LessonScheduleDTO> LessonSchedules { get; set; }
     }
 }
