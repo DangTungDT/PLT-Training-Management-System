@@ -14,11 +14,7 @@ using GUI.Helpers;
 
 namespace GUI.UserControls.Schedule
 {
-    public class CbItemDate
-    {
-        public string Name { get; set; }
-        public DateTime Date { get; set; }
-    }
+
     public partial class UcSchedule : UserControl
     {
         List<Label> _labelsNameCourse;
@@ -27,9 +23,14 @@ namespace GUI.UserControls.Schedule
         List<Label> _labelsRoom;
         private readonly LessonPlanBLL _lessonPlanBLL = new LessonPlanBLL();
         private List<LessonPlanDTO> _LessonPlans = new List<LessonPlanDTO>();
+        private List<LessonScheduleDTO> _lessonSchedules = new List<LessonScheduleDTO>();
 
         private SchoolBLL _schoolBLL = new SchoolBLL();
         private SemesterBLL _semesterBLL = new SemesterBLL();
+        private RoomBLL _roomBL = new RoomBLL();
+        private ClassBLL _classBLL = new ClassBLL();
+        private CourseBLL _courseBLL = new CourseBLL();
+        private LessonScheduleBLL _lessonScheduleBLL = new LessonScheduleBLL();
 
         private List<CbItemDate> _weekItems = new List<CbItemDate>();
         // suppress combo events while programmatically setting DataSource/SelectedIndex
@@ -362,9 +363,191 @@ namespace GUI.UserControls.Schedule
 
         private void cbWeek_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_suppressComboEvents) return;
+
             try
             {
+                // update label showing current week text (tries to find lbWeek or lblWeekTitle)
+                string weekText = cbWeek.Text;
+                var foundLabel = this.Controls.Find("lbWeek", true).FirstOrDefault() as Label
+                                 ?? this.Controls.Find("lblWeekTitle", true).FirstOrDefault() as Label;
+                if (foundLabel != null)
+                    foundLabel.Text = weekText;
 
+                // obtain selected Date from cbWeek selected value
+                DateTime? weekStart = null;
+                if (cbWeek.SelectedValue is DateTime dt)
+                {
+                    weekStart = dt.Date;
+                }
+                else if (cbWeek.SelectedItem is CbItemDate item)
+                {
+                    weekStart = item.Date.Date;
+                }
+                else if (cbWeek.SelectedValue != null)
+                {
+                    // attempt convert
+                    if (DateTime.TryParse(cbWeek.SelectedValue.ToString(), out var parsed))
+                        weekStart = parsed.Date;
+                }
+
+                if (!weekStart.HasValue)
+                    return;
+
+                UpdateVisibleFlseToflpSchedule();
+                _LessonPlans = _lessonPlanBLL.GetAllBySemesterAndWeek(Convert.ToInt32(cbSemester.SelectedValue), weekStart ?? new DateTime());
+                foreach (LessonPlanDTO lessonPlanItem in _LessonPlans)
+                {
+                    _lessonSchedules = _lessonScheduleBLL.GetByLessonPlanId(lessonPlanItem.Id);
+                    if (lessonPlanItem == null || _lessonSchedules == null)
+                        continue;
+                    foreach (LessonScheduleDTO lessonScheduleItem in _lessonSchedules)
+                    {
+                        // Load data from BLL
+                        CourseDTO course = _courseBLL.GetCourseById(lessonPlanItem.CourseId);
+                        ClassDTO classDto = _classBLL.GetClassById(lessonScheduleItem.ClassId);
+                        RoomDTO room = _roomBL.GetById(lessonScheduleItem.RoomId);
+
+                        // Format time string
+                        string timeText = lessonScheduleItem.StartTime.ToString(@"hh\:mm") + " - " + lessonScheduleItem.EndTime.ToString(@"hh\:mm");
+
+                        switch (lessonScheduleItem.DayOfWeek)
+                        {
+                            case 2: // Monday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleMondayA.Visible = true;
+                                    lbCourseNameMondayA.Text = course?.FullName ?? "";
+                                    lbClassMondayA.Text = classDto?.Name ?? "";
+                                    lbTimeMondayA.Text = timeText;
+                                    lbRoomMondayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleMondayM.Visible = true;
+                                    lbCourseNameMondayM.Text = course?.FullName ?? "";
+                                    lbClassMondayM.Text = classDto?.Name ?? "";
+                                    lbTimeMondayM.Text = timeText;
+                                    lbRoomMondayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 3: // Tuesday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleTuesdayA.Visible = true;
+                                    lbCourseNameTuesdayA.Text = course?.FullName ?? "";
+                                    lbClassTuesdayA.Text = classDto?.Name ?? "";
+                                    lbTimeTuesdayA.Text = timeText;
+                                    lbRoomTuesdayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleTuesdayM.Visible = true;
+                                    lbCourseNameTuesdayM.Text = course?.FullName ?? "";
+                                    lbClassTuesdayM.Text = classDto?.Name ?? "";
+                                    lbTimeTuesdayM.Text = timeText;
+                                    lbRoomTuesdayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 4: // Wednesday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleWednesdayA.Visible = true;
+                                    lbCourseNameWednesdayA.Text = course?.FullName ?? "";
+                                    lbClassWednesdayA.Text = classDto?.Name ?? "";
+                                    lbTimeWednesdayA.Text = timeText;
+                                    lbRoomWednesdayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleWednesdayM.Visible = true;
+                                    lbCourseNameWednesdayM.Text = course?.FullName ?? "";
+                                    lbClassWednesdayM.Text = classDto?.Name ?? "";
+                                    lbTimeWednesdayM.Text = timeText;
+                                    lbRoomWednesdayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 5: // Thursday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleThursdayA.Visible = true;
+                                    lbCourseNameThursdayA.Text = course?.FullName ?? "";
+                                    lbClassThursdayA.Text = classDto?.Name ?? "";
+                                    lbTimeThursdayA.Text = timeText;
+                                    lbRoomThursdayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleThursdayM.Visible = true;
+                                    lbCourseNameThursdayM.Text = course?.FullName ?? "";
+                                    lbClassThursdayM.Text = classDto?.Name ?? "";
+                                    lbTimeThursdayM.Text = timeText;
+                                    lbRoomThursdayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 6: // Friday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleFridayA.Visible = true;
+                                    lbCourseNameFridayA.Text = course?.FullName ?? "";
+                                    lbClassFridayA.Text = classDto?.Name ?? "";
+                                    lbTimeFridayA.Text = timeText;
+                                    lbRoomFridayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleFridayM.Visible = true;
+                                    lbCourseNameFridayM.Text = course?.FullName ?? "";
+                                    lbClassFridayM.Text = classDto?.Name ?? "";
+                                    lbTimeFridayM.Text = timeText;
+                                    lbRoomFridayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 7: // Saturday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleSaturdayA.Visible = true;
+                                    lbCourseNameSaturdayA.Text = course?.FullName ?? "";
+                                    lbClassSaturdayA.Text = classDto?.Name ?? "";
+                                    lbTimeSaturdayA.Text = timeText;
+                                    lbRoomSaturdayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleSaturdayM.Visible = true;
+                                    lbCourseNameSaturdayM.Text = course?.FullName ?? "";
+                                    lbClassSaturdayM.Text = classDto?.Name ?? "";
+                                    lbTimeSaturdayM.Text = timeText;
+                                    lbRoomSaturdayM.Text = room?.Name ?? "";
+                                }
+                                break;
+
+                            case 8: // Sunday
+                                if (lessonScheduleItem.Session.ToUpper() == "A")
+                                {
+                                    flpScheduleSundayA.Visible = true;
+                                    lbCourseNameSundayA.Text = course?.FullName ?? "";
+                                    lbClassSundayA.Text = classDto?.Name ?? "";
+                                    lbTimeSundayA.Text = timeText;
+                                    lbRoomSundayA.Text = room?.Name ?? "";
+                                }
+                                else if (lessonScheduleItem.Session.ToUpper() == "M")
+                                {
+                                    flpScheduleSundayM.Visible = true;
+                                    lbCourseNameSundayM.Text = course?.FullName ?? "";
+                                    lbClassSundayM.Text = classDto?.Name ?? "";
+                                    lbTimeSundayM.Text = timeText;
+                                    lbRoomSundayM.Text = room?.Name ?? "";
+                                }
+                                break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -375,6 +558,30 @@ namespace GUI.UserControls.Schedule
                     MessageBoxIcon.Error
                 );
             }
+        }
+
+        private void UpdateVisibleFlseToflpSchedule()
+        {
+            flpScheduleMondayM.Visible = false;
+            flpScheduleMondayA.Visible = false;
+
+            flpScheduleTuesdayM.Visible = false;
+            flpScheduleTuesdayA.Visible = false;
+
+            flpScheduleWednesdayM.Visible = false;
+            flpScheduleWednesdayA.Visible = false;
+
+            flpScheduleThursdayM.Visible = false;
+            flpScheduleThursdayA.Visible = false;
+
+            flpScheduleFridayM.Visible = false;
+            flpScheduleFridayA.Visible = false;
+
+            flpScheduleSaturdayM.Visible = false;
+            flpScheduleSaturdayA.Visible = false;
+
+            flpScheduleSundayM.Visible = false;
+            flpScheduleSundayA.Visible = false;
         }
     }
 }

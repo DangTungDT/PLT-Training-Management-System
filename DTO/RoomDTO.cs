@@ -14,5 +14,7 @@ namespace DTO
         public string Location { get; set; }
         public ICollection<TeachingScheduleDTO> TeachingSchedules { get; set; }
         public ICollection<LessonPlanDTO> LessonPlans { get; set; }
+        public ICollection<LessonScheduleDTO> LessonSchedules { get; set; }
+
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20251230062221_InitialCreate")]
+    [Migration("20260122023749_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -614,6 +614,47 @@ namespace DAL.Migrations
                     b.HasIndex("StudentClassId");
 
                     b.ToTable("LessonPlan", (string)null);
+                });
+
+            modelBuilder.Entity("DTO.LessonScheduleDTO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<int>("LessonPlanId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Session")
+                        .IsRequired()
+                        .HasColumnType("char(1)");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("LessonPlanId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("LessonSchedule", (string)null);
                 });
 
             modelBuilder.Entity("DTO.PersonDTO", b =>
@@ -1568,6 +1609,33 @@ namespace DAL.Migrations
                     b.Navigation("Room");
                 });
 
+            modelBuilder.Entity("DTO.LessonScheduleDTO", b =>
+                {
+                    b.HasOne("DTO.ClassDTO", "Class")
+                        .WithMany("LessonSchedules")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("DTO.LessonPlanDTO", "LessonPlan")
+                        .WithMany("LessonSchedules")
+                        .HasForeignKey("LessonPlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DTO.RoomDTO", "Room")
+                        .WithMany("LessonSchedules")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Class");
+
+                    b.Navigation("LessonPlan");
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("DTO.QuestionDTO", b =>
                 {
                     b.HasOne("DTO.ExamDTO", null)
@@ -1971,6 +2039,8 @@ namespace DAL.Migrations
 
                     b.Navigation("LessonPlans");
 
+                    b.Navigation("LessonSchedules");
+
                     b.Navigation("Students");
 
                     b.Navigation("TeacherClasses");
@@ -2027,6 +2097,8 @@ namespace DAL.Migrations
             modelBuilder.Entity("DTO.LessonPlanDTO", b =>
                 {
                     b.Navigation("LessonActivities");
+
+                    b.Navigation("LessonSchedules");
                 });
 
             modelBuilder.Entity("DTO.PersonDTO", b =>
@@ -2057,6 +2129,8 @@ namespace DAL.Migrations
             modelBuilder.Entity("DTO.RoomDTO", b =>
                 {
                     b.Navigation("LessonPlans");
+
+                    b.Navigation("LessonSchedules");
 
                     b.Navigation("TeachingSchedules");
                 });

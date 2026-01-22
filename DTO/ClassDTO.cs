@@ -21,5 +21,7 @@ namespace DTO
         public ICollection<TeachingScheduleDTO> TeachingSchedules { get; set; }
         public ICollection<LessonPlanDTO> LessonPlans { get; set; }
         public ICollection<ClassExamDTO> ClassExams { get; set; }
+        public ICollection<LessonScheduleDTO> LessonSchedules { get; set; }
+
     }
 }

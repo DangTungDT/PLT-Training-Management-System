@@ -982,6 +982,43 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LessonSchedule",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LessonPlanId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false),
+                    RoomId = table.Column<int>(type: "int", nullable: false),
+                    DayOfWeek = table.Column<int>(type: "int", nullable: false),
+                    Session = table.Column<string>(type: "char(1)", nullable: false),
+                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LessonSchedule", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LessonSchedule_Class_ClassId",
+                        column: x => x.ClassId,
+                        principalTable: "Class",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_LessonSchedule_LessonPlan_LessonPlanId",
+                        column: x => x.LessonPlanId,
+                        principalTable: "LessonPlan",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LessonSchedule_Room_RoomId",
+                        column: x => x.RoomId,
+                        principalTable: "Room",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "StudentScore",
                 columns: table => new
                 {
@@ -1358,6 +1395,21 @@ namespace DAL.Migrations
                 column: "StudentClassId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LessonSchedule_ClassId",
+                table: "LessonSchedule",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LessonSchedule_LessonPlanId",
+                table: "LessonSchedule",
+                column: "LessonPlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LessonSchedule_RoomId",
+                table: "LessonSchedule",
+                column: "RoomId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Person_Email",
                 table: "Person",
                 column: "Email",
@@ -1652,6 +1704,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "LessonActivity");
+
+            migrationBuilder.DropTable(
+                name: "LessonSchedule");
 
             migrationBuilder.DropTable(
                 name: "QuestionOption");

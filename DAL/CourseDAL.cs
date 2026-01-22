@@ -42,7 +42,7 @@ namespace DAL
 
         public CourseDTO GetById(int id)
         {
-            using (var context = new databaseContext.AppDBContext())
+            using (var context = new AppDBContext())
             {
                 return context.Courses
                     .Include(c => c.Category)

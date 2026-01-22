@@ -478,9 +478,9 @@ namespace DAL.databaseContext
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CourseClassDTO>()
-        .HasOne(cc => cc.Course)
-        .WithMany(c => c.CourseClasses)
-        .HasForeignKey(cc => cc.CourseId);
+                .HasOne(cc => cc.Course)
+                .WithMany(c => c.CourseClasses)
+                .HasForeignKey(cc => cc.CourseId);
 
             modelBuilder.Entity<CourseClassDTO>()
                 .HasOne(cc => cc.Class)
@@ -507,16 +507,20 @@ namespace DAL.databaseContext
                 entity.HasIndex(x => new { x.ExamId, x.ClassId }).IsUnique();
             });
 
+            // =====================
             // LessonSchedule
+            // =====================
             modelBuilder.Entity<LessonScheduleDTO>()
                 .ToTable("LessonSchedule")
                 .HasKey(x => x.Id);
 
+            // Session: char(1)
             modelBuilder.Entity<LessonScheduleDTO>()
                 .Property(x => x.Session)
                 .HasColumnType("char(1)")
                 .IsRequired();
 
+            // Time
             modelBuilder.Entity<LessonScheduleDTO>()
                 .Property(x => x.StartTime)
                 .HasColumnType("time")
@@ -526,11 +530,26 @@ namespace DAL.databaseContext
                 .Property(x => x.EndTime)
                 .HasColumnType("time")
                 .IsRequired();
+            // FK -> LessonPlan
             modelBuilder.Entity<LessonScheduleDTO>()
                 .HasOne(x => x.LessonPlan)
                 .WithMany(lp => lp.LessonSchedules)
                 .HasForeignKey(x => x.LessonPlanId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // FK -> Class
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .HasOne(x => x.Class)
+                .WithMany(c => c.LessonSchedules)
+                .HasForeignKey(x => x.ClassId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // FK -> Room
+            modelBuilder.Entity<LessonScheduleDTO>()
+                .HasOne(x => x.Room)
+                .WithMany(r => r.LessonSchedules)
+                .HasForeignKey(x => x.RoomId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

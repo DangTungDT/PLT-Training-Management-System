@@ -14,6 +14,10 @@ namespace DTO
 
         public int LessonPlanId { get; set; }
         public LessonPlanDTO LessonPlan { get; set; }
+        public int ClassId { get; set; }
+        public ClassDTO Class { get; set; }
+        public int RoomId { get; set; }
+        public RoomDTO Room { get; set; }
 
         /// <summary>
         /// 2 = Monday, 3 = Tuesday, ..., 8 = Sunday
