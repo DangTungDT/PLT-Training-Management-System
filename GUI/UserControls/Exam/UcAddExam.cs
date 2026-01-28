@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using GUI.Forms;
 using GUI.Helpers;
 using GUI.UserControls.Question;
 using Guna;
@@ -27,6 +28,7 @@ namespace GUI.UserControls.Exam
         private ExamDTO _newExam;
         private int _totalQuestion = 1;
         private List<QuestionAndOption> _allQuestionAndOption;
+        private bool _suppressComboEvents = false;
 
         private ExamBLL _examBLL = new ExamBLL();
         private CourseBLL _courseBLl = new CourseBLL();
@@ -49,48 +51,84 @@ namespace GUI.UserControls.Exam
 
         private void LoadCourseToCombobox(int semesterId)
         {
+            _suppressComboEvents = true;
             try
             {
-                var courses = _courseBLl.GetAllBySemesterId(semesterId);
-                cbSubject.DisplayMember = "FullName";
+                int idSemester = 0;
+                if (!int.TryParse(cbSemester.SelectedValue.ToString(), out idSemester))
+                {
+                    return;
+                }
+                var courses = _courseBLl.GetAllBySemesterId(idSemester)
+                    .Select(c => new CbItem { Id = c.Id, Name = c.FullName })
+                    .ToList();
+
+                courses.Insert(0, new CbItem { Id = 0, Name = "Chọn khóa học" });
+                courses.Add(new CbItem { Id = -1, Name = "Thêm mới" });
+
+                cbSubject.DisplayMember = "Name";
                 cbSubject.ValueMember = "Id";
                 cbSubject.DataSource = courses;
+                cbSubject.SelectedIndex = 0;
             }
-            catch (ArgumentException ex)
+            finally
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _suppressComboEvents = false;
             }
 
         }
         private void LoadSchoolToCombobox()
         {
+            _suppressComboEvents = true;
             try
             {
-                var schools = _schoolBLL.GetAllSchools();
+                var schools = _schoolBLL.GetAllSchools()
+                    .Select(s => new CbItem { Id = s.Id, Name = s.Name })
+                    .ToList();
+
+                schools.Insert(0, new CbItem { Id = 0, Name = "Chọn trường học" });
+                schools.Add(new CbItem { Id = -1, Name = "Thêm mới" });
+
                 cbSchool.DisplayMember = "Name";
                 cbSchool.ValueMember = "Id";
-                cbSchool.DataSource = schools.ToList();
+                cbSchool.DataSource = schools;
+                cbSchool.SelectedIndex = 0;
             }
-            catch (ArgumentException ex)
+            finally
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _suppressComboEvents = false;
             }
-
         }
 
         private void LoadFacultyToCombobox(int schoolId)
         {
+            _suppressComboEvents = true;
             try
             {
-                var facultyes = _facultyBLL.GetAllBySchoolId(schoolId);
+                int idSchool = 0;
+                if (!int.TryParse(cbSchool.SelectedValue.ToString(), out idSchool))
+                {
+                    return;
+                }
+                var facultys = _facultyBLL.GetAllBySchoolId(idSchool) ?? new List<FacultyDTO>();
+
+                var facultysData = facultys
+                    .Select(s => new CbItem { Id = s.Id, Name = s.Name })
+                    .ToList();
+
+                // ensure default first item
+                facultysData.Insert(0, new CbItem { Id = 0, Name = "Chọn khoa" });
+                // add "Thêm mới" sentinel at end
+                facultysData.Add(new CbItem { Id = -1, Name = "Thêm mới" });
+
                 cbFaculty.DisplayMember = "Name";
                 cbFaculty.ValueMember = "Id";
-                cbFaculty.DataSource = facultyes.ToList();
-
+                cbFaculty.DataSource = facultysData;
+                cbFaculty.SelectedIndex = 0;
             }
-            catch (ArgumentException ex)
+            finally
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _suppressComboEvents = false;
             }
 
         }
@@ -120,20 +158,33 @@ namespace GUI.UserControls.Exam
         }
         private void LoadSemesterToCombobox(int schoolId)
         {
+            _suppressComboEvents = true;
             try
             {
-                var semesters = _semesterBLL.GetAllBySchoolId(schoolId);
+                int idSchool = 0;
+                if (!int.TryParse(cbSchool.SelectedValue.ToString(), out idSchool))
+                {
+                    return;
+                }
+                var semesters = _semesterBLL.GetAllBySchoolId(idSchool) ?? new List<SemesterDTO>();
 
-                cbSemester.DataSource = null;
+                var semestersData = semesters
+                    .Select(s => new CbItem { Id = s.Id, Name = s.Name })
+                    .ToList();
+
+                // ensure default first item
+                semestersData.Insert(0, new CbItem { Id = 0, Name = "Chọn học kỳ" });
+                // add "Thêm mới" sentinel at end
+                semestersData.Add(new CbItem { Id = -1, Name = "Thêm mới" });
+
                 cbSemester.DisplayMember = "Name";
                 cbSemester.ValueMember = "Id";
-                cbSemester.DataSource = semesters;
-                cbSemester.SelectedIndex = 1;
+                cbSemester.DataSource = semestersData;
+                cbSemester.SelectedIndex = 0;
             }
-            catch (ArgumentException ex)
+            finally
             {
-                MessageBox.Show(ex.Message, "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _suppressComboEvents = false;
             }
         }
 
@@ -200,6 +251,16 @@ namespace GUI.UserControls.Exam
         {
             try
             {
+                if (cbSubject.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
+                }
+                if (cbSemester.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn học kỳ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
+                }
                 int examduration = 0;
                 int courseIdforNewExam = 0;
                 int semesterIdforNewExam = 0;
@@ -214,13 +275,12 @@ namespace GUI.UserControls.Exam
                 {
                     examduration = examduration * 60;
                 }
-
+                
                 if (!int.TryParse(cbSubject.SelectedValue.ToString(), out courseIdforNewExam))
                 {
                     MessageBox.Show("Có lỗi sảy ra trong quá trình lấy id khóa học (Subject)!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return null;
                 }
-
                 if (!int.TryParse(cbSemester.SelectedValue.ToString(), out semesterIdforNewExam) || cbSemester.Items.Count == 0)
                 {
                     MessageBox.Show("Có lỗi sảy ra trong quá trình lấy id học kỳ (Semester)!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -275,6 +335,14 @@ namespace GUI.UserControls.Exam
         }
         private void LoadStage(int stageIndex)
         {
+            if(stageIndex != 1)
+            {
+                if (cbSubject.SelectedValue == null || cbSemester.SelectedValue == null || cbSchool.SelectedValue == null || cbFaculty.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng nhập/chọn đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
             switch (stageIndex)
             {
                 case 1:
@@ -720,7 +788,7 @@ namespace GUI.UserControls.Exam
                     MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                if(txtTotalQuestion.Text == "")
+                if (txtTotalQuestion.Text == "")
                 {
                     return true;
                 }
@@ -822,8 +890,20 @@ namespace GUI.UserControls.Exam
             if (ContainsSpecialCharacter(txtExamName.Text))
                 return ShowError(txtExamName, "Tên bài thi không được chứa ký tự đặc biệt.");
 
+            // Trường học
+            if (cbSchool.SelectedValue == null || cbSchool.SelectedIndex == -1 || cbSchool.SelectedIndex == 0)
+                return ShowError(cbSchool, "Vui lòng chọn trường học.");
+
+            // Học kỳ
+            if (cbSemester.SelectedValue == null || cbSemester.SelectedIndex == -1 || cbSemester.SelectedIndex == 0)
+                return ShowError(cbSemester, "Vui lòng chọn học kỳ.");
+
+            // Khoa
+            if (cbFaculty.SelectedValue == null || cbFaculty.SelectedIndex == -1 || cbFaculty.SelectedIndex == 0)
+                return ShowError(cbFaculty, "Vui lòng chọn khoa.");
+
             // Môn học
-            if (cbSubject.SelectedValue == null || cbSubject.SelectedIndex == -1)
+            if (cbSubject.SelectedValue == null || cbSubject.SelectedIndex == -1 || cbSubject.SelectedIndex == 0)
                 return ShowError(cbSubject, "Vui lòng chọn môn học.");
 
             // Hướng dẫn thi
@@ -836,24 +916,12 @@ namespace GUI.UserControls.Exam
                 ContainsSpecialCharacter(txtDescription.Text))
                 return ShowError(txtDescription, "Mô tả không được chứa ký tự đặc biệt.");
 
-            //// Tổng số câu hỏi
-            //if (!int.TryParse(txtTotalQuestion.Text, out int totalQuestion) || totalQuestion <= 0)
-            //    return ShowError(txtTotalQuestion, "Tổng số câu hỏi phải là số nguyên > 0.");
-
-            // Học kỳ
-            if (cbSemester.SelectedValue == null || cbSemester.SelectedIndex == -1)
-                return ShowError(cbSemester, "Vui lòng chọn học kỳ.");
-
             // Thời gian
             if (string.IsNullOrWhiteSpace(txtExamTime.Text))
                 return ShowError(txtExamTime, "Thời gian làm bài không được để trống.");
 
             if (!int.TryParse(txtExamTime.Text, out int examTime) || examTime <= 0)
                 return ShowError(txtExamTime, "Thời gian làm bài phải là số nguyên > 0.");
-
-            // Trường
-            if (cbSchool.SelectedValue == null || cbSchool.SelectedIndex == -1)
-                return ShowError(cbSchool, "Vui lòng chọn trường.");
 
             // Loại bài thi
             if (string.IsNullOrWhiteSpace(cbExamType.Text))
@@ -894,74 +962,92 @@ namespace GUI.UserControls.Exam
 
         private void cbSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSchool.SelectedIndex == -1)
-            {
-                return;
-            }
             try
             {
-                List<Control> controlCombobox = new List<Control>
-                {
-                    cbSemester,
-                    cbFaculty,
-                    cbSubject
-                };
-                foreach (Guna2ComboBox control in controlCombobox)
-                {
-                    control.DataSource = null;
-                    control.Items.Clear();
-                    control.Text = string.Empty;
-                    control.SelectedIndex = -1;
-                }
+                if (_suppressComboEvents) return;
+                if (cbSchool.SelectedValue == null) return;
 
+                int id = Convert.ToInt32(cbSchool.SelectedValue);
                 clbClass.DataSource = null;
                 clbClass.Items.Clear();
-
-                int idSchoolSelected = -1;
-                if (!int.TryParse(cbSchool.SelectedValue.ToString(), out idSchoolSelected))
+                if (id == -1)
                 {
-                    MessageBox.Show(
-                        "Lấy dữ liệu trường học thất bại!",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    cbFaculty.DataSource = null;
+                    cbSemester.DataSource = null;
+                    cbSubject.DataSource = null;
+                    using (var f = new FormAddSchool())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    LoadSchoolToCombobox();
                     return;
                 }
-                LoadSemesterToCombobox(idSchoolSelected);
-                LoadFacultyToCombobox(idSchoolSelected);
+                if (id != 0)
+                {
+                    int idSchoolSelected = -1;
+                    if (!int.TryParse(cbSchool.SelectedValue.ToString(), out idSchoolSelected))
+                    {
+                        MessageBox.Show(
+                            "Lấy dữ liệu trường học thất bại!",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                    LoadSemesterToCombobox(idSchoolSelected);
+                    LoadFacultyToCombobox(idSchoolSelected);
+                }
+                else
+                {
+                    cbFaculty.DataSource = null;
+                    cbSemester.DataSource = null;
+                    cbSubject.DataSource = null;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show(
-                        "Lấy dữ liệu trường học thất bại!",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show($"Lỗi khi tải dữ liệu trường học: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void cbFaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFaculty.SelectedIndex == -1)
-            {
-                return;
-            }
             try
             {
-                clbClass.DataSource = null;
-                clbClass.Items.Clear();
-                int idFaculty = -1;
-                if (!int.TryParse(cbFaculty.SelectedValue.ToString(), out idFaculty))
+                if (_suppressComboEvents) return;
+                if (cbFaculty.SelectedValue == null) return;
+
+                int id = Convert.ToInt32(cbFaculty.SelectedValue);
+                if (id == -1)
                 {
-                    MessageBox.Show(
-                        "Lấy dữ liệu khoa thất bại!",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    using (var f = new FormAddFaculty())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    int idSchool = Convert.ToInt32(cbSchool.SelectedValue);
+                    LoadFacultyToCombobox(idSchool);
                     return;
                 }
-                LoadClassToCheckedListBox(idFaculty);
+                clbClass.DataSource = null;
+                clbClass.Items.Clear();
+                if (id != 0)
+                {
+                    clbClass.DataSource = null;
+                    clbClass.Items.Clear();
+                    int idFaculty = -1;
+                    if (!int.TryParse(cbFaculty.SelectedValue.ToString(), out idFaculty))
+                    {
+                        MessageBox.Show(
+                            "Lấy dữ liệu khoa thất bại!",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                    LoadClassToCheckedListBox(idFaculty);
+                }
             }
             catch
             {
@@ -976,32 +1062,47 @@ namespace GUI.UserControls.Exam
 
         private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSemester.SelectedIndex == -1)
-            {
-                return;
-            }
             try
             {
-                cbSubject.DataSource = null;
-                cbSubject.Items.Clear();
-                cbSubject.Text = string.Empty;
-                cbSubject.SelectedIndex = -1;
-                int semesterId = -1;
-                if (!int.TryParse(cbSemester.SelectedValue.ToString(), out semesterId))
+                if (_suppressComboEvents) return;
+                if (cbSemester.SelectedValue == null) return;
+
+                int id = Convert.ToInt32(cbSemester.SelectedValue);
+                if (id == -1)
                 {
-                    MessageBox.Show(
-                        "Lấy dữ liệu trường học thất bại!",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    using (var f = new FormAddSemester())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    int idSchool = Convert.ToInt32(cbSchool.SelectedValue);
+                    LoadSemesterToCombobox(idSchool);
                     return;
                 }
-                LoadCourseToCombobox(semesterId);
+                cbSubject.DataSource = null;
+                cbSubject.Items.Clear();
+                if (id != 0)
+                {
+                    
+                    cbSubject.Text = string.Empty;
+                    cbSubject.SelectedIndex = -1;
+                    int semesterId = -1;
+                    if (!int.TryParse(cbSemester.SelectedValue.ToString(), out semesterId))
+                    {
+                        MessageBox.Show(
+                            "Lấy dữ liệu học kỳ thất bại!",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                    LoadCourseToCombobox(semesterId);
+                }
             }
             catch
             {
                 MessageBox.Show(
-                        "Lấy dữ liệu học kỳ thất bại!",
+                        "Lấy dữ liệu khoa thất bại!",
                         "Thông báo",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -1148,6 +1249,38 @@ namespace GUI.UserControls.Exam
         private void crbStage4_Click(object sender, EventArgs e)
         {
             LoadStage(4);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbSubject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_suppressComboEvents) return;
+                if (cbSubject.SelectedValue == null) return;
+
+                int id = Convert.ToInt32(cbSubject.SelectedValue);
+                if (id == -1)
+                {
+                    // FormAddSubject is the form for adding a subject (course)
+                    using (var f = new FormAddSubject())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    int idSemester = Convert.ToInt32(cbSemester.SelectedValue);
+                    LoadCourseToCombobox(idSemester);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu khóa học: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -34,10 +34,12 @@ namespace GUI.UserControls.Exam
         public event Action<int> OpenUserControlReadFile;
 
         private bool _flagLoadQuestion = false;
+        private int _idExamSelected = 0;
         public UcReadExam(int examId)
         {
             InitializeComponent();
             _examSelected = _examBLL.GetExamById(examId);
+            _idExamSelected = examId;
         }
 
         private void UcReadExam_Load(object sender, EventArgs e)
@@ -331,7 +333,23 @@ namespace GUI.UserControls.Exam
 
             if (result == DialogResult.Yes)
             {
-                // delete logic...
+                try
+                {
+                    bool deleted = _examBLL.DeleteById(_idExamSelected);
+                    if (deleted)
+                    {
+                        MessageBox.Show("Xóa đề thi thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BackToExamList?.Invoke();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa đề thi thất bại. Có thể đề thi không tồn tại hoặc đã có lỗi.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi xóa đề thi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -385,5 +403,6 @@ namespace GUI.UserControls.Exam
             tlpValueExam.Visible = true;
             flpQuestion.Visible = false;
         }
+
     }
 }

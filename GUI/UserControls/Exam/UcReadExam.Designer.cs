@@ -185,6 +185,7 @@ namespace GUI.UserControls.Exam
             btnEdit.Size = new Size(100, 38);
             btnEdit.TabIndex = 0;
             btnEdit.Text = "Chỉnh sửa";
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -199,6 +200,7 @@ namespace GUI.UserControls.Exam
             btnDelete.Size = new Size(100, 38);
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Xóa";
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnPublish
             // 

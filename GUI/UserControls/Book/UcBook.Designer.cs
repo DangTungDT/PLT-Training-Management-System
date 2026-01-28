@@ -61,6 +61,9 @@ namespace GUI.UserControls
             lbDisplayDisplayBookAtPage = new Label();
             label3 = new Label();
             panel3 = new Panel();
+            lbPageIndex = new CustomControls.RoundedLabel();
+            btnPageBefore = new CustomControls.RoundedButton();
+            btnPageAfter = new CustomControls.RoundedButton();
             panelContentHeader = new Panel();
             panel2 = new Panel();
             btnResetFilter = new Guna.UI2.WinForms.Guna2Button();
@@ -80,6 +83,7 @@ namespace GUI.UserControls
             pbContentMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             panelContentHeader.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -315,11 +319,67 @@ namespace GUI.UserControls
             // 
             // panel3
             // 
+            panel3.Controls.Add(lbPageIndex);
+            panel3.Controls.Add(btnPageBefore);
+            panel3.Controls.Add(btnPageAfter);
             panel3.Dock = DockStyle.Right;
             panel3.Location = new Point(741, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(295, 65);
             panel3.TabIndex = 0;
+            // 
+            // lbPageIndex
+            // 
+            lbPageIndex.AutoSize = true;
+            lbPageIndex.BackColor = Color.FromArgb(60, 131, 246);
+            lbPageIndex.BorderColor = Color.Transparent;
+            lbPageIndex.BorderRadius = 8;
+            lbPageIndex.BorderSize = 0;
+            lbPageIndex.Font = new Font("Times New Roman", 12F);
+            lbPageIndex.ForeColor = Color.White;
+            lbPageIndex.Location = new Point(155, 12);
+            lbPageIndex.MinimumSize = new Size(31, 39);
+            lbPageIndex.Name = "lbPageIndex";
+            lbPageIndex.Size = new Size(31, 39);
+            lbPageIndex.TabIndex = 2;
+            lbPageIndex.Text = "1";
+            lbPageIndex.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnPageBefore
+            // 
+            btnPageBefore.BackColor = Color.White;
+            btnPageBefore.BorderColor = Color.Silver;
+            btnPageBefore.BorderRadius = 10;
+            btnPageBefore.BorderSize = 1;
+            btnPageBefore.FlatAppearance.BorderSize = 0;
+            btnPageBefore.FlatStyle = FlatStyle.Flat;
+            btnPageBefore.Font = new Font("Segoe UI", 12F);
+            btnPageBefore.ForeColor = Color.FromArgb(104, 116, 135);
+            btnPageBefore.Location = new Point(56, 13);
+            btnPageBefore.Name = "btnPageBefore";
+            btnPageBefore.Size = new Size(66, 38);
+            btnPageBefore.TabIndex = 1;
+            btnPageBefore.Text = "Trước";
+            btnPageBefore.UseVisualStyleBackColor = false;
+            btnPageBefore.Click += btnPageBefore_Click;
+            // 
+            // btnPageAfter
+            // 
+            btnPageAfter.BackColor = Color.White;
+            btnPageAfter.BorderColor = Color.Silver;
+            btnPageAfter.BorderRadius = 10;
+            btnPageAfter.BorderSize = 1;
+            btnPageAfter.FlatAppearance.BorderSize = 0;
+            btnPageAfter.FlatStyle = FlatStyle.Flat;
+            btnPageAfter.Font = new Font("Segoe UI", 12F);
+            btnPageAfter.ForeColor = Color.FromArgb(104, 116, 135);
+            btnPageAfter.Location = new Point(216, 13);
+            btnPageAfter.Name = "btnPageAfter";
+            btnPageAfter.Size = new Size(66, 38);
+            btnPageAfter.TabIndex = 1;
+            btnPageAfter.Text = "Sau";
+            btnPageAfter.UseVisualStyleBackColor = false;
+            btnPageAfter.Click += btnPageAfter_Click;
             // 
             // panelContentHeader
             // 
@@ -510,6 +570,8 @@ namespace GUI.UserControls
             ((System.ComponentModel.ISupportInitialize)dgvBooks).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panelContentHeader.ResumeLayout(false);
             panelContentHeader.PerformLayout();
             panel2.ResumeLayout(false);

@@ -363,17 +363,43 @@ namespace GUI.UserControls.Exam
 
         private void LoadUserControlAddQuestion()
         {
-            List<QuestionDTO> questions = _questionForExamSelected;
-
-            foreach(QuestionDTO question in questions)
+            try
             {
-                UcAddQuestion ucAddQuestion;
-                ucAddQuestion = new UcAddQuestion(question);
-                ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                int width = flpQuestion.ClientSize.Width - 60;
-                ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
-                ucAddQuestion.SetNumberQuestion(flpQuestion.Controls.Count + 1);
-                flpQuestion.Controls.Add(ucAddQuestion);
+                flpQuestion.Controls.Clear();
+                List<QuestionDTO> questions = _questionForExamSelected;
+                _totalOptionsQuestion = questions.Count;
+                foreach (QuestionDTO question in questions)
+                {
+                    UcAddQuestion ucAddQuestion;
+                    ucAddQuestion = new UcAddQuestion(question);
+                    ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                    int width = flpQuestion.ClientSize.Width - 60;
+                    ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
+                    ucAddQuestion.SetNumberQuestion(flpQuestion.Controls.Count + 1);
+                    flpQuestion.Controls.Add(ucAddQuestion);
+                }
+                int newTotalOptionsQuestion = 0;
+                if(int.TryParse(txtTotalQuestion.Text, out newTotalOptionsQuestion))
+                {
+                    if (newTotalOptionsQuestion > _totalOptionsQuestion)
+                    {
+                        _totalOptionsQuestion = newTotalOptionsQuestion;
+                        for (int i = questions.Count; i < newTotalOptionsQuestion; i++)
+                        {
+                            UcAddQuestion ucAddQuestion;
+                            ucAddQuestion = new UcAddQuestion();
+                            ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                            int width = flpQuestion.ClientSize.Width - 60;
+                            ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
+                            ucAddQuestion.SetNumberQuestion(flpQuestion.Controls.Count + 1);
+                            flpQuestion.Controls.Add(ucAddQuestion);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
             }
         }
 

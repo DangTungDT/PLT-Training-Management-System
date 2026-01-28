@@ -182,6 +182,7 @@ namespace GUI.UserControls
                 }
                 lbPageIndex.Text = _pageIndex.ToString();
 
+
                 if (_books.Count() < 10)
                 {
                     btnPageBefore.Visible = false;
