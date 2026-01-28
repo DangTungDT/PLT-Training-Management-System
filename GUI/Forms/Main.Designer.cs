@@ -129,6 +129,7 @@ namespace GUI
             btnMenuExercise.TabIndex = 10;
             btnMenuExercise.Text = "Bài tập và đồ án";
             btnMenuExercise.TextAlign = HorizontalAlignment.Left;
+            btnMenuExercise.Visible = false;
             btnMenuExercise.Click += btnMenuExercise_Click;
             // 
             // btnMenuExam
@@ -177,6 +178,7 @@ namespace GUI
             btnMenuResearchTopic.TabIndex = 8;
             btnMenuResearchTopic.Text = "Đề tài nghiên cứu";
             btnMenuResearchTopic.TextAlign = HorizontalAlignment.Left;
+            btnMenuResearchTopic.Visible = false;
             btnMenuResearchTopic.Click += btnMenuResearchTopic_Click;
             // 
             // btnMenuScore
@@ -201,6 +203,7 @@ namespace GUI
             btnMenuScore.TabIndex = 7;
             btnMenuScore.Text = "Quản lý điểm";
             btnMenuScore.TextAlign = HorizontalAlignment.Left;
+            btnMenuScore.Visible = false;
             btnMenuScore.Click += btnMenuScore_Click;
             // 
             // btnMenuCalendar
@@ -249,6 +252,7 @@ namespace GUI
             btnMenuLessonPlan.TabIndex = 5;
             btnMenuLessonPlan.Text = "Giáo án";
             btnMenuLessonPlan.TextAlign = HorizontalAlignment.Left;
+            btnMenuLessonPlan.Visible = false;
             btnMenuLessonPlan.Click += btnMenuLessonPlan_Click;
             // 
             // btnMenuBook
@@ -297,6 +301,7 @@ namespace GUI
             btnMenuManagementAccount.TabIndex = 3;
             btnMenuManagementAccount.Text = "Quản lý tài khoản";
             btnMenuManagementAccount.TextAlign = HorizontalAlignment.Left;
+            btnMenuManagementAccount.Visible = false;
             btnMenuManagementAccount.Click += btnMenuManagementAccount_Click;
             // 
             // btnMenuHome

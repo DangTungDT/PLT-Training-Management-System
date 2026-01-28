@@ -160,42 +160,19 @@ namespace GUI.UserControls.Book
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
 
-            // Lưu trực tiếp vào LinkFolder
+            // Lưu trực tiếp vào LinkFolder (không tạo subfolder)
             string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
-            var row = dgvFileBook.Rows
-                    .Cast<DataGridViewRow>()
-                    .FirstOrDefault(r =>
-                        !r.IsNewRow &&
-                        r.Cells["colName"].Value?.ToString() == nameFile
-                    );
-
-            if (row != null)
-            {
-                row.Cells["colName"].Value = nameFile;
-                row.Cells["colFilePath"].Value = destFilePath;
-                row.Cells["colSizeFile"].Value = capacityFile;
-            }
-            else
+            if (SaveFileToProject(filePath))
             {
                 dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
             }
-
-            FilesDTO newFile = new FilesDTO()
-            {
-                FileName = nameFile,
-                FilePath = destFilePath,
-                FileSize = (int)file.Length,
-                FileType = "pdf",
-                CreatedAt = DateTime.Now
-            };
-
-            _allNewFileAddedBook.Add(newFile);
-            SaveFileToProject(filePath);
         }
 
-        private void SaveFileToProject(string filePath)
+
+        private bool SaveFileToProject(string filePath)
         {
+
             FileInfo file = new FileInfo(filePath);
 
             // Kiểm tra LinkFolder đã được cấu hình chưa
@@ -205,12 +182,20 @@ namespace GUI.UserControls.Book
                                 "Lỗi",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
-            // Lưu trực tiếp vào LinkFolder
+            // Lưu trực tiếp vào thư mục LinkFolder
             string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
+            string sourcePath = Path.GetFullPath(file.FullName);
+            string targetPath = Path.GetFullPath(destFilePath);
+
+            if (string.Equals(sourcePath, targetPath, StringComparison.OrdinalIgnoreCase))
+            {
+                // File đã nằm trong thư mục lưu → không cần copy
+                return false;
+            }
             try
             {
                 if (System.IO.File.Exists(destFilePath))
@@ -223,7 +208,7 @@ namespace GUI.UserControls.Book
 
                     if (result == DialogResult.No)
                     {
-                        return;
+                        return false;
                     }
 
                     System.IO.File.Delete(destFilePath);
@@ -235,6 +220,7 @@ namespace GUI.UserControls.Book
                                 "Thành công",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+                return true;
             }
             catch (IOException ex)
             {
@@ -243,6 +229,7 @@ namespace GUI.UserControls.Book
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
@@ -251,6 +238,7 @@ namespace GUI.UserControls.Book
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                return false;
             }
         }
         private void pnUploadFile_DragDrop(object sender, DragEventArgs e)
@@ -412,6 +400,31 @@ namespace GUI.UserControls.Book
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtPublicYearBook_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Cho phép: số, Backspace
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPublicYearBook_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPublicYearBook.Text))
+                return;
+
+            int cursor = txtPublicYearBook.SelectionStart;
+
+            string filtered = new string(txtPublicYearBook.Text.Where(char.IsDigit).ToArray());
+
+            if (txtPublicYearBook.Text != filtered)
+            {
+                txtPublicYearBook.Text = filtered;
+                txtPublicYearBook.SelectionStart = Math.Min(cursor, filtered.Length);
             }
         }
     }

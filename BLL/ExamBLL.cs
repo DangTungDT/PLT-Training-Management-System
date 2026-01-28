@@ -29,9 +29,9 @@ namespace BLL
         {
             return _examDAL.GetExamByValue(name, type, courseId, semesterId, year);
         }
-        public IEnumerable<ExamOverviewDTO> GetExamsOverviewFilter(int courseId, int schoolId, int year)
+        public IEnumerable<ExamOverviewDTO> GetExamsOverviewFilter(int courseId, int schoolId, int semesterId)
         {
-            return _examDAL.GetExamsOverviewFilter(courseId, schoolId, year);
+            return _examDAL.GetExamsOverviewFilter(courseId, schoolId, semesterId);
         }
         public List<int> GetAllYearForExam()
         {

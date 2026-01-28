@@ -8,7 +8,6 @@ namespace BLL
     public class CourseBLL
     {
         private readonly CourseDAL _courseDAL;
-
         public CourseBLL()
         {
             _courseDAL = new CourseDAL();

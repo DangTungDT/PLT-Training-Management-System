@@ -206,6 +206,12 @@ namespace GUI.UserControls.Schedule
             if (cbSchool.SelectedValue == null) return;
 
             int id = Convert.ToInt32(cbSchool.SelectedValue);
+            if(id == 0)
+            {
+                cbSemester.DataSource = null;
+                cbWeek.DataSource = null;
+                return;
+            }
             if (id == -1)
             {
                 // Open FormAddSchool
@@ -226,7 +232,7 @@ namespace GUI.UserControls.Schedule
                 return;
             }
 
-            cbWeek.Items.Clear();
+            cbWeek.DataSource = null;
             LoadDataForComboboxSemester();
         }
 

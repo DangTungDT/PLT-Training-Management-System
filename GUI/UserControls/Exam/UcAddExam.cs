@@ -442,49 +442,98 @@ namespace GUI.UserControls.Exam
                 return;
             }
 
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
+            {
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             string nameFile = file.Name;
             string capacityFile = (file.Length / (1024.0 * 1024.0)).ToString("F2") + " MB";
 
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
-            dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
-            SaveFileToProject(filePath);
+            // Lưu trực tiếp vào LinkFolder (không tạo subfolder)
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
+
+            if (SaveFileToProject(filePath))
+            {
+                dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
+            }
         }
 
 
-        private void SaveFileToProject(string filePath)
+        private bool SaveFileToProject(string filePath)
         {
 
             FileInfo file = new FileInfo(filePath);
-            string guiRootPath = Path.GetFullPath(
-                Path.Combine(Application.StartupPath, @"..\..\..\")
-            );
 
-            string filesFolderPath = Path.Combine(guiRootPath, "Files");
-
-            if (!Directory.Exists(filesFolderPath))
+            // Kiểm tra LinkFolder đã được cấu hình chưa
+            if (!LinkFolder.Instance.IsValidPath())
             {
-                Directory.CreateDirectory(filesFolderPath);
+                MessageBox.Show("Chưa cấu hình đường dẫn thư mục lưu trữ!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return false;
             }
-            string destFilePath = Path.Combine(filesFolderPath, file.Name);
 
+            // Lưu trực tiếp vào thư mục LinkFolder
+            string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
+
+            string sourcePath = Path.GetFullPath(file.FullName);
+            string targetPath = Path.GetFullPath(destFilePath);
+
+            if (string.Equals(sourcePath, targetPath, StringComparison.OrdinalIgnoreCase))
+            {
+                // File đã nằm trong thư mục lưu → không cần copy
+                return false;
+            }
             try
             {
                 if (System.IO.File.Exists(destFilePath))
+                {
+                    DialogResult result = MessageBox.Show(
+                        $"File '{file.Name}' đã tồn tại. Bạn có muốn ghi đè không?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return false;
+                    }
+
                     System.IO.File.Delete(destFilePath);
+                }
 
                 System.IO.File.Copy(file.FullName, destFilePath);
+
+                MessageBox.Show($"Lưu file thành công tại:\n{destFilePath}",
+                                "Thành công",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return true;
             }
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    "Không thể ghi đè file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
+                    "Không thể lưu file. Hãy chắc chắn file không đang được mở.\n\n" + ex.Message,
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Lỗi khi lưu file: {ex.Message}",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -511,12 +560,20 @@ namespace GUI.UserControls.Exam
 
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
-            LoadUserControlAddQuestion();
+            //LoadUserControlAddQuestion();
+            UcAddQuestion ucAddQuestion;
+            if (_newExam == null) _newExam = GetNewExamValue();
+            ucAddQuestion = new UcAddQuestion();
+            ucAddQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            int width = flpQuestion.ClientSize.Width - 60;
+            ucAddQuestion.Size = new Size(width, ucAddQuestion.Size.Height);
+            ucAddQuestion.SetNumberQuestion(flpQuestion.Controls.Count + 1);
+            flpQuestion.Controls.Add(ucAddQuestion);
         }
 
         private void btnNextStage_Click(object sender, EventArgs e)
         {
-            if (_stageAddExam < 3)
+            if (_stageAddExam < 4)
             {
                 _stageAddExam++;
                 LoadStage(_stageAddExam);
@@ -663,7 +720,10 @@ namespace GUI.UserControls.Exam
                     MessageBox.Show("Đề thi không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
+                if(txtTotalQuestion.Text == "")
+                {
+                    return true;
+                }
                 // TRY thêm questions - nếu thất bại thì bỏ qua, không thông báo
                 try
                 {

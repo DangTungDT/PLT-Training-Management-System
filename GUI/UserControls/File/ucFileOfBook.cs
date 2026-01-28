@@ -80,7 +80,7 @@ namespace GUI.UserControls.Book
             {
                 DeleteFile?.Invoke(_fileId, _position);
             }
-            
+
         }
 
         private void lblFileName_DoubleClick(object sender, EventArgs e)
@@ -94,6 +94,11 @@ namespace GUI.UserControls.Book
             {
                 MessageBox.Show("File không tồn tại hoặc không thể mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void picIcon_Click(object sender, EventArgs e)
+        {
 
         }
     }

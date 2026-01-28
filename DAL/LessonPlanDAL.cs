@@ -20,8 +20,6 @@ namespace DAL
                 DateTime weekStart = dateInWeek.Date.AddDays(-offsetToMonday);
                 DateTime weekEnd = weekStart.AddDays(6);
 
-                // join LessonPlans -> Courses to filter by Course.SemesterId,
-                // and select lesson plans whose date range overlaps the week
                 List<LessonPlanDTO> query = (from lp in _context.LessonPlans
                             join c in _context.Courses on lp.CourseId equals c.Id
                             where c.SemesterId == semesterId

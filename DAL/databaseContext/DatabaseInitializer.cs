@@ -40,5 +40,25 @@ namespace DAL.databaseContext
                 return false;
             }
         }
+
+        public static bool CanConnectToServer()
+        {
+            try
+            {
+                var builder = new SqlConnectionStringBuilder(GetConnectionString())
+                {
+                    InitialCatalog = "master"
+                };
+
+                using var conn = new SqlConnection(builder.ConnectionString);
+                conn.Open();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

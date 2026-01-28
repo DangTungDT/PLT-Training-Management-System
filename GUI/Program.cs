@@ -1,5 +1,6 @@
 ﻿using DAL.databaseContext;
 using GUI.Forms;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Windows.Forms;
 
@@ -12,16 +13,27 @@ namespace GUI
         {
             ApplicationConfiguration.Initialize();
 
-            if (!DatabaseInitializer.CanConnect())
+            //if (!DatabaseInitializer.CanConnect())
+            //{
+            //    using (var frm = new FormDatabaseConfig())
+            //    {
+            //        if (frm.ShowDialog() != DialogResult.OK)
+            //            return;
+            //    }
+            //    Application.Restart();
+            //    return;
+            //}
+            if (!DatabaseInitializer.CanConnectToServer())
             {
-                using (var frm = new FormDatabaseConfig())
-                {
-                    if (frm.ShowDialog() != DialogResult.OK)
-                        return;
-                }
+                using var frm = new FormDatabaseConfig();
+                if (frm.ShowDialog() != DialogResult.OK)
+                    return;
+
                 Application.Restart();
                 return;
             }
+
+
             try
             {
                 DatabaseInitializer.Initialize();
@@ -39,5 +51,6 @@ namespace GUI
 
             Application.Run(new Main());
         }
+
     }
 }

@@ -13,20 +13,6 @@ namespace DAL.databaseContext
 
     public class AppDBContext : DbContext
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        IConfigurationRoot configuration = new ConfigurationBuilder()
-        //            .SetBasePath(Directory.GetCurrentDirectory())
-        //            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-        //            .Build();
-
-        //        var connectionString = configuration.GetConnectionString("Default");
-
-        //        optionsBuilder.UseSqlServer(connectionString);
-        //    }
-        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -49,7 +35,8 @@ namespace DAL.databaseContext
         override protected void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.RelationshipEntities();
-            
+            modelBuilder.ApplyGeneratedSeed();
+
         }
 
         public DbSet<ClassExamDTO> ClassExams { get; set; }

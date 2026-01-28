@@ -470,12 +470,13 @@ namespace GUI.UserControls.Exam
 
         private void UcAddExam_Load(object sender, EventArgs e)
         {
+            panel2.Visible = false;
             cbExamType.SelectedIndex = 0;
             cbTimeType.SelectedIndex = 0;
             RegisterTextBoxEvents();
             LoadStage(1);
             LoadSchoolToCombobox();
-
+            panel2.Visible = true;
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e)

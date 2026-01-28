@@ -187,28 +187,26 @@ namespace DAL
             }
         }
 
-        public IEnumerable<ExamOverviewDTO> GetExamsOverviewFilter(int courseId, int schoolId, int year)
+        public IEnumerable<ExamOverviewDTO> GetExamsOverviewFilter(int courseId, int schoolId, int semesterId)
         {
             try
             {
                 using (var context = new AppDBContext())
                 {
                     var query = context.Exams.AsQueryable();
-
-                    if (year > 0)
-                    {
-                        query = query.Where(e => e.Year == year);
-                    }
-
                     if (courseId > 0)
                     {
                         query = query.Where(e => e.CourseId == courseId);
                     }
-
+                    if (semesterId > 0)
+                    {
+                        query = query.Where(e => e.SemesterId == semesterId);
+                    }
                     if (schoolId > 0)
                     {
                         query = query.Where(e => e.Course.Semester.School.Id == schoolId);
                     }
+                    
 
                     return query
                         .Include(e => e.Course)

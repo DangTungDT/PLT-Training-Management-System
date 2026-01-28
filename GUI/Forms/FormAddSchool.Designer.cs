@@ -162,6 +162,8 @@
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(434, 32);
             txtAddress.TabIndex = 5;
+            txtAddress.TextChanged += txtAddress_TextChanged;
+            txtAddress.KeyPress += txtAddress_KeyPress;
             // 
             // lblEmail
             // 

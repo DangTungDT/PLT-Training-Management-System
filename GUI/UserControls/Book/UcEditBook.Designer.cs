@@ -534,6 +534,8 @@
             txtPublicYearBook.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtPublicYearBook.Size = new Size(179, 33);
             txtPublicYearBook.TabIndex = 4;
+            txtPublicYearBook.TextChanged += txtPublicYearBook_TextChanged;
+            txtPublicYearBook.KeyPress += txtPublicYearBook_KeyPress;
             // 
             // cbYear
             // 

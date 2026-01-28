@@ -55,35 +55,6 @@ namespace GUI.UserControls.Exam
             colDelete.Image = Properties.Resources.delete_32;
         }
 
-        // ------------------- UPDATED: combo loaders with "Thêm mới" item -------------------
-
-        private void LoadDataForComboboxYear()
-        {
-            _suppressComboEvents = true;
-            try
-            {
-                var years = _examBLL.GetAllYearForExam()
-                    .Distinct()
-                    .OrderByDescending(y => y)
-                    .Select(y => new CbItem { Id = y, Name = y.ToString() })
-                    .ToList();
-
-                // add default "Chọn năm" at index 0
-                years.Insert(0, new CbItem { Id = 0, Name = "Chọn năm" });
-                // add "Thêm mới" as last
-                years.Add(new CbItem { Id = -1, Name = "Thêm mới" });
-
-                cbYearCourse.DisplayMember = "Name";
-                cbYearCourse.ValueMember = "Id";
-                cbYearCourse.DataSource = years;
-                cbYearCourse.SelectedIndex = 0;
-            }
-            finally
-            {
-                _suppressComboEvents = false;
-            }
-        }
-
         private void LoadDataForComboboxSchool()
         {
             _suppressComboEvents = true;
@@ -112,7 +83,8 @@ namespace GUI.UserControls.Exam
             _suppressComboEvents = true;
             try
             {
-                var courses = _courseBLL.GetAllCourses()
+                int idSemester = GetComboIntValue(cbSemester);
+                var courses = _courseBLL.GetAllBySemesterId(idSemester)
                     .Select(c => new CbItem { Id = c.Id, Name = c.FullName })
                     .ToList();
 
@@ -140,7 +112,8 @@ namespace GUI.UserControls.Exam
             _suppressComboEvents = true;
             try
             {
-                var semesters = _semesterBLL.GetAll() ?? new List<SemesterDTO>();
+                int idSchool = GetComboIntValue(cbSchool);
+                var semesters = _semesterBLL.GetAllBySchoolId(idSchool) ?? new List<SemesterDTO>();
 
                 var semestersData = semesters
                     .Select(s => new CbItem { Id = s.Id, Name = s.Name })
@@ -162,15 +135,11 @@ namespace GUI.UserControls.Exam
             }
         }
 
-        // ------------------- END: combo loaders -------------------
 
         private void UcExam_Load(object sender, EventArgs e)
         {
             LoadImageForColumnDataGirdViewBook();
             LoadDataForComboboxSchool();
-            LoadDataForComboboxCourse();
-            LoadDataForComboboxYear();
-            LoadDataForComboboxSemester(); // load semester as requested
             LoadExamDataToDGV();
         }
 
@@ -184,101 +153,120 @@ namespace GUI.UserControls.Exam
 
         private void LoadExamDataToDGV()
         {
-            int schoolId = GetComboIntValue(cbSchool);
-            int courseId = GetComboIntValue(cbCourse);
-            int year = GetComboIntValue(cbYearCourse);
-            var exams = _examBLL.GetExamsOverviewFilter(courseId, schoolId, year);
-            dgvExams.Rows.Clear();
-            foreach (ExamOverviewDTO exam in exams)
+            try
             {
-                dgvExams.Rows.Add
-                    (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ClassName, exam.ExamType, exam.Duration, exam.QuestionCount, exam.Status, null, null, null);
-            }
-            lbTotalExam.Text = $"Tổng số đề thi: {exams.Count()}";
-        }
-
-        // ------------------- SINGLE cbYearCourse handler -------------------
-        private void cbYearCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_suppressComboEvents) return;
-            if (cbYearCourse.SelectedValue == null) return;
-
-            int id = Convert.ToInt32(cbYearCourse.SelectedValue);
-            if (id == -1)
-            {
-                // Open FormAddYearCourse (assumed to exist)
-                using (var f = new FormAddYearCourse())
+                int schoolId = GetComboIntValue(cbCourse);
+                int courseId = GetComboIntValue(cbSchool);
+                int semesterId = GetComboIntValue(cbSemester);
+                var exams = _examBLL.GetExamsOverviewFilter(courseId, schoolId, semesterId);
+                dgvExams.Rows.Clear();
+                foreach (ExamOverviewDTO exam in exams)
                 {
-                    f.StartPosition = FormStartPosition.CenterParent;
-                    f.ShowDialog();
+                    dgvExams.Rows.Add
+                        (exam.ExamId, exam.ExamName, exam.CourseName, exam.SchoolName, exam.ClassName, exam.ExamType, exam.Duration, exam.QuestionCount, exam.Status, null, null, null);
                 }
-                // reload year list and do not proceed with normal selection logic
-                LoadDataForComboboxYear();
-                return;
+                lbTotalExam.Text = $"Tổng số đề thi: {exams.Count()}";
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu đề thi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            LoadExamDataToDGV();
         }
         private void cbSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_suppressComboEvents) return;
-            if (cbSchool.SelectedValue == null) return;
-
-            int id = Convert.ToInt32(cbSchool.SelectedValue);
-            if (id == -1)
+            try
             {
-                using (var f = new FormAddSchool())
-                {
-                    f.StartPosition = FormStartPosition.CenterParent;
-                    f.ShowDialog();
-                }
-                LoadDataForComboboxSchool();
-                return;
-            }
+                if (_suppressComboEvents) return;
+                if (cbSchool.SelectedValue == null) return;
 
-            LoadExamDataToDGV();
+                int id = Convert.ToInt32(cbSchool.SelectedValue);
+                if (id == -1)
+                {
+                    using (var f = new FormAddSchool())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    LoadDataForComboboxSchool();
+                    return;
+                }
+                if (id != 0)
+                {
+                    LoadDataForComboboxSemester();
+                }
+                else
+                {
+                    cbSemester.DataSource = null;
+                    cbCourse.DataSource = null;
+                }
+                    LoadExamDataToDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu trường học: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_suppressComboEvents) return;
-            if (cbCourse.SelectedValue == null) return;
-
-            int id = Convert.ToInt32(cbCourse.SelectedValue);
-            if (id == -1)
+            try
             {
-                // FormAddSubject is the form for adding a subject (course)
-                using (var f = new FormAddSubject())
-                {
-                    f.StartPosition = FormStartPosition.CenterParent;
-                    f.ShowDialog();
-                }
-                LoadDataForComboboxCourse();
-                return;
-            }
+                if (_suppressComboEvents) return;
+                if (cbCourse.SelectedValue == null) return;
 
-            LoadExamDataToDGV();
+                int id = Convert.ToInt32(cbCourse.SelectedValue);
+                if (id == -1)
+                {
+                    // FormAddSubject is the form for adding a subject (course)
+                    using (var f = new FormAddSubject())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    LoadDataForComboboxCourse();
+                    return;
+                }
+
+                LoadExamDataToDGV();
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu khóa học: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_suppressComboEvents) return;
-            if (cbSemester.SelectedValue == null) return;
-
-            int id = Convert.ToInt32(cbSemester.SelectedValue);
-            if (id == -1)
+            try
             {
-                using (var f = new FormAddSemester())
-                {
-                    f.StartPosition = FormStartPosition.CenterParent;
-                    f.ShowDialog();
-                }
-                LoadDataForComboboxSemester();
-                return;
-            }
+                cbCourse.DataSource = null;
+                if (_suppressComboEvents) return;
+                if (cbSemester.SelectedValue == null) return;
 
-            // If semester change should filter exams, call LoadExamDataToDGV()
-            LoadExamDataToDGV();
+                int id = Convert.ToInt32(cbSemester.SelectedValue);
+                if (id == -1)
+                {
+                    using (var f = new FormAddSemester())
+                    {
+                        f.StartPosition = FormStartPosition.CenterParent;
+                        f.ShowDialog();
+                    }
+                    LoadDataForComboboxSemester();
+                    return;
+                }
+
+                if (id != 0)
+                {
+                    LoadDataForComboboxCourse();
+                }
+                else
+                {
+                    cbCourse.DataSource = null;
+                }
+                    LoadExamDataToDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu học kỳ: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddExam_Click(object sender, EventArgs e)

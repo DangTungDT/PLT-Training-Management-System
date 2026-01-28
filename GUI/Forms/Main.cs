@@ -348,6 +348,9 @@ namespace GUI
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
             LoadBackGroundControlButtonMenu(btnMenuHome);
+            Navigate.Instance.Clear();
+            pbHeaderContent.Controls.Clear();
+            pbContent.Controls.Clear();
         }
 
         private void btnMenuManagementAccount_Click(object sender, EventArgs e)

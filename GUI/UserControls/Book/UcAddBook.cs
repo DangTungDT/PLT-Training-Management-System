@@ -290,12 +290,15 @@ namespace GUI.UserControls.Book
             // Lưu trực tiếp vào LinkFolder (không tạo subfolder)
             string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
-            dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
-            SaveFileToProject(filePath);
+            if (SaveFileToProject(filePath))
+            {
+                dgvFileBook.Rows.Add(nameFile, destFilePath, capacityFile);
+            }
         }
 
-        private void SaveFileToProject(string filePath)
+        private bool SaveFileToProject(string filePath)
         {
+
             FileInfo file = new FileInfo(filePath);
 
             // Kiểm tra LinkFolder đã được cấu hình chưa
@@ -305,12 +308,20 @@ namespace GUI.UserControls.Book
                                 "Lỗi",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             // Lưu trực tiếp vào thư mục LinkFolder
             string destFilePath = Path.Combine(LinkFolder.Instance.FolderPath, file.Name);
 
+            string sourcePath = Path.GetFullPath(file.FullName);
+            string targetPath = Path.GetFullPath(destFilePath);
+
+            if (string.Equals(sourcePath, targetPath, StringComparison.OrdinalIgnoreCase))
+            {
+                // File đã nằm trong thư mục lưu → không cần copy
+                return false;
+            }
             try
             {
                 if (System.IO.File.Exists(destFilePath))
@@ -323,7 +334,7 @@ namespace GUI.UserControls.Book
 
                     if (result == DialogResult.No)
                     {
-                        return;
+                        return false;
                     }
 
                     System.IO.File.Delete(destFilePath);
@@ -335,6 +346,7 @@ namespace GUI.UserControls.Book
                                 "Thành công",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+                return true;
             }
             catch (IOException ex)
             {
@@ -343,6 +355,7 @@ namespace GUI.UserControls.Book
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
@@ -351,6 +364,7 @@ namespace GUI.UserControls.Book
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                return false;
             }
         }
         //private void HandleSelectedFile(string filePath)
@@ -539,6 +553,31 @@ namespace GUI.UserControls.Book
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPublicYearBook_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Cho phép: số, Backspace
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPublicYearBook_TextChanged_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPublicYearBook.Text))
+                return;
+
+            int cursor = txtPublicYearBook.SelectionStart;
+
+            string filtered = new string(txtPublicYearBook.Text.Where(char.IsDigit).ToArray());
+
+            if (txtPublicYearBook.Text != filtered)
+            {
+                txtPublicYearBook.Text = filtered;
+                txtPublicYearBook.SelectionStart = Math.Min(cursor, filtered.Length);
+            }
         }
     }
 }

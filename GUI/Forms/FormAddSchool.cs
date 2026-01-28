@@ -29,7 +29,7 @@ namespace GUI.Forms
         /// </summary>
         private void RegisterTextBoxEvents()
         {
-            TextBox[] textBoxes = { txtName, txtShortName, txtAddress };
+            TextBox[] textBoxes = { txtName, txtShortName };
 
             foreach (var tb in textBoxes)
             {
@@ -306,6 +306,41 @@ namespace GUI.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            bool isLetterOrDigit = char.IsLetterOrDigit(e.KeyChar);
+            bool isAllowedSpecial =
+                e.KeyChar == ' ' ||
+                e.KeyChar == ',' ||
+                e.KeyChar == '/' ||
+                e.KeyChar == '.' ||
+                e.KeyChar == '\\';
+
+            if (!isLetterOrDigit && !isAllowedSpecial)
+                e.Handled = true;
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            string allowed = @"^[\p{L}\p{N} ,./\\]*$";
+
+            if (!Regex.IsMatch(txtAddress.Text, allowed))
+            {
+                int pos = txtAddress.SelectionStart - 1;
+
+                txtAddress.Text = Regex.Replace(
+                    txtAddress.Text,
+                    @"[^\p{L}\p{N} ,./\\]",
+                    ""
+                );
+
+                txtAddress.SelectionStart = Math.Max(pos, 0);
+            }
         }
     }
 }
