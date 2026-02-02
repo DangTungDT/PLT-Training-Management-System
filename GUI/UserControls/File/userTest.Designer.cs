@@ -28,287 +28,266 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            tableLayoutPanel2 = new TableLayoutPanel();
             guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleSundayA = new FlowLayoutPanel();
-            lbCourseNameSundayA = new Label();
-            lbClassSundayA = new Label();
-            label40 = new Label();
-            lbTimeSundayA = new Label();
             panel8 = new Panel();
             guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleSaturdayA = new FlowLayoutPanel();
-            lbCourseNameSaturdayA = new Label();
-            lbClassSaturdayA = new Label();
-            lbTimeSaturdayA = new Label();
-            lbRoomSaturdayA = new Label();
             panel9 = new Panel();
             guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleFridayA = new FlowLayoutPanel();
-            lbCourseNameFridayA = new Label();
-            lbClassFridayA = new Label();
-            lbTimeFridayA = new Label();
-            lbRoomFridayA = new Label();
             panel10 = new Panel();
             guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleThursdayA = new FlowLayoutPanel();
-            lbCourseNameThursdayA = new Label();
-            lbClassThursdayA = new Label();
-            lbTimeThursdayA = new Label();
-            lbRoomThursdayA = new Label();
             panel11 = new Panel();
             guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleWednesdayA = new FlowLayoutPanel();
-            lbCourseNameWednesdayA = new Label();
-            lbClassWednesdayA = new Label();
-            lbTimeWednesdayA = new Label();
-            lbRoomWednesdayA = new Label();
             panel12 = new Panel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleTuesdayA = new FlowLayoutPanel();
-            lbCourseNameTuesdayA = new Label();
-            lbClassTuesdayA = new Label();
-            lbTimeTuesdayA = new Label();
-            lbRoomTuesdayA = new Label();
             panel13 = new Panel();
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleMondayA = new FlowLayoutPanel();
-            lbCourseNameMondayA = new Label();
-            lbClassMondayA = new Label();
-            lbTimeMondayA = new Label();
-            lbRoomMondayA = new Label();
             panel14 = new Panel();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleSundayM = new FlowLayoutPanel();
-            lbCourseNameSundayM = new Label();
-            lbClassSundayM = new Label();
-            lbTimeSundayM = new Label();
-            lbRoomSundayM = new Label();
+            panel16 = new Panel();
             panel7 = new Panel();
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleSaturdayM = new FlowLayoutPanel();
-            lbCourseNameSaturdayM = new Label();
-            lbClassSaturdayM = new Label();
-            lbTimeSaturdayM = new Label();
-            lbRoomSaturdayM = new Label();
+            panel17 = new Panel();
             panel6 = new Panel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleFridayM = new FlowLayoutPanel();
-            lbCourseNameFridayM = new Label();
-            lbClassFridayM = new Label();
-            lbTimeFridayM = new Label();
-            lbRoomFridayM = new Label();
+            panel18 = new Panel();
             panel5 = new Panel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleThursdayM = new FlowLayoutPanel();
-            lbCourseNameThursdayM = new Label();
-            lbClassThursdayM = new Label();
-            lbTimeThursdayM = new Label();
-            lbRoomThursdayM = new Label();
+            panel19 = new Panel();
             panel4 = new Panel();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleWednesdayM = new FlowLayoutPanel();
-            lbCourseNameWednesdayM = new Label();
-            lbClassWednesdayM = new Label();
-            lbTimeWednesdayM = new Label();
-            lbRoomWednesdayM = new Label();
+            panel20 = new Panel();
             panel3 = new Panel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleTuesdayM = new FlowLayoutPanel();
-            lbCourseNameTuesdayM = new Label();
-            lbClassTuesdayM = new Label();
-            lbTimeTuesdayM = new Label();
-            lbRoomTuesdayM = new Label();
+            panel21 = new Panel();
             panel2 = new Panel();
             label8 = new Label();
             label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
             label1 = new Label();
-            label2 = new Label();
+            label4 = new Label();
+            label9 = new Label();
             label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            flpScheduleMondayM = new FlowLayoutPanel();
-            lbCourseNameMondayM = new Label();
-            lbClassMondayM = new Label();
-            lbTimeMondayM = new Label();
-            lbRoomMondayM = new Label();
+            panel22 = new Panel();
             panel1 = new Panel();
-            tableLayoutPanel1.SuspendLayout();
+            panel15 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lb_Information_2_M = new Label();
+            panel23 = new Panel();
+            btn_2_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            lb_Information_3_M = new Label();
+            panel24 = new Panel();
+            btn_3_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            lb_Information_4_M = new Label();
+            panel25 = new Panel();
+            btn_4_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            lb_Information_5_M = new Label();
+            panel26 = new Panel();
+            btn_5_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            lb_Information_6_M = new Label();
+            panel27 = new Panel();
+            btn_6_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            lb_Information_7_M = new Label();
+            panel28 = new Panel();
+            btn_7_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            lb_Information_8_M = new Label();
+            panel29 = new Panel();
+            btn_8_M = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel9 = new TableLayoutPanel();
+            lb_Information_2_A = new Label();
+            panel30 = new Panel();
+            btn_2_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            lb_Information_3_A = new Label();
+            panel31 = new Panel();
+            btn_3_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            lb_Information_4_A = new Label();
+            panel32 = new Panel();
+            btn_4_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel12 = new TableLayoutPanel();
+            lb_Information_5_A = new Label();
+            panel33 = new Panel();
+            btn_5_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            lb_Information_6_A = new Label();
+            panel34 = new Panel();
+            btn_6_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel14 = new TableLayoutPanel();
+            lb_Information_7_A = new Label();
+            panel35 = new Panel();
+            btn_7_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel15 = new TableLayoutPanel();
+            lb_Information_8_A = new Label();
+            panel36 = new Panel();
+            btn_8_A = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel2.SuspendLayout();
             guna2Panel15.SuspendLayout();
-            flpScheduleSundayA.SuspendLayout();
             guna2Panel14.SuspendLayout();
-            flpScheduleSaturdayA.SuspendLayout();
             guna2Panel13.SuspendLayout();
-            flpScheduleFridayA.SuspendLayout();
             guna2Panel12.SuspendLayout();
-            flpScheduleThursdayA.SuspendLayout();
             guna2Panel11.SuspendLayout();
-            flpScheduleWednesdayA.SuspendLayout();
             guna2Panel10.SuspendLayout();
-            flpScheduleTuesdayA.SuspendLayout();
             guna2Panel9.SuspendLayout();
-            flpScheduleMondayA.SuspendLayout();
             guna2Panel8.SuspendLayout();
-            flpScheduleSundayM.SuspendLayout();
             guna2Panel7.SuspendLayout();
-            flpScheduleSaturdayM.SuspendLayout();
             guna2Panel6.SuspendLayout();
-            flpScheduleFridayM.SuspendLayout();
             guna2Panel5.SuspendLayout();
-            flpScheduleThursdayM.SuspendLayout();
             guna2Panel4.SuspendLayout();
-            flpScheduleWednesdayM.SuspendLayout();
             guna2Panel3.SuspendLayout();
-            flpScheduleTuesdayM.SuspendLayout();
             guna2Panel1.SuspendLayout();
-            flpScheduleMondayM.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel23.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            panel24.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            panel25.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            panel26.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            panel27.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
+            panel28.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            panel29.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            panel30.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
+            panel31.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            panel32.SuspendLayout();
+            tableLayoutPanel12.SuspendLayout();
+            panel33.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
+            panel34.SuspendLayout();
+            tableLayoutPanel14.SuspendLayout();
+            panel35.SuspendLayout();
+            tableLayoutPanel15.SuspendLayout();
+            panel36.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel2
             // 
-            tableLayoutPanel1.ColumnCount = 8;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.Controls.Add(guna2Panel15, 7, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel14, 6, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel13, 5, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel12, 4, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel11, 3, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel10, 2, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel9, 1, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel8, 7, 1);
-            tableLayoutPanel1.Controls.Add(guna2Panel7, 6, 1);
-            tableLayoutPanel1.Controls.Add(guna2Panel6, 5, 1);
-            tableLayoutPanel1.Controls.Add(guna2Panel5, 4, 1);
-            tableLayoutPanel1.Controls.Add(guna2Panel4, 3, 1);
-            tableLayoutPanel1.Controls.Add(guna2Panel3, 2, 1);
-            tableLayoutPanel1.Controls.Add(label8, 7, 0);
-            tableLayoutPanel1.Controls.Add(label7, 6, 0);
-            tableLayoutPanel1.Controls.Add(label6, 5, 0);
-            tableLayoutPanel1.Controls.Add(label5, 4, 0);
-            tableLayoutPanel1.Controls.Add(label4, 3, 0);
-            tableLayoutPanel1.Controls.Add(label3, 2, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 0);
-            tableLayoutPanel1.Controls.Add(label2, 0, 1);
-            tableLayoutPanel1.Controls.Add(label10, 0, 2);
-            tableLayoutPanel1.Controls.Add(guna2Panel1, 1, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1034, 596);
-            tableLayoutPanel1.TabIndex = 0;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            tableLayoutPanel2.ColumnCount = 8;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.Controls.Add(guna2Panel15, 7, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel14, 6, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel13, 5, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel12, 4, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel11, 3, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel10, 2, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel9, 1, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel8, 7, 1);
+            tableLayoutPanel2.Controls.Add(guna2Panel7, 6, 1);
+            tableLayoutPanel2.Controls.Add(guna2Panel6, 5, 1);
+            tableLayoutPanel2.Controls.Add(guna2Panel5, 4, 1);
+            tableLayoutPanel2.Controls.Add(guna2Panel4, 3, 1);
+            tableLayoutPanel2.Controls.Add(guna2Panel3, 2, 1);
+            tableLayoutPanel2.Controls.Add(label8, 7, 0);
+            tableLayoutPanel2.Controls.Add(label7, 6, 0);
+            tableLayoutPanel2.Controls.Add(label1, 5, 0);
+            tableLayoutPanel2.Controls.Add(label4, 4, 0);
+            tableLayoutPanel2.Controls.Add(label9, 3, 0);
+            tableLayoutPanel2.Controls.Add(label10, 2, 0);
+            tableLayoutPanel2.Controls.Add(label11, 1, 0);
+            tableLayoutPanel2.Controls.Add(label12, 0, 1);
+            tableLayoutPanel2.Controls.Add(label13, 0, 2);
+            tableLayoutPanel2.Controls.Add(guna2Panel1, 1, 1);
+            tableLayoutPanel2.Controls.Add(panel15, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(1034, 596);
+            tableLayoutPanel2.TabIndex = 5;
             // 
             // guna2Panel15
             // 
-            guna2Panel15.Controls.Add(flpScheduleSundayA);
+            guna2Panel15.Controls.Add(tableLayoutPanel15);
             guna2Panel15.Controls.Add(panel8);
-            guna2Panel15.CustomizableEdges = customizableEdges29;
+            guna2Panel15.CustomizableEdges = customizableEdges3;
             guna2Panel15.Dock = DockStyle.Fill;
             guna2Panel15.Location = new Point(894, 318);
             guna2Panel15.Margin = new Padding(0);
             guna2Panel15.Name = "guna2Panel15";
-            guna2Panel15.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            guna2Panel15.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel15.Size = new Size(140, 278);
             guna2Panel15.TabIndex = 38;
-            // 
-            // flpScheduleSundayA
-            // 
-            flpScheduleSundayA.Controls.Add(lbCourseNameSundayA);
-            flpScheduleSundayA.Controls.Add(lbClassSundayA);
-            flpScheduleSundayA.Controls.Add(label40);
-            flpScheduleSundayA.Controls.Add(lbTimeSundayA);
-            flpScheduleSundayA.Dock = DockStyle.Fill;
-            flpScheduleSundayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleSundayA.Location = new Point(0, 0);
-            flpScheduleSundayA.Name = "flpScheduleSundayA";
-            flpScheduleSundayA.Padding = new Padding(5);
-            flpScheduleSundayA.Size = new Size(139, 278);
-            flpScheduleSundayA.TabIndex = 2;
-            flpScheduleSundayA.WrapContents = false;
-            // 
-            // lbCourseNameSundayA
-            // 
-            lbCourseNameSundayA.AutoSize = true;
-            lbCourseNameSundayA.BackColor = Color.Transparent;
-            lbCourseNameSundayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameSundayA.Location = new Point(8, 5);
-            lbCourseNameSundayA.Name = "lbCourseNameSundayA";
-            lbCourseNameSundayA.Size = new Size(83, 23);
-            lbCourseNameSundayA.TabIndex = 0;
-            lbCourseNameSundayA.Text = "Khoá học";
-            // 
-            // lbClassSundayA
-            // 
-            lbClassSundayA.AutoSize = true;
-            lbClassSundayA.BackColor = Color.Transparent;
-            lbClassSundayA.Location = new Point(8, 28);
-            lbClassSundayA.Name = "lbClassSundayA";
-            lbClassSundayA.Size = new Size(34, 20);
-            lbClassSundayA.TabIndex = 1;
-            lbClassSundayA.Text = "Lớp";
-            // 
-            // label40
-            // 
-            label40.AutoSize = true;
-            label40.BackColor = Color.Transparent;
-            label40.Location = new Point(8, 48);
-            label40.Name = "label40";
-            label40.Size = new Size(71, 20);
-            label40.TabIndex = 2;
-            label40.Text = "Thời gian";
-            // 
-            // lbTimeSundayA
-            // 
-            lbTimeSundayA.AutoSize = true;
-            lbTimeSundayA.BackColor = Color.Transparent;
-            lbTimeSundayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbTimeSundayA.Location = new Point(8, 68);
-            lbTimeSundayA.Name = "lbTimeSundayA";
-            lbTimeSundayA.Size = new Size(51, 20);
-            lbTimeSundayA.TabIndex = 3;
-            lbTimeSundayA.Text = "Phòng";
             // 
             // panel8
             // 
@@ -322,76 +301,20 @@
             // 
             // guna2Panel14
             // 
-            guna2Panel14.Controls.Add(flpScheduleSaturdayA);
+            guna2Panel14.Controls.Add(tableLayoutPanel14);
             guna2Panel14.Controls.Add(panel9);
-            guna2Panel14.CustomizableEdges = customizableEdges31;
+            guna2Panel14.CustomizableEdges = customizableEdges7;
             guna2Panel14.Dock = DockStyle.Fill;
             guna2Panel14.Location = new Point(755, 318);
             guna2Panel14.Margin = new Padding(0);
             guna2Panel14.Name = "guna2Panel14";
-            guna2Panel14.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            guna2Panel14.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel14.Size = new Size(139, 278);
             guna2Panel14.TabIndex = 37;
             // 
-            // flpScheduleSaturdayA
-            // 
-            flpScheduleSaturdayA.Controls.Add(lbCourseNameSaturdayA);
-            flpScheduleSaturdayA.Controls.Add(lbClassSaturdayA);
-            flpScheduleSaturdayA.Controls.Add(lbTimeSaturdayA);
-            flpScheduleSaturdayA.Controls.Add(lbRoomSaturdayA);
-            flpScheduleSaturdayA.Dock = DockStyle.Fill;
-            flpScheduleSaturdayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleSaturdayA.Location = new Point(0, 0);
-            flpScheduleSaturdayA.Name = "flpScheduleSaturdayA";
-            flpScheduleSaturdayA.Padding = new Padding(5);
-            flpScheduleSaturdayA.Size = new Size(138, 278);
-            flpScheduleSaturdayA.TabIndex = 2;
-            flpScheduleSaturdayA.WrapContents = false;
-            // 
-            // lbCourseNameSaturdayA
-            // 
-            lbCourseNameSaturdayA.AutoSize = true;
-            lbCourseNameSaturdayA.BackColor = Color.Transparent;
-            lbCourseNameSaturdayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameSaturdayA.Location = new Point(8, 5);
-            lbCourseNameSaturdayA.Name = "lbCourseNameSaturdayA";
-            lbCourseNameSaturdayA.Size = new Size(83, 23);
-            lbCourseNameSaturdayA.TabIndex = 0;
-            lbCourseNameSaturdayA.Text = "Khoá học";
-            // 
-            // lbClassSaturdayA
-            // 
-            lbClassSaturdayA.AutoSize = true;
-            lbClassSaturdayA.BackColor = Color.Transparent;
-            lbClassSaturdayA.Location = new Point(8, 28);
-            lbClassSaturdayA.Name = "lbClassSaturdayA";
-            lbClassSaturdayA.Size = new Size(34, 20);
-            lbClassSaturdayA.TabIndex = 1;
-            lbClassSaturdayA.Text = "Lớp";
-            // 
-            // lbTimeSaturdayA
-            // 
-            lbTimeSaturdayA.AutoSize = true;
-            lbTimeSaturdayA.BackColor = Color.Transparent;
-            lbTimeSaturdayA.Location = new Point(8, 48);
-            lbTimeSaturdayA.Name = "lbTimeSaturdayA";
-            lbTimeSaturdayA.Size = new Size(71, 20);
-            lbTimeSaturdayA.TabIndex = 2;
-            lbTimeSaturdayA.Text = "Thời gian";
-            // 
-            // lbRoomSaturdayA
-            // 
-            lbRoomSaturdayA.AutoSize = true;
-            lbRoomSaturdayA.BackColor = Color.Transparent;
-            lbRoomSaturdayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomSaturdayA.Location = new Point(8, 68);
-            lbRoomSaturdayA.Name = "lbRoomSaturdayA";
-            lbRoomSaturdayA.Size = new Size(51, 20);
-            lbRoomSaturdayA.TabIndex = 3;
-            lbRoomSaturdayA.Text = "Phòng";
-            // 
             // panel9
             // 
+            panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Dock = DockStyle.Right;
             panel9.Location = new Point(138, 0);
             panel9.Margin = new Padding(0);
@@ -401,73 +324,16 @@
             // 
             // guna2Panel13
             // 
-            guna2Panel13.Controls.Add(flpScheduleFridayA);
+            guna2Panel13.Controls.Add(tableLayoutPanel13);
             guna2Panel13.Controls.Add(panel10);
-            guna2Panel13.CustomizableEdges = customizableEdges33;
+            guna2Panel13.CustomizableEdges = customizableEdges11;
             guna2Panel13.Dock = DockStyle.Fill;
             guna2Panel13.Location = new Point(616, 318);
             guna2Panel13.Margin = new Padding(0);
             guna2Panel13.Name = "guna2Panel13";
-            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel13.Size = new Size(139, 278);
             guna2Panel13.TabIndex = 36;
-            // 
-            // flpScheduleFridayA
-            // 
-            flpScheduleFridayA.Controls.Add(lbCourseNameFridayA);
-            flpScheduleFridayA.Controls.Add(lbClassFridayA);
-            flpScheduleFridayA.Controls.Add(lbTimeFridayA);
-            flpScheduleFridayA.Controls.Add(lbRoomFridayA);
-            flpScheduleFridayA.Dock = DockStyle.Fill;
-            flpScheduleFridayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleFridayA.Location = new Point(0, 0);
-            flpScheduleFridayA.Name = "flpScheduleFridayA";
-            flpScheduleFridayA.Padding = new Padding(5);
-            flpScheduleFridayA.Size = new Size(138, 278);
-            flpScheduleFridayA.TabIndex = 2;
-            flpScheduleFridayA.WrapContents = false;
-            // 
-            // lbCourseNameFridayA
-            // 
-            lbCourseNameFridayA.AutoSize = true;
-            lbCourseNameFridayA.BackColor = Color.Transparent;
-            lbCourseNameFridayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameFridayA.Location = new Point(8, 5);
-            lbCourseNameFridayA.Name = "lbCourseNameFridayA";
-            lbCourseNameFridayA.Size = new Size(83, 23);
-            lbCourseNameFridayA.TabIndex = 0;
-            lbCourseNameFridayA.Text = "Khoá học";
-            // 
-            // lbClassFridayA
-            // 
-            lbClassFridayA.AutoSize = true;
-            lbClassFridayA.BackColor = Color.Transparent;
-            lbClassFridayA.Location = new Point(8, 28);
-            lbClassFridayA.Name = "lbClassFridayA";
-            lbClassFridayA.Size = new Size(34, 20);
-            lbClassFridayA.TabIndex = 1;
-            lbClassFridayA.Text = "Lớp";
-            // 
-            // lbTimeFridayA
-            // 
-            lbTimeFridayA.AutoSize = true;
-            lbTimeFridayA.BackColor = Color.Transparent;
-            lbTimeFridayA.Location = new Point(8, 48);
-            lbTimeFridayA.Name = "lbTimeFridayA";
-            lbTimeFridayA.Size = new Size(71, 20);
-            lbTimeFridayA.TabIndex = 2;
-            lbTimeFridayA.Text = "Thời gian";
-            // 
-            // lbRoomFridayA
-            // 
-            lbRoomFridayA.AutoSize = true;
-            lbRoomFridayA.BackColor = Color.Transparent;
-            lbRoomFridayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomFridayA.Location = new Point(8, 68);
-            lbRoomFridayA.Name = "lbRoomFridayA";
-            lbRoomFridayA.Size = new Size(51, 20);
-            lbRoomFridayA.TabIndex = 3;
-            lbRoomFridayA.Text = "Phòng";
             // 
             // panel10
             // 
@@ -481,73 +347,16 @@
             // 
             // guna2Panel12
             // 
-            guna2Panel12.Controls.Add(flpScheduleThursdayA);
+            guna2Panel12.Controls.Add(tableLayoutPanel12);
             guna2Panel12.Controls.Add(panel11);
-            guna2Panel12.CustomizableEdges = customizableEdges35;
+            guna2Panel12.CustomizableEdges = customizableEdges15;
             guna2Panel12.Dock = DockStyle.Fill;
             guna2Panel12.Location = new Point(477, 318);
             guna2Panel12.Margin = new Padding(0);
             guna2Panel12.Name = "guna2Panel12";
-            guna2Panel12.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            guna2Panel12.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel12.Size = new Size(139, 278);
             guna2Panel12.TabIndex = 35;
-            // 
-            // flpScheduleThursdayA
-            // 
-            flpScheduleThursdayA.Controls.Add(lbCourseNameThursdayA);
-            flpScheduleThursdayA.Controls.Add(lbClassThursdayA);
-            flpScheduleThursdayA.Controls.Add(lbTimeThursdayA);
-            flpScheduleThursdayA.Controls.Add(lbRoomThursdayA);
-            flpScheduleThursdayA.Dock = DockStyle.Fill;
-            flpScheduleThursdayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleThursdayA.Location = new Point(0, 0);
-            flpScheduleThursdayA.Name = "flpScheduleThursdayA";
-            flpScheduleThursdayA.Padding = new Padding(5);
-            flpScheduleThursdayA.Size = new Size(138, 278);
-            flpScheduleThursdayA.TabIndex = 2;
-            flpScheduleThursdayA.WrapContents = false;
-            // 
-            // lbCourseNameThursdayA
-            // 
-            lbCourseNameThursdayA.AutoSize = true;
-            lbCourseNameThursdayA.BackColor = Color.Transparent;
-            lbCourseNameThursdayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameThursdayA.Location = new Point(8, 5);
-            lbCourseNameThursdayA.Name = "lbCourseNameThursdayA";
-            lbCourseNameThursdayA.Size = new Size(83, 23);
-            lbCourseNameThursdayA.TabIndex = 0;
-            lbCourseNameThursdayA.Text = "Khoá học";
-            // 
-            // lbClassThursdayA
-            // 
-            lbClassThursdayA.AutoSize = true;
-            lbClassThursdayA.BackColor = Color.Transparent;
-            lbClassThursdayA.Location = new Point(8, 28);
-            lbClassThursdayA.Name = "lbClassThursdayA";
-            lbClassThursdayA.Size = new Size(34, 20);
-            lbClassThursdayA.TabIndex = 1;
-            lbClassThursdayA.Text = "Lớp";
-            // 
-            // lbTimeThursdayA
-            // 
-            lbTimeThursdayA.AutoSize = true;
-            lbTimeThursdayA.BackColor = Color.Transparent;
-            lbTimeThursdayA.Location = new Point(8, 48);
-            lbTimeThursdayA.Name = "lbTimeThursdayA";
-            lbTimeThursdayA.Size = new Size(71, 20);
-            lbTimeThursdayA.TabIndex = 2;
-            lbTimeThursdayA.Text = "Thời gian";
-            // 
-            // lbRoomThursdayA
-            // 
-            lbRoomThursdayA.AutoSize = true;
-            lbRoomThursdayA.BackColor = Color.Transparent;
-            lbRoomThursdayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomThursdayA.Location = new Point(8, 68);
-            lbRoomThursdayA.Name = "lbRoomThursdayA";
-            lbRoomThursdayA.Size = new Size(51, 20);
-            lbRoomThursdayA.TabIndex = 3;
-            lbRoomThursdayA.Text = "Phòng";
             // 
             // panel11
             // 
@@ -561,73 +370,16 @@
             // 
             // guna2Panel11
             // 
-            guna2Panel11.Controls.Add(flpScheduleWednesdayA);
+            guna2Panel11.Controls.Add(tableLayoutPanel11);
             guna2Panel11.Controls.Add(panel12);
-            guna2Panel11.CustomizableEdges = customizableEdges37;
+            guna2Panel11.CustomizableEdges = customizableEdges19;
             guna2Panel11.Dock = DockStyle.Fill;
             guna2Panel11.Location = new Point(338, 318);
             guna2Panel11.Margin = new Padding(0);
             guna2Panel11.Name = "guna2Panel11";
-            guna2Panel11.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            guna2Panel11.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Panel11.Size = new Size(139, 278);
             guna2Panel11.TabIndex = 34;
-            // 
-            // flpScheduleWednesdayA
-            // 
-            flpScheduleWednesdayA.Controls.Add(lbCourseNameWednesdayA);
-            flpScheduleWednesdayA.Controls.Add(lbClassWednesdayA);
-            flpScheduleWednesdayA.Controls.Add(lbTimeWednesdayA);
-            flpScheduleWednesdayA.Controls.Add(lbRoomWednesdayA);
-            flpScheduleWednesdayA.Dock = DockStyle.Fill;
-            flpScheduleWednesdayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleWednesdayA.Location = new Point(0, 0);
-            flpScheduleWednesdayA.Name = "flpScheduleWednesdayA";
-            flpScheduleWednesdayA.Padding = new Padding(5);
-            flpScheduleWednesdayA.Size = new Size(138, 278);
-            flpScheduleWednesdayA.TabIndex = 2;
-            flpScheduleWednesdayA.WrapContents = false;
-            // 
-            // lbCourseNameWednesdayA
-            // 
-            lbCourseNameWednesdayA.AutoSize = true;
-            lbCourseNameWednesdayA.BackColor = Color.Transparent;
-            lbCourseNameWednesdayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameWednesdayA.Location = new Point(8, 5);
-            lbCourseNameWednesdayA.Name = "lbCourseNameWednesdayA";
-            lbCourseNameWednesdayA.Size = new Size(83, 23);
-            lbCourseNameWednesdayA.TabIndex = 0;
-            lbCourseNameWednesdayA.Text = "Khoá học";
-            // 
-            // lbClassWednesdayA
-            // 
-            lbClassWednesdayA.AutoSize = true;
-            lbClassWednesdayA.BackColor = Color.Transparent;
-            lbClassWednesdayA.Location = new Point(8, 28);
-            lbClassWednesdayA.Name = "lbClassWednesdayA";
-            lbClassWednesdayA.Size = new Size(34, 20);
-            lbClassWednesdayA.TabIndex = 1;
-            lbClassWednesdayA.Text = "Lớp";
-            // 
-            // lbTimeWednesdayA
-            // 
-            lbTimeWednesdayA.AutoSize = true;
-            lbTimeWednesdayA.BackColor = Color.Transparent;
-            lbTimeWednesdayA.Location = new Point(8, 48);
-            lbTimeWednesdayA.Name = "lbTimeWednesdayA";
-            lbTimeWednesdayA.Size = new Size(71, 20);
-            lbTimeWednesdayA.TabIndex = 2;
-            lbTimeWednesdayA.Text = "Thời gian";
-            // 
-            // lbRoomWednesdayA
-            // 
-            lbRoomWednesdayA.AutoSize = true;
-            lbRoomWednesdayA.BackColor = Color.Transparent;
-            lbRoomWednesdayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomWednesdayA.Location = new Point(8, 68);
-            lbRoomWednesdayA.Name = "lbRoomWednesdayA";
-            lbRoomWednesdayA.Size = new Size(51, 20);
-            lbRoomWednesdayA.TabIndex = 3;
-            lbRoomWednesdayA.Text = "Phòng";
             // 
             // panel12
             // 
@@ -641,73 +393,16 @@
             // 
             // guna2Panel10
             // 
-            guna2Panel10.Controls.Add(flpScheduleTuesdayA);
+            guna2Panel10.Controls.Add(tableLayoutPanel10);
             guna2Panel10.Controls.Add(panel13);
-            guna2Panel10.CustomizableEdges = customizableEdges39;
+            guna2Panel10.CustomizableEdges = customizableEdges23;
             guna2Panel10.Dock = DockStyle.Fill;
             guna2Panel10.Location = new Point(199, 318);
             guna2Panel10.Margin = new Padding(0);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel10.Size = new Size(139, 278);
             guna2Panel10.TabIndex = 33;
-            // 
-            // flpScheduleTuesdayA
-            // 
-            flpScheduleTuesdayA.Controls.Add(lbCourseNameTuesdayA);
-            flpScheduleTuesdayA.Controls.Add(lbClassTuesdayA);
-            flpScheduleTuesdayA.Controls.Add(lbTimeTuesdayA);
-            flpScheduleTuesdayA.Controls.Add(lbRoomTuesdayA);
-            flpScheduleTuesdayA.Dock = DockStyle.Fill;
-            flpScheduleTuesdayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleTuesdayA.Location = new Point(0, 0);
-            flpScheduleTuesdayA.Name = "flpScheduleTuesdayA";
-            flpScheduleTuesdayA.Padding = new Padding(5);
-            flpScheduleTuesdayA.Size = new Size(138, 278);
-            flpScheduleTuesdayA.TabIndex = 2;
-            flpScheduleTuesdayA.WrapContents = false;
-            // 
-            // lbCourseNameTuesdayA
-            // 
-            lbCourseNameTuesdayA.AutoSize = true;
-            lbCourseNameTuesdayA.BackColor = Color.Transparent;
-            lbCourseNameTuesdayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameTuesdayA.Location = new Point(8, 5);
-            lbCourseNameTuesdayA.Name = "lbCourseNameTuesdayA";
-            lbCourseNameTuesdayA.Size = new Size(83, 23);
-            lbCourseNameTuesdayA.TabIndex = 0;
-            lbCourseNameTuesdayA.Text = "Khoá học";
-            // 
-            // lbClassTuesdayA
-            // 
-            lbClassTuesdayA.AutoSize = true;
-            lbClassTuesdayA.BackColor = Color.Transparent;
-            lbClassTuesdayA.Location = new Point(8, 28);
-            lbClassTuesdayA.Name = "lbClassTuesdayA";
-            lbClassTuesdayA.Size = new Size(34, 20);
-            lbClassTuesdayA.TabIndex = 1;
-            lbClassTuesdayA.Text = "Lớp";
-            // 
-            // lbTimeTuesdayA
-            // 
-            lbTimeTuesdayA.AutoSize = true;
-            lbTimeTuesdayA.BackColor = Color.Transparent;
-            lbTimeTuesdayA.Location = new Point(8, 48);
-            lbTimeTuesdayA.Name = "lbTimeTuesdayA";
-            lbTimeTuesdayA.Size = new Size(71, 20);
-            lbTimeTuesdayA.TabIndex = 2;
-            lbTimeTuesdayA.Text = "Thời gian";
-            // 
-            // lbRoomTuesdayA
-            // 
-            lbRoomTuesdayA.AutoSize = true;
-            lbRoomTuesdayA.BackColor = Color.Transparent;
-            lbRoomTuesdayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomTuesdayA.Location = new Point(8, 68);
-            lbRoomTuesdayA.Name = "lbRoomTuesdayA";
-            lbRoomTuesdayA.Size = new Size(51, 20);
-            lbRoomTuesdayA.TabIndex = 3;
-            lbRoomTuesdayA.Text = "Phòng";
             // 
             // panel13
             // 
@@ -721,73 +416,16 @@
             // 
             // guna2Panel9
             // 
-            guna2Panel9.Controls.Add(flpScheduleMondayA);
+            guna2Panel9.Controls.Add(tableLayoutPanel9);
             guna2Panel9.Controls.Add(panel14);
-            guna2Panel9.CustomizableEdges = customizableEdges41;
+            guna2Panel9.CustomizableEdges = customizableEdges27;
             guna2Panel9.Dock = DockStyle.Fill;
             guna2Panel9.Location = new Point(60, 318);
             guna2Panel9.Margin = new Padding(0);
             guna2Panel9.Name = "guna2Panel9";
-            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel9.Size = new Size(139, 278);
             guna2Panel9.TabIndex = 32;
-            // 
-            // flpScheduleMondayA
-            // 
-            flpScheduleMondayA.Controls.Add(lbCourseNameMondayA);
-            flpScheduleMondayA.Controls.Add(lbClassMondayA);
-            flpScheduleMondayA.Controls.Add(lbTimeMondayA);
-            flpScheduleMondayA.Controls.Add(lbRoomMondayA);
-            flpScheduleMondayA.Dock = DockStyle.Fill;
-            flpScheduleMondayA.FlowDirection = FlowDirection.TopDown;
-            flpScheduleMondayA.Location = new Point(0, 0);
-            flpScheduleMondayA.Name = "flpScheduleMondayA";
-            flpScheduleMondayA.Padding = new Padding(5);
-            flpScheduleMondayA.Size = new Size(138, 278);
-            flpScheduleMondayA.TabIndex = 2;
-            flpScheduleMondayA.WrapContents = false;
-            // 
-            // lbCourseNameMondayA
-            // 
-            lbCourseNameMondayA.AutoSize = true;
-            lbCourseNameMondayA.BackColor = Color.Transparent;
-            lbCourseNameMondayA.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameMondayA.Location = new Point(8, 5);
-            lbCourseNameMondayA.Name = "lbCourseNameMondayA";
-            lbCourseNameMondayA.Size = new Size(83, 23);
-            lbCourseNameMondayA.TabIndex = 0;
-            lbCourseNameMondayA.Text = "Khoá học";
-            // 
-            // lbClassMondayA
-            // 
-            lbClassMondayA.AutoSize = true;
-            lbClassMondayA.BackColor = Color.Transparent;
-            lbClassMondayA.Location = new Point(8, 28);
-            lbClassMondayA.Name = "lbClassMondayA";
-            lbClassMondayA.Size = new Size(34, 20);
-            lbClassMondayA.TabIndex = 1;
-            lbClassMondayA.Text = "Lớp";
-            // 
-            // lbTimeMondayA
-            // 
-            lbTimeMondayA.AutoSize = true;
-            lbTimeMondayA.BackColor = Color.Transparent;
-            lbTimeMondayA.Location = new Point(8, 48);
-            lbTimeMondayA.Name = "lbTimeMondayA";
-            lbTimeMondayA.Size = new Size(71, 20);
-            lbTimeMondayA.TabIndex = 2;
-            lbTimeMondayA.Text = "Thời gian";
-            // 
-            // lbRoomMondayA
-            // 
-            lbRoomMondayA.AutoSize = true;
-            lbRoomMondayA.BackColor = Color.Transparent;
-            lbRoomMondayA.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomMondayA.Location = new Point(8, 68);
-            lbRoomMondayA.Name = "lbRoomMondayA";
-            lbRoomMondayA.Size = new Size(51, 20);
-            lbRoomMondayA.TabIndex = 3;
-            lbRoomMondayA.Text = "Phòng";
             // 
             // panel14
             // 
@@ -801,73 +439,27 @@
             // 
             // guna2Panel8
             // 
-            guna2Panel8.Controls.Add(flpScheduleSundayM);
+            guna2Panel8.Controls.Add(tableLayoutPanel8);
+            guna2Panel8.Controls.Add(panel16);
             guna2Panel8.Controls.Add(panel7);
-            guna2Panel8.CustomizableEdges = customizableEdges43;
+            guna2Panel8.CustomizableEdges = customizableEdges31;
             guna2Panel8.Dock = DockStyle.Fill;
             guna2Panel8.Location = new Point(894, 40);
             guna2Panel8.Margin = new Padding(0);
             guna2Panel8.Name = "guna2Panel8";
-            guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges32;
             guna2Panel8.Size = new Size(140, 278);
             guna2Panel8.TabIndex = 31;
             // 
-            // flpScheduleSundayM
+            // panel16
             // 
-            flpScheduleSundayM.Controls.Add(lbCourseNameSundayM);
-            flpScheduleSundayM.Controls.Add(lbClassSundayM);
-            flpScheduleSundayM.Controls.Add(lbTimeSundayM);
-            flpScheduleSundayM.Controls.Add(lbRoomSundayM);
-            flpScheduleSundayM.Dock = DockStyle.Fill;
-            flpScheduleSundayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleSundayM.Location = new Point(0, 0);
-            flpScheduleSundayM.Name = "flpScheduleSundayM";
-            flpScheduleSundayM.Padding = new Padding(5);
-            flpScheduleSundayM.Size = new Size(139, 278);
-            flpScheduleSundayM.TabIndex = 2;
-            flpScheduleSundayM.WrapContents = false;
-            // 
-            // lbCourseNameSundayM
-            // 
-            lbCourseNameSundayM.AutoSize = true;
-            lbCourseNameSundayM.BackColor = Color.Transparent;
-            lbCourseNameSundayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameSundayM.Location = new Point(8, 5);
-            lbCourseNameSundayM.Name = "lbCourseNameSundayM";
-            lbCourseNameSundayM.Size = new Size(83, 23);
-            lbCourseNameSundayM.TabIndex = 0;
-            lbCourseNameSundayM.Text = "Khoá học";
-            // 
-            // lbClassSundayM
-            // 
-            lbClassSundayM.AutoSize = true;
-            lbClassSundayM.BackColor = Color.Transparent;
-            lbClassSundayM.Location = new Point(8, 28);
-            lbClassSundayM.Name = "lbClassSundayM";
-            lbClassSundayM.Size = new Size(34, 20);
-            lbClassSundayM.TabIndex = 1;
-            lbClassSundayM.Text = "Lớp";
-            // 
-            // lbTimeSundayM
-            // 
-            lbTimeSundayM.AutoSize = true;
-            lbTimeSundayM.BackColor = Color.Transparent;
-            lbTimeSundayM.Location = new Point(8, 48);
-            lbTimeSundayM.Name = "lbTimeSundayM";
-            lbTimeSundayM.Size = new Size(71, 20);
-            lbTimeSundayM.TabIndex = 2;
-            lbTimeSundayM.Text = "Thời gian";
-            // 
-            // lbRoomSundayM
-            // 
-            lbRoomSundayM.AutoSize = true;
-            lbRoomSundayM.BackColor = Color.Transparent;
-            lbRoomSundayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomSundayM.Location = new Point(8, 68);
-            lbRoomSundayM.Name = "lbRoomSundayM";
-            lbRoomSundayM.Size = new Size(51, 20);
-            lbRoomSundayM.TabIndex = 3;
-            lbRoomSundayM.Text = "Phòng";
+            panel16.BorderStyle = BorderStyle.FixedSingle;
+            panel16.Dock = DockStyle.Bottom;
+            panel16.Location = new Point(0, 277);
+            panel16.Margin = new Padding(0);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(139, 1);
+            panel16.TabIndex = 2;
             // 
             // panel7
             // 
@@ -881,73 +473,27 @@
             // 
             // guna2Panel7
             // 
-            guna2Panel7.Controls.Add(flpScheduleSaturdayM);
+            guna2Panel7.Controls.Add(tableLayoutPanel7);
+            guna2Panel7.Controls.Add(panel17);
             guna2Panel7.Controls.Add(panel6);
-            guna2Panel7.CustomizableEdges = customizableEdges45;
+            guna2Panel7.CustomizableEdges = customizableEdges35;
             guna2Panel7.Dock = DockStyle.Fill;
             guna2Panel7.Location = new Point(755, 40);
             guna2Panel7.Margin = new Padding(0);
             guna2Panel7.Name = "guna2Panel7";
-            guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges36;
             guna2Panel7.Size = new Size(139, 278);
             guna2Panel7.TabIndex = 30;
             // 
-            // flpScheduleSaturdayM
+            // panel17
             // 
-            flpScheduleSaturdayM.Controls.Add(lbCourseNameSaturdayM);
-            flpScheduleSaturdayM.Controls.Add(lbClassSaturdayM);
-            flpScheduleSaturdayM.Controls.Add(lbTimeSaturdayM);
-            flpScheduleSaturdayM.Controls.Add(lbRoomSaturdayM);
-            flpScheduleSaturdayM.Dock = DockStyle.Fill;
-            flpScheduleSaturdayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleSaturdayM.Location = new Point(0, 0);
-            flpScheduleSaturdayM.Name = "flpScheduleSaturdayM";
-            flpScheduleSaturdayM.Padding = new Padding(5);
-            flpScheduleSaturdayM.Size = new Size(138, 278);
-            flpScheduleSaturdayM.TabIndex = 2;
-            flpScheduleSaturdayM.WrapContents = false;
-            // 
-            // lbCourseNameSaturdayM
-            // 
-            lbCourseNameSaturdayM.AutoSize = true;
-            lbCourseNameSaturdayM.BackColor = Color.Transparent;
-            lbCourseNameSaturdayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameSaturdayM.Location = new Point(8, 5);
-            lbCourseNameSaturdayM.Name = "lbCourseNameSaturdayM";
-            lbCourseNameSaturdayM.Size = new Size(83, 23);
-            lbCourseNameSaturdayM.TabIndex = 0;
-            lbCourseNameSaturdayM.Text = "Khoá học";
-            // 
-            // lbClassSaturdayM
-            // 
-            lbClassSaturdayM.AutoSize = true;
-            lbClassSaturdayM.BackColor = Color.Transparent;
-            lbClassSaturdayM.Location = new Point(8, 28);
-            lbClassSaturdayM.Name = "lbClassSaturdayM";
-            lbClassSaturdayM.Size = new Size(34, 20);
-            lbClassSaturdayM.TabIndex = 1;
-            lbClassSaturdayM.Text = "Lớp";
-            // 
-            // lbTimeSaturdayM
-            // 
-            lbTimeSaturdayM.AutoSize = true;
-            lbTimeSaturdayM.BackColor = Color.Transparent;
-            lbTimeSaturdayM.Location = new Point(8, 48);
-            lbTimeSaturdayM.Name = "lbTimeSaturdayM";
-            lbTimeSaturdayM.Size = new Size(71, 20);
-            lbTimeSaturdayM.TabIndex = 2;
-            lbTimeSaturdayM.Text = "Thời gian";
-            // 
-            // lbRoomSaturdayM
-            // 
-            lbRoomSaturdayM.AutoSize = true;
-            lbRoomSaturdayM.BackColor = Color.Transparent;
-            lbRoomSaturdayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomSaturdayM.Location = new Point(8, 68);
-            lbRoomSaturdayM.Name = "lbRoomSaturdayM";
-            lbRoomSaturdayM.Size = new Size(51, 20);
-            lbRoomSaturdayM.TabIndex = 3;
-            lbRoomSaturdayM.Text = "Phòng";
+            panel17.BorderStyle = BorderStyle.FixedSingle;
+            panel17.Dock = DockStyle.Bottom;
+            panel17.Location = new Point(0, 277);
+            panel17.Margin = new Padding(0);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(138, 1);
+            panel17.TabIndex = 3;
             // 
             // panel6
             // 
@@ -961,73 +507,27 @@
             // 
             // guna2Panel6
             // 
-            guna2Panel6.Controls.Add(flpScheduleFridayM);
+            guna2Panel6.Controls.Add(tableLayoutPanel6);
+            guna2Panel6.Controls.Add(panel18);
             guna2Panel6.Controls.Add(panel5);
-            guna2Panel6.CustomizableEdges = customizableEdges47;
+            guna2Panel6.CustomizableEdges = customizableEdges39;
             guna2Panel6.Dock = DockStyle.Fill;
             guna2Panel6.Location = new Point(616, 40);
             guna2Panel6.Margin = new Padding(0);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges40;
             guna2Panel6.Size = new Size(139, 278);
             guna2Panel6.TabIndex = 29;
             // 
-            // flpScheduleFridayM
+            // panel18
             // 
-            flpScheduleFridayM.Controls.Add(lbCourseNameFridayM);
-            flpScheduleFridayM.Controls.Add(lbClassFridayM);
-            flpScheduleFridayM.Controls.Add(lbTimeFridayM);
-            flpScheduleFridayM.Controls.Add(lbRoomFridayM);
-            flpScheduleFridayM.Dock = DockStyle.Fill;
-            flpScheduleFridayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleFridayM.Location = new Point(0, 0);
-            flpScheduleFridayM.Name = "flpScheduleFridayM";
-            flpScheduleFridayM.Padding = new Padding(5);
-            flpScheduleFridayM.Size = new Size(138, 278);
-            flpScheduleFridayM.TabIndex = 2;
-            flpScheduleFridayM.WrapContents = false;
-            // 
-            // lbCourseNameFridayM
-            // 
-            lbCourseNameFridayM.AutoSize = true;
-            lbCourseNameFridayM.BackColor = Color.Transparent;
-            lbCourseNameFridayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameFridayM.Location = new Point(8, 5);
-            lbCourseNameFridayM.Name = "lbCourseNameFridayM";
-            lbCourseNameFridayM.Size = new Size(83, 23);
-            lbCourseNameFridayM.TabIndex = 0;
-            lbCourseNameFridayM.Text = "Khoá học";
-            // 
-            // lbClassFridayM
-            // 
-            lbClassFridayM.AutoSize = true;
-            lbClassFridayM.BackColor = Color.Transparent;
-            lbClassFridayM.Location = new Point(8, 28);
-            lbClassFridayM.Name = "lbClassFridayM";
-            lbClassFridayM.Size = new Size(34, 20);
-            lbClassFridayM.TabIndex = 1;
-            lbClassFridayM.Text = "Lớp";
-            // 
-            // lbTimeFridayM
-            // 
-            lbTimeFridayM.AutoSize = true;
-            lbTimeFridayM.BackColor = Color.Transparent;
-            lbTimeFridayM.Location = new Point(8, 48);
-            lbTimeFridayM.Name = "lbTimeFridayM";
-            lbTimeFridayM.Size = new Size(71, 20);
-            lbTimeFridayM.TabIndex = 2;
-            lbTimeFridayM.Text = "Thời gian";
-            // 
-            // lbRoomFridayM
-            // 
-            lbRoomFridayM.AutoSize = true;
-            lbRoomFridayM.BackColor = Color.Transparent;
-            lbRoomFridayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomFridayM.Location = new Point(8, 68);
-            lbRoomFridayM.Name = "lbRoomFridayM";
-            lbRoomFridayM.Size = new Size(51, 20);
-            lbRoomFridayM.TabIndex = 3;
-            lbRoomFridayM.Text = "Phòng";
+            panel18.BorderStyle = BorderStyle.FixedSingle;
+            panel18.Dock = DockStyle.Bottom;
+            panel18.Location = new Point(0, 277);
+            panel18.Margin = new Padding(0);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(138, 1);
+            panel18.TabIndex = 3;
             // 
             // panel5
             // 
@@ -1041,73 +541,27 @@
             // 
             // guna2Panel5
             // 
-            guna2Panel5.Controls.Add(flpScheduleThursdayM);
+            guna2Panel5.Controls.Add(tableLayoutPanel5);
+            guna2Panel5.Controls.Add(panel19);
             guna2Panel5.Controls.Add(panel4);
-            guna2Panel5.CustomizableEdges = customizableEdges49;
+            guna2Panel5.CustomizableEdges = customizableEdges43;
             guna2Panel5.Dock = DockStyle.Fill;
             guna2Panel5.Location = new Point(477, 40);
             guna2Panel5.Margin = new Padding(0);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges44;
             guna2Panel5.Size = new Size(139, 278);
             guna2Panel5.TabIndex = 28;
             // 
-            // flpScheduleThursdayM
+            // panel19
             // 
-            flpScheduleThursdayM.Controls.Add(lbCourseNameThursdayM);
-            flpScheduleThursdayM.Controls.Add(lbClassThursdayM);
-            flpScheduleThursdayM.Controls.Add(lbTimeThursdayM);
-            flpScheduleThursdayM.Controls.Add(lbRoomThursdayM);
-            flpScheduleThursdayM.Dock = DockStyle.Fill;
-            flpScheduleThursdayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleThursdayM.Location = new Point(0, 0);
-            flpScheduleThursdayM.Name = "flpScheduleThursdayM";
-            flpScheduleThursdayM.Padding = new Padding(5);
-            flpScheduleThursdayM.Size = new Size(138, 278);
-            flpScheduleThursdayM.TabIndex = 2;
-            flpScheduleThursdayM.WrapContents = false;
-            // 
-            // lbCourseNameThursdayM
-            // 
-            lbCourseNameThursdayM.AutoSize = true;
-            lbCourseNameThursdayM.BackColor = Color.Transparent;
-            lbCourseNameThursdayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameThursdayM.Location = new Point(8, 5);
-            lbCourseNameThursdayM.Name = "lbCourseNameThursdayM";
-            lbCourseNameThursdayM.Size = new Size(83, 23);
-            lbCourseNameThursdayM.TabIndex = 0;
-            lbCourseNameThursdayM.Text = "Khoá học";
-            // 
-            // lbClassThursdayM
-            // 
-            lbClassThursdayM.AutoSize = true;
-            lbClassThursdayM.BackColor = Color.Transparent;
-            lbClassThursdayM.Location = new Point(8, 28);
-            lbClassThursdayM.Name = "lbClassThursdayM";
-            lbClassThursdayM.Size = new Size(34, 20);
-            lbClassThursdayM.TabIndex = 1;
-            lbClassThursdayM.Text = "Lớp";
-            // 
-            // lbTimeThursdayM
-            // 
-            lbTimeThursdayM.AutoSize = true;
-            lbTimeThursdayM.BackColor = Color.Transparent;
-            lbTimeThursdayM.Location = new Point(8, 48);
-            lbTimeThursdayM.Name = "lbTimeThursdayM";
-            lbTimeThursdayM.Size = new Size(71, 20);
-            lbTimeThursdayM.TabIndex = 2;
-            lbTimeThursdayM.Text = "Thời gian";
-            // 
-            // lbRoomThursdayM
-            // 
-            lbRoomThursdayM.AutoSize = true;
-            lbRoomThursdayM.BackColor = Color.Transparent;
-            lbRoomThursdayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomThursdayM.Location = new Point(8, 68);
-            lbRoomThursdayM.Name = "lbRoomThursdayM";
-            lbRoomThursdayM.Size = new Size(51, 20);
-            lbRoomThursdayM.TabIndex = 3;
-            lbRoomThursdayM.Text = "Phòng";
+            panel19.BorderStyle = BorderStyle.FixedSingle;
+            panel19.Dock = DockStyle.Bottom;
+            panel19.Location = new Point(0, 277);
+            panel19.Margin = new Padding(0);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(138, 1);
+            panel19.TabIndex = 3;
             // 
             // panel4
             // 
@@ -1121,73 +575,27 @@
             // 
             // guna2Panel4
             // 
-            guna2Panel4.Controls.Add(flpScheduleWednesdayM);
+            guna2Panel4.Controls.Add(tableLayoutPanel4);
+            guna2Panel4.Controls.Add(panel20);
             guna2Panel4.Controls.Add(panel3);
-            guna2Panel4.CustomizableEdges = customizableEdges51;
+            guna2Panel4.CustomizableEdges = customizableEdges47;
             guna2Panel4.Dock = DockStyle.Fill;
             guna2Panel4.Location = new Point(338, 40);
             guna2Panel4.Margin = new Padding(0);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges48;
             guna2Panel4.Size = new Size(139, 278);
             guna2Panel4.TabIndex = 27;
             // 
-            // flpScheduleWednesdayM
+            // panel20
             // 
-            flpScheduleWednesdayM.Controls.Add(lbCourseNameWednesdayM);
-            flpScheduleWednesdayM.Controls.Add(lbClassWednesdayM);
-            flpScheduleWednesdayM.Controls.Add(lbTimeWednesdayM);
-            flpScheduleWednesdayM.Controls.Add(lbRoomWednesdayM);
-            flpScheduleWednesdayM.Dock = DockStyle.Fill;
-            flpScheduleWednesdayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleWednesdayM.Location = new Point(0, 0);
-            flpScheduleWednesdayM.Name = "flpScheduleWednesdayM";
-            flpScheduleWednesdayM.Padding = new Padding(5);
-            flpScheduleWednesdayM.Size = new Size(138, 278);
-            flpScheduleWednesdayM.TabIndex = 2;
-            flpScheduleWednesdayM.WrapContents = false;
-            // 
-            // lbCourseNameWednesdayM
-            // 
-            lbCourseNameWednesdayM.AutoSize = true;
-            lbCourseNameWednesdayM.BackColor = Color.Transparent;
-            lbCourseNameWednesdayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameWednesdayM.Location = new Point(8, 5);
-            lbCourseNameWednesdayM.Name = "lbCourseNameWednesdayM";
-            lbCourseNameWednesdayM.Size = new Size(83, 23);
-            lbCourseNameWednesdayM.TabIndex = 0;
-            lbCourseNameWednesdayM.Text = "Khoá học";
-            // 
-            // lbClassWednesdayM
-            // 
-            lbClassWednesdayM.AutoSize = true;
-            lbClassWednesdayM.BackColor = Color.Transparent;
-            lbClassWednesdayM.Location = new Point(8, 28);
-            lbClassWednesdayM.Name = "lbClassWednesdayM";
-            lbClassWednesdayM.Size = new Size(34, 20);
-            lbClassWednesdayM.TabIndex = 1;
-            lbClassWednesdayM.Text = "Lớp";
-            // 
-            // lbTimeWednesdayM
-            // 
-            lbTimeWednesdayM.AutoSize = true;
-            lbTimeWednesdayM.BackColor = Color.Transparent;
-            lbTimeWednesdayM.Location = new Point(8, 48);
-            lbTimeWednesdayM.Name = "lbTimeWednesdayM";
-            lbTimeWednesdayM.Size = new Size(71, 20);
-            lbTimeWednesdayM.TabIndex = 2;
-            lbTimeWednesdayM.Text = "Thời gian";
-            // 
-            // lbRoomWednesdayM
-            // 
-            lbRoomWednesdayM.AutoSize = true;
-            lbRoomWednesdayM.BackColor = Color.Transparent;
-            lbRoomWednesdayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomWednesdayM.Location = new Point(8, 68);
-            lbRoomWednesdayM.Name = "lbRoomWednesdayM";
-            lbRoomWednesdayM.Size = new Size(51, 20);
-            lbRoomWednesdayM.TabIndex = 3;
-            lbRoomWednesdayM.Text = "Phòng";
+            panel20.BorderStyle = BorderStyle.FixedSingle;
+            panel20.Dock = DockStyle.Bottom;
+            panel20.Location = new Point(0, 277);
+            panel20.Margin = new Padding(0);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(138, 1);
+            panel20.TabIndex = 3;
             // 
             // panel3
             // 
@@ -1201,73 +609,27 @@
             // 
             // guna2Panel3
             // 
-            guna2Panel3.Controls.Add(flpScheduleTuesdayM);
+            guna2Panel3.Controls.Add(tableLayoutPanel3);
+            guna2Panel3.Controls.Add(panel21);
             guna2Panel3.Controls.Add(panel2);
-            guna2Panel3.CustomizableEdges = customizableEdges53;
+            guna2Panel3.CustomizableEdges = customizableEdges51;
             guna2Panel3.Dock = DockStyle.Fill;
             guna2Panel3.Location = new Point(199, 40);
             guna2Panel3.Margin = new Padding(0);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges52;
             guna2Panel3.Size = new Size(139, 278);
             guna2Panel3.TabIndex = 26;
             // 
-            // flpScheduleTuesdayM
+            // panel21
             // 
-            flpScheduleTuesdayM.Controls.Add(lbCourseNameTuesdayM);
-            flpScheduleTuesdayM.Controls.Add(lbClassTuesdayM);
-            flpScheduleTuesdayM.Controls.Add(lbTimeTuesdayM);
-            flpScheduleTuesdayM.Controls.Add(lbRoomTuesdayM);
-            flpScheduleTuesdayM.Dock = DockStyle.Fill;
-            flpScheduleTuesdayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleTuesdayM.Location = new Point(0, 0);
-            flpScheduleTuesdayM.Name = "flpScheduleTuesdayM";
-            flpScheduleTuesdayM.Padding = new Padding(5);
-            flpScheduleTuesdayM.Size = new Size(138, 278);
-            flpScheduleTuesdayM.TabIndex = 2;
-            flpScheduleTuesdayM.WrapContents = false;
-            // 
-            // lbCourseNameTuesdayM
-            // 
-            lbCourseNameTuesdayM.AutoSize = true;
-            lbCourseNameTuesdayM.BackColor = Color.Transparent;
-            lbCourseNameTuesdayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameTuesdayM.Location = new Point(8, 5);
-            lbCourseNameTuesdayM.Name = "lbCourseNameTuesdayM";
-            lbCourseNameTuesdayM.Size = new Size(83, 23);
-            lbCourseNameTuesdayM.TabIndex = 0;
-            lbCourseNameTuesdayM.Text = "Khoá học";
-            // 
-            // lbClassTuesdayM
-            // 
-            lbClassTuesdayM.AutoSize = true;
-            lbClassTuesdayM.BackColor = Color.Transparent;
-            lbClassTuesdayM.Location = new Point(8, 28);
-            lbClassTuesdayM.Name = "lbClassTuesdayM";
-            lbClassTuesdayM.Size = new Size(34, 20);
-            lbClassTuesdayM.TabIndex = 1;
-            lbClassTuesdayM.Text = "Lớp";
-            // 
-            // lbTimeTuesdayM
-            // 
-            lbTimeTuesdayM.AutoSize = true;
-            lbTimeTuesdayM.BackColor = Color.Transparent;
-            lbTimeTuesdayM.Location = new Point(8, 48);
-            lbTimeTuesdayM.Name = "lbTimeTuesdayM";
-            lbTimeTuesdayM.Size = new Size(71, 20);
-            lbTimeTuesdayM.TabIndex = 2;
-            lbTimeTuesdayM.Text = "Thời gian";
-            // 
-            // lbRoomTuesdayM
-            // 
-            lbRoomTuesdayM.AutoSize = true;
-            lbRoomTuesdayM.BackColor = Color.Transparent;
-            lbRoomTuesdayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomTuesdayM.Location = new Point(8, 68);
-            lbRoomTuesdayM.Name = "lbRoomTuesdayM";
-            lbRoomTuesdayM.Size = new Size(51, 20);
-            lbRoomTuesdayM.TabIndex = 3;
-            lbRoomTuesdayM.Text = "Phòng";
+            panel21.BorderStyle = BorderStyle.FixedSingle;
+            panel21.Dock = DockStyle.Bottom;
+            panel21.Location = new Point(0, 277);
+            panel21.Margin = new Padding(0);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(138, 1);
+            panel21.TabIndex = 3;
             // 
             // panel2
             // 
@@ -1307,33 +669,19 @@
             label7.Text = "Thứ 7";
             label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // label1
             // 
-            label6.AutoSize = true;
-            label6.BackColor = SystemColors.ControlDark;
-            label6.BorderStyle = BorderStyle.FixedSingle;
-            label6.Dock = DockStyle.Fill;
-            label6.Location = new Point(616, 0);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(139, 40);
-            label6.TabIndex = 5;
-            label6.Text = "Thứ 6";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = SystemColors.ControlDark;
-            label5.BorderStyle = BorderStyle.FixedSingle;
-            label5.Dock = DockStyle.Fill;
-            label5.Location = new Point(477, 0);
-            label5.Margin = new Padding(0);
-            label5.Name = "label5";
-            label5.Size = new Size(139, 40);
-            label5.TabIndex = 4;
-            label5.Text = "Thứ 5";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ControlDark;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Dock = DockStyle.Fill;
+            label1.Location = new Point(616, 0);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 40);
+            label1.TabIndex = 5;
+            label1.Text = "Thứ 6";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -1341,54 +689,27 @@
             label4.BackColor = SystemColors.ControlDark;
             label4.BorderStyle = BorderStyle.FixedSingle;
             label4.Dock = DockStyle.Fill;
-            label4.Location = new Point(338, 0);
+            label4.Location = new Point(477, 0);
             label4.Margin = new Padding(0);
             label4.Name = "label4";
             label4.Size = new Size(139, 40);
-            label4.TabIndex = 3;
-            label4.Text = "Thứ 4";
+            label4.TabIndex = 4;
+            label4.Text = "Thứ 5";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // label9
             // 
-            label3.AutoSize = true;
-            label3.BackColor = SystemColors.ControlDark;
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Dock = DockStyle.Fill;
-            label3.Location = new Point(199, 0);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(139, 40);
-            label3.TabIndex = 2;
-            label3.Text = "Thứ 3";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ControlDark;
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(60, 0);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 40);
-            label1.TabIndex = 0;
-            label1.Text = "Thứ 2";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.ControlDark;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(3, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 278);
-            label2.TabIndex = 1;
-            label2.Text = "Sáng";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label9.AutoSize = true;
+            label9.BackColor = SystemColors.ControlDark;
+            label9.BorderStyle = BorderStyle.FixedSingle;
+            label9.Dock = DockStyle.Fill;
+            label9.Location = new Point(338, 0);
+            label9.Margin = new Padding(0);
+            label9.Name = "label9";
+            label9.Size = new Size(139, 40);
+            label9.TabIndex = 3;
+            label9.Text = "Thứ 4";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -1396,16 +717,58 @@
             label10.BackColor = SystemColors.ControlDark;
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Dock = DockStyle.Fill;
-            label10.Location = new Point(3, 318);
+            label10.Location = new Point(199, 0);
+            label10.Margin = new Padding(0);
             label10.Name = "label10";
-            label10.Size = new Size(54, 278);
-            label10.TabIndex = 9;
-            label10.Text = "Chiều";
+            label10.Size = new Size(139, 40);
+            label10.TabIndex = 2;
+            label10.Text = "Thứ 3";
             label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = SystemColors.ControlDark;
+            label11.BorderStyle = BorderStyle.FixedSingle;
+            label11.Dock = DockStyle.Fill;
+            label11.Location = new Point(60, 0);
+            label11.Margin = new Padding(0);
+            label11.Name = "label11";
+            label11.Size = new Size(139, 40);
+            label11.TabIndex = 0;
+            label11.Text = "Thứ 2";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = SystemColors.ControlDark;
+            label12.BorderStyle = BorderStyle.FixedSingle;
+            label12.Dock = DockStyle.Fill;
+            label12.Location = new Point(3, 40);
+            label12.Name = "label12";
+            label12.Size = new Size(54, 278);
+            label12.TabIndex = 1;
+            label12.Text = "Sáng";
+            label12.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.ControlDark;
+            label13.BorderStyle = BorderStyle.FixedSingle;
+            label13.Dock = DockStyle.Fill;
+            label13.Location = new Point(3, 318);
+            label13.Name = "label13";
+            label13.Size = new Size(54, 278);
+            label13.TabIndex = 9;
+            label13.Text = "Chiều";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Controls.Add(flpScheduleMondayM);
+            guna2Panel1.Controls.Add(tableLayoutPanel1);
+            guna2Panel1.Controls.Add(panel22);
             guna2Panel1.Controls.Add(panel1);
             guna2Panel1.CustomizableEdges = customizableEdges55;
             guna2Panel1.Dock = DockStyle.Fill;
@@ -1416,62 +779,15 @@
             guna2Panel1.Size = new Size(139, 278);
             guna2Panel1.TabIndex = 24;
             // 
-            // flpScheduleMondayM
+            // panel22
             // 
-            flpScheduleMondayM.Controls.Add(lbCourseNameMondayM);
-            flpScheduleMondayM.Controls.Add(lbClassMondayM);
-            flpScheduleMondayM.Controls.Add(lbTimeMondayM);
-            flpScheduleMondayM.Controls.Add(lbRoomMondayM);
-            flpScheduleMondayM.Dock = DockStyle.Fill;
-            flpScheduleMondayM.FlowDirection = FlowDirection.TopDown;
-            flpScheduleMondayM.Location = new Point(0, 0);
-            flpScheduleMondayM.Name = "flpScheduleMondayM";
-            flpScheduleMondayM.Padding = new Padding(5);
-            flpScheduleMondayM.Size = new Size(138, 278);
-            flpScheduleMondayM.TabIndex = 1;
-            flpScheduleMondayM.WrapContents = false;
-            // 
-            // lbCourseNameMondayM
-            // 
-            lbCourseNameMondayM.AutoSize = true;
-            lbCourseNameMondayM.BackColor = Color.Transparent;
-            lbCourseNameMondayM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCourseNameMondayM.Location = new Point(8, 5);
-            lbCourseNameMondayM.Name = "lbCourseNameMondayM";
-            lbCourseNameMondayM.Size = new Size(83, 23);
-            lbCourseNameMondayM.TabIndex = 0;
-            lbCourseNameMondayM.Text = "Khoá học";
-            // 
-            // lbClassMondayM
-            // 
-            lbClassMondayM.AutoSize = true;
-            lbClassMondayM.BackColor = Color.Transparent;
-            lbClassMondayM.Location = new Point(8, 28);
-            lbClassMondayM.Name = "lbClassMondayM";
-            lbClassMondayM.Size = new Size(34, 20);
-            lbClassMondayM.TabIndex = 1;
-            lbClassMondayM.Text = "Lớp";
-            // 
-            // lbTimeMondayM
-            // 
-            lbTimeMondayM.AutoSize = true;
-            lbTimeMondayM.BackColor = Color.Transparent;
-            lbTimeMondayM.Location = new Point(8, 48);
-            lbTimeMondayM.Name = "lbTimeMondayM";
-            lbTimeMondayM.Size = new Size(71, 20);
-            lbTimeMondayM.TabIndex = 2;
-            lbTimeMondayM.Text = "Thời gian";
-            // 
-            // lbRoomMondayM
-            // 
-            lbRoomMondayM.AutoSize = true;
-            lbRoomMondayM.BackColor = Color.Transparent;
-            lbRoomMondayM.ForeColor = Color.FromArgb(0, 0, 192);
-            lbRoomMondayM.Location = new Point(8, 68);
-            lbRoomMondayM.Name = "lbRoomMondayM";
-            lbRoomMondayM.Size = new Size(51, 20);
-            lbRoomMondayM.TabIndex = 3;
-            lbRoomMondayM.Text = "Phòng";
+            panel22.BorderStyle = BorderStyle.FixedSingle;
+            panel22.Dock = DockStyle.Bottom;
+            panel22.Location = new Point(0, 277);
+            panel22.Margin = new Padding(0);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(138, 1);
+            panel22.TabIndex = 3;
             // 
             // panel1
             // 
@@ -1483,73 +799,886 @@
             panel1.Size = new Size(1, 278);
             panel1.TabIndex = 0;
             // 
+            // panel15
+            // 
+            panel15.BackColor = Color.DarkGray;
+            panel15.Dock = DockStyle.Fill;
+            panel15.Location = new Point(0, 0);
+            panel15.Margin = new Padding(0);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(60, 40);
+            panel15.TabIndex = 39;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lb_Information_2_M, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel23, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(138, 277);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
+            // lb_Information_2_M
+            // 
+            lb_Information_2_M.AutoSize = true;
+            lb_Information_2_M.BackColor = Color.Transparent;
+            lb_Information_2_M.Dock = DockStyle.Fill;
+            lb_Information_2_M.Location = new Point(3, 0);
+            lb_Information_2_M.Name = "lb_Information_2_M";
+            lb_Information_2_M.Size = new Size(132, 227);
+            lb_Information_2_M.TabIndex = 1;
+            lb_Information_2_M.Text = "Thông tin";
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.Transparent;
+            panel23.Controls.Add(btn_2_M);
+            panel23.Dock = DockStyle.Fill;
+            panel23.Location = new Point(3, 230);
+            panel23.Name = "panel23";
+            panel23.Padding = new Padding(2);
+            panel23.Size = new Size(132, 44);
+            panel23.TabIndex = 2;
+            // 
+            // btn_2_M
+            // 
+            btn_2_M.BackColor = Color.Transparent;
+            btn_2_M.BorderRadius = 10;
+            btn_2_M.CustomizableEdges = customizableEdges53;
+            btn_2_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_2_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_2_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_2_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_2_M.Dock = DockStyle.Fill;
+            btn_2_M.Font = new Font("Segoe UI", 9F);
+            btn_2_M.ForeColor = Color.White;
+            btn_2_M.Location = new Point(2, 2);
+            btn_2_M.Name = "btn_2_M";
+            btn_2_M.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            btn_2_M.Size = new Size(128, 40);
+            btn_2_M.TabIndex = 2;
+            btn_2_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(lb_Information_3_M, 0, 0);
+            tableLayoutPanel3.Controls.Add(panel24, 0, 1);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(138, 277);
+            tableLayoutPanel3.TabIndex = 5;
+            // 
+            // lb_Information_3_M
+            // 
+            lb_Information_3_M.AutoSize = true;
+            lb_Information_3_M.BackColor = Color.Transparent;
+            lb_Information_3_M.Dock = DockStyle.Fill;
+            lb_Information_3_M.Location = new Point(3, 0);
+            lb_Information_3_M.Name = "lb_Information_3_M";
+            lb_Information_3_M.Size = new Size(132, 227);
+            lb_Information_3_M.TabIndex = 1;
+            lb_Information_3_M.Text = "Thông tin";
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.Transparent;
+            panel24.Controls.Add(btn_3_M);
+            panel24.Dock = DockStyle.Fill;
+            panel24.Location = new Point(3, 230);
+            panel24.Name = "panel24";
+            panel24.Padding = new Padding(2);
+            panel24.Size = new Size(132, 44);
+            panel24.TabIndex = 2;
+            // 
+            // btn_3_M
+            // 
+            btn_3_M.BackColor = Color.Transparent;
+            btn_3_M.BorderRadius = 10;
+            btn_3_M.CustomizableEdges = customizableEdges49;
+            btn_3_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_3_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_3_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_3_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_3_M.Dock = DockStyle.Fill;
+            btn_3_M.Font = new Font("Segoe UI", 9F);
+            btn_3_M.ForeColor = Color.White;
+            btn_3_M.Location = new Point(2, 2);
+            btn_3_M.Name = "btn_3_M";
+            btn_3_M.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            btn_3_M.Size = new Size(128, 40);
+            btn_3_M.TabIndex = 2;
+            btn_3_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(lb_Information_4_M, 0, 0);
+            tableLayoutPanel4.Controls.Add(panel25, 0, 1);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(0, 0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 2;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new Size(138, 277);
+            tableLayoutPanel4.TabIndex = 5;
+            // 
+            // lb_Information_4_M
+            // 
+            lb_Information_4_M.AutoSize = true;
+            lb_Information_4_M.BackColor = Color.Transparent;
+            lb_Information_4_M.Dock = DockStyle.Fill;
+            lb_Information_4_M.Location = new Point(3, 0);
+            lb_Information_4_M.Name = "lb_Information_4_M";
+            lb_Information_4_M.Size = new Size(132, 227);
+            lb_Information_4_M.TabIndex = 1;
+            lb_Information_4_M.Text = "Thông tin";
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.Transparent;
+            panel25.Controls.Add(btn_4_M);
+            panel25.Dock = DockStyle.Fill;
+            panel25.Location = new Point(3, 230);
+            panel25.Name = "panel25";
+            panel25.Padding = new Padding(2);
+            panel25.Size = new Size(132, 44);
+            panel25.TabIndex = 2;
+            // 
+            // btn_4_M
+            // 
+            btn_4_M.BackColor = Color.Transparent;
+            btn_4_M.BorderRadius = 10;
+            btn_4_M.CustomizableEdges = customizableEdges45;
+            btn_4_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_4_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_4_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_4_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_4_M.Dock = DockStyle.Fill;
+            btn_4_M.Font = new Font("Segoe UI", 9F);
+            btn_4_M.ForeColor = Color.White;
+            btn_4_M.Location = new Point(2, 2);
+            btn_4_M.Name = "btn_4_M";
+            btn_4_M.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            btn_4_M.Size = new Size(128, 40);
+            btn_4_M.TabIndex = 2;
+            btn_4_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Controls.Add(lb_Information_5_M, 0, 0);
+            tableLayoutPanel5.Controls.Add(panel26, 0, 1);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(0, 0);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 2;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.Size = new Size(138, 277);
+            tableLayoutPanel5.TabIndex = 5;
+            // 
+            // lb_Information_5_M
+            // 
+            lb_Information_5_M.AutoSize = true;
+            lb_Information_5_M.BackColor = Color.Transparent;
+            lb_Information_5_M.Dock = DockStyle.Fill;
+            lb_Information_5_M.Location = new Point(3, 0);
+            lb_Information_5_M.Name = "lb_Information_5_M";
+            lb_Information_5_M.Size = new Size(132, 227);
+            lb_Information_5_M.TabIndex = 1;
+            lb_Information_5_M.Text = "Thông tin";
+            // 
+            // panel26
+            // 
+            panel26.BackColor = Color.Transparent;
+            panel26.Controls.Add(btn_5_M);
+            panel26.Dock = DockStyle.Fill;
+            panel26.Location = new Point(3, 230);
+            panel26.Name = "panel26";
+            panel26.Padding = new Padding(2);
+            panel26.Size = new Size(132, 44);
+            panel26.TabIndex = 2;
+            // 
+            // btn_5_M
+            // 
+            btn_5_M.BackColor = Color.Transparent;
+            btn_5_M.BorderRadius = 10;
+            btn_5_M.CustomizableEdges = customizableEdges41;
+            btn_5_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_5_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_5_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_5_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_5_M.Dock = DockStyle.Fill;
+            btn_5_M.Font = new Font("Segoe UI", 9F);
+            btn_5_M.ForeColor = Color.White;
+            btn_5_M.Location = new Point(2, 2);
+            btn_5_M.Name = "btn_5_M";
+            btn_5_M.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            btn_5_M.Size = new Size(128, 40);
+            btn_5_M.TabIndex = 2;
+            btn_5_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Controls.Add(lb_Information_6_M, 0, 0);
+            tableLayoutPanel6.Controls.Add(panel27, 0, 1);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(0, 0);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 2;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel6.Size = new Size(138, 277);
+            tableLayoutPanel6.TabIndex = 5;
+            // 
+            // lb_Information_6_M
+            // 
+            lb_Information_6_M.AutoSize = true;
+            lb_Information_6_M.BackColor = Color.Transparent;
+            lb_Information_6_M.Dock = DockStyle.Fill;
+            lb_Information_6_M.Location = new Point(3, 0);
+            lb_Information_6_M.Name = "lb_Information_6_M";
+            lb_Information_6_M.Size = new Size(132, 227);
+            lb_Information_6_M.TabIndex = 1;
+            lb_Information_6_M.Text = "Thông tin";
+            // 
+            // panel27
+            // 
+            panel27.BackColor = Color.Transparent;
+            panel27.Controls.Add(btn_6_M);
+            panel27.Dock = DockStyle.Fill;
+            panel27.Location = new Point(3, 230);
+            panel27.Name = "panel27";
+            panel27.Padding = new Padding(2);
+            panel27.Size = new Size(132, 44);
+            panel27.TabIndex = 2;
+            // 
+            // btn_6_M
+            // 
+            btn_6_M.BackColor = Color.Transparent;
+            btn_6_M.BorderRadius = 10;
+            btn_6_M.CustomizableEdges = customizableEdges37;
+            btn_6_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_6_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_6_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_6_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_6_M.Dock = DockStyle.Fill;
+            btn_6_M.Font = new Font("Segoe UI", 9F);
+            btn_6_M.ForeColor = Color.White;
+            btn_6_M.Location = new Point(2, 2);
+            btn_6_M.Name = "btn_6_M";
+            btn_6_M.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            btn_6_M.Size = new Size(128, 40);
+            btn_6_M.TabIndex = 2;
+            btn_6_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.ColumnCount = 1;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel7.Controls.Add(lb_Information_7_M, 0, 0);
+            tableLayoutPanel7.Controls.Add(panel28, 0, 1);
+            tableLayoutPanel7.Dock = DockStyle.Fill;
+            tableLayoutPanel7.Location = new Point(0, 0);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 2;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel7.Size = new Size(138, 277);
+            tableLayoutPanel7.TabIndex = 5;
+            // 
+            // lb_Information_7_M
+            // 
+            lb_Information_7_M.AutoSize = true;
+            lb_Information_7_M.BackColor = Color.Transparent;
+            lb_Information_7_M.Dock = DockStyle.Fill;
+            lb_Information_7_M.Location = new Point(3, 0);
+            lb_Information_7_M.Name = "lb_Information_7_M";
+            lb_Information_7_M.Size = new Size(132, 227);
+            lb_Information_7_M.TabIndex = 1;
+            lb_Information_7_M.Text = "Thông tin";
+            // 
+            // panel28
+            // 
+            panel28.BackColor = Color.Transparent;
+            panel28.Controls.Add(btn_7_M);
+            panel28.Dock = DockStyle.Fill;
+            panel28.Location = new Point(3, 230);
+            panel28.Name = "panel28";
+            panel28.Padding = new Padding(2);
+            panel28.Size = new Size(132, 44);
+            panel28.TabIndex = 2;
+            // 
+            // btn_7_M
+            // 
+            btn_7_M.BackColor = Color.Transparent;
+            btn_7_M.BorderRadius = 10;
+            btn_7_M.CustomizableEdges = customizableEdges33;
+            btn_7_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_7_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_7_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_7_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_7_M.Dock = DockStyle.Fill;
+            btn_7_M.Font = new Font("Segoe UI", 9F);
+            btn_7_M.ForeColor = Color.White;
+            btn_7_M.Location = new Point(2, 2);
+            btn_7_M.Name = "btn_7_M";
+            btn_7_M.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btn_7_M.Size = new Size(128, 40);
+            btn_7_M.TabIndex = 2;
+            btn_7_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 1;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Controls.Add(lb_Information_8_M, 0, 0);
+            tableLayoutPanel8.Controls.Add(panel29, 0, 1);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(0, 0);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 2;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel8.Size = new Size(139, 277);
+            tableLayoutPanel8.TabIndex = 5;
+            // 
+            // lb_Information_8_M
+            // 
+            lb_Information_8_M.AutoSize = true;
+            lb_Information_8_M.BackColor = Color.Transparent;
+            lb_Information_8_M.Dock = DockStyle.Fill;
+            lb_Information_8_M.Location = new Point(3, 0);
+            lb_Information_8_M.Name = "lb_Information_8_M";
+            lb_Information_8_M.Size = new Size(133, 227);
+            lb_Information_8_M.TabIndex = 1;
+            lb_Information_8_M.Text = "Thông tin";
+            // 
+            // panel29
+            // 
+            panel29.BackColor = Color.Transparent;
+            panel29.Controls.Add(btn_8_M);
+            panel29.Dock = DockStyle.Fill;
+            panel29.Location = new Point(3, 230);
+            panel29.Name = "panel29";
+            panel29.Padding = new Padding(2);
+            panel29.Size = new Size(133, 44);
+            panel29.TabIndex = 2;
+            // 
+            // btn_8_M
+            // 
+            btn_8_M.BackColor = Color.Transparent;
+            btn_8_M.BorderRadius = 10;
+            btn_8_M.CustomizableEdges = customizableEdges29;
+            btn_8_M.DisabledState.BorderColor = Color.DarkGray;
+            btn_8_M.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_8_M.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_8_M.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_8_M.Dock = DockStyle.Fill;
+            btn_8_M.Font = new Font("Segoe UI", 9F);
+            btn_8_M.ForeColor = Color.White;
+            btn_8_M.Location = new Point(2, 2);
+            btn_8_M.Name = "btn_8_M";
+            btn_8_M.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btn_8_M.Size = new Size(129, 40);
+            btn_8_M.TabIndex = 2;
+            btn_8_M.Text = "Chọn";
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.ColumnCount = 1;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.Controls.Add(lb_Information_2_A, 0, 0);
+            tableLayoutPanel9.Controls.Add(panel30, 0, 1);
+            tableLayoutPanel9.Dock = DockStyle.Fill;
+            tableLayoutPanel9.Location = new Point(0, 0);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 2;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel9.Size = new Size(138, 278);
+            tableLayoutPanel9.TabIndex = 5;
+            // 
+            // lb_Information_2_A
+            // 
+            lb_Information_2_A.AutoSize = true;
+            lb_Information_2_A.BackColor = Color.Transparent;
+            lb_Information_2_A.Dock = DockStyle.Fill;
+            lb_Information_2_A.Location = new Point(3, 0);
+            lb_Information_2_A.Name = "lb_Information_2_A";
+            lb_Information_2_A.Size = new Size(132, 228);
+            lb_Information_2_A.TabIndex = 1;
+            lb_Information_2_A.Text = "Thông tin";
+            // 
+            // panel30
+            // 
+            panel30.BackColor = Color.Transparent;
+            panel30.Controls.Add(btn_2_A);
+            panel30.Dock = DockStyle.Fill;
+            panel30.Location = new Point(3, 231);
+            panel30.Name = "panel30";
+            panel30.Padding = new Padding(2);
+            panel30.Size = new Size(132, 44);
+            panel30.TabIndex = 2;
+            // 
+            // btn_2_A
+            // 
+            btn_2_A.BackColor = Color.Transparent;
+            btn_2_A.BorderRadius = 10;
+            btn_2_A.CustomizableEdges = customizableEdges25;
+            btn_2_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_2_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_2_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_2_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_2_A.Dock = DockStyle.Fill;
+            btn_2_A.Font = new Font("Segoe UI", 9F);
+            btn_2_A.ForeColor = Color.White;
+            btn_2_A.Location = new Point(2, 2);
+            btn_2_A.Name = "btn_2_A";
+            btn_2_A.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btn_2_A.Size = new Size(128, 40);
+            btn_2_A.TabIndex = 2;
+            btn_2_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.Controls.Add(lb_Information_3_A, 0, 0);
+            tableLayoutPanel10.Controls.Add(panel31, 0, 1);
+            tableLayoutPanel10.Dock = DockStyle.Fill;
+            tableLayoutPanel10.Location = new Point(0, 0);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel10.Size = new Size(138, 278);
+            tableLayoutPanel10.TabIndex = 5;
+            // 
+            // lb_Information_3_A
+            // 
+            lb_Information_3_A.AutoSize = true;
+            lb_Information_3_A.BackColor = Color.Transparent;
+            lb_Information_3_A.Dock = DockStyle.Fill;
+            lb_Information_3_A.Location = new Point(3, 0);
+            lb_Information_3_A.Name = "lb_Information_3_A";
+            lb_Information_3_A.Size = new Size(132, 228);
+            lb_Information_3_A.TabIndex = 1;
+            lb_Information_3_A.Text = "Thông tin";
+            // 
+            // panel31
+            // 
+            panel31.BackColor = Color.Transparent;
+            panel31.Controls.Add(btn_3_A);
+            panel31.Dock = DockStyle.Fill;
+            panel31.Location = new Point(3, 231);
+            panel31.Name = "panel31";
+            panel31.Padding = new Padding(2);
+            panel31.Size = new Size(132, 44);
+            panel31.TabIndex = 2;
+            // 
+            // btn_3_A
+            // 
+            btn_3_A.BackColor = Color.Transparent;
+            btn_3_A.BorderRadius = 10;
+            btn_3_A.CustomizableEdges = customizableEdges21;
+            btn_3_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_3_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_3_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_3_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_3_A.Dock = DockStyle.Fill;
+            btn_3_A.Font = new Font("Segoe UI", 9F);
+            btn_3_A.ForeColor = Color.White;
+            btn_3_A.Location = new Point(2, 2);
+            btn_3_A.Name = "btn_3_A";
+            btn_3_A.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btn_3_A.Size = new Size(128, 40);
+            btn_3_A.TabIndex = 2;
+            btn_3_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 1;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.Controls.Add(lb_Information_4_A, 0, 0);
+            tableLayoutPanel11.Controls.Add(panel32, 0, 1);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(0, 0);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 2;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel11.Size = new Size(138, 278);
+            tableLayoutPanel11.TabIndex = 5;
+            // 
+            // lb_Information_4_A
+            // 
+            lb_Information_4_A.AutoSize = true;
+            lb_Information_4_A.BackColor = Color.Transparent;
+            lb_Information_4_A.Dock = DockStyle.Fill;
+            lb_Information_4_A.Location = new Point(3, 0);
+            lb_Information_4_A.Name = "lb_Information_4_A";
+            lb_Information_4_A.Size = new Size(132, 228);
+            lb_Information_4_A.TabIndex = 1;
+            lb_Information_4_A.Text = "Thông tin";
+            // 
+            // panel32
+            // 
+            panel32.BackColor = Color.Transparent;
+            panel32.Controls.Add(btn_4_A);
+            panel32.Dock = DockStyle.Fill;
+            panel32.Location = new Point(3, 231);
+            panel32.Name = "panel32";
+            panel32.Padding = new Padding(2);
+            panel32.Size = new Size(132, 44);
+            panel32.TabIndex = 2;
+            // 
+            // btn_4_A
+            // 
+            btn_4_A.BackColor = Color.Transparent;
+            btn_4_A.BorderRadius = 10;
+            btn_4_A.CustomizableEdges = customizableEdges17;
+            btn_4_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_4_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_4_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_4_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_4_A.Dock = DockStyle.Fill;
+            btn_4_A.Font = new Font("Segoe UI", 9F);
+            btn_4_A.ForeColor = Color.White;
+            btn_4_A.Location = new Point(2, 2);
+            btn_4_A.Name = "btn_4_A";
+            btn_4_A.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btn_4_A.Size = new Size(128, 40);
+            btn_4_A.TabIndex = 2;
+            btn_4_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel12
+            // 
+            tableLayoutPanel12.ColumnCount = 1;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel12.Controls.Add(lb_Information_5_A, 0, 0);
+            tableLayoutPanel12.Controls.Add(panel33, 0, 1);
+            tableLayoutPanel12.Dock = DockStyle.Fill;
+            tableLayoutPanel12.Location = new Point(0, 0);
+            tableLayoutPanel12.Name = "tableLayoutPanel12";
+            tableLayoutPanel12.RowCount = 2;
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel12.Size = new Size(138, 278);
+            tableLayoutPanel12.TabIndex = 5;
+            // 
+            // lb_Information_5_A
+            // 
+            lb_Information_5_A.AutoSize = true;
+            lb_Information_5_A.BackColor = Color.Transparent;
+            lb_Information_5_A.Dock = DockStyle.Fill;
+            lb_Information_5_A.Location = new Point(3, 0);
+            lb_Information_5_A.Name = "lb_Information_5_A";
+            lb_Information_5_A.Size = new Size(132, 228);
+            lb_Information_5_A.TabIndex = 1;
+            lb_Information_5_A.Text = "Thông tin";
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.Transparent;
+            panel33.Controls.Add(btn_5_A);
+            panel33.Dock = DockStyle.Fill;
+            panel33.Location = new Point(3, 231);
+            panel33.Name = "panel33";
+            panel33.Padding = new Padding(2);
+            panel33.Size = new Size(132, 44);
+            panel33.TabIndex = 2;
+            // 
+            // btn_5_A
+            // 
+            btn_5_A.BackColor = Color.Transparent;
+            btn_5_A.BorderRadius = 10;
+            btn_5_A.CustomizableEdges = customizableEdges13;
+            btn_5_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_5_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_5_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_5_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_5_A.Dock = DockStyle.Fill;
+            btn_5_A.Font = new Font("Segoe UI", 9F);
+            btn_5_A.ForeColor = Color.White;
+            btn_5_A.Location = new Point(2, 2);
+            btn_5_A.Name = "btn_5_A";
+            btn_5_A.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btn_5_A.Size = new Size(128, 40);
+            btn_5_A.TabIndex = 2;
+            btn_5_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel13
+            // 
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel13.Controls.Add(lb_Information_6_A, 0, 0);
+            tableLayoutPanel13.Controls.Add(panel34, 0, 1);
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(0, 0);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 2;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel13.Size = new Size(138, 278);
+            tableLayoutPanel13.TabIndex = 5;
+            // 
+            // lb_Information_6_A
+            // 
+            lb_Information_6_A.AutoSize = true;
+            lb_Information_6_A.BackColor = Color.Transparent;
+            lb_Information_6_A.Dock = DockStyle.Fill;
+            lb_Information_6_A.Location = new Point(3, 0);
+            lb_Information_6_A.Name = "lb_Information_6_A";
+            lb_Information_6_A.Size = new Size(132, 228);
+            lb_Information_6_A.TabIndex = 1;
+            lb_Information_6_A.Text = "Thông tin";
+            // 
+            // panel34
+            // 
+            panel34.BackColor = Color.Transparent;
+            panel34.Controls.Add(btn_6_A);
+            panel34.Dock = DockStyle.Fill;
+            panel34.Location = new Point(3, 231);
+            panel34.Name = "panel34";
+            panel34.Padding = new Padding(2);
+            panel34.Size = new Size(132, 44);
+            panel34.TabIndex = 2;
+            // 
+            // btn_6_A
+            // 
+            btn_6_A.BackColor = Color.Transparent;
+            btn_6_A.BorderRadius = 10;
+            btn_6_A.CustomizableEdges = customizableEdges9;
+            btn_6_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_6_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_6_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_6_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_6_A.Dock = DockStyle.Fill;
+            btn_6_A.Font = new Font("Segoe UI", 9F);
+            btn_6_A.ForeColor = Color.White;
+            btn_6_A.Location = new Point(2, 2);
+            btn_6_A.Name = "btn_6_A";
+            btn_6_A.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btn_6_A.Size = new Size(128, 40);
+            btn_6_A.TabIndex = 2;
+            btn_6_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel14
+            // 
+            tableLayoutPanel14.ColumnCount = 1;
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.Controls.Add(lb_Information_7_A, 0, 0);
+            tableLayoutPanel14.Controls.Add(panel35, 0, 1);
+            tableLayoutPanel14.Dock = DockStyle.Fill;
+            tableLayoutPanel14.Location = new Point(0, 0);
+            tableLayoutPanel14.Name = "tableLayoutPanel14";
+            tableLayoutPanel14.RowCount = 2;
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel14.Size = new Size(138, 278);
+            tableLayoutPanel14.TabIndex = 5;
+            // 
+            // lb_Information_7_A
+            // 
+            lb_Information_7_A.AutoSize = true;
+            lb_Information_7_A.BackColor = Color.Transparent;
+            lb_Information_7_A.Dock = DockStyle.Fill;
+            lb_Information_7_A.Location = new Point(3, 0);
+            lb_Information_7_A.Name = "lb_Information_7_A";
+            lb_Information_7_A.Size = new Size(132, 228);
+            lb_Information_7_A.TabIndex = 1;
+            lb_Information_7_A.Text = "Thông tin";
+            // 
+            // panel35
+            // 
+            panel35.BackColor = Color.Transparent;
+            panel35.Controls.Add(btn_7_A);
+            panel35.Dock = DockStyle.Fill;
+            panel35.Location = new Point(3, 231);
+            panel35.Name = "panel35";
+            panel35.Padding = new Padding(2);
+            panel35.Size = new Size(132, 44);
+            panel35.TabIndex = 2;
+            // 
+            // btn_7_A
+            // 
+            btn_7_A.BackColor = Color.Transparent;
+            btn_7_A.BorderRadius = 10;
+            btn_7_A.CustomizableEdges = customizableEdges5;
+            btn_7_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_7_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_7_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_7_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_7_A.Dock = DockStyle.Fill;
+            btn_7_A.Font = new Font("Segoe UI", 9F);
+            btn_7_A.ForeColor = Color.White;
+            btn_7_A.Location = new Point(2, 2);
+            btn_7_A.Name = "btn_7_A";
+            btn_7_A.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btn_7_A.Size = new Size(128, 40);
+            btn_7_A.TabIndex = 2;
+            btn_7_A.Text = "Chọn";
+            // 
+            // tableLayoutPanel15
+            // 
+            tableLayoutPanel15.ColumnCount = 1;
+            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel15.Controls.Add(lb_Information_8_A, 0, 0);
+            tableLayoutPanel15.Controls.Add(panel36, 0, 1);
+            tableLayoutPanel15.Dock = DockStyle.Fill;
+            tableLayoutPanel15.Location = new Point(0, 0);
+            tableLayoutPanel15.Name = "tableLayoutPanel15";
+            tableLayoutPanel15.RowCount = 2;
+            tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel15.Size = new Size(139, 278);
+            tableLayoutPanel15.TabIndex = 5;
+            // 
+            // lb_Information_8_A
+            // 
+            lb_Information_8_A.AutoSize = true;
+            lb_Information_8_A.BackColor = Color.Transparent;
+            lb_Information_8_A.Dock = DockStyle.Fill;
+            lb_Information_8_A.Location = new Point(3, 0);
+            lb_Information_8_A.Name = "lb_Information_8_A";
+            lb_Information_8_A.Size = new Size(133, 228);
+            lb_Information_8_A.TabIndex = 1;
+            lb_Information_8_A.Text = "Thông tin";
+            // 
+            // panel36
+            // 
+            panel36.BackColor = Color.Transparent;
+            panel36.Controls.Add(btn_8_A);
+            panel36.Dock = DockStyle.Fill;
+            panel36.Location = new Point(3, 231);
+            panel36.Name = "panel36";
+            panel36.Padding = new Padding(2);
+            panel36.Size = new Size(133, 44);
+            panel36.TabIndex = 2;
+            // 
+            // btn_8_A
+            // 
+            btn_8_A.BackColor = Color.Transparent;
+            btn_8_A.BorderRadius = 10;
+            btn_8_A.CustomizableEdges = customizableEdges1;
+            btn_8_A.DisabledState.BorderColor = Color.DarkGray;
+            btn_8_A.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_8_A.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_8_A.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_8_A.Dock = DockStyle.Fill;
+            btn_8_A.Font = new Font("Segoe UI", 9F);
+            btn_8_A.ForeColor = Color.White;
+            btn_8_A.Location = new Point(2, 2);
+            btn_8_A.Name = "btn_8_A";
+            btn_8_A.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_8_A.Size = new Size(129, 40);
+            btn_8_A.TabIndex = 2;
+            btn_8_A.Text = "Chọn";
+            // 
             // userTest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tableLayoutPanel2);
             Name = "userTest";
             Size = new Size(1034, 596);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            guna2Panel15.ResumeLayout(false);
+            guna2Panel14.ResumeLayout(false);
+            guna2Panel13.ResumeLayout(false);
+            guna2Panel12.ResumeLayout(false);
+            guna2Panel11.ResumeLayout(false);
+            guna2Panel10.ResumeLayout(false);
+            guna2Panel9.ResumeLayout(false);
+            guna2Panel8.ResumeLayout(false);
+            guna2Panel7.ResumeLayout(false);
+            guna2Panel6.ResumeLayout(false);
+            guna2Panel5.ResumeLayout(false);
+            guna2Panel4.ResumeLayout(false);
+            guna2Panel3.ResumeLayout(false);
+            guna2Panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            guna2Panel15.ResumeLayout(false);
-            flpScheduleSundayA.ResumeLayout(false);
-            flpScheduleSundayA.PerformLayout();
-            guna2Panel14.ResumeLayout(false);
-            flpScheduleSaturdayA.ResumeLayout(false);
-            flpScheduleSaturdayA.PerformLayout();
-            guna2Panel13.ResumeLayout(false);
-            flpScheduleFridayA.ResumeLayout(false);
-            flpScheduleFridayA.PerformLayout();
-            guna2Panel12.ResumeLayout(false);
-            flpScheduleThursdayA.ResumeLayout(false);
-            flpScheduleThursdayA.PerformLayout();
-            guna2Panel11.ResumeLayout(false);
-            flpScheduleWednesdayA.ResumeLayout(false);
-            flpScheduleWednesdayA.PerformLayout();
-            guna2Panel10.ResumeLayout(false);
-            flpScheduleTuesdayA.ResumeLayout(false);
-            flpScheduleTuesdayA.PerformLayout();
-            guna2Panel9.ResumeLayout(false);
-            flpScheduleMondayA.ResumeLayout(false);
-            flpScheduleMondayA.PerformLayout();
-            guna2Panel8.ResumeLayout(false);
-            flpScheduleSundayM.ResumeLayout(false);
-            flpScheduleSundayM.PerformLayout();
-            guna2Panel7.ResumeLayout(false);
-            flpScheduleSaturdayM.ResumeLayout(false);
-            flpScheduleSaturdayM.PerformLayout();
-            guna2Panel6.ResumeLayout(false);
-            flpScheduleFridayM.ResumeLayout(false);
-            flpScheduleFridayM.PerformLayout();
-            guna2Panel5.ResumeLayout(false);
-            flpScheduleThursdayM.ResumeLayout(false);
-            flpScheduleThursdayM.PerformLayout();
-            guna2Panel4.ResumeLayout(false);
-            flpScheduleWednesdayM.ResumeLayout(false);
-            flpScheduleWednesdayM.PerformLayout();
-            guna2Panel3.ResumeLayout(false);
-            flpScheduleTuesdayM.ResumeLayout(false);
-            flpScheduleTuesdayM.PerformLayout();
-            guna2Panel1.ResumeLayout(false);
-            flpScheduleMondayM.ResumeLayout(false);
-            flpScheduleMondayM.PerformLayout();
+            panel23.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            panel24.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
+            panel25.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
+            panel26.ResumeLayout(false);
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            panel27.ResumeLayout(false);
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
+            panel28.ResumeLayout(false);
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
+            panel29.ResumeLayout(false);
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel9.PerformLayout();
+            panel30.ResumeLayout(false);
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
+            panel31.ResumeLayout(false);
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            panel32.ResumeLayout(false);
+            tableLayoutPanel12.ResumeLayout(false);
+            tableLayoutPanel12.PerformLayout();
+            panel33.ResumeLayout(false);
+            tableLayoutPanel13.ResumeLayout(false);
+            tableLayoutPanel13.PerformLayout();
+            panel34.ResumeLayout(false);
+            tableLayoutPanel14.ResumeLayout(false);
+            tableLayoutPanel14.PerformLayout();
+            panel35.ResumeLayout(false);
+            tableLayoutPanel15.ResumeLayout(false);
+            tableLayoutPanel15.PerformLayout();
+            panel36.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label1;
-        private Label label2;
-        private Label label10;
+        private TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
         private Panel panel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
@@ -1565,88 +1694,91 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private Panel panel14;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Panel panel16;
         private Panel panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Panel panel17;
         private Panel panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Panel panel18;
         private Panel panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Panel panel19;
         private Panel panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Panel panel20;
         private Panel panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Panel panel21;
         private Panel panel2;
+        private Label label8;
+        private Label label7;
+        private Label label1;
+        private Label label4;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Panel panel22;
         private Panel panel1;
-        private FlowLayoutPanel flpScheduleMondayM;
-        private FlowLayoutPanel flpScheduleSundayA;
-        private Label lbCourseNameSundayA;
-        private Label lbClassSundayA;
-        private Label label40;
-        private Label lbTimeSundayA;
-        private FlowLayoutPanel flpScheduleSaturdayA;
-        private Label lbCourseNameSaturdayA;
-        private Label lbClassSaturdayA;
-        private Label lbTimeSaturdayA;
-        private Label lbRoomSaturdayA;
-        private FlowLayoutPanel flpScheduleFridayA;
-        private Label lbCourseNameFridayA;
-        private Label lbClassFridayA;
-        private Label lbTimeFridayA;
-        private Label lbRoomFridayA;
-        private FlowLayoutPanel flpScheduleThursdayA;
-        private Label lbCourseNameThursdayA;
-        private Label lbClassThursdayA;
-        private Label lbTimeThursdayA;
-        private Label lbRoomThursdayA;
-        private FlowLayoutPanel flpScheduleWednesdayA;
-        private Label lbCourseNameWednesdayA;
-        private Label lbClassWednesdayA;
-        private Label lbTimeWednesdayA;
-        private Label lbRoomWednesdayA;
-        private FlowLayoutPanel flpScheduleTuesdayA;
-        private Label lbCourseNameTuesdayA;
-        private Label lbClassTuesdayA;
-        private Label lbTimeTuesdayA;
-        private Label lbRoomTuesdayA;
-        private FlowLayoutPanel flpScheduleMondayA;
-        private Label lbCourseNameMondayA;
-        private Label lbClassMondayA;
-        private Label lbTimeMondayA;
-        private Label lbRoomMondayA;
-        private FlowLayoutPanel flpScheduleSundayM;
-        private Label lbCourseNameSundayM;
-        private Label lbClassSundayM;
-        private Label lbTimeSundayM;
-        private Label lbRoomSundayM;
-        private FlowLayoutPanel flpScheduleSaturdayM;
-        private Label lbCourseNameSaturdayM;
-        private Label lbClassSaturdayM;
-        private Label lbTimeSaturdayM;
-        private Label lbRoomSaturdayM;
-        private FlowLayoutPanel flpScheduleFridayM;
-        private Label lbCourseNameFridayM;
-        private Label lbClassFridayM;
-        private Label lbTimeFridayM;
-        private Label lbRoomFridayM;
-        private FlowLayoutPanel flpScheduleThursdayM;
-        private Label lbCourseNameThursdayM;
-        private Label lbClassThursdayM;
-        private Label lbTimeThursdayM;
-        private Label lbRoomThursdayM;
-        private FlowLayoutPanel flpScheduleWednesdayM;
-        private Label lbCourseNameWednesdayM;
-        private Label lbClassWednesdayM;
-        private Label lbTimeWednesdayM;
-        private Label lbRoomWednesdayM;
-        private FlowLayoutPanel flpScheduleTuesdayM;
-        private Label lbCourseNameTuesdayM;
-        private Label lbClassTuesdayM;
-        private Label lbTimeTuesdayM;
-        private Label lbRoomTuesdayM;
-        private Label lbCourseNameMondayM;
-        private Label lbClassMondayM;
-        private Label lbTimeMondayM;
-        private Label lbRoomMondayM;
+        private Panel panel15;
+        private TableLayoutPanel tableLayoutPanel15;
+        private Label lb_Information_8_A;
+        private Panel panel36;
+        private Guna.UI2.WinForms.Guna2Button btn_8_A;
+        private TableLayoutPanel tableLayoutPanel14;
+        private Label lb_Information_7_A;
+        private Panel panel35;
+        private Guna.UI2.WinForms.Guna2Button btn_7_A;
+        private TableLayoutPanel tableLayoutPanel13;
+        private Label lb_Information_6_A;
+        private Panel panel34;
+        private Guna.UI2.WinForms.Guna2Button btn_6_A;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label lb_Information_5_A;
+        private Panel panel33;
+        private Guna.UI2.WinForms.Guna2Button btn_5_A;
+        private TableLayoutPanel tableLayoutPanel11;
+        private Label lb_Information_4_A;
+        private Panel panel32;
+        private Guna.UI2.WinForms.Guna2Button btn_4_A;
+        private TableLayoutPanel tableLayoutPanel10;
+        private Label lb_Information_3_A;
+        private Panel panel31;
+        private Guna.UI2.WinForms.Guna2Button btn_3_A;
+        private TableLayoutPanel tableLayoutPanel9;
+        private Label lb_Information_2_A;
+        private Panel panel30;
+        private Guna.UI2.WinForms.Guna2Button btn_2_A;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label lb_Information_8_M;
+        private Panel panel29;
+        private Guna.UI2.WinForms.Guna2Button btn_8_M;
+        private TableLayoutPanel tableLayoutPanel7;
+        private Label lb_Information_7_M;
+        private Panel panel28;
+        private Guna.UI2.WinForms.Guna2Button btn_7_M;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label lb_Information_6_M;
+        private Panel panel27;
+        private Guna.UI2.WinForms.Guna2Button btn_6_M;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Label lb_Information_5_M;
+        private Panel panel26;
+        private Guna.UI2.WinForms.Guna2Button btn_5_M;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Label lb_Information_4_M;
+        private Panel panel25;
+        private Guna.UI2.WinForms.Guna2Button btn_4_M;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label lb_Information_3_M;
+        private Panel panel24;
+        private Guna.UI2.WinForms.Guna2Button btn_3_M;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lb_Information_2_M;
+        private Panel panel23;
+        private Guna.UI2.WinForms.Guna2Button btn_2_M;
     }
 }

@@ -34,11 +34,12 @@ namespace GUI
         private UcBook _ucBook;
 
         private UcExam _ucExam;
-
-        private UcAddExam _ucAddExam;
         private UcReadExam _ucReadExam;
+        private UcAddExam _ucAddExam;
         private UcEditExam _ucEditExam;
 
+        private UcSchedule _ucSchedule;
+        private UcAddSchedule _ucAddSchedule;
 
         private BookBLL _bookBLL = new BookBLL();
         private BookFileBLL _bookFileBLL = new BookFileBLL();
@@ -112,7 +113,15 @@ namespace GUI
             };
             _ucReadExam.OpenUserControlReadFile += GoToReadFile;
         }
-
+        private void LoadUcAddSchedule()
+        {
+            _ucAddSchedule = new UcAddSchedule();
+            LoadUserControlForPanel(_ucAddSchedule, pbContent);
+            _ucAddSchedule.BackToUcSchedule += () =>
+            {
+                NavigatePop();
+            };
+        }
         private void LoadUcAddExam()
         {
             _ucAddExam = new UcAddExam();
@@ -409,7 +418,10 @@ namespace GUI
             {
                 LoadUcSchedule();
             }
-
+            else if (uc is UcAddSchedule)
+            {
+                LoadUcAddSchedule();
+            }
             pbContent.Visible = true;
         }
 
@@ -472,6 +484,7 @@ namespace GUI
         private void LoadUcSchedule()
         {
             var ucSchedule = new UcSchedule();
+            ucSchedule.OpenUserControlAddSchedule += NavigatePush;
             LoadUserControlForPanel(ucSchedule, pbContent);
             pbHeaderContent.Controls.Clear();
             var header = new UcMenuHeaderReadFile();

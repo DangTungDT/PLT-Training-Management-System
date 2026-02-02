@@ -737,10 +737,7 @@ namespace GUI.UserControls.Exam
                 {
                     continue;
                 }
-                string guiRootPath = Path.GetFullPath(
-                                        Path.Combine(Application.StartupPath, @"..\..\..\")
-                                        );
-                string filesFolderPath = Path.Combine(guiRootPath, "Files");
+                string filesFolderPath = LinkFolder.Instance.FolderPath;
                 string destFilePath = Path.Combine(filesFolderPath, fileName);
                 FilesDTO filePDF = new FilesDTO
                 {

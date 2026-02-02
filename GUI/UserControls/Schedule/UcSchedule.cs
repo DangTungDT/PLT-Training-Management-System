@@ -35,6 +35,7 @@ namespace GUI.UserControls.Schedule
         private List<CbItemDate> _weekItems = new List<CbItemDate>();
         // suppress combo events while programmatically setting DataSource/SelectedIndex
         private bool _suppressComboEvents = false;
+        public event Action<UserControl> OpenUserControlAddSchedule;
         public UcSchedule()
         {
             InitializeComponent();
@@ -206,7 +207,7 @@ namespace GUI.UserControls.Schedule
             if (cbSchool.SelectedValue == null) return;
 
             int id = Convert.ToInt32(cbSchool.SelectedValue);
-            if(id == 0)
+            if (id == 0)
             {
                 cbSemester.DataSource = null;
                 cbWeek.DataSource = null;
@@ -588,6 +589,11 @@ namespace GUI.UserControls.Schedule
 
             flpScheduleSundayM.Visible = false;
             flpScheduleSundayA.Visible = false;
+        }
+
+        private void btnAddSchedule_Click(object sender, EventArgs e)
+        {
+            OpenUserControlAddSchedule?.Invoke(new UcAddSchedule());
         }
     }
 }

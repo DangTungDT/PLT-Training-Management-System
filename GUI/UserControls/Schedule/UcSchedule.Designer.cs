@@ -1896,6 +1896,7 @@ namespace GUI.UserControls.Schedule
             btnAddSchedule.Size = new Size(264, 38);
             btnAddSchedule.TabIndex = 0;
             btnAddSchedule.Text = "Thêm lịch dạy";
+            btnAddSchedule.Click += btnAddSchedule_Click;
             // 
             // UcSchedule
             // 
